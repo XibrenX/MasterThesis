@@ -1,0 +1,756 @@
+Title: Organization
+Start content:
+==============================================================
+
+
+
+
+
+
+
+
+==============================================================
+Title: General      Chair
+Start content:
+==============================================================
+
+           Nicholas Ayache                     Inria, Sophia Antipolis, France
+
+
+
+==============================================================
+Title: Program Chair          and    Co-chairs
+Start content:
+==============================================================
+
+           Herve Delingette                    Inria, Sophia Antipolis, France
+           Polina Golland                      MIT, Cambridge, USA
+           Kensaku Mori                        Nagoya University, Nagoya, Japan
+
+
+
+==============================================================
+Title: Workshops,        Tutorials and        Challenges       Chair    and    Co-chairs
+Start content:
+==============================================================
+
+           Xavier Pennec                       Inria, Sophia Antipolis, France
+           Tobias Heimann                      Cancer Research Center, Heidelberg, Germany
+           Kilian Pohl                         University of Pennsylvania, Philadelphia, USA
+           Akinobu Shimizu                     Tokyo University of A&T, Tokyo, Japan
+
+
+==============================================================
+Title: MICCAI Society, Board of                 Directors
+Start content:
+==============================================================
+
+           James Duncan (President)            Yale University, USA
+           Gabor Fichtinger (Treasurer)        Queen’s University, Canada
+           Alison Noble (Exec. Director)       University of Oxford, UK
+           Sebastien Ourselin (Secretary)      University College London, UK
+           Nicholas Ayache                     Inria Sophia Antipolis, France
+           Polina Golland                      MIT, USA
+           David Hawkes                        University College London, UK
+           Kensaku Mori                        Nagoya University, Japan
+           Wiro Niessen                        Erasmus MC, The Netherlands
+           Xavier Pennec                       Inria Sophia Antipolis, France
+           Daniel Rueckert                     Imperial College London, UK
+           Dinggang Shen                       University North Carolina, USA
+           William Wells                       Harvard Medical School, USA
+
+
+
+==============================================================
+Title: Consultants        to Board
+Start content:
+==============================================================
+
+           Alan Colchester                     University of Kent, UK
+           Terry Peters                        Robarts Research Institute, Canada
+           Richard Robb                        Mayo Clinic College of Medicine, USA
+
+
+
+==============================================================
+Title: Program Committee
+Start content:
+==============================================================
+
+           Purang Abolmaesumi                  University of British Columbia, Canada
+           Daniel Alexander                    University College London, UK
+           Amir Amini                          University Louisville, USA
+           Elsa Angelini                       Telecom ParisTech, France
+           Stephen Aylward                     Kitware, USA
+           Christian Barillot                  CNRS, France
+           Wolfgang Birkfellner                Medical University of Vienna, Austria
+           Oscar Camara                        University Pompeu Fabra, Spain
+           Albert Chung                        HKUST, Hong Kong
+           Ela Claridge                        University of Birmingham, UK
+           Patrick Clarysse                    University of Lyon, France
+           Louis Collins                       McGill University, Canada
+           Olivier Colliot                     ICM-CNRS, France
+           Dorin Comaniciu                     Siemens, USA
+           Stephane Cotin                      Inria, France
+           Antonio Criminisi                   Microsoft Research, UK
+           Christos Davatzikos                 University of Pennsylvania, USA
+           Marleen de Bruijne                  Erasmus MC, The Netherlands
+           Rachid Deriche                      Inria, France
+           James Duncan                        University of Yale, USA
+           Philip Edwards                      Imperial College London, UK
+           Gabor Fichtinger                    Queen’s University, Canada
+           Bernd Fischer                       University of Luebeck, Germany
+           Thomas Fletcher                     University of Utah, USA
+           Alejandro Frangi                    University Pompeu Fabra, Spain
+           Jim Gee                             University of Pennsylvania, USA
+           Guido Gerig                         University of Utah, USA
+           Leo Grady                           Siemens, USA
+           Hayit Greenspan                     Tel Aviv University, Israel
+           Gregory Hager                       John’s Hopkins University, USA
+           Heinz Handels                       University of Luebeck, Germany
+           Matthias Harders                    ETH Zurich, Switzerland
+           Nobuhiko Hata                       Harvard Medical School, USA
+           David Hawkes                        University College London, UK
+           Tobias Heimann                      DKFZ, Germany
+           Ameet Jain                          Philips, USA
+           Pierre Jannin                       INSERM, France
+           Marie-Pierre Jolly                 Siemens, USA
+           Leo Joskowicz                       University of Jerusalem, Israel
+           Ioannis Kakadiaris                  University of Houston, USA
+           Nico Karssemeijer                   Radboud University, The Netherlands
+           Ron Kikinis                         Harvard Medical School, USA
+
+
+
+           Benjamin Kimia                      Brown University, USA
+           Rasmus Larsen                       Technical University of Denmark, Denmark
+           Christophe Lenglet                  University of Minnesota, USA
+           Shuo Li                             General Electric, Canada
+           Cristian Lorenz                     Philips, Germany
+           Anant Madabhushi                    Rutgers University, USA
+           Frederik Maes                       K.U. Leuven, Belgium
+           Isabelle Magnin                     University of Lyon, France
+           Sherif Makram-Ebeid                 Philips, France
+           Jean-Francois Mangin                CEA, France
+           Anne Martel                         University of Toronto, Canada
+           Yoshitaka Masutani                  University of Tokyo, Japan
+           Bjoern Menze                        ETH Zurich, Switzerland
+           Dimitris Metaxas                    Rutgers University, USA
+           Nassir Navab                        Technical University of Munich, Germany
+           Poul Nielsen                        University of Auckland, New Zealand
+           Wiro Niessen                        Erasmus MC, The Netherlands
+           Alison Noble                        Oxford University, UK
+           Sebastien Ourselin                  University College London, UK
+           Nikos Paragios                      Centrale & Ponts-ParisTech, France
+           Xavier Pennec                       Inria, France
+           Terry Peters                        Robarts Research Institute, Canada
+           Josien Pluim                        Utrecht University MC, The Netherlands
+           Killian Pohl                        University of Pennsylvania, USA
+           Richard Robb                        Mayo Clinic, USA
+           Torsten Rohlﬁng                     SRI, USA
+           Daniel Rueckert                     Imperial College London, UK
+           Mert Sabuncu                        Harvard Medical School, USA
+           Ichiro Sakuma                       University of Tokyo, Japan
+           Tim Salcudean                       University of British Columbia, Canada
+           Yoshonibu Sato                      University of Osaka, Japan
+           Julia Schnabel                      Oxford University, UK
+           Maxime Sermesant                    Inria, France
+           Dinggang Shen                       University of North Carolina, USA
+           Akinobu Shimizu                     Tokyo University of A&T, Japan
+           Nicolas Smith                       King’s College London, UK
+           Lawrence Staib                      University of Yale, USA
+           Colin Studholme                     University of Washington, USA
+           Martin Styner                       University of North Carolina, USA
+           Naoki Suzuki                        Jikei University, Japan
+           Russell Taylor                      John’s Hopkins University, USA
+           Jean-Philippe Thiran                EPFL, Switzerland
+           Bertrand Thirion                    Inria, France
+           Paul Thompson                       UCLA, USA
+           Jocelyne Troccaz                    CNRS, France
+
+
+
+           Regis Vaillant                      General Electric, France
+           Bram van Ginneken                   Radboud University, The Netherlands
+           Koen Van Leemput                    Harvard Medical School, USA
+           Baba Vemuri                         University of Florida, USA
+           Ragini Verma                        University of Pennsylvania, USA
+           Simon Warﬁeld                       Harvard Medical School, USA
+           Jurgen Weese                        Philips, Germany
+           Wolfgang Wein                       Technical University of Munich, Germany
+           William Wells                       Harvard Medical School, USA
+           Carl-Fredrik Westin                 Harvard Medical School, USA
+           Guang Zhong Yang                    Imperial College London, UK
+           Laurent Younes                      John’s Hopkins University, USA
+           Alistair Young                      University of Auckland, New Zealand
+
+
+==============================================================
+Title: Organizing       Institution
+Start content:
+==============================================================
+
+           This event was organized by Inria, the French Research Institute for Computer
+           Science and Applied Mathematics.
+
+
+
+==============================================================
+Title: Local    Organizing       Committee
+Start content:
+==============================================================
+
+           Agnes Cortell                       Inria, Sophia Antipolis, France
+           Nicholas Ayache                     Inria, Sophia Antipolis, France
+           Marc Barret                         Inria, Sophia Antipolis, France
+           Herve Delingette                    Inria, Sophia Antipolis, France
+           Gregoire Malandain                  Inria, Sophia Antipolis, France
+           Xavier Pennec                       Inria, Sophia Antipolis, France
+           Maxime Sermesant                    Inria, Sophia Antipolis, France
+           Isabelle Strobant                   Inria, Sophia Antipolis, France
+
+
+==============================================================
+Title: Liaison     with the MICCAI Society
+Start content:
+==============================================================
+
+           Janette Wallace                     Robarts Research Institute, London, Canada
+           Johanne Guillemette                 Robarts Research Institute, London, Canada
+
+
+==============================================================
+Title: Oﬃcial      Partners
+Start content:
+==============================================================
+
+           Institut Oceanographique de Monaco
+           Region Provence Alpes Cote d’Azur
+           Ville de Nice
+
+
+
+==============================================================
+Title: Sponsors
+Start content:
+==============================================================
+
+           Gold Sponsors                       GE HealthCare
+                                               Philips
+                                               Siemens
+                                               Canon Median
+           Silver Sponsors                     ERC MedYMA
+                                               Medtronic
+           Bronze Sponsors                     Aviesan
+                                               Dosisoft
+                                               IHU Strasbourg
+                                               IRCAD France
+                                               Kitware
+                                               Microsoft Research
+
+
+==============================================================
+Title: Exhibitors
+Start content:
+==============================================================
+
+           Camelot Biomedial systems                   Claron Technology
+           Elsevier                                    NDI
+           Springer                                    Ultrasonix
+           VSG Visualization Sciences Group
+
+
+
+==============================================================
+Title: Reviewers
+Start content:
+==============================================================
+
+           Abramoﬀ, Michael                             Andres, Bjoern
+           Acar, Burak                                  Antani, Sameer
+           Achterberg, Hakim                            Anwander, Alfred
+           Acosta-Tamayo, Oscar                         Arbel, Tal
+           Adluru, Nagesh                               Arimura, Hidetaka
+           Aganj, Iman                                  Arridge, Simon R.
+           Ahmadi, Seyed-Ahmad                          Ashburner, John
+           Aja-Fernandez, Santiago                      Astley, Sue
+           Akcakaya, Mehmet                             Atkinson, David
+           Akhondi-Asl, Alireza                         Audette, Michel
+           Alander, Jarmo                               Augustine, Kurt
+           Alberola-Lopez, Carlos                       Auvray, Vincent
+           Alexander, Andrew                            Avants, Brian
+           Ali, Sahirzeeshan                            Avila, Rick
+           Aljabar, Paul                                Awate, Suyash
+           Allain, Baptiste                             Axel, Leon
+           Allassonniere, Stephanie                     Ayad, Maria
+           Amini, Amir                                  Bach Cuadra, Meritxell
+           An, Jungha                                   Baddeley, David
+           Anderson, Adam                               Baghani, Ali
+           Andersson, Jesper                            Baka, Nora
+
+
+
+           Balicki, Marcin                              Brady, Michael
+           Ballerini, Lucia                             Breitenreicher, Dirk
+           Baloch, Sajjad                               Brock, Kristy
+           Barbu, Adrian                                Brost, Alexander
+           Barmpoutis, Angelos                          Brun, Caroline
+           Barratt, Dean                                Burlina, Philippe
+           Barre, Arnaud                                Butakoﬀ, Constantine
+           Basavanhally, Ajay                           Buvat, Irene
+           Batmanghelich, Nematollah                    Caan, Matthan
+           Bazin, Pierre-Louis                          Cahill, Nathan
+           Beichel, Reinhard                            Cai, Weidong
+           Belongie, Serge                              Cameron, Bruce
+           Ben Ayed, Ismail                             Camp, Jon
+           Benajiba, Yassine                            Cardenas, Valerie
+           Benali, Habib                                Cardenes, Ruben
+           Bengtsson, Ewert                             Cardoso, Manuel Jorge
+           Bergeles, Christos                           Carmichael, Owen
+           Berger, Marie-Odile                          Carson, Paul
+           Bergtholdt, Martin                           Castaeda, Victor
+           Berks, Michael                               Castro-Gonzalez, Carlos
+           Bernal, Jorge Luis                           Cathier, Pascal
+           Bernard, Olivier                             Cattin, Philippe C.
+           Bernus, Olivier                              Celebi, M. Emre
+           Betrouni, Nacim                              Cetingul, Hasan Ertan
+           Bezy-Wendling, Johanne                       Chakravarty, M. Mallar
+           Bhatia, Kanwal                               Chan, Raymond
+           Bhotika, Rahul                               Chappelow, Jonathan
+           Biesdorf, Andreas                            Chaux, Caroline
+           Bilgazyev, Emil                              Chen, Elvis C. S.
+           Bilgic, Berkin                               Chen, Terrence
+           Bishop, Martin                               Chen, Ting
+           Bismuth, Vincent                             Chen, Xinjian
+           Blaschko, Matthew                            Chen, Yen-Wei
+           Bloch, Isabelle                              Chen, Yunmei
+           Bloy, Luke                                   Cheng, Guang
+           Blum, Tobias                                 Cheng, Jian
+           Bogunovic, Hrvoje                            Cheriet, Farida
+           Boisvert, Jonathan                           Chintalapani, Gouthami
+           Bosch, Johan                                 Chinzei, Kiyoyuki
+           Bossa, Matias Nicolas                        Chitphakdithai, Nicha
+           Bouarfa, Loubna                              Chou, Yiyu
+           Bouix, Sylvain                               Chowdhury, Ananda
+           Boukerroui, Djamal                           Christensen, Gary
+           Bourgeat, Pierrick                           Chu, Chia-Yueh Carlton
+           Bovendeerd, Peter                            Chung, Moo K.
+
+
+
+           Chupin, Marie                                Desvignes, Michel
+           Cinquin, Philippe                            Dewan, Maneesh
+           Ciofolo, Cybele                              D’Haese, Pierre-Francois
+           Ciompi, Francesco                            DiBella, Edward
+           Ciuciu, Philippe                             Diciotti, Stefano
+           Clark, Alys                                  Dijkstra, Jouke
+           Clarkson, Matthew                            Dikici, Engin
+           Cleary, Kevin                                DiMaio, Simon
+           Clerc, Maureen                               Ding, Kai
+           Clouchoux, Cedric                            Dinten, Jean-Marc
+           Cloutier, Guy                                Doessel, Olaf
+           Combes, Benoıt                               Doignon, Christophe
+           Commowick, Olivier                           Dojat, Michel
+           Cootes, Tim                                  Dong, Bin
+           Corso, Jason                                 Donner, Rene
+           Coudiere, Yves                               Douglas, Tania
+           Coulon, Olivier                              Douiri, Abdel
+           Coupe, Pierrick                              Dowling, Jason
+           Cowan, Brett                                 Doyle, Scott
+           Crimi, Alessandro                            Drangova, Maria
+           Crum, William                                Drechsler, Klaus
+           Cui, Xinyi                                   Drobnjak, Ivana
+           Cuingnet, Remi                               Duan, Qi
+           D’Alessandro, Brian                          Duchateau, Nicolas
+           Daga, Pankaj                                 Duchesnay, Edouard
+           Dahl, Anders L.                              Duchesne, Simon
+           Dai, Yakang                                  Duriez, Christian
+           Daoud, Mohammad                              Durrleman, Stanley
+           Darkner, Sune                                Dzyubachyk, Oleh
+           Darvann, Tron                                Eagleson, Roy
+           Darzi, Ara                                   Ebbers, Tino
+           Dauguet, Julien                              Ecabert, Olivier
+           Dawant, Benoit                               Ehrhardt, Jan
+           De Craene, Mathieu                           Elad, Michael
+           Debbaut, Charlotte                           El-Baz, Ayman
+           Dehghan, Ehsan                               Elen, An
+           Deligianni, Fani                             Eleonora, Fornari
+           Delong, Andrew                               Elhawary, Haytham
+           Demiralp, Cagatay                            El-Zehiry, Noha
+           Demirci, Stefanie                            Ennis, Daniel
+           Deng, Xiang                                  Enquobahrie, Andinet
+           Dennis, Emily                                Erdt, Marius
+           Dequidt, Jeremie                             Eskandari, Hani
+           Desbat, Laurent                              Eskildsen, Simon
+           Descoteaux, Maxime                           Eslami, Abouzar
+
+
+
+           Essert, Caroline                             Ghosh, Aurobrata
+           Fahrig, Rebecca                              Giannarou, Stamatia
+           Fallavollita, Pascal                         Gibaud, Bernard
+           Fan, Yong                                    Gibson, Eli
+           Farag, Aly                                   Gilles, Benjamin
+           Fedorov, Andriy                              Gilson, Wesley
+           Fei, Baowei                                  Giusti, Alessandro
+           Felblinger, Jacques                          Glaunes, Joan Alexis
+           Fenster, Aaron                               Glocker, Ben
+           Fetita, Catalin                              Gobbi, David
+           Fiebich, Martin                              Goh, Alvina
+           Figl, Michael                                Goksel, Orcun
+           Fischer, Gregory                             Gonzalez Ballester, Miguel Angel
+           Fishbaugh, James                             Gonzalez Osorio, Fabio Augusto
+           Fitzpatrick, J. Michael                      Gooding, Mark
+           Fleig, Oliver                                Goodlett, Casey
+           Florack, Luc                                 Gorges, Sebastien
+           Fonov, Vladimir                              Graham, Jim
+           Foroughi, Pezhman                            Gramfort, Alexandre
+           Fouard, Celine                               Grass, Michael
+           Fradkin, Maxim                               Grau, Vicente
+           Freiman, Moti                                Grenier, Thomas
+           Friboulet, Denis                             Griswold, Mark
+           Fripp, Jurgen                                Guerrero, Julian
+           Fritzsche, Klaus H.                          Guetter, Christoph
+           Frouin, Frederique                           Guevara, Pamela
+           Frouin, Vincent                              Gulsun, Mehmet Akif
+           Funka-Lea, Gareth                            Gur, Yaniv
+           Fuster, Andrea                               Gutman, Boris
+           Gagnon, Langis                               Hacihaliloglu, Ilker
+           Gangloﬀ, Jacques                             Hahn, Horst
+           Ganz, Melanie                                Hajnal, Joseph
+           Gao, Mingchen                                Hall, Timothy
+           Gao, Wei                                     Hamarneh, Ghassan
+           Gao, Yi                                      Hanahusa, Akihiko
+           Garcia-Lorenzo, Daniel                       Hanaoka, Shouhei
+           Garvin, Mona                                 Hans, Arne
+           Gassert, Roger                               Hansen, Michael Sass
+           Gatenby, Chris                               Hanson, Dennis
+           Gee, Andrew                                  Hao, Xiang
+           Georgescu, Bogdan                            Hartov, Alexander
+           Georgii, Joachim                             Hastreiter, Peter
+           Geremia, Ezequiel                            Hatt, Chuck
+           Ghanbari, Yasser                             Haynor, David
+           Gholipour, Ali                               He, Huiguang
+
+
+
+           Heberlein, Keith                             Jian, Bing
+           Heckemann, Rolf                              Jiang, Tianzi
+           Heinrich, Mattias Paul                       Jiang, Yifeng
+           Hellier, Pierre                              Jomier, Julien
+           Heng, Pheng Ann                              Jordan, Petr
+           Hennemuth, Anja                              Joshi, Anand
+           Herlambang, Nicholas                         Joshi, Sarang
+           Hernandez, Monica                            Jurrus, Elizabeth
+           Hipwell, John                                Kabus, Sven
+           Hirano, Yasushi                              Kachelrie, Marc
+           Hoﬀmann, Kenneth                             Kadoury, Samuel
+           Holmes, David                                Kainmueller, Dagmar
+           Hontani, Hidekata                            Kallenberg, Michiel
+           Hoogendoorn, Corne                           Kamen, Ali
+           Hornegger, Joachim                           Kanade, Takeo
+           Howe, Robert                                 Kapoor, Ankur
+           Hsu, Li-Yueh                                 Kapur, Tina
+           Hu, Yipeng                                   Karamalis, Athanasios
+           Hu, Zhihong                                  Karemore, Gopal
+           Huang, Heng                                  Krsnas, Andreas
+           Huang, Junzhou                               Karwoski, Ron
+           Huang, Rui                                   Kaster, Frederik
+           Huang, Wei                                   Katouzian, Amin
+           Huang, Xiaolei                               Kawata, Yoshiki
+           Hudelot, Celine                              Kaynig, Verena
+           Huisman, Henkjan                             Kazanzides, Peter
+           Humbert, Ludovic                             Keeve, Erwin
+           Hurdal, Monica                               Kelm, Michael
+           Hyde, Damon                                  Kerrien, Erwan
+           Iakovidis, Dimitris                          Kezele, Irina
+           Iglesias, Juan Eugenio                       Khan, Ali R.
+           Imiya, Atsushi                               Kherif, Ferath
+           Ingalhalikar, Madhura                        Khurd, Parmeshwar
+           Ionasec, Razvan                              Kim, Boklye
+           Irfanoglu, Mustafa Okan                      Kim, Kio
+           Isgum, Ivana                                 Kim, Minjeong
+           Ishikawa, Hiroshi                            Kindlmann, Gordon
+           Jacob, Mathews                               King, Andrew
+           Jacobs, Colin                                Kiraly, Atilla
+           Jahanshad, Neda                              Kirchberg, Klaus
+           Janoos, Firdaus                              Kitasaka, Takayuki
+           Janowczyk, Andrew                            Klein, Arno
+           Jbabdi, Saad                                 Klein, Jan
+           Jenkinson, Mark                              Klein, Martina
+           Jerebko, Anna                                Klein, Stefan
+
+
+
+           Klein, Tassilo                               Leow, Alex
+           Klinder, Tobias                              Lepore, Natasha
+           Kloppel, Stefan                              Lesage, David
+           Knoesche, Thomas R.                          Leung, Kelvin
+           Knoll, Alois                                 Li, Bo
+           Kobayahsi, Etsuko                            Li, Chunming
+           Kohannim, Omid                               Li, Fuhai
+           Kohlberger, Timo                             Li, Gang
+           Kohli, Pushmeet                              Li, Hongsheng
+           Konukoglu, Ender                             Li, Kaiming
+           Kozerke, Sebastian                           Li, Ming
+           Krissian, Karl                               Li, Yang
+           Kroenke, Christopher                         Liao, Hongen
+           Kruggel, Frithjof                            Liao, Rui
+           Kumar, Rajesh                                Liao, Shu
+           Kumar, Ritwik                                Liebling, Michael
+           Kurkure, Uday                                Lindseth, Frank
+           Kuroda, Yoshihiro                            Ling, Haibin
+           Kwok, Ka-Wai                                 Linguraru, Marius George
+           Kwon, Dongjin                                Linte, Cristian
+           Kybic, Jan                                   Litjens, Geert
+           Ladikos, Alexander                           Liu, Huafeng
+           Laine, Andrew                                Liu, Jiamin
+           Lalande, Alain                               Liu, Manhua
+           Lalys, Florent                               Liu, Meizhu
+           Lamecker, Hans                               Liu, Sheena
+           Landman, Bennett                             Liu, Tianming
+           Lango, Thomas                                Liu, Xiaofeng
+           Langs, Georg                                 Liu, Xiaoxiao
+           Lapeer, Rudy                                 Liu, Zhao
+           Laporte, Catherine                           Lo, Pechin
+           Lartizien, Carole                            Loeckx, Dirk
+           Lasso, Andras                                Loew, Murray
+           Lauze, Francois                              Lohmann, Gabriele
+           Law, Max W.K.                                Lombaert, Herve
+           Le Montagner, Yoan                           Loog, Marco
+           Le, Yen                                      Lotjonen, Jyrki
+           Lee, Angela                                  Lu, Chao
+           Lee, John                                    Lu, Le
+           Lee, Junghoon                                Lu, Xiaoguang
+           Lee, Su-Lin                                  Luboz, Vincent
+           Lee, Tim                                     Lucas, Blake
+           Lekadir, Karim                               Lui, Lok Ming
+           Lelieveldt, Boudewijn                        Luo, Yishan
+           Lensu, Lasse                                 Lynch, John
+
+
+
+           Ma, YingLiang                                Mory, Benoit
+           Machiraju, Raghu                             Muller, Henning
+           MacLeod, Robert                              Murgasova, Maria
+           Madany Mamlouk, Amir                         Murphy, Keelin
+           Maddah, Mahnaz                               Mylonas, George
+           Magee, Derek                                 Najman, Laurent
+           Magnotta, Vincent                            Nakajima, Yoshikazu
+           Maier-Hein, Lena                             Nakamura, Ryoichi
+           Malandain, Gregoire                          Nassiri-Avanaki, Mohammad-Reza
+           Manduca, Armando                             Negahdar, Mohammadjavad
+           Mani, Meena                                  Negahdar, Mohammadreza
+           Manjon, Jose V.                              Nekolla, Stephan
+           Manniesing, Rashindra                        Neumuth, Thomas
+           Mansi, Tommaso                               Ng, Bernard
+           Manzke, Robert                               Nichols, Thomas
+           Marchal, Maud                                Nicolau, Stephane
+           Marsland, Stephen                            Nie, Jingxin
+           Martı, Robert                                Niederer, Steven
+           Masamune, Ken                                Niethammer, Marc
+           Mattes, Julian                               Noble, Jack
+           Maurel, Pierre                               Noel, Peter
+           Mavroforakis, Michael                        Nolte, Lutz
+           McClelland, Jamie                            Nordsletten, David
+           McCormick, Matthew                           Nuyts, Johan
+           Medrano-Gracia, Pau                          O’Brien, Kieran
+           Meine, Hans                                  Oda, Masahiro
+           Meinzer, Hans-Peter                          O’Donnell, Lauren
+           Meisner, Eric                                O’Donnell, Thomas
+           Mekada, Yoshito                              Oguz, Ipek
+           Melbourne, Andrew                            Okada, Kazunori
+           Mertins, Alfred                              Olabarriaga, Silvia
+           Metz, Coert                                  Olesch, Janine
+           Meyer, Chuck                                 Oliver, Arnau
+           Meyer, Francois                              Olmos, Salvador
+           Michailovich, Oleg                           Oost, Elco
+           Michel, Fabrice                              Orihuela-Espina, Felipe
+           Mihalef, Viorel                              Orkisz, Maciej
+           Miller, James                                Otake, Yoshito
+           Modat, Marc                                  Ou, Yangming
+           Modersitzki, Jan                             Pace, Danielle
+           Mohamed, Ashraf                              Padﬁeld, Dirk
+           Monaco, James                                Padoy, Nicolas
+           Montillo, Albert                             Palaniappan, Kannappan
+           Moore, John                                  Pallavaram, Srivatsan
+           Moradi, Mehdi                                Panagiotaki, Eleftheria
+
+
+
+           Paniagua, Beatriz                            Prasad, Gautam
+           Paolillo, Alfredo                            Prastawa, Marcel
+           Papademetris, Xenios                         Pratt, Philip
+           Papadopoulo, Theo                            Prima, Sylvain
+           Park, Mi-Ae                                  Prince, Jerry
+           Parthasarathy, Vijay                         Punithakumar, Kumaradevan
+           Passat, Nicolas                              Puy, Gilles
+           Pasternak, Ofer                              Qazi, Arish A.
+           Patriciu, Alexandru                          Qian, Zhen
+           Paul, Perrine                                Quellec, Gwenole
+           Paulsen, Keith                               Radau, Perry
+           Paulsen, Rasmus                              Radeva, Petia
+           Pauly, Olivier                               Radulescu, Emil
+           Pavlidis, Ioannis                            Rahman, Md Mahmudur
+           Pearlman, Paul                               Raj, Ashish
+           Pedemonte, Stefano                           Rajagopalan, Srinivasan
+           Peitgen, Heinz-Otto                          Rajagopalan, Vidya
+           Pekar, Vladimir                              Rajpoot, Nasir
+           Peng, Hanchuan                               Rangarajan, Anand
+           Penney, Graeme                               Rasoulian, Abtin
+           Pernus, Franjo                               Rathi, Yogesh
+           Perperidis, Antonios                         Ratnanather, Tilak
+           Perrot, Matthieu                             Ravishankar, Saiprasad
+           Peters, Amanda                               Reichl, Tobias
+           Petersen, Jens                               Reilhac-Laborde, Anthonin
+           Petitjean, Caroline                          Rettmann, Maryam
+           Peyrat, Jean-Marc                            Reuter, Martin
+           Peyre, Gabriel                               Reyes, Mauricio
+           Pham, Dzung                                  Reyes-Aldasoro, Constantino
+           Phlypo, Ronald                               Rhode, Kawal
+           Piella, Gemma                                Ribbens, Annemie
+           Pitiot, Alain                                Richa, Rogerio
+           Pizaine, Guillaume                           Riddell, Cyrill
+           Pizer, Stephen                               Ridgway, Gerard
+           Platel, Bram                                 Riklin Raviv, Tammy
+           Podder, Tarun                                Risholm, Petter
+           Poignet, Philippe                            Risser, Laurent
+           Poline, Jean-Baptiste                        Rit, Simon
+           Polzehl, Joerg                               Rittscher, Jens
+           Pontre, Beau                                 Rivaz, Hassan
+           Poot, Dirk                                   Riviere, Cameron
+           Popovic, Aleksandra                          Riviere, Denis
+           Poupon, Cyril                                Roche, Alexis
+           Poynton, Clare                               Rohkohl, Christopher
+           Pozo, Jose Maria                             Rohling, Robert
+
+
+
+           Rohr, Karl                                   Simonyan, Karen
+           Rousseau, Francois                           Simpson, Amber
+           Roysam, Badrinath                            Simpson, Ivor
+           Ruehaak, Jan                                 Singh, Maneesh
+           Russakoﬀ, Daniel                             Singh, Nikhil
+           Rusu, Mirabela                               Singh, Vikas
+           Ruthotto, Lars                               Sinkus, Ralph
+           Sabczynski, Jorg                             Siqueira, Marcelo
+           Sadeghi-Naini, Ali                           Sjostrand, Karl
+           Sadowsky, Ofri                               Slabaugh, Greg
+           Saha, Punam Kumar                            Slagmolen, Pieter
+           Salvado, Olivier                             Smal, Ihor
+           San Jose Estepar, Raul                       Smeets, Dirk
+           Sanchez, Clarisa                             Soeller, Christian
+           Sanderson, Allen                             Sofka, Michal
+           Sands, Greg                                  Soler, Luc
+           Sarrut, David                                Song, Sang-Eun
+           Sarry, Laurent                               Song, Xubo
+           Savadjiev, Peter                             Sonka, Milan
+           Scherer, Reinhold                            Srensen, Lauge
+           Scherrer, Benoit                             Sotiras, Aristeidis
+           Schindelin, Johannes                         Sparks, Rachel
+           Schmidt, Michael                             Sporring, Jon
+           Schmidt-Richberg, Alexander                  Staal, Joes
+           Schneider, Caitlin                           Staring, Marius
+           Schneider, Torben                            Staroswiecki, Ernesto
+           Schoonenberg, Gert                           Stehle, Thomas
+           Schultz, Thomas                              Stewart, James
+           Schweikard, Achim                            Stolka, Philipp
+           Sebastian, Rafael                            Stoyanov, Danail
+           Seiler, Christof                             Styles, Iain
+           Serre, Thomas                                Subramanian, Navneeth
+           Seshamani, Sharmishtaa                       Suinesiaputra, Avan
+           Shah, Shishir                                Sundar, Hari
+           Shamir, Reuben R.                            Suthau, Tim
+           Shen, Li                                     Suzuki, Kenji
+           Shen, Tian                                   Syeda-Mahmood, Tanveer
+           Shi, Feng                                    Szczerba, Dominik
+           Shi, Kuangyu                                 Tagare, Hemant
+           Shi, Pengcheng                               Tahmasebi, Amir
+           Shi, Yonggang                                Tai, Xue-Cheng
+           Shi, Yonghong                                Tannenbaum, Allen
+           Shi, Yubing                                  Tanner, Christine
+           Sijbers, Jan                                 Tao, Xiaodong
+           Simaan, Nabil                                Tasdizen, Tolga
+
+
+
+           Tavakoli, Vahid                              Vosburgh, Kirby
+           Taylor, Zeike                                Vrooman, Henri
+           Thevenaz, Philippe                           Vrtovec, Tomaz
+           Thiriet, Marc                                Wachinger, Christian
+           Tiwari, Pallavi                              Waechter-Stehle, Irina
+           Tobon-Gomez, Catalina                        Wahle, Andreas
+           Toews, Matthew                               Waldman, Lew
+           Tohka, Jussi                                 Wang, Chaohui
+           Tokuda, Junichi                              Wang, Fei
+           Tosun, Duygu                                 Wang, Hongzhi
+           Toth, Robert                                 Wang, Hui
+           Toussaint, Nicolas                           Wang, Lejing
+           Tristan-Vega, Antonio                        Wang, Li
+           Tsekos, Nikolaos V.                          Wang, Liansheng
+           Turaga, Srinivas                             Wang, Peng
+           Tustison, Nicholas                           Wang, Qian
+           Uchiyama, Yoshikazu                          Wang, Song
+           Udupa, Jayaram K.                            Wang, Vicky
+           Unal, Gozde                                  Wang, Yalin
+           Uzunbas, Mustafa                             Wang, Yang
+           van Assen, Hans                              Wang, Ying
+           van der Geest, Rob                           Wanyu, Liu
+           van der Lijn, Fedde                          Warﬁeld, Simon
+           van Rikxoort, Eva                            Wassermann, Demian
+           van Stralen, Marijn                          Weber, Stefan
+           van Walsum, Theo                             Wee, Chong-Yaw
+           Vannier, Michael                             Wei, Liu
+           Varoquaux, Gael                              Weiskopf, Nikolaus
+           Vegas-Sanchez-Ferrero, Gonzalo               Wells, William
+           Venkataraman, Archana                        Wels, Michael
+           Vercauteren, Tom                             Werner, Rene
+           Vialard, Francois-Xavier                     Whitaker, Ross
+           Vignon, Francois                             Whitmarsh, Tristan
+           Villain, Nicolas                             Wiles, Andrew
+           Villard, Pierre-Frederic                     Wirtz, Stefan
+           Vincent, Nicole                              Wittek, Adam
+           Visentini-Scarzanella, Marco                 Wolf, Ivo
+           Visvikis, Dimitris                           Wolz, Robin
+           Viswanath, Satish                            Worz, Stefan
+           Vitanovski, Dime                             Wu, Guorong
+           Vogel, Jakob                                 Wu, Wen
+           Voigt, Ingmar                                Wu, Xiaodong
+           von Berg, Jens                               Xenos, Michalis
+           Voros, Sandrine                              Xie, Jun
+           Vos, Pieter                                  Xiong, Guanglei
+
+
+
+           Xu, Jun                                      Zhan, Liang
+           Xu, Lei                                      Zhan, Yiqiang
+           Xu, Sheng                                    Zhang, Chong
+           Xu, Xiayu                                    Zhang, Daoqiang
+           Xue, Hui                                     Zhang, Honghai
+           Xue, Zhong                                   Zhang, Hui
+           Yan, Pingkun                                 Zhang, Jingdan
+           Yan, Zhennan                                 Zhang, Pei
+           Yang, Fei                                    Zhang, Shaoting
+           Yang, Lin                                    Zhao, Fei
+           Yang, Xiaofeng                               Zheng, Guoyan
+           Yang, Xiaoyun                                Zheng, Yefeng
+           Yaniv, Ziv                                   Zheng, Yuanjie
+           Yao, Jianhua                                 Zhong, Hua
+           Yap, Pew-Thian                               Zhong, Lin
+           Yaqub, Mohammad                              Zhou, Jinghao
+           Ye, Dong Hye                                 Zhou, Luping
+           Yener, Bulent                                Zhou, S. Kevin
+           Yeniaras, Erol                               Zhou, X. Sean
+           Yeo, B.T. Thomas                             Zhou, Xiaobo
+           Yin, Zhaozheng                               Zhou, Yan
+           Ying, Leslie                                 Zhu, Hongtu
+           Yoo, Terry                                   Zhu, Ning
+           Yoshida, Hiro                                Zhu, Yuemin
+           Yotter, Rachel                               Zhuang, Xiahai
+           Yushkevich, Paul                             Zijdenbos, Alex
+           Zagorchev, Lyubomir                          Zikic, Darko
+           Zahiri Azar, Reza                            Zion, Tse
+           Zaidi, Habib                                 Zollei, Lilla
+           Zeng, Wei                                    Zwiggelaar, Reyer
+
+==============================================================

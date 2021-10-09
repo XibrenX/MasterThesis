@@ -1,0 +1,212 @@
+Title: Organization
+Start content:
+==============================================================
+
+
+
+
+
+
+
+
+==============================================================
+Title: Honorary Chairs
+Start content:
+==============================================================
+
+             S.S. Iyengar                   Florida International University, USA
+             Marek Rusinkiewicz             New Jersey Institute of Technology, USA
+
+==============================================================
+Title: General Chairs
+Start content:
+==============================================================
+
+             Shu-Ching Chen                 Florida International University, USA
+             Tao Li                         Florida International University, USA
+             Yanchun Zhang                  Victoria University, Australia
+
+==============================================================
+Title: Program Co-chairs
+Start content:
+==============================================================
+
+             Wojciech Cellary               Poznan University of Economics, Poland
+             Dingding Wang                  Florida Atlantic University, USA
+             Jianyong Wang                  Tsinghua University, China
+
+==============================================================
+Title: Publication Chair
+Start content:
+==============================================================
+
+             Hua Wang                       Victoria University, Australia
+
+==============================================================
+Title: Local Arrangements Chairs
+Start content:
+==============================================================
+
+             Ivana Rodriguez                Florida International University, USA
+             Catherine Hernandez            Florida International University, USA
+
+==============================================================
+Title: Financial Co-chairs
+Start content:
+==============================================================
+
+             Carlos Cabrera                 Florida International University, USA
+             Lian Zhang                     Florida International University, USA
+
+==============================================================
+Title: Web and Social Media Masters
+Start content:
+==============================================================
+
+             Steve Luis                     Florida International University, USA
+             Bin Xia                        Nanjing University of Science and Technology, China
+
+==============================================================
+Title: WISE Society Representative
+Start content:
+==============================================================
+
+
+             Xiaofang Zhou                  University of Queensland, Australia
+
+
+==============================================================
+Title: Tutorial and Panel Co-chairs
+Start content:
+==============================================================
+
+         Guandong Xu                     University of Technology Sydney, Australia
+         Mitsunori Ogihara               University of Miami, USA
+
+==============================================================
+Title: WISE Challenge Program Chairs
+Start content:
+==============================================================
+
+         Weining Qian                    East China Normal University, China
+         Qiulin Yu                       Ping An Technology (Shenzhen) Co., Ltd., China
+
+==============================================================
+Title: Workshop Co-chairs
+Start content:
+==============================================================
+
+         Hill Zhu                        Florida Atlantic University, USA
+         Yicheng Tu                      University of South Florida, USA
+
+==============================================================
+Title: Publicity Co-chairs
+Start content:
+==============================================================
+
+         Mark Finlayson                  Florida International University, USA
+         Giovanni Pilato                 Italian National Research Council (CNR), Italy
+         Yanfang Ye                      West Virginia University, USA
+
+==============================================================
+Title: Program Committee
+Start content:
+==============================================================
+
+
+         Karl Aberer                     EPFL, Switzerland
+         Markus Aleksy                   ABB, Switzerland
+         Boualem Benatallah              University of New South Wales, Australia
+         Azer Bestavros                  Boston University, USA
+         Antonis Bikakis                 University College London, UK
+         David Camacho                   Universidad Autonoma de Madrid, Spain
+         Barbara Catania                 University of Genoa, Italy
+         Tiziana Catarci                 Sapienza University of Rome, Italy
+         Richard Chbeir                  LIUPPA Laboratory, France
+         Fei Chen                        HP, USA
+         Enhong Chen                     University of Science and Technology of China
+         Yueguo Chen                     Renmin University of China
+         Gao Cong                        Nanyang Technological University, Singapore
+         Alexandra Cristea               University of Warwick, UK
+         Schahram Dustar                 Vienna University of Technology, Austria
+         Damiani Ernesto                 University of Milan, Italy
+         Marie-Christine Fauvet          Joseph Fourier University of Grenoble, France
+         Bry Francois                    Ludwig Maximilian University, Germany
+         Jun Gao                         Peking University, China
+         Hong Gao                        Harbin Institute of Technology, China
+         Yunjun Gao                      Zhejiang University, China
+         Claude Godart                   University Henri Poincare, France
+
+
+
+             Daniela Grigori                Laboratoire LAMSADE, University Paris-Dauphine,
+                                               France
+             Hakim Hacid                    Bell Labs, France
+             Armin Haller                   CSIRO ICT Centre, Australia
+             Xiaofeng He                    East China Normal University, China
+             Yuh-Jong Hu                    National Chengchi University, Taiwan
+             Luke Huan                      University of Kansas, USA
+             Jianbin Huang                  Xidian University, China
+             Marta Indulska                 University of Queensland, Australia
+             Pokorny Jaroslav               Charles University, Czech Republic
+             Yan Jia                        National University of Defense Technology
+             Lili Jiang                     Max Planck Institute for Informatics, Germany
+             Peiquan Jin                    University of Science and Technology of China
+             Ruoming Jin                    Kent State University, USA
+             Yiping Ke                      Nanyang Technological University, Singapore
+             Fang Li                        Shanghai Jiao Tong University, China
+             Xue Li                         School of ITEE, University of Queensland, Australia
+             Chengkai Li                    University of Texas at Arlington, USA
+             Lei Li                         Samsung, USA
+             Mengchi Liu                    Carleton University, Canada
+             Shuai Ma                       Beihang University, China
+             Xiaofeng Meng                  Renmin University of China
+             Mikolaj Morzy                  Poznań University of Technology, Poland
+             Wilfred Ng                     HKUST, China
+             Kjetil Nørvåg                  Norwegian University of Science and Technology,
+                                               Norway
+             Mitsunori Ogihara              University of Miami, USA
+             George Pallis                  University of Cyprus, Cyprus
+             Dasgupta Partha                Arizona State University, USA
+             Zbigniew Paszkiewicz           PricewaterhouseCoopers, Cyprus
+             Olivier Pivert                 ENSSAT, France
+             Weining Qian                   East China Normal University, China
+             Tieyun Qian                    Wuhan University, China
+             Jarogniew Rykowski             Poznań University of Economics, Poland
+             Rizos Sakellariou              University of Manchester, UK
+             Wei Shen                       Nankai University, China
+             John Shepherd                  UNSW, Australia
+             Dezhao Song                    Thomson Reuters, USA
+             Dandan Song                    Beijing Institute of Technology, China
+             Reima Suomi                    University of Turku, Finland
+             Stefan Tai                     KIT, Germany
+             Dimitri Theodoratos            New Jersey Institute of Technology, USA
+             Farouk Toumani                 Limos, Blaise Pascal University, Clermont-Ferrand,
+                                               France
+             Xiaojun Wan                    Peking University, China
+             Guoren Wang                    Northeast University, China
+
+
+
+         De Wang                         Google, USA
+         Hua Wang                        Victoria University, Australia
+         Wei Wang                        Fudan University, China
+         Ingmar Weber                    Qatar Computing Research Institute, Qatar
+         Xintao Wu                       University of North Carolina at Charlotte, USA
+         Junjie Wu                       Beihang University, China
+         Josiane Xavier Parreira         DERI - National University of Ireland, Galway, Ireland
+         Hayato Yamana                   Waseda University, Japan
+         Yanfang Ye                      West Virginia University, USA
+         Hongzhi Yin                     University of Queensland, Australia
+         Tetsuya Yoshida                 Nara Women’s University, Japan
+         Jeffrey Xu Yu                   Chinese University of Hong Kong, SAR China
+         Ge Yu                           Northeast University, China
+         Xiaohui Yu                      Shandong University, China
+         Qi Zhang                        Fudan University, China
+         Wenjie Zhang                    The University of New South Wales, Australia
+         Yanchun Zhang                   Victoria University, Australia
+         Xiaofang Zhou                   University of Queensland, Australia
+         Xingquan Zhu                    Florida Atlantic University, USA
+         Lei Zou                         Peking University, China
+
+==============================================================

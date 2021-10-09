@@ -1,0 +1,131 @@
+Title: Organization
+Start content:
+==============================================================
+
+
+
+
+
+
+
+
+
+
+           DLT 2014 was organized by the Ural Federal University in Ekaterinburg.
+
+
+
+==============================================================
+Title: Program Committee
+Start content:
+==============================================================
+
+           Jorge Almeida                       University of Porto, Portugal
+           Marie-Pierre Beal                   Universite Paris-Est, France
+           Olivier Carton                      Universite Paris Diderot, France
+           Vesa Halava                         University of Turku, Finland
+           Yo-Sub Han                          Yonsei University, Korea
+           Oscar H. Ibarra                     University of California, Santa Barbara, USA
+           Masami Ito                          Kyoto Sangio University, Japan
+           Markus Lohrey                       Universitat Siegen, Germany
+           Dirk Nowotka                        Universitat Kiel, Germany
+           Giovanni Pighizzini                 University of Milano, Italy
+           Igor Potapov                        University of Liverpool, UK
+           Elena Pribavkina                    Ural Federal University, Russia
+           Michel Rigo                         University of Liege, Belgium
+           Marinella Sciortino                 University of Palermo, Italy
+           Jeﬀrey Shallit                      University of Waterloo, Canada
+           Arseny Shur (Co-chair)              Ural Federal University, Russia
+           Mikhail Volkov (Co-chair)           Ural Federal University, Russia
+           Hsu-Chun Yen                        National Taiwan University, Taiwan
+
+
+
+==============================================================
+Title: Organizing       Committee
+Start content:
+==============================================================
+
+
+           Alexandr Galperin                   Ural Federal University, Russia
+           Alena Nevolina                      Ural Federal University, Russia
+           Ekaterina Neznakhina                Ural Federal University, Russia
+           Elena Pribavkina                    Ural Federal University, Russia
+           Arseny Shur                         Ural Federal University, Russia
+           Mikhail Volkov (Chair)              Ural Federal University, Russia
+           Alexei Zverev                       Ural Federal University, Russia
+
+
+
+==============================================================
+Title: Steering     Committee
+Start content:
+==============================================================
+
+
+           Marie-Pierre Beal                   Universite Paris-Est, France
+           Veronique Bruyere                   University of Mons, Belgium
+           Cristian S. Calude                  University of Auckland, New Zealand
+           Volker Diekert                      Stuttgart, Germany
+
+
+
+           Juraj Hromkovic                     ETH Zurich, Switzerland
+           Oscar H. Ibarra                     University of California, Santa Barbara, USA
+           Masami Ito                          Kyoto Sangio University, Japan
+           Natasha Jonoska                     University of South Florida, USA
+           Juhani Karhumaki (Chair)            University of Turku, Finland
+           Antonio Restivo                     University of Palermo, Italy
+           Grzegorz Rozenberg                 Leiden University, The Netherlands
+           Wojciech Rytter                     University of Warsaw, Poland
+           Arto Salomaa                        University of Turku, Finland
+           Kai Salomaa                         Queen’s University, Canada
+           Mikhail Volkov                      Ural Federal University, Russia
+           Takashi Yokomori                    Waseda University, Japan
+
+
+
+==============================================================
+Title: External Reviewers
+Start content:
+==============================================================
+
+
+           Ananichev, Dmitry             Ko, Sang-Ki                  Saarela, Aleksi
+           Anselmo, Marcella             Kurganskyy, Oleksiy          Sablik, Mathieu
+           Blumensath, Achim             Lawson, Mark                 Salomaa, Kai
+           Bollig, Benedikt              Lecomte, Pierre              Salvati, Sylvain
+           Campeanu, Cezar               Lombardy, Sylvain            Seki, Shinnosuke
+           Cho, Da-Jung                  Maletti, Andreas             Semukhin, Pavel
+           Dang, Zhe                     Manea, Florin                Steinberg, Benjamin
+           Eom, Hae-Sung                 Margenstern, Maurice         Stephan, Frank
+           Fici, Gabriele                Mateus, Paulo                Szykul a, Marek
+           Gainutdinova, Aida            Mereghetti, Carlo            Thomas, Rick
+           Gorbunova, Irina              Moreira, Nelma               Thomas, Wolfgang
+           Grabowski, Szymon             Muller, Mike                 Trahtman, Avraham
+           Gusev, Vladimir               Nicaud, Cyril                Valentin, Oriol
+           Haase, Christoph              Niskanen, Reino              Vandomme, Elise
+           Harju, Tero                   Palano, Beatrice             Vanier, Pascal
+           Hirvensalo, Mika              Perrin, Dominique            Vialette, Stephane
+           Holzer, Markus                Plyushchenko, Andrei         Vorel, Vojtech
+           Huova, Mari                   Quaas, Karin                 Walen, Tomasz
+           Jez, Artur                    Ravikumar, Bala              Wang, Bow-Yaw
+           Jungers, Raphael              Reis, Rogerio                Yu, Fang
+           Kari, Jarkko                  Richomme, Gwenael
+           Klima, Ondrej                 Rodaro, Emanuele
+
+
+
+
+
+==============================================================
+Title: Sponsoring       Institutions
+Start content:
+==============================================================
+
+
+           Russian Foundation for Basic Research
+           SKB Kontur
+           JetBrains
+
+==============================================================
