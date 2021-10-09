@@ -2,7 +2,6 @@ package parser;
 
 import document.SectionInfo;
 import grid.UnbalancedGrid;
-import org.jetbrains.annotations.NotNull;
 import parser.gridparsers.AllNamesParser;
 import parser.gridparsers.FirstNameLastNameAffiliationParser;
 import parser.gridparsers.ZeroParser;
@@ -20,7 +19,7 @@ public class GridParserFactory {
         return _instance;
     }
 
-    public GridParser GetParser(@NotNull SectionInfo sectionInfo, UnbalancedGrid<TextPart> grid) {
+    public GridParser GetParser(SectionInfo sectionInfo, UnbalancedGrid<TextPart> grid) {
 
         if (sectionInfo.getNumberOfTextParts() == 0) {
             System.out.println("Return ZeroParser");

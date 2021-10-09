@@ -16,4 +16,11 @@ public class ZeroParser implements GridParser {
     public List<Member> parse() {
         return new ArrayList<Member>();
     }
+
+    @Override
+    public String getName() {
+        return "ZeroParser";
+    }
+
+
 }

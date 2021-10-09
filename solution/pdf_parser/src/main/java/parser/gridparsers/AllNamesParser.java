@@ -33,4 +33,9 @@ public class AllNamesParser implements GridParser {
         }
         return returnValue;
     }
+
+    @Override
+    public String getName() {
+        return "AllNamesParser";
+    }
 }

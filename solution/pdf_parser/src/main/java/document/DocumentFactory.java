@@ -28,8 +28,9 @@ public class DocumentFactory {
 
         // Iterate through the textlines
         for (TextLine textLine : textLines) {
-            if (textLine.getLine().toLowerCase().contains("external reviewers")) {
-                System.out.println("HEADS UP");
+            // Remove watermarks (they mess up the sections)
+            if (textLine.getLine().toLowerCase().contains("www.verypdf.com")) {
+                continue;
             }
             float currentXScale = round(textLine.getXScale(), 2);
             boolean currentBold = textLine.isBold();

@@ -1,0 +1,1427 @@
+(XScale: 0.0) (isBold: false) |
+(XScale: 16.4384) (isBold: false) |             Lecture Notes in Computer Science                                      4669
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |             Commenced Publication in 1973
+(XScale: 9.9626) (isBold: false) |             Founding and Former Series Editors:
+(XScale: 9.9626) (isBold: false) |             Gerhard Goos, Juris Hartmanis, and Jan van Leeuwen
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: false) |             Editorial Board
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |             David Hutchison
+(XScale: 9.9626) (isBold: false) |                Lancaster University, UK
+(XScale: 9.9626) (isBold: false) |             Takeo Kanade
+(XScale: 9.9626) (isBold: false) |                Carnegie Mellon University, Pittsburgh, PA, USA
+(XScale: 9.9626) (isBold: false) |             Josef Kittler
+(XScale: 9.9626) (isBold: false) |                University of Surrey, Guildford, UK
+(XScale: 9.9626) (isBold: false) |             Jon M. Kleinberg
+(XScale: 9.9626) (isBold: false) |                Cornell University, Ithaca, NY, USA
+(XScale: 9.9626) (isBold: false) |             Friedemann Mattern
+(XScale: 9.9626) (isBold: false) |                ETH Zurich, Switzerland
+(XScale: 9.9626) (isBold: false) |             John C. Mitchell
+(XScale: 9.9626) (isBold: false) |                Stanford University, CA, USA
+(XScale: 9.9626) (isBold: false) |             Moni Naor
+(XScale: 9.9626) (isBold: false) |                Weizmann Institute of Science, Rehovot, Israel
+(XScale: 9.9626) (isBold: false) |             Oscar Nierstrasz
+(XScale: 9.9626) (isBold: false) |                University of Bern, Switzerland
+(XScale: 9.9626) (isBold: false) |             C. Pandu Rangan
+(XScale: 9.9626) (isBold: false) |                Indian Institute of Technology, Madras, India
+(XScale: 9.9626) (isBold: false) |             Bernhard Steffen
+(XScale: 9.9626) (isBold: false) |                University of Dortmund, Germany
+(XScale: 9.9626) (isBold: false) |             Madhu Sudan
+(XScale: 9.9626) (isBold: false) |                Massachusetts Institute of Technology, MA, USA
+(XScale: 9.9626) (isBold: false) |             Demetri Terzopoulos
+(XScale: 9.9626) (isBold: false) |                University of California, Los Angeles, CA, USA
+(XScale: 9.9626) (isBold: false) |             Doug Tygar
+(XScale: 9.9626) (isBold: false) |                University of California, Berkeley, CA, USA
+(XScale: 9.9626) (isBold: false) |             Moshe Y. Vardi
+(XScale: 9.9626) (isBold: false) |                Rice University, Houston, TX, USA
+(XScale: 9.9626) (isBold: false) |             Gerhard Weikum
+(XScale: 9.9626) (isBold: false) |                Max-Planck Institute of Computer Science, Saarbruecken, Germany
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 16.4384) (isBold: false) |             Joaquim Marques de Sá                     Luís A. Alexandre
+(XScale: 16.4384) (isBold: false) |             Włodzisław Duch                 Danilo Mandic (Eds.)
+(XScale: 0.0) (isBold: false) |
+(XScale: 35.8655) (isBold: false) |            Artiﬁcial
+(XScale: 35.8655) (isBold: false) |             Neural                    Networks                             –
+(XScale: 35.8655) (isBold: false) |             ICANN                         2007
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 16.4384) (isBold: false) |             17th International Conference
+(XScale: 16.4384) (isBold: false) |             Porto, Portugal, September 9-13, 2007
+(XScale: 16.4384) (isBold: false) |             Proceedings, Part II
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 35.8655) (isBold: false) |             1      3
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.4645) (isBold: false) |             Volume Editors
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.4645) (isBold: false) |             Joaquim Marques de Sá
+(XScale: 9.4645) (isBold: false) |             University of Porto, Faculty of Engineering
+(XScale: 9.4645) (isBold: false) |             Rua Dr. Roberto Frias, 4200-465 Porto, Portugal
+(XScale: 9.4645) (isBold: false) |             E-mail: jmsa@fe.up.pt
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.4645) (isBold: false) |             Luís A. Alexandre
+(XScale: 9.4645) (isBold: false) |             University of Beira Interior, Dept. ofInformatics
+(XScale: 9.4645) (isBold: false) |             and
+(XScale: 9.4645) (isBold: false) |             IT-Networks and Multimedia Group
+(XScale: 9.4645) (isBold: false) |             Rua Marquês d’Ávila e Bolama, 6201-001 Covilhã, Portugal
+(XScale: 9.4645) (isBold: false) |             E-mail: lfbaa@di.ubi.pt
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.4645) (isBold: false) |             Włodzisław Duch
+(XScale: 9.4645) (isBold: false) |             Nicolaus Copernicus University, Dept. of Informatics
+(XScale: 9.4645) (isBold: false) |             ul. Grudziadzka 5, 87-100 Torun, Poland
+(XScale: 9.4645) (isBold: false) |             E-mail: wduch@is.umk.pl
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.4645) (isBold: false) |             Danilo Mandic
+(XScale: 9.4645) (isBold: false) |             Imperial College, Communication and Signal Processing Research Group
+(XScale: 9.4645) (isBold: false) |             Dept. of Electrical and Electronic Engineering
+(XScale: 9.4645) (isBold: false) |             Exhibition Road, London, SW7 2BT, UK
+(XScale: 9.4645) (isBold: false) |             E-mail: d.mandic@imperial.ac.uk
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.4645) (isBold: false) |             Library of Congress Control Number: 2007934292
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.4645) (isBold: false) |             CR Subject Classiﬁcation (1998): F.1, I.2, I.5, I.4, G.3,J.3, C.2.1, C.1.3
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.4645) (isBold: false) |             LNCS Sublibrary: SL 1 – Theoretical Computer Science and General Issues
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.4645) (isBold: false) |             ISSN         0302-9743
+(XScale: 9.4645) (isBold: false) |             ISBN-10      3-540-74693-5 Springer Berlin Heidelberg New York
+(XScale: 9.4645) (isBold: false) |             ISBN-13      978-3-540-74693-5 Springer Berlin Heidelberg New York
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 7.472) (isBold: false) |             This work is subject to copyright. All rights arereserved,whether the whole or part of the mat
+(XScale: 7.472) (isBold: false) |             concerned, speciﬁcally the rights of translation,reprinting, re-use of illustrations, recitati
+(XScale: 7.472) (isBold: false) |             reproduction onmicroﬁlms or in any other way, and storagein data banks. Duplication of thispub
+(XScale: 7.472) (isBold: false) |             or parts thereof is permitted only underthe provisions of the German Copyright Law of Septembe
+(XScale: 7.472) (isBold: false) |             in its current version, and permission for use mustalways beobtained fromSpringer. Violations
+(XScale: 7.472) (isBold: false) |             to prosecution under the German Copyright Law.
+(XScale: 0.0) (isBold: false) |
+(XScale: 7.472) (isBold: false) |             Springer isa part of Springer Science+Business Media
+(XScale: 0.0) (isBold: false) |
+(XScale: 7.472) (isBold: false) |             springer.com
+(XScale: 7.472) (isBold: false) |             © Springer-Verlag Berlin Heidelberg 2007
+(XScale: 7.472) (isBold: false) |             Printed in Germany
+(XScale: 0.0) (isBold: false) |
+(XScale: 7.472) (isBold: false) |             Typesetting: Camera-ready by author,data conversion by Scientiﬁc Publishing Services, Chennai,
+(XScale: 7.472) (isBold: false) |             Printed on acid-free paper SPIN: 12116386 06/3180 5 4 3 2 1 0
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 14.3462) (isBold: true) |                                               Preface
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          This book includes the proceedings of the International Conference on Artiﬁcial
+(XScale: 9.9626) (isBold: false) |          Neural Networks (ICANN 2007) held during September 9–13, 2007 in Porto, Por-
+(XScale: 9.9626) (isBold: false) |          tugal, with tutorials being presented on September 9, the main conference taking
+(XScale: 9.9626) (isBold: false) |          place during September 10-12 and accompanying workshops held on September
+(XScale: 9.9626) (isBold: false) |          13, 2007. The ICANN conference is organized annually by the European Neural
+(XScale: 9.9626) (isBold: false) |          Network Society in co-operation with the International Neural Network Society,
+(XScale: 9.9626) (isBold: false) |          the Japanese Neural Network Society, and the IEEE Computational Intelligence
+(XScale: 9.9626) (isBold: false) |          Society. It is the premier European event covering all topics related to neural
+(XScale: 9.9626) (isBold: false) |          networks and cognitive systems. The ICANN series of conferences was initiated
+(XScale: 9.9626) (isBold: false) |          in 1991 and soon became the major European gathering for experts in these
+(XScale: 9.9626) (isBold: false) |          ﬁelds. In 2007 the ICANN conference was organized by the Biomedical Engi-
+(XScale: 9.9626) (isBold: false) |          neering Institute (INEB - Instituto de Engenharia Biomedica), Porto, Portugal,
+(XScale: 9.9626) (isBold: false) |          with the collaboration of the University of Beira Interior (UBI - Universidade
+(XScale: 9.9626) (isBold: false) |          da Beira Interior), Covilha, Portugal and ISEP, Polytechnic Engineering School,
+(XScale: 9.9626) (isBold: false) |          Porto, Portugal. From 376 papers submitted to the conference, 197 papers were
+(XScale: 9.9626) (isBold: false) |          selected for publication and presentation, following a blind peer-review process
+(XScale: 9.9626) (isBold: false) |          involving the Program Chairs and International Program Committee; 27 papers
+(XScale: 9.9626) (isBold: false) |          were presented in oral special sessions; 123 papers were presented in oral reg-
+(XScale: 9.9626) (isBold: false) |          ular sessions; 47 papers were presented in poster sessions. The quality of the
+(XScale: 9.9626) (isBold: false) |          papers received was very high; as a consequence, it was not possible to accept
+(XScale: 9.9626) (isBold: false) |          and include in the conference program many papers of good quality. A variety
+(XScale: 9.9626) (isBold: false) |          of topics  constituted  the  focus of  paper  submissions.   In regular sessions, pa-
+(XScale: 9.9626) (isBold: false) |          pers addressed the following topics: computational neuroscience and neurocog-
+(XScale: 9.9626) (isBold: false) |          nitive studies,  applications  in biomedicine   and  bioinformatics,   spiking  neural
+(XScale: 9.9626) (isBold: false) |          networks, data clustering, signal and times series processing, learning theory,
+(XScale: 9.9626) (isBold: false) |          advances in neural network learning methods, advances in neural network archi-
+(XScale: 9.9626) (isBold: false) |          tectures, data analysis, neural dynamics and complex systems, ensemble learn-
+(XScale: 9.9626) (isBold: false) |          ing, self-organization, robotics and control, pattern recognition, text mining and
+(XScale: 9.9626) (isBold: false) |          Internet applications, vision and image processing. Special sessions, organized
+(XScale: 9.9626) (isBold: false) |          by distinguished researchers, focused on signiﬁcant aspects of current research,
+(XScale: 9.9626) (isBold: false) |          namely: emotion and attention, understanding and creating cognitive systems,
+(XScale: 9.9626) (isBold: false) |          temporal synchronization and nonlinear dynamics in neural networks, complex-
+(XScale: 9.9626) (isBold: false) |          valued neural networks. Papers presented in poster sessions were organized in
+(XScale: 9.9626) (isBold: false) |          the following topics: real-world applications, signal and time series processing,
+(XScale: 9.9626) (isBold: false) |          advances in neural network architectures, advances in neural network training,
+(XScale: 9.9626) (isBold: false) |          meta learning, independent component analysis, graphs, evolutionary comput-
+(XScale: 9.9626) (isBold: false) |          ing, estimation, spatial and spatio-temporal learning. Prominent lecturers gave
+(XScale: 9.9626) (isBold: false) |          six keynote speeches at the conference. Moreover, well-known researchers pre-
+(XScale: 9.9626) (isBold: false) |          sented seven tutorials on state-of-the-art topics. Four post-conference workshops,
+(XScale: 9.9626) (isBold: false) |          entitled “Cognitive Systems”, “Neural Networks in Biomedical Engineering and
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 8.9664) (isBold: false) |          VI      Preface
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Bioinformatics”, “What It Means to Communicate” and “Neural Networks of the
+(XScale: 9.9626) (isBold: false) |          Future?”, concluded the focus of ICANN 2007 on the state-of-the-art research
+(XScale: 9.9626) (isBold: false) |          on neural networks and intelligent technologies. An in-depth discussion was held
+(XScale: 9.9626) (isBold: false) |          on the prospects and future developments both in theory and practice in those
+(XScale: 9.9626) (isBold: false) |          important topics. We would like to thank all the members of the local committee
+(XScale: 9.9626) (isBold: false) |          for their contribution to the organization of ICANN 2007. A special thanks to
+(XScale: 9.9626) (isBold: false) |          Alexandra Oliveira whose dedication and work quality were a major guarantee
+(XScale: 9.9626) (isBold: false) |          of the success of ICANN 2007. We also wish to thank Alfred Hofmann and the
+(XScale: 9.9626) (isBold: false) |          LNCS team from Springer for their help and collaboration in the publication of
+(XScale: 9.9626) (isBold: false) |          the ICANN 2007 proceedings.
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          July 2007                                                   Joaquim Marques de Sa
+(XScale: 9.9626) (isBold: false) |                                                                             Luıs A. Alexandre
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 14.3462) (isBold: true) |                                          Organization
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          General      Chair
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Joaquim Marques de Sa
+(XScale: 9.9626) (isBold: false) |          University of Porto, Portugal
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Co-chair
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Luıs A. Alexandre
+(XScale: 9.9626) (isBold: false) |          University of Beira Interior, Portugal
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Program Chairs
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Wl odzis law Duch
+(XScale: 9.9626) (isBold: false) |          Torun, Poland & Singapore, ENNS President
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Danilo Mandic
+(XScale: 9.9626) (isBold: false) |          Imperial College London, UK
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Honorary Chair
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          John G. Taylor
+(XScale: 9.9626) (isBold: false) |          Kings College, London, UK
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Program Committee
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Alessandro Sperduti, University of Padova, Italy
+(XScale: 9.9626) (isBold: false) |          Alessandro Villa, University of Grenoble, France
+(XScale: 9.9626) (isBold: false) |          Amir Hussain, University of Stirling, UK
+(XScale: 9.9626) (isBold: false) |          Andreas Nuernberger, University of Magdeburg, Germany
+(XScale: 9.9626) (isBold: false) |          Andreas Stafylopatis, NTUA, Greece
+(XScale: 9.9626) (isBold: false) |          Andrzej Cichocki, RIKEN Brain Sci. Inst., JP
+(XScale: 9.9626) (isBold: false) |          Bruno Apolloni, University of Milan, Italy
+(XScale: 9.9626) (isBold: false) |          David Miller, University of Pennsylvania, USA
+(XScale: 9.9626) (isBold: false) |          Dragan Obradovic, Siemens Corp. Res., Germany
+(XScale: 9.9626) (isBold: false) |          Erkki Oja, Helsinki University, Finland
+(XScale: 9.9626) (isBold: false) |          Erol Gelenbe, Imperial College London, UK
+(XScale: 9.9626) (isBold: false) |          Hojjat Adeli, Ohio State University, USA
+(XScale: 9.9626) (isBold: false) |          Jacek Mandziuk, Warsaw University, Poland
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 8.9664) (isBold: false) |          VIII    Organization
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Joao Luıs Rosa, Catholic University Campinas, Brazil
+(XScale: 9.9626) (isBold: false) |          Jose Dorronsoro, Universided Aut. de Madrid, Spain
+(XScale: 9.9626) (isBold: false) |          Jose Prıncipe, University of Florida, USA
+(XScale: 9.9626) (isBold: false) |          Jurgen Schmidhuber, TU Munich, DE - IDSIA, Switzerland
+(XScale: 9.9626) (isBold: false) |          Lefteri Tsoukalas, Purdue University, USA
+(XScale: 9.9626) (isBold: false) |          Marios Polycarpou, University of Cyprus, Cyprus
+(XScale: 9.9626) (isBold: false) |          Mark Embrechts, Rensselaer Inst., USA
+(XScale: 9.9626) (isBold: false) |          Michel Verleysen, University of Louvain-la-Neuve, Belgium
+(XScale: 9.9626) (isBold: false) |          Nikola Kasabov, Auckland University, New Zealand
+(XScale: 9.9626) (isBold: false) |          Okyay Kaynak, Bogazici University, Turkey
+(XScale: 9.9626) (isBold: false) |          Olli Simula, Helsinki University, Finland
+(XScale: 9.9626) (isBold: false) |          Peter Andras, University of Newcastle, UK
+(XScale: 9.9626) (isBold: false) |          Peter Erdi, HU & Kalamazoo College, USA
+(XScale: 9.9626) (isBold: false) |          Stan Gielen, University of Nijmegen, The Netherlands
+(XScale: 9.9626) (isBold: false) |          Stefan Wermter, University of Sunderland, UK
+(XScale: 9.9626) (isBold: false) |          Stefanos Kolias, NTUA, Greece
+(XScale: 9.9626) (isBold: false) |          Steve Gunn, University of Southampton, UK
+(XScale: 9.9626) (isBold: false) |          Thomas Martinetz, University of Luebeck, Germany
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Local    Organizing       Committee
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Alexandra Oliveira, INEB
+(XScale: 9.9626) (isBold: false) |          Ana Maria Tome, Aveiro University
+(XScale: 9.9626) (isBold: false) |          Bernardete Ribeiro, Coimbra University
+(XScale: 9.9626) (isBold: false) |          Carlos Soares, Porto University
+(XScale: 9.9626) (isBold: false) |          Daniel Carrilho, Health Techn. -IPP
+(XScale: 9.9626) (isBold: false) |          Fernando Sereno, ESE-IPP
+(XScale: 9.9626) (isBold: false) |          Helena Bras Silva, ISEP-IPP
+(XScale: 9.9626) (isBold: false) |          Hugo Proenca, UBI
+(XScale: 9.9626) (isBold: false) |          Jorge Santos, ISEP-IPP
+(XScale: 9.9626) (isBold: false) |          Lıgia Carvalho, INEB
+(XScale: 9.9626) (isBold: false) |          Luıs Silva, INEB
+(XScale: 9.9626) (isBold: false) |          Paulo Cortez, Minho University
+(XScale: 9.9626) (isBold: false) |          Paulo Fazendeiro, UBI
+(XScale: 9.9626) (isBold: false) |          Petia Georgieva, Aveiro University
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Reviewers
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Abe                 Shigeo           Kobe University
+(XScale: 9.9626) (isBold: false) |          Agell               Nuria            Ramon Llull University
+(XScale: 9.9626) (isBold: false) |          Aiolli              Fabio            Pisa University
+(XScale: 9.9626) (isBold: false) |          Alexandre           Frederic         INRIA Lorraine/LORIA-CNRS
+(XScale: 9.9626) (isBold: false) |          Alexandre           Luıs             University of Beira Interior
+(XScale: 9.9626) (isBold: false) |          Alhoniemi           Esa              Turku University
+(XScale: 9.9626) (isBold: false) |          Andras              Peter            University of Newcastle
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 8.9664) (isBold: false) |                                                                           Organization       IX
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Anguita                   Davide               Genoa University
+(XScale: 9.9626) (isBold: false) |          Angulo-Bahon              Cecilio              Technical University of Catalonia
+(XScale: 9.9626) (isBold: false) |          Apolloni                  Bruno                University of Milan
+(XScale: 9.9626) (isBold: false) |          Archambeau                Cedric               Universite Catholique de Louvain
+(XScale: 9.9626) (isBold: false) |          Arenas                    Jeronimo             Universidad Carlos III de Madrid
+(XScale: 9.9626) (isBold: false) |          Atencia                   Miguel               Universidad de Malaga
+(XScale: 9.9626) (isBold: false) |          Avrithis                  Yannis               National Technical University of
+(XScale: 9.9626) (isBold: false) |                                                            Athens
+(XScale: 9.9626) (isBold: false) |          Barbosa                   Jorge                University of Porto
+(XScale: 9.9626) (isBold: false) |          Bermejo                   Sergi                Universitat Politecnica da
+(XScale: 9.9626) (isBold: false) |                                                            Catalunya
+(XScale: 9.9626) (isBold: false) |          Bianchini                 Monica               Universita di Siena
+(XScale: 9.9626) (isBold: false) |          L Boni                    Andrea               University of Trento
+(XScale: 9.9626) (isBold: false) |          Bourlard                  Herve                IDIAP Research Institute
+(XScale: 9.9626) (isBold: false) |          Boyer                     Domingo              University of Cordoba
+(XScale: 9.9626) (isBold: false) |          Cabestany                 Joan                 Universitat Politecnica da
+(XScale: 9.9626) (isBold: false) |                                                            Catalunya
+(XScale: 9.9626) (isBold: false) |          Colla                     Valentina            Scuola Sup. Sant’Anna Pisa
+(XScale: 9.9626) (isBold: false) |          Corchado                  Emilio               Universidad de Burgos
+(XScale: 9.9626) (isBold: false) |          Cornford                  Dan                  Aston University
+(XScale: 9.9626) (isBold: false) |          Corona                    Francesco            Helsinki University of Technology
+(XScale: 9.9626) (isBold: false) |          Correia                   Miguel               University of Porto
+(XScale: 9.9626) (isBold: false) |          Cortez                    Paulo                University of Minho
+(XScale: 9.9626) (isBold: false) |          Crook                     Nigel                Oxford Brookes University
+(XScale: 9.9626) (isBold: false) |          Dorronsoro                Jose                 Universidad Autonoma de Madrid
+(XScale: 9.9626) (isBold: false) |          Dounias                   Georgios             University of the Aegean
+(XScale: 9.9626) (isBold: false) |          Duch                      Wlodzislaw           Nicolaus Copernicus University
+(XScale: 9.9626) (isBold: false) |          Duro                      Richard              University of Coruna
+(XScale: 9.9626) (isBold: false) |          Embrechts                 Mark                 Rensselaer Polytechnic Institute
+(XScale: 9.9626) (isBold: false) |          Erdi                      Peter                Henry Luce Foundation
+(XScale: 9.9626) (isBold: false) |          Fazendeiro                Paulo                University of Beira Interior
+(XScale: 9.9626) (isBold: false) |          Franco                    Leonardo             Universidad de Malaga
+(XScale: 9.9626) (isBold: false) |          Francois                  Damien               Universite Catholique de Louvain
+(XScale: 9.9626) (isBold: false) |          Fyfe                      Colin                University of Paisley
+(XScale: 9.9626) (isBold: false) |          Garcia-Pedrajas           Nicolas              University of Cordoba
+(XScale: 9.9626) (isBold: false) |          Georgieva                 Petia                University of Aveiro
+(XScale: 9.9626) (isBold: false) |          Gielen                    Stan                 University of Nijmegen
+(XScale: 9.9626) (isBold: false) |          Giudice                   Paolo                Istituto Nazionale di
+(XScale: 9.9626) (isBold: false) |                                                            Fisica Nucleare
+(XScale: 9.9626) (isBold: false) |          Gonzalez                  Ana                  Universidad Autonoma de Madrid
+(XScale: 9.9626) (isBold: false) |          Gosselin                  Bernard              Faculte Polytechnique de Mons
+(XScale: 9.9626) (isBold: false) |          Grana                     Manuel               University Pais Vasco
+(XScale: 9.9626) (isBold: false) |          Gunn                      Steve                University of Southampton
+(XScale: 9.9626) (isBold: false) |          Hammer                    Barbara              University of Osnabrueck
+(XScale: 9.9626) (isBold: false) |          Heidemann                 Gunther              Bielefeld University
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 8.9664) (isBold: false) |          X       Organization
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Hollmen                  Jaakko                 Technical University of Helsinki
+(XScale: 9.9626) (isBold: false) |          Honkela                  Antti                  Helsinki University of Technology
+(XScale: 9.9626) (isBold: false) |          Hoyer                    Patrik                 Helsinki Institute for Information
+(XScale: 9.9626) (isBold: false) |                                                             Technology
+(XScale: 9.9626) (isBold: false) |          Igel                     Christian              Ruhr-Universitaet Bochum
+(XScale: 9.9626) (isBold: false) |          Indiveri                 Giacomo                UNI-ETH Zurich
+(XScale: 9.9626) (isBold: false) |          Jin                      Yaochu                 Honda Research Institute Europe
+(XScale: 9.9626) (isBold: false) |          Jutten                   Christian              LIS-INPG
+(XScale: 9.9626) (isBold: false) |          Kaban                    Ata                    University of Birmingham
+(XScale: 9.9626) (isBold: false) |          Kaiser                   Marcus                 Newcastle University
+(XScale: 9.9626) (isBold: false) |          Karhunen                 Juha                   Helsinki University of Technology
+(XScale: 9.9626) (isBold: false) |          Karpouzis                Kostas                 ICCS-NTUA
+(XScale: 9.9626) (isBold: false) |          Kasderidis               Stathis                Institute of Computer Science -
+(XScale: 9.9626) (isBold: false) |                                                             FORTH
+(XScale: 9.9626) (isBold: false) |          Kaynak                   Okyay                  Bogazici University
+(XScale: 9.9626) (isBold: false) |          Kim                      DaeEun                 Max Planck Institute for
+(XScale: 9.9626) (isBold: false) |                                                             Psychological Research
+(XScale: 9.9626) (isBold: false) |          Kollias                  Stefanos               National Technical University of
+(XScale: 9.9626) (isBold: false) |                                                             Athens
+(XScale: 9.9626) (isBold: false) |          Koroutchev               Kostadin               Universidad Autonoma de Madrid
+(XScale: 9.9626) (isBold: false) |          Kounoudes                Tasos                  SignalGeneriX
+(XScale: 9.9626) (isBold: false) |          Laaksonen                Jorma                  Technical University of Helsinki
+(XScale: 9.9626) (isBold: false) |          Lagos                    Francisco              Universidad de Malaga
+(XScale: 9.9626) (isBold: false) |          Lang                     Elmar                  Universitat Regensburg
+(XScale: 9.9626) (isBold: false) |          Lansky                   Petr                   Academy of Sciences of the Czech
+(XScale: 9.9626) (isBold: false) |                                                             Republic
+(XScale: 9.9626) (isBold: false) |          Larochelle               Hugo                   University of Montreal
+(XScale: 9.9626) (isBold: false) |          Leclercq                 Edouard                Universite du Havre
+(XScale: 9.9626) (isBold: false) |          Leiviska                 Kauko                  University of Oulu
+(XScale: 9.9626) (isBold: false) |          Lendasse                 Amaury                 Helsinki University of Technology
+(XScale: 9.9626) (isBold: false) |          Likas                    Aristidis              University of Ioannina
+(XScale: 9.9626) (isBold: false) |          Loizou                   Christos               Intercollege, Limassol Campus
+(XScale: 9.9626) (isBold: false) |          Magoulas                 George                 Birkbeck College, University of
+(XScale: 9.9626) (isBold: false) |                                                             London
+(XScale: 9.9626) (isBold: false) |          Mandic                   Danilo                 Imperial College London, UK
+(XScale: 9.9626) (isBold: false) |          Mandziuk                 Jacek                  Warsaw University of Technology
+(XScale: 9.9626) (isBold: false) |          Marques de Sa            Joaquim                University of Porto
+(XScale: 9.9626) (isBold: false) |          Martinetz                Thomas                 University of Luebeck
+(XScale: 9.9626) (isBold: false) |          Martinez                 Dominique              LORIA
+(XScale: 9.9626) (isBold: false) |          Masulli                  Francesco              Polo Universitario di La Spezia
+(XScale: 9.9626) (isBold: false) |                                                             G. Marco
+(XScale: 9.9626) (isBold: false) |          Micheli                  Alessio                University of Pisa
+(XScale: 9.9626) (isBold: false) |          Moreno                   Juan                   Universidad Politecnica de
+(XScale: 9.9626) (isBold: false) |                                                             Cataluna
+(XScale: 9.9626) (isBold: false) |          Muresan                  Raul                   SC. NIVIS SRL
+(XScale: 9.9626) (isBold: false) |          Muller                   Klaus-Robert           University of Potsdam
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 8.9664) (isBold: false) |                                                                           Organization       XI
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Nakayama                 Minoru                 CRADLE
+(XScale: 9.9626) (isBold: false) |          Navıa-Vazquez            Angel                  Universidad Carlos III de Madrid
+(XScale: 9.9626) (isBold: false) |          Neskovic                 Predrag                Brown University
+(XScale: 9.9626) (isBold: false) |          Nikolopoulos             Konstantinos           Lancaster University
+(XScale: 9.9626) (isBold: false) |                                                             Management School
+(XScale: 9.9626) (isBold: false) |          Nurnberger               Andreas                Otto-von-Guericke Universitat
+(XScale: 9.9626) (isBold: false) |                                                             Magdeburg
+(XScale: 9.9626) (isBold: false) |          Obradovic                Dragan                 Siemens AG
+(XScale: 9.9626) (isBold: false) |          Oja                      Erkki                  Helsinki University of Technology
+(XScale: 9.9626) (isBold: false) |          Osowski                  Stanislaw              Warsaw University of Technology
+(XScale: 9.9626) (isBold: false) |          Parra                    Xavier                 Technical University of Catalonia
+(XScale: 9.9626) (isBold: false) |          Patan                    Krzysztof              University of Zielona Gora
+(XScale: 9.9626) (isBold: false) |          Paugam-Moisy             Helene                 Institut des Sciences Cognitives
+(XScale: 9.9626) (isBold: false) |          Peters                   Gabriele               Universitaet Dortmund
+(XScale: 9.9626) (isBold: false) |          Peterson                 Leif                   Dept. of Public Health of the
+(XScale: 9.9626) (isBold: false) |                                                             Methodist Hospital
+(XScale: 9.9626) (isBold: false) |          Petrosino                Alfredo                University of Naples “Parthenope”
+(XScale: 9.9626) (isBold: false) |          Polani                   Daniel                 University of Hertfordshire
+(XScale: 9.9626) (isBold: false) |          Porrmann                 Mario                  Heinz Nixdorf Institute
+(XScale: 9.9626) (isBold: false) |          Prıncipe                 Jose                   CNEL - University of Florida
+(XScale: 9.9626) (isBold: false) |          Proenca                  Hugo                   University of Beira Interior
+(XScale: 9.9626) (isBold: false) |          Puzenat                  Didier                 Universite Antilles-Guyane
+(XScale: 9.9626) (isBold: false) |          Reyes                    Jose                   Universidade da Coruna
+(XScale: 9.9626) (isBold: false) |          Ribeiro                  Bernardete             University of Coimbra
+(XScale: 9.9626) (isBold: false) |          Rocha                    Miguel                 University of Minho
+(XScale: 9.9626) (isBold: false) |          Rosa                     Joao                   PUC-Campinas
+(XScale: 9.9626) (isBold: false) |          Rospars                  Jean-Pierre            INRA - Laboratoire de Biometrie
+(XScale: 9.9626) (isBold: false) |          Rossi                    Fabrice                INRIA Rocquencourt
+(XScale: 9.9626) (isBold: false) |          Ruiz                     Francisco              Universitat Politecnica de
+(XScale: 9.9626) (isBold: false) |                                                             Catalunya
+(XScale: 9.9626) (isBold: false) |          Sandoval                 Francisco              Universidad de Malaga
+(XScale: 9.9626) (isBold: false) |          Santos                   Jorge                  Instituto Superior de Engenharia
+(XScale: 9.9626) (isBold: false) |                                                             do Porto
+(XScale: 9.9626) (isBold: false) |          Scheper                  Tjeerd                 Oxford Brookes University
+(XScale: 9.9626) (isBold: false) |          Schmidhuber              Jurgen                 TU Munich, DE - IDSIA
+(XScale: 9.9626) (isBold: false) |          Schwenker                Friedhelm              University of Ulm
+(XScale: 9.9626) (isBold: false) |          Sereno                   Fernando               Escola Superior de Educacao
+(XScale: 9.9626) (isBold: false) |                                                             do Porto
+(XScale: 9.9626) (isBold: false) |          Serrano                  Eduardo                Universidad Autonoma de Madrid
+(XScale: 9.9626) (isBold: false) |          Silva                    Luıs                   INEB - Instituto de Engenharia
+(XScale: 9.9626) (isBold: false) |                                                             Biomedica
+(XScale: 9.9626) (isBold: false) |          Simula                   Olli                   Helsinki University of Technology
+(XScale: 9.9626) (isBold: false) |          Stafylopatis             Andreas                National Technical University of
+(XScale: 9.9626) (isBold: false) |                                                             Athens
+(XScale: 9.9626) (isBold: false) |          Steil                    Jochen                 University of Bielefeld
+(XScale: 9.9626) (isBold: false) |          Suarez                   Alberto                Universidad Autonoma de Madrid
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 8.9664) (isBold: false) |          XII     Organization
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Suykens             Johan                Katholieke Universiteit Leuven
+(XScale: 9.9626) (isBold: false) |          Thomaidis           Nikos                University of the Aegean
+(XScale: 9.9626) (isBold: false) |          Tome                Ana Maria            University of Aveiro
+(XScale: 9.9626) (isBold: false) |          Touzet              Claude               Universite de Provence /CNRS
+(XScale: 9.9626) (isBold: false) |          Trentin             Edmondo              Universita di Siena
+(XScale: 9.9626) (isBold: false) |          Tsakonas            Athanasios           University of the Aegean
+(XScale: 9.9626) (isBold: false) |          Varona              Pablo                Universidad Autonoma de Madrid
+(XScale: 9.9626) (isBold: false) |          Verleysen           Michel               Universite Catholique de Louvain
+(XScale: 9.9626) (isBold: false) |          L Vigario           Ricardo              Helsinki University of Technology
+(XScale: 9.9626) (isBold: false) |          Villa               Alessandro           Universite de Lausanne
+(XScale: 9.9626) (isBold: false) |          Villmann            Thomas               Clinic for Psychotherapy
+(XScale: 9.9626) (isBold: false) |          Vinciarelli         Alessandro           IDIAP Research Institute
+(XScale: 9.9626) (isBold: false) |          Wennekers           Thomas               University of Plymouth
+(XScale: 9.9626) (isBold: false) |          Wermter             Stefan               University of Sunderland
+(XScale: 9.9626) (isBold: false) |          Wersing             Heiko                Honda Research Institute Europe
+(XScale: 9.9626) (isBold: false) |                                                      GmbH
+(XScale: 9.9626) (isBold: false) |          Wyns                Bart                 Ghent University
+(XScale: 9.9626) (isBold: false) |          Yearwood            John                 University of Ballarat
+(XScale: 9.9626) (isBold: false) |          Zervakis            Michalis             Technical University of Crete
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Sponsors
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          ENNS - European Neural Networks Society
+(XScale: 9.9626) (isBold: false) |          INNS - International Neural Networks Society
+(XScale: 9.9626) (isBold: false) |          JNNS - Japanese Neural Networks Society
+(XScale: 9.9626) (isBold: false) |          IEEE Computational Intelligence Society
+(XScale: 9.9626) (isBold: false) |          EURASIP - European Association for Signal and Image Processing
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          INEB - Instituto de Engenharia Biomedica, Portugal
+(XScale: 9.9626) (isBold: false) |          UBI - Universidade da Beira Interior, Portugal
+(XScale: 9.9626) (isBold: false) |          ISEP - Instituto Superior de Engenharia do Porto, Portugal
+(XScale: 9.9626) (isBold: false) |          UP - Reitoria da Universidade do Porto, Portugal
+(XScale: 9.9626) (isBold: false) |          DEEC - Departamento de Engenharia Electrotecnica e de Computadores, UP
+(XScale: 9.9626) (isBold: false) |          IPP - Instituto Politecnico do Porto
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          FCT - Fundacao para a Ciencia e Tecnologia
+(XScale: 9.9626) (isBold: false) |          FLAD - Fundacao Luso-Americana para o Desenvolvimento
+(XScale: 9.9626) (isBold: false) |          Fundacao Calouste Gulbenkian
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Microsoft Research Cambridge Lab
+(XScale: 9.9626) (isBold: false) |          PT - Portugal Telecom
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 14.3462) (isBold: true) |                             Table      of   Contents         –  Part     II
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Computational          Neuroscience,        Neurocognitive Studies
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A Marker-Based Model for the Ontogenesis of Routing Circuits . . . . . . . .         1
+(XScale: 9.9626) (isBold: false) |              Philipp Wolfrum and Christoph von der Malsburg
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A Neural Network for the Analysis of Multisensory Integration in the
+(XScale: 9.9626) (isBold: false) |          Superior Colliculus . . . . . .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . .. . .. . .
+(XScale: 9.9626) (isBold: false) |              Cristiano  Cuppini,   Elisa Magosso,    Andrea   Serino,
+(XScale: 9.9626) (isBold: false) |              Giuseppe Di Pellegrino, and Mauro Ursino
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Neurotransmitter Fields     . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. . . . ... .
+(XScale: 9.9626) (isBold: false) |              Douglas S. Greer
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          SimBa: A Fuzzy Similarity-Based Modelling Framework for Large-Scale
+(XScale: 9.9626) (isBold: false) |          Cerebral Networks    . . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . .. . .. . .
+(XScale: 9.9626) (isBold: false) |              Julien Erny, Josette Pastor, and Henri Prade
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A Direct Measurement of Internal Model Learning Rates in a
+(XScale: 9.9626) (isBold: false) |          Visuomotor Tracking Task      . . . .. .. . ... . . . .. ... . .. . .. . . .. . . .. ... . . .. 3
+(XScale: 9.9626) (isBold: false) |              Abraham K. Ishihara, Johan van Doornik, and Terence D. Sanger
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Spatial and Temporal Selectivity of Hippocampal CA3 and Its
+(XScale: 9.9626) (isBold: false) |          Contribution to Sequence Disambiguation . . . . . . . . . . . .. .. . . .. .. .. . . . . 49
+(XScale: 9.9626) (isBold: false) |              Toshikazu Samura, Motonobu Hattori, and Shun Ishizaki
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Lateral and Elastic Interactions: Deriving One Form from Another . . . . .          59
+(XScale: 9.9626) (isBold: false) |              Valery Tereshko
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Applications        in Biomedicine         and   Bioinformatics
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A Survey on Use of Soft Computing Methods in Medicine . . . . . . . . . . . . .     69
+(XScale: 9.9626) (isBold: false) |              Ahmet Yardimci
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Exploiting Blind Matrix Decomposition Techniques to Identify
+(XScale: 9.9626) (isBold: false) |          Diagnostic Marker Genes      . . . .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. . . . ... .
+(XScale: 9.9626) (isBold: false) |              Reinhard  Schachtner,   Dominik    Lutter,  Fabian  J. Theis,
+(XScale: 9.9626) (isBold: false) |              Elmar W. Lang, Ana Maria Tome, and Gerd Schmitz
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Neural Network Approach for Mass Spectrometry Prediction by
+(XScale: 9.9626) (isBold: false) |          Peptide Prototyping . . . . . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. . . . ... .
+(XScale: 9.9626) (isBold: false) |              Alexandra Scherbart,    Wiebke   Timm,   Sebastian Bocker,    and
+(XScale: 9.9626) (isBold: false) |              Tim W. Nattkemper
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 8.9664) (isBold: false) |          XIV     Table of Contents – Part II
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Identifying Binding Sites in Sequential Genomic Data        . . . .. .. . .. . . .. . . 100
+(XScale: 9.9626) (isBold: false) |              Mark  Robinson,   Cristina  Gonzalez   Castellano,  Rod Adams,
+(XScale: 9.9626) (isBold: false) |              Neil Davey, and Yi Sun
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          On the Combination of Dissimilarities for Gene Expression Data
+(XScale: 9.9626) (isBold: false) |          Analysis . . . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . . .. .. .. .
+(XScale: 9.9626) (isBold: false) |              Angela Blanco, Manuel Martın-Merino, and Javier De Las Rivas
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A Locally Recurrent Globally Feed-Forward Fuzzy Neural Network for
+(XScale: 9.9626) (isBold: false) |          Processing Lung Sounds      . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. . . . ... .
+(XScale: 9.9626) (isBold: false) |              Paris  A.  Mastorocostas,   Dimitris   N.  Varsamis,
+(XScale: 9.9626) (isBold: false) |              Costas A. Mastorocostas, and Costas S. Hilas
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Learning Temporally Stable Representations from Natural Sounds:
+(XScale: 9.9626) (isBold: false) |          Temporal Stability as a General Objective Underlying Sensory
+(XScale: 9.9626) (isBold: false) |          Processing   . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . . .. .. .. .
+(XScale: 9.9626) (isBold: false) |              Armin Duﬀ, Reto Wyss, and Paul F.M.J. Verschure
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Comparing Methods for Multi-class Probabilities in Medical Decision
+(XScale: 9.9626) (isBold: false) |          Making Using LS-SVMs and Kernel Logistic Regression . . . . . . . . . . . . . . .  139
+(XScale: 9.9626) (isBold: false) |              Ben Van Calster, Jan Luts, Johan A.K. Suykens, George Condous,
+(XScale: 9.9626) (isBold: false) |              Tom Bourne, Dirk Timmerman, and Sabine Van Huﬀel
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Classifying EEG Data into Diﬀerent Memory Loads Across Subjects. . . .             149
+(XScale: 9.9626) (isBold: false) |              Liang Wu and Predrag Neskovic
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Information Theoretic Derivations for Causality Detection: Application
+(XScale: 9.9626) (isBold: false) |          to Human Gait . . . . . . . . .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . .
+(XScale: 9.9626) (isBold: false) |              Gert Van Dijck, Jo Van Vaerenbergh, and Marc M. Van Hulle
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Pattern Recognition
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Template Matching for Large Transformations . . . . . . . . . . . . . .. . ... . . . .169
+(XScale: 9.9626) (isBold: false) |              Julian Eggert, Chen Zhang, and Edgar Korner
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Fuzzy Classiﬁers Based on Kernel Discriminant Analysis . . . . . . . . . . . . . . 180
+(XScale: 9.9626) (isBold: false) |              Ryota Hosokawa and Shigeo Abe
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          An Eﬃcient Search Strategy for Feature Selection Using Chow-Liu
+(XScale: 9.9626) (isBold: false) |          Trees . . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . . .. .. .. . .. .
+(XScale: 9.9626) (isBold: false) |              Erik Schaﬀernicht, Volker Stephan, and Horst-Michael Groß
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Face Recognition Using Parzenfaces . . . . . . . . . . .. . . .. .. .. . . . .. ... .. .. 200
+(XScale: 9.9626) (isBold: false) |              Zhirong Yang and Jorma Laaksonen
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A Comparison of Features in Parts-Based Object Recognition
+(XScale: 9.9626) (isBold: false) |          Hierarchies . . . . .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . . .. .. .. .
+(XScale: 9.9626) (isBold: false) |              Stephan Hasler, Heiko Wersing, and Edgar Korner
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 8.9664) (isBold: false) |                                                            Table of Contents – Part II      XV
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          An Application of Recurrent Neural Networks to Discriminative
+(XScale: 9.9626) (isBold: false) |          Keyword Spotting. . . . . . . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .2
+(XScale: 9.9626) (isBold: false) |              Santiago Fernandez, Alex Graves, and Jurgen Schmidhuber
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Spatiostructural Features for Recognition of Online Handwritten
+(XScale: 9.9626) (isBold: false) |          Characters in Devanagari and Tamil Scripts . . . . . . . . . . . .. . . .. .. .. . .. .230
+(XScale: 9.9626) (isBold: false) |              H.  Swethalakshmi,    C.  Chandra    Sekhar,  and
+(XScale: 9.9626) (isBold: false) |              V. Srinivasa Chakravarthy
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          An Improved Version of the Wrapper Feature Selection Method Based
+(XScale: 9.9626) (isBold: false) |          on Functional Decomposition . . . . . . . . . .. .. . ... . . . .. ... . .. . .. .. .. . . . 240
+(XScale: 9.9626) (isBold: false) |              Noelia  Sanchez-Marono,    Amparo    Alonso-Betanzos,    and
+(XScale: 9.9626) (isBold: false) |              Beatriz Perez-Sanchez
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Parallel-Series Perceptrons for the Simultaneous Determination of Odor
+(XScale: 9.9626) (isBold: false) |          Classes and Concentrations. . . . . . . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . . 25
+(XScale: 9.9626) (isBold: false) |              Gao Daqi, Sun Jianli, and Li Xiaoyan
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Probabilistic Video-Based Gesture Recognition Using Self-organizing
+(XScale: 9.9626) (isBold: false) |          Feature Maps. . . . . . . .. .. . ... . . . .. ... . .. . .. . . .. . . .. . .. . . .. .. .. .. .
+(XScale: 9.9626) (isBold: false) |              George Caridakis, Christos Pateritsas, Athanasios Drosopoulos,
+(XScale: 9.9626) (isBold: false) |              Andreas Stafylopatis, and Stefanos Kollias
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Unbiased SVM Density Estimation with Application to Graphical
+(XScale: 9.9626) (isBold: false) |          Pattern Recognition . . . . . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. . . . ... .
+(XScale: 9.9626) (isBold: false) |              Edmondo Trentin and Ernesto Di Iorio
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Neural Mechanisms for Mid-Level Optical Flow Pattern Detection. . . . . .          281
+(XScale: 9.9626) (isBold: false) |              Stefan Ringbauer, Pierre Bayerl, and Heiko Neumann
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Data    Clustering
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Split–Merge Incremental LEarning (SMILE) of Mixture Models . . . . . . . .         291
+(XScale: 9.9626) (isBold: false) |              Konstantinos Blekas and Isaac E. Lagaris
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Least-Mean-Square Training of Cluster-Weighted Modeling . . . . . . . . . . . .    301
+(XScale: 9.9626) (isBold: false) |              I-Chun Lin and Cheng-Yuan Liou
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Identifying the Underlying Hierarchical Structure of Clusters in Cluster
+(XScale: 9.9626) (isBold: false) |          Analysis . . . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . . .. .. .. .
+(XScale: 9.9626) (isBold: false) |              Kazunori Iwata and Akira Hayashi
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Clustering Evaluation in Feature Space . . . . . . . . . .. .. . . .. .. .. . .. .. . . . 321
+(XScale: 9.9626) (isBold: false) |              Alissar Nasser, Pierre-Alexandre Hebert, and Denis Hamad
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A Topology-Independent Similarity Measure for High-Dimensional
+(XScale: 9.9626) (isBold: false) |          Feature Spaces    . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . . .. ..
+(XScale: 9.9626) (isBold: false) |              Jochen Kerdels and Gabriele Peters
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 8.9664) (isBold: false) |          XVI     Table of Contents – Part II
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Self-organization
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Fuzzy Labeled Self-organizing Map with Kernel-Based Topographic
+(XScale: 9.9626) (isBold: false) |          Map Formation . . . . . . . . .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . .
+(XScale: 9.9626) (isBold: false) |              Ivan Machon Gonzalez and Hilario Lopez Garcıa
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Self-organizing Maps of Spiking Neurons with Reduced Precision of
+(XScale: 9.9626) (isBold: false) |          Correlated Firing   . . . .. .. . ... . . . .. ... . .. . .. . . .. . . .. . .. . . .. .. .. .. .
+(XScale: 9.9626) (isBold: false) |              Francisco J. Veredas, Luis A. Martınez, and Hector Mesa
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Visualising Class Distribution on Self-organising Maps . . . . . . . . . .. .. . . .359
+(XScale: 9.9626) (isBold: false) |              Rudolf Mayer, Taha Abdel Aziz, and Andreas Rauber
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Self-organizing Maps with Refractory Period       . . . .. .. . ... . . . .. .. . . .. .. 369
+(XScale: 9.9626) (isBold: false) |              Antonio Neme and Victor Mireles
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Improving the Correlation Hunting in a Large Quantity of SOM
+(XScale: 9.9626) (isBold: false) |          Component Planes . . . . . . . . . .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. . . . ... .
+(XScale: 9.9626) (isBold: false) |              Miguel A. Barreto S. and Andres Perez-Uribe
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A Dynamical Model for Receptive Field Self-organization in V1 Cortical
+(XScale: 9.9626) (isBold: false) |          Columns . . . . . . .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . . .. .. .. .
+(XScale: 9.9626) (isBold: false) |              Jorg Lucke
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Text Mining        and    Internet Applications
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Meta-evolution Strategy to Focused Crawling on Semantic Web . . . . . . . .        399
+(XScale: 9.9626) (isBold: false) |              Jason J. Jung, Geun-Sik Jo, and Seong-Won Yeo
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Automated Text Categorization Based on Readability Fingerprints . . . . .          408
+(XScale: 9.9626) (isBold: false) |              Mark  J. Embrechts,    Jonathan   Linton,  Walter  F.  Bogaerts,
+(XScale: 9.9626) (isBold: false) |              Bram Heyns, and Paul Evangelista
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Personalized Web Page Filtering Using a Hopﬁeld Neural Network            . . .. . 417
+(XScale: 9.9626) (isBold: false) |              Armando Marin, Juan Manuel Adan-Coello, Joao Luıs Garcia Rosa,
+(XScale: 9.9626) (isBold: false) |              Carlos Miguel Tobar, and Ricardo Luıs de Freitas
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Robust Text Classiﬁcation Using a Hysteresis-Driven Extended SRN            . . .  425
+(XScale: 9.9626) (isBold: false) |              Garen Arevian and Christo Panchev
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Semi-supervised Metrics for Textual Data Visualization . . . . . . . . . . . .. .. 435
+(XScale: 9.9626) (isBold: false) |              Angela Blanco and Manuel Martın-Merino
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Topology Aware Internet Traﬃc Forecasting Using Neural Networks . . . .            445
+(XScale: 9.9626) (isBold: false) |              Paulo Cortez, Miguel Rio, Pedro Sousa, and Miguel Rocha
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 8.9664) (isBold: false) |                                                            Table of Contents – Part II    XVII
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Signal    and    Times     Series   Processing
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Boosting Algorithm to Improve a Voltage Waveform Classiﬁer Based
+(XScale: 9.9626) (isBold: false) |          on Artiﬁcial Neural Network      . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . .. .. .. . 45
+(XScale: 9.9626) (isBold: false) |              Milde M.S. Lira, Ronaldo R.B. de Aquino, Aida A. Ferreira,
+(XScale: 9.9626) (isBold: false) |              Manoel   A.  Carvalho   Jr,  Otoni  Nobrega   Neto,
+(XScale: 9.9626) (isBold: false) |              Gabriela S.M. Santos, and Carlos Alberto B.O. Lira
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Classiﬁcation of Temporal Data Based on Self-organizing Incremental
+(XScale: 9.9626) (isBold: false) |          Neural Network . . . . . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . .
+(XScale: 9.9626) (isBold: false) |              Shogo Okada and Osamu Hasegawa
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Estimating the Impact of Shocks with Artiﬁcial Neural Networks          . . . .. . 476
+(XScale: 9.9626) (isBold: false) |              Konstantinos   Nikolopoulos,   Nikolaos   Bougioukos,
+(XScale: 9.9626) (isBold: false) |              Konstantinos Giannelos, and Vassilios Assimakopoulos
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Greedy KPCA in Biomedical Signal Processing . . . . . . . . . . . . . . .. .. . ... 486
+(XScale: 9.9626) (isBold: false) |              Ana Rita Teixeira, Ana Maria Tome, and Elmar W. Lang
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          The Use of Artiﬁcial Neural Networks in the Speech Understanding
+(XScale: 9.9626) (isBold: false) |          Model - SUM . . . . . . . .. .. . ... . . . .. ... . .. . .. . . .. . . .. . .. . . .. .. .. .. .
+(XScale: 9.9626) (isBold: false) |              Daniel  Nehme    Muller,  Mozart   Lemos   de Siqueira,  and
+(XScale: 9.9626) (isBold: false) |              Philippe O.A. Navaux
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          On Incorporating Seasonal Information on Recursive Time Series
+(XScale: 9.9626) (isBold: false) |          Predictors. . . . . .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . . .. .. .. .
+(XScale: 9.9626) (isBold: false) |              Luis Javier  Herrera,   Hector  Pomares,    Ignacio  Rojas,
+(XScale: 9.9626) (isBold: false) |              Alberto Guilen, and G. Rubio
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Can Neural Networks Learn the “Head and Shoulders” Technical
+(XScale: 9.9626) (isBold: false) |          Analysis Price Pattern? Towards a Methodology for Testing the
+(XScale: 9.9626) (isBold: false) |          Eﬃcient Market Hypothesis . . . . . . . . . . .. .. . ... . . . .. ... . .. . .. .. .. . . . 516
+(XScale: 9.9626) (isBold: false) |              Achilleas Zapranis and Evi Samolada
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Sparse Least Squares Support Vector Regressors Trained in the
+(XScale: 9.9626) (isBold: false) |          Reduced Empirical Feature Space . . . . . . . . . . .. .. . . .. .. .. . . . .. ... .. .. 527
+(XScale: 9.9626) (isBold: false) |              Shigeo Abe and Kenta Onishi
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Vision    and    Image     Processing
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Content-Based Image Retrieval by Combining Genetic Algorithm and
+(XScale: 9.9626) (isBold: false) |          Support Vector Machine . . . . . . . . . .. .. . ... . . . .. ... . .. . .. . . .. .. .. . ..537
+(XScale: 9.9626) (isBold: false) |              Kwang-Kyu Seo
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Global  and   Local  Preserving Feature    Extraction  for  Image
+(XScale: 9.9626) (isBold: false) |          Categorization . . . . . .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . . .. ..
+(XScale: 9.9626) (isBold: false) |              Rongfang   Bie,  Xin  Jin, Chuan    Xu,  Chuanliang   Chen,
+(XScale: 9.9626) (isBold: false) |              Anbang Xu, and Xian Shen
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 8.9664) (isBold: false) |          XVIII   Table of Contents – Part II
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Iris Recognition for Biometric Personal Identiﬁcation Using Neural
+(XScale: 9.9626) (isBold: false) |          Networks   . . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . . .. .. .. .
+(XScale: 9.9626) (isBold: false) |              Rahib H. Abiyev and Koray Altunkaya
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          No-Reference Quality Assessment of JPEG Images by Using CBP
+(XScale: 9.9626) (isBold: false) |          Neural Networks . . . . . . . .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . .
+(XScale: 9.9626) (isBold: false) |              Paolo Gastaldo, Giovanni Parodi, Judith Redi, and Rodolfo Zunino
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A Bio-inspired Connectionist Approach for Motion Description
+(XScale: 9.9626) (isBold: false) |          Through Sequences of Images. . . . . . . . . . .. .. . . .. .. .. . . . .. . .. .. .. .. ..573
+(XScale: 9.9626) (isBold: false) |              Claudio Castellanos-Sanchez
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Color Object Recognition in Real-World Scenes . . . . . . . . . . . . .. . ... . . . .583
+(XScale: 9.9626) (isBold: false) |              Alexander   Gepperth,  Britta  Mersch,   Jannik  Fritsch,  and
+(XScale: 9.9626) (isBold: false) |              Christian Goerick
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Estimation of Pointing Poses on Monocular Images with Neural
+(XScale: 9.9626) (isBold: false) |          Techniques - An Experimental Comparison . . . . . . . . . . . . . .. .. . .. . . ... . 593
+(XScale: 9.9626) (isBold: false) |              Frank-Florian Steege, Christian Martin, and Horst-Michael Groß
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Real-Time Foreground-Background Segmentation Using Adaptive
+(XScale: 9.9626) (isBold: false) |          Support Vector Machine Algorithm        . . . .. .. . ... . . . .. ... . .. . .. .. .. . . . 603
+(XScale: 9.9626) (isBold: false) |              Zhifeng Hao, Wen Wen, Zhou Liu, and Xiaowei Yang
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Edge-Preserving Bayesian Image Superresolution Based on Compound
+(XScale: 9.9626) (isBold: false) |          Markov Random Fields . . . . . . . . . . .. .. . ... . . . .. ... . .. . .. . . .. .. .. . ..611
+(XScale: 9.9626) (isBold: false) |              Atsunori Kanemura, Shin-ichi Maeda, and Shin Ishii
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Robotics, Control
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A Neurofuzzy Controller for a Single Link Flexible Manipulator . . . . . . . .     621
+(XScale: 9.9626) (isBold: false) |              Samaneh Sarraf, Ali Fallah, and T. Seyedena
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Suboptimal Nonlinear Predictive Control with Structured Neural
+(XScale: 9.9626) (isBold: false) |          Models   . . . .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . . .. .. .. . .. .
+(XScale: 9.9626) (isBold: false) |              Maciej L  awrynczuk
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Neural Dynamics Based Exploration Algorithm for a Mobile Robot. . . . .            640
+(XScale: 9.9626) (isBold: false) |              Jeﬀ Bueckert and Simon X. Yang
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Neural Models in Computationally Eﬃcient Predictive Control
+(XScale: 9.9626) (isBold: false) |          Cooperating with Economic Optimisation . . . . . . . . . . . . . .. . . .. .. .. . . . .650
+(XScale: 9.9626) (isBold: false) |              Maciej L  awrynczuk
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Event Detection and Localization in Mobile Robot Navigation Using
+(XScale: 9.9626) (isBold: false) |          Reservoir Computing . . . . . . . . .. .. . ... . . . .. ... . .. . .. . . .. . . .. ... . . .. 6
+(XScale: 9.9626) (isBold: false) |              Eric A.  Antonelo,   Benjamin    Schrauwen,   Xavier   Dutoit,
+(XScale: 9.9626) (isBold: false) |              Dirk Stroobandt, and Marnix Nuttin
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 8.9664) (isBold: false) |                                                            Table of Contents – Part II     XIX
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Model Reference Control Using CMAC Neural Networks . . . . . . . . . . . . . .     670
+(XScale: 9.9626) (isBold: false) |              Alpaslan Duysak, Abdurrahman Unsal, and Jeﬀrey L. Schiano
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Real    World Applications
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A Three-Stage Approach Based on the Self-organizing Map for Satellite
+(XScale: 9.9626) (isBold: false) |          Image Classiﬁcation . . . . . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. . . . ... .
+(XScale: 9.9626) (isBold: false) |              Marcio L. Goncalves, Marcio L.A. Netto, and Jose A.F. Costa
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Performance    Analysis  of MLP-Based      Radar  Detectors   in
+(XScale: 9.9626) (isBold: false) |          Weibull-Distributed    Clutter  with  Respect  to Target Doppler
+(XScale: 9.9626) (isBold: false) |          Frequency. . . . . . .. .. . ... . . . .. ... . .. . .. . . .. . . .. . .. . . .. .. .. .. .. ...
+(XScale: 9.9626) (isBold: false) |              Raul Vicen-Bueno, Maria P. Jarabo-Amores, Manuel Rosa-Zurera,
+(XScale: 9.9626) (isBold: false) |              Roberto Gil-Pita, and David Mata-Moya
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Local Positioning System Based on Artiﬁcial Neural Networks . . . . . . . . .      699
+(XScale: 9.9626) (isBold: false) |              Pedro Claro and Nuno Borges Carvalho
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          An Adaptive Neuro-Fuzzy Inference System for Calculation Resonant
+(XScale: 9.9626) (isBold: false) |          Frequency and Input Resistance of Microstrip Dipole Antenna . . . . . . . . .      709
+(XScale: 9.9626) (isBold: false) |              Siddik C. Basaran, Inayet B. Toprak, and Ahmet Yardimci
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          GARCH Processes with Non-parametric Innovations for Market Risk
+(XScale: 9.9626) (isBold: false) |          Estimation . . . . . .. .. . ... . . . .. ... . .. . .. . . .. . . .. . .. . . .. .. .. .. .. ...
+(XScale: 9.9626) (isBold: false) |              Jose Miguel Hernandez-Lobato, Daniel Hernandez-Lobato, and
+(XScale: 9.9626) (isBold: false) |              Alberto Suarez
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Forecasting Portugal Global Load with Artiﬁcial Neural Networks . . . . . .        728
+(XScale: 9.9626) (isBold: false) |              J. Nuno Fidalgo and Manuel A. Matos
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Using Genetic Algorithm to Develop a Neural-Network-Based Load
+(XScale: 9.9626) (isBold: false) |          Forecasting . . . . .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . . .. .. .. .
+(XScale: 9.9626) (isBold: false) |              Ronaldo R.B. de Aquino, Otoni Nobrega Neto, Milde M.S. Lira,
+(XScale: 9.9626) (isBold: false) |              Aida A. Ferreira, and Katyusco F. Santos
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Separation and Recognition of Multiple Sound Source Using Pulsed
+(XScale: 9.9626) (isBold: false) |          Neuron Model . . . . . . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . .
+(XScale: 9.9626) (isBold: false) |              Kaname    Iwasa,  Hideaki   Inoue,  Mauricio   Kugler,
+(XScale: 9.9626) (isBold: false) |              Susumu Kuroyanagi, and Akira Iwata
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Text-Independent Speaker Authentication with Spiking Neural
+(XScale: 9.9626) (isBold: false) |          Networks   . . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . . .. .. .. .
+(XScale: 9.9626) (isBold: false) |              Simei Gomes Wysoski, Lubica Benuskova, and Nikola Kasabov
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Interferences in the Transformation of Reference Frames During a
+(XScale: 9.9626) (isBold: false) |          Posture Imitation Task    . . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. . . . ... .
+(XScale: 9.9626) (isBold: false) |              Eric L. Sauser and Aude G. Billard
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 8.9664) (isBold: false) |          XX      Table of Contents – Part II
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Combined Artiﬁcial Neural Network and Adaptive Neuro-Fuzzy
+(XScale: 9.9626) (isBold: false) |          Inference System    for Improving a Short-Term Electric Load
+(XScale: 9.9626) (isBold: false) |          Forecasting . . . . .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . . .. .. .. .
+(XScale: 9.9626) (isBold: false) |              Ronaldo  R.B. de   Aquino, Geane     B. Silva, Milde  M.S.   Lira,
+(XScale: 9.9626) (isBold: false) |              Aida A. Ferreira, Manoel A. Carvalho Jr , Otoni Nobrega Neto, and
+(XScale: 9.9626) (isBold: false) |              Josinaldo B. de Oliveira
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A MLP Solver for First and Second Order Partial Diﬀerential
+(XScale: 9.9626) (isBold: false) |          Equations . . . . . .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . . .. .. .. .
+(XScale: 9.9626) (isBold: false) |              Slawomir Golak
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Independent        Component          Analysis
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A Two-Layer ICA-Like Model Estimated by Score Matching . . . . . . . . . . .       798
+(XScale: 9.9626) (isBold: false) |              Urs Koster and Aapo Hyvarinen
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Testing Component Independence Using Data Compressors             . . . .. .. . ... 808
+(XScale: 9.9626) (isBold: false) |              Daniil Ryabko
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Graphs
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          K-Pages Graph Drawing with Multivalued Neural Networks . . . . . . . . . . .       816
+(XScale: 9.9626) (isBold: false) |              Domingo    Lopez-Rodrıguez,   Enrique   Merida-Casermeiro,
+(XScale: 9.9626) (isBold: false) |              Juan M. Ortız-de-Lazcano-Lobato, and Gloria Galan-Marın
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Recursive Principal Component Analysis of Graphs          . . .. .. . . .. .. .. . .. .826
+(XScale: 9.9626) (isBold: false) |              Alessio Micheli and Alessandro Sperduti
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A Method to Estimate the Graph Structure for a Large MRF Model              . . .  836
+(XScale: 9.9626) (isBold: false) |              Miika Rajala and Risto Ritala
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Emotion       and   Attention:       Empirical      Findings      Neural
+(XScale: 11.9552) (isBold: true) |          Models      (Special     Session)
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Neural Substructures for Appraisal in Emotion: Self-esteem and
+(XScale: 9.9626) (isBold: false) |          Depression . . . . . .. .. . ... . . . .. ... . .. . .. . . .. . . .. . .. . . .. .. .. .. .. ...
+(XScale: 9.9626) (isBold: false) |              Nienke Korsten, Nickolaos Fragopanagos, and John G. Taylor
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          The Link Between Temporal Attention and Emotion: A Playground for
+(XScale: 9.9626) (isBold: false) |          Psychology, Neuroscience, and Plausible Artiﬁcial Neural Networks . . . . .        859
+(XScale: 9.9626) (isBold: false) |              Etienne B. Roesch, David Sander, and Klaus R. Scherer
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Inferring Cognition from fMRI Brain Images        . . . .. .. . ... . . . .. .. . . .. .. 869
+(XScale: 9.9626) (isBold: false) |              Diego Sona, Sriharsha Veeramachaneni, Emanuele Olivetti, and
+(XScale: 9.9626) (isBold: false) |              Paolo Avesani
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Modelling the N2pc and Its Interaction with Value . . . . . . . . . . . .. .. . ... 879
+(XScale: 9.9626) (isBold: false) |              John G. Taylor and Nickolaos Fragopanagos
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.
+(XScale: 0.0) (isBold: false) |
+(XScale: 8.9664) (isBold: false) |                                                            Table of Contents – Part II     XXI
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Biasing Neural Networks Towards Exploration or Exploitation Using
+(XScale: 9.9626) (isBold: false) |          Neuromodulation     . . . .. .. . ... . . . .. ... . .. . .. . . .. . . .. . .. . . .. .. .. .. .
+(XScale: 9.9626) (isBold: false) |              Karla Parussel and Lola Canamero
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 11.9552) (isBold: true) |          Understanding          and    Creating      Cognitive      Systems
+(XScale: 11.9552) (isBold: true) |          (Special     Session)
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A Simple Model of Cortical Activations During Both Observation and
+(XScale: 9.9626) (isBold: false) |          Execution of Reach-to-Grasp Movements . . . . . . . . . . . . .. .. . . .. .. .. . . . .899
+(XScale: 9.9626) (isBold: false) |              Matthew Hartley and John G. Taylor
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A Cognitive Model That Describes the Inﬂuence of Prior Knowledge
+(XScale: 9.9626) (isBold: false) |          on Concept Learning . . . . . . . . .. .. . ... . . . .. ... . .. . .. . . .. . . .. ... . . .. 9
+(XScale: 9.9626) (isBold: false) |              Toshihiko Matsuka and Yasuaki Sakamoto
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Developing Concept Representations       . . . .. .. . . .. .. .. . . . .. . .. .. .. .. ..922
+(XScale: 9.9626) (isBold: false) |              Stathis Kasderidis
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Self-perturbation and Homeostasis in Embodied Recurrent Neural
+(XScale: 9.9626) (isBold: false) |          Networks: A Meta-model and Some Explorations with Mechanisms for
+(XScale: 9.9626) (isBold: false) |          Sensorimotor Coordination . . . . . . . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . . 93
+(XScale: 9.9626) (isBold: false) |              Jorge Simao
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          An Oscillatory Model for Multimodal Processing of Short Language
+(XScale: 9.9626) (isBold: false) |          Instructions . . . . .. .. . ... . . . .. ... . .. . .. . . .. . . .. . .. . . .. .. .. .. .. ...
+(XScale: 9.9626) (isBold: false) |              Christo Panchev
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Towards Understanding of Natural Language: Neurocognitive
+(XScale: 9.9626) (isBold: false) |          Inspirations . . . . .. .. . ... . . . .. ... . .. . .. . . .. . . .. . .. . . .. .. .. .. .. ...
+(XScale: 9.9626) (isBold: false) |              Wl odzisl aw Duch, Pawe l Matykiewicz, and John Pestian
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A Computational Model of Metaphor Understanding Consisting of Two
+(XScale: 9.9626) (isBold: false) |          Processes  . . . .. .. . . .. .. .. . . . .. . .. .. .. .. .. . . . .. .. . ... .. . . .. .. .. .
+(XScale: 9.9626) (isBold: false) |              Asuka Terai and Masanori Nakagawa
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          A Novel Novelty Detector . . . . . . . . .. .. . ... . . . .. ... . .. . .. . . .. .. .. . ..973
+(XScale: 9.9626) (isBold: false) |              Neill R. Taylor and John G. Taylor
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 9.9626) (isBold: false) |          Author Index . . . . . . . . . .. .. . ... . . . .. ... . .. . .. . . .. . . .. . .. . . .. .. ..
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |                                                                                                           
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 0.0) (isBold: false) |
+(XScale: 12.0) (isBold: false) | e  PDF  Split-Merge     on  www.verypdf.com          to remove     this watermark.

@@ -49,7 +49,7 @@ public class Section {
     }
 
     public String getTitle() {
-        return title;
+        return title.replaceAll("\\s+", " ").trim();
     }
 
     public void setTitle(String value) {

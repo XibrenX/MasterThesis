@@ -1,7 +1,5 @@
 package parser;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -48,7 +46,7 @@ public class ColumnRange implements Comparable<ColumnRange> {
     }
 
     @Override
-    public int compareTo(@NotNull ColumnRange other) {
+    public int compareTo(ColumnRange other) {
         return this.getMinimum() - other.getMinimum();
     }
 

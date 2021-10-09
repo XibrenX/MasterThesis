@@ -17,13 +17,13 @@ public class SectionToGridConverter {
     /**
      * Converts a section to a grid
      */
-    public UnbalancedGrid<TextPart> convert(Section section) {
+    public UnbalancedGrid<TextPart> convert(Iterable<String> content) {
         UnbalancedGrid<TextPart> grid = new UnbalancedGrid<>();
 
         // First step is to determine the columns
         List<Integer> horizontalPositions = new ArrayList<>();
 
-        for(String line : section.getContent()) {
+        for(String line : content) {
             String[] parts = line.split("\\s\\s+");
             for (String part : parts) {
                 if(part.equals("")) continue;
@@ -56,7 +56,7 @@ public class SectionToGridConverter {
             ColumnRange cr = cleanColumnRanges.get(columnRangeNum);
 
             int lineNumber = 0;
-            for(String line : section.getContent()) {
+            for(String line : content) {
                 String[] parts = line.split("\\s\\s+");
                 for (String part : parts) {
                     if(part.equals("")) continue;

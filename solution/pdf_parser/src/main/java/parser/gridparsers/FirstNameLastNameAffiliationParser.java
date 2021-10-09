@@ -33,4 +33,9 @@ public class FirstNameLastNameAffiliationParser implements GridParser {
         }
         return returnValue;
     }
+
+    @Override
+    public String getName() {
+        return "FirstNameLastNameAffiliationParser";
+    }
 }

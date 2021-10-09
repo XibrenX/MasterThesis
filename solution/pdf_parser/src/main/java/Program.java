@@ -1,9 +1,13 @@
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 import java.util.logging.Logger;
 
+import database.Database;
+import database.DatabaseFactory;
 import document.*;
 import grid.UnbalancedGrid;
 import org.apache.pdfbox.io.RandomAccessFile;
@@ -19,19 +23,40 @@ public class Program {
     private final static Logger LOGGER = Logger.getLogger(Program.class.getName());
 
     public static void main(String[] args) {
-        String string = null;
+
+        long runId = System.currentTimeMillis();
+        LOGGER.info("Run id: " + runId);
+
+//        String string = null;
 //        String pathname = "C:\\Users\\EwoudWesterbaan\\Desktop\\pdf_test\\conf_wise_2015-1.pdf";
 //        String pathname = "C:\\Users\\EwoudWesterbaan\\Desktop\\pdf_test\\conf_dlt_2014.pdf";
-        String pathname = "C:\\Users\\EwoudWesterbaan\\Desktop\\pdf_test\\conf_icann_2007-2.pdf";
+//        String pathname = "C:\\Users\\EwoudWesterbaan\\Desktop\\pdf_test\\conf_icann_2007-2.pdf";
 //        String pathname = "C:\\Users\\EwoudWesterbaan\\Desktop\\pdf_test\\conf_miccai_2012-3.pdf";
 
+        Properties properties = new Properties();
+        String fileName = "./solution/config";
+        try (FileInputStream fis = new FileInputStream(fileName)) {
+            properties.load(fis);
+        } catch (FileNotFoundException ex) {
+            LOGGER.warning("Properties file not found.");
+        } catch (IOException ex) {
+            LOGGER.warning("Unable to read properties file.");
+        }
+        Database database = DatabaseFactory.getDatabase(
+                properties.getProperty("POSTGRES_USER"),
+                properties.getProperty("POSTGRES_PASSWORD"),
+                properties.getProperty("POSTGRES_DB")
+        );
+
+        String pathname = properties.getProperty("RAW_DATA") + "/lncs_front_matter/input/" + "conf_icann_2007-2.pdf";
 
         try {
-            PDFParser pdfParser = new PDFParser(new RandomAccessFile(new File(pathname), "r"));
+            File file = new File(pathname);
+            PDFParser pdfParser = new PDFParser(new RandomAccessFile(file, "r"));
             pdfParser.parse();
             PDDocument pdDocument = new PDDocument(pdfParser.getDocument());
             PDFTextStripper pdfTextStripper = new PDFLayoutTextStripperFontSize();
-            string = pdfTextStripper.getText(pdDocument);
+            String string = pdfTextStripper.getText(pdDocument);
 
             List<TextLine> textLines = ((PDFLayoutTextStripperFontSize)pdfTextStripper).getAllTextLines();
 
@@ -65,9 +90,14 @@ public class Program {
                 UnbalancedGrid<TextPart> grid = getGrid(sectionToGridConverter, section);
                 SectionInfo sectionInfo = SectionInfoFactory.GetSessionInfo(grid);
                 section.setSectionInfo(sectionInfo);
+                GridParser parser = GridParserFactory.getInstance().GetParser(section.getSectionInfo(), grid);
 
                 // schrijf sectioninfo naar een database
-
+                String parserName = null;
+                if (parser != null) {
+                    parserName = parser.getName();
+                }
+                database.saveSection(runId, file.getName(), section, parserName);
             }
 
 
@@ -80,15 +110,15 @@ public class Program {
     }
 
     private static UnbalancedGrid<TextPart> getGrid(SectionToGridConverter sectionToGridConverter, Section section) {
-        UnbalancedGrid<TextPart> grid = sectionToGridConverter.convert(section);
+        UnbalancedGrid<TextPart> grid = sectionToGridConverter.convert(section.getContent());
         return grid;
     }
 
-    private static void processSection(Section section, UnbalancedGrid<TextPart> grid) {
-        String role = section.getTitle().replaceAll("\\s+", " ").trim();
+    private static void processSection(GridParser parser, Section section, UnbalancedGrid<TextPart> grid) {
+        String role = section.getTitle();
         LOGGER.info("Start processing section: " + role + ".");
 
-        GridParser parser = GridParserFactory.getInstance().GetParser(section.getSectionInfo(), grid);
+
         if (parser == null) {
             LOGGER.warning("Unable to find appropriate parser.");
         }

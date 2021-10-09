@@ -1,3 +1,4 @@
 POSTGRES_USER=<dbusername>
 POSTGRES_PASSWORD=<dbpassword>
 POSTGRES_DB=<dbname>
+RAW_DATA=/blabla/blabla

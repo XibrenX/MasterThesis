@@ -39,7 +39,7 @@ public class SectionInfo {
 
     private int numberOfColumns;
     private int numberOfTextParts;
-    private HashMap<Integer, Double> commaRatios;
+    private HashMap<Integer, Double> commaRatios = new HashMap<>();
     private boolean allValuesContainsCommas;
 
     public SectionInfo() {
