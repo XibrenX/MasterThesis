@@ -1,6 +1,4 @@
-/scriptie/images/output
-/scriptie/.pyenv*
-/scriptie/.olauth
+/**/.pyenv*
 /solution/config
 /solution/database/data
 /.idea
