@@ -1,1 +1,1 @@
-drawio -x images/drawio -f png -o images/output/
+drawio -x scriptie/images/drawio -f png -o scriptie/images/output/
