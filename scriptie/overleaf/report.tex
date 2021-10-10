@@ -145,8 +145,21 @@ most publications in computer science, currently lists more than 2.5 million
 authors -- a number that cannot be manually investigated. Hence, a more generic 
 approach to detect fraud is needed. 
 
+\todo{
+\begin{itemize}
+    \item dus: Generieke vorm van detectie gewenst
+    \item dat kan dus niet afhangen van een specifieke aanval
+    \item dat moet dus gebaseerd zijn op een holistische view van het 
+        publicatieproces (kerngetallen bijvoorbeeld)
+        -- en weten wat daar de norm is.
+    \item Dus beschouwen we in de volgende secties het publicatieprocess in meer 
+        detail.
+\end{itemize}
+}
+
 In this project, we aim to take the first step in this direction by not focusing 
-on the method of fraud applied, but on the \emph{effect of scientific fraud}. 
+on the method of fraud applied, but on the \emph{effect of scientific fraud} By
+looking at a holistic view of the publication process. 
 The underlying assumption is that the various types of scientific fraud all 
 share a common characteristic: their goal is the same, that is, their goal is to 
 improve a researcher's or publication's quantitative measures of science. This 
@@ -313,27 +326,49 @@ areas\footnote{\url{https://www.natureindex.com/news-blog/paper-authorship-goes-
     \item +/- 1 contributie per hoofdstuk
 \end{itemize}
 }
+During this research we will contribute the following items to the community.
+\begin{description}
+    \item[Situations of dishonest behaviour] which we want to identify using our 
+        methodology; the attacks.
+    \item[A formal model of the publication process] which contains the objects 
+        necessary to catch the identified attacks.
+    \item[Data collection methodology] to get the necessary data to provide an 
+        holistic view on the publication process.
+\end{description}
 \old{
 \begin{description}
-    \item[A formal model of the publication process] The publication process consists of inputs
-        (features) and outputs (metrics). Simply defined; the output is depended on the inputs,
-        and those inputs are a result of the behaviour of the author. The output is the metric the author want to change in his (or her) favor. To determine what
-        features we need to monitor, we need to understand how this publication process works.
-        To achieve this, we need to have a formal model of the process to analyse these relations, which is our second contribution:
-    \item[Deriving input-output relations] Given this formal model, we can derive all inputs that affect
-        the output metrics, which are the metrics an attacker wants to adjust. This is important because these relations give us insights how the publication model can be played. With the inputs of these relations we can start putting together a list of features we need to collect. We will formalise
-        a few metrics and elaborate how to game this model to adjust them in favor of the attacker. Except these theoretical gaming, we also know some attacks on the model which actually did took place, which leads to our third contribution.
-    \item[Overview of known attacks] We investigate known attacks and show how to model these
-        attacks in the formal model. This substantiates that the formal model is relevant for
-        detecting practical attacks. Combining these with the formal attacks brings us to our fourth contribution.
-    \item[Features indicating an attack] We combine the knowledge gained from establishing
-        input-output relations and the theoretical embedding of practical attacks in the formal
-        model to derive features that are indicative of metrics, and therefore, possibly abused in
-        attacks. Having this features, we can proceed with the detection method.
-    \item[Detection method] With these features in hand we propose a formal approach to automatically
-        separate ``interesting'' cases from regular scientists. Consider these features as
-        input for our detection mechanism, the output is a set of regular authors and a set of
-        authors that are positive outliers on (combinations of) those features.
+    \item[A formal model of the publication process] The publication process 
+        consists of inputs (features) and outputs (metrics). Simply defined; the 
+        output is depended on the inputs, and those inputs are a result of the 
+        behaviour of the author. The output is the metric the author want to 
+        change in his (or her) favor. To determine what features we need to 
+        monitor, we need to understand how this publication process works. To 
+        achieve this, we need to have a formal model of the process to analyse 
+        these relations, which is our second contribution:
+    \item[Deriving input-output relations] Given this formal model, we can 
+        derive all inputs that affect the output metrics, which are the metrics 
+        an attacker wants to adjust. This is important because these relations 
+        give us insights how the publication model can be played. With the 
+        inputs of these relations we can start putting together a list of 
+        features we need to collect. We will formalise a few metrics and 
+        elaborate how to game this model to adjust them in favor of the 
+        attacker. Except these theoretical gaming, we also know some attacks on 
+        the model which actually did took place, which leads to our third 
+        contribution.
+    \item[Overview of known attacks] We investigate known attacks and show how 
+        to model these attacks in the formal model. This substantiates that the 
+        formal model is relevant for detecting practical attacks. Combining 
+        these with the formal attacks brings us to our fourth contribution.
+    \item[Features indicating an attack] We combine the knowledge gained from 
+        establishing input-output relations and the theoretical embedding of 
+        practical attacks in the formal model to derive features that are 
+        indicative of metrics, and therefore, possibly abused in attacks. Having 
+        this features, we can proceed with the detection method.
+    \item[Detection method] With these features in hand we propose a formal 
+        approach to automatically separate ``interesting'' cases from regular 
+        scientists. Consider these features as input for our detection 
+        mechanism, the output is a set of regular authors and a set of authors 
+        that are positive outliers on (combinations of) those features.
 \end{description}
 }
 
@@ -356,42 +391,7 @@ mitigation strategies in Section~\ref{Planning_RiskAnalysis}.
 
 
 
-% ==============================================================================
-\chapter{Related work}
-% ==============================================================================
-\outline{
-Bijdrage aan contributies
-\begin{itemize}
-    \item 1) Studies die iets soortgelijks hebben gedaan
-    \begin{itemize}
-        \item Tielenburg
-    \end{itemize}
-    \item 2) Bouwstenen
-    \begin{itemize}
-        \item PDF Extractie
-        \item Outlier detectie
-    \end{itemize}
-    \item 3) Titels die altijd moeten worden genoemd
-\end{itemize}
-}
 
-
-% ==============================================================================
-\chapter{Methodology}
-% ==============================================================================
-Belangrijkste punten:
-\outline{
-\begin{itemize}
-    \item Wat ga je doen?
-    \item Waarom ga je dat zo doen?
-\end{itemize}
-\begin{itemize}
-    \item Draait om detecteren of er aanvallen plaats vinden
-    \item Wat hebben we nodig om aanvallen te detecteren (hoe kunnen wij dat 
-    doen?
-    \item Redenering dat we een model nodig hebben
-\end{itemize}
-}
 
 % ==============================================================================
 \chapter{Domain analysis of the publication process}
@@ -403,18 +403,15 @@ Belangrijkste punten:
 \end{itemize}
 }
 
-Incentives for scientists rely on quantitative measures of science, 
-    such as number of publications, number of citations and amount of grants 
-    received. 
-This gives scientist a higher status, salary, more resources (funds, students) to do 
-    more research (which leads to more rewards); recognition and accolades.
-To achieve these rewards, scientists need to have their papers 
-    published for their career to 
-    thrive. 
-This process of publishing and rewarding is shown by Bj\"ork and 
-    Hedlund~\cite{BH2004} in a cycle within their visualisation of the 
-    publication process. In Figure~\ref{fig:publish_incentives} we present this 
-    cycle.
+Incentives for scientists rely on quantitative measures of science, such as 
+number of publications, number of citations and amount of grants received. This 
+gives scientist a higher status, salary, more resources (funds, students) to do 
+more research (which leads to more rewards); recognition and accolades. To 
+achieve these rewards, scientists need to have their papers published for their 
+career to thrive. This process of publishing and rewarding is shown by Bj\"ork 
+and Hedlund~\cite{BH2004} in a cycle within their visualisation of the 
+publication process. In Figure~\ref{fig:publish_incentives} we present this 
+cycle.
 
 \begin{figure}[H]
 \centering
@@ -424,11 +421,11 @@ This process of publishing and rewarding is shown by Bj\"ork and
 \end{figure}
 % ==============================================================================
 
-In this image we see that the researcher is evaluated and receives 
-    incentives (such as funds) based on performance measures. In their paper,
-    Bj\"ork and Hedlund mention that for public bodies that provide funds
-    (which is an incentive for the researcher), the production and consumption
-    of publications should be optimized.
+In this image we see that the researcher is evaluated and receives incentives 
+(such as funds) based on performance measures. In their paper,  Bj\"ork and 
+Hedlund mention that for public bodies that provide funds (which is an incentive 
+for the researcher), the production and consumption of publications should be 
+optimized.
 % For researchers, there are multiple strategies to achieve appointments and grants.
 % Interestingly, only one of these is to act honestly, that is, to perform the
 %     research and publish results. Dishonest approaches are possible,
@@ -438,30 +435,21 @@ In this image we see that the researcher is evaluated and receives
 % Existing deterrents are typically focused on specific forms of dishonest
 %     behaviour. However, dishonest behaviour still occurs.
     
-\todo{
-\begin{itemize}
-\item dus: Generieke vorm van detectie gewenst
-\item dat kan dus niet afhangen van een specifieke aanval
-\item dat moet dus gebaseerd zijn op een holistische view van het publicatieproces (kerngetallen bijvoorbeeld)
-    -- en weten wat daar de norm is.
-\item Dus beschouwen we in de volgende secties het publicatieprocess in meer detail.
-\end{itemize}
-}
+
 
 %% For an author this is an interesting perspective. What can we consider 
 %%     production and what consumption and, for detecting fraud, how can we pretend 
 %%     to produce and pretend the work is being consumed. In other words; how can 
 %%     one pretend to be interesting and gain incentives.
 %%     % \item It is save to consider bringing papers to the public as publication. In this chapter we will dive in how this process looks like and the roles and power involved; who has the power that your work can even be consumed?
-Two main targets exists for scientific publication: journals 
-    (incollection) or conferences (inproceeding). While journal publications 
-    are the norm in many other disciplines, conference publications are
-    common in Computer Science.
-The next sections describe these processes from a Computer Science 
-    perspective. For other disciplines these processes may differ.
-    For example, in CS conferences, rigorous peer-review is the norm, with
-    acceptance rates of 20\% or less being common;
-    in other disciplines, peer review may be less strict.
+Two main targets exists for scientific publication: journals (incollection) or 
+conferences (inproceeding). While journal publications are the norm in many 
+other disciplines, conference publications are common in Computer Science.
+
+The next sections describe these processes from a Computer Science perspective. 
+For other disciplines these processes may differ. For example, in CS 
+conferences, rigorous peer-review is the norm, with acceptance rates of 20\% or 
+less being common; in other disciplines, peer review may be less strict.
     
 In the next section we examine the process in more detail.
 
@@ -472,26 +460,47 @@ In the next section we examine the process in more detail.
 beschrijvend het process bespreken
 }
 
-First we will discuss the process for publishing in a journal. Although the exact process may differ across journals, there is a certain common process. We tend to describe this common process.
+First we will discuss the process for publishing in a journal. Although the 
+exact process may differ across journals, there is a certain common process. We 
+tend to describe this common process.
 
-The process of publishing in a journal starts at the author who has a manuscript he wants to have published.
-This can be based on a 'call for papers', or on own initiative.
-According to Cormode, the Editor-in-Chief receives the manuscript and do a minor check if the paper is good enough for further processing.
-If it is, the further process of handling the paper is assigned to an associate editor who also perform some checks for quality (understandability, duplication of prior work, topic in scope). The checks from the editor-in-chief and associate editor can lead to a rejection of the manuscript.
-According to Cormode, the author is encouraged to suggest an associate editor at submitting. This helps the editor-in-chief to delegate the handling to a associate-editor with knowledge of the domain e.g..
+The process of publishing in a journal starts at the author who has a manuscript 
+he wants to have published. This can be based on a 'call for papers', or on own 
+initiative. According to Cormode, the Editor-in-Chief receives the manuscript 
+and do a minor check if the paper is good enough for further processing. If it 
+is, the further process of handling the paper is assigned to an associate editor 
+who also perform some checks for quality (understandability, duplication of 
+prior work, topic in scope). The checks from the editor-in-chief and associate 
+editor can lead to a rejection of the manuscript. According to Cormode, the 
+author is encouraged to suggest an associate editor at submitting. This helps 
+the editor-in-chief to delegate the handling to a associate-editor with 
+knowledge of the domain e.g..
 
-The main responsibilities of the associate editor are 1) Initial handling and selecting reviews for the papers and 2) obtaining a decision for a paper.
-Although selecting reviewers to review a manuscript is a responsibility of the associate editor, it is not uncommon for an author to suggest reviewers. Sometimes he even needs to provide reviewers.
+The main responsibilities of the associate editor are 1) Initial handling and 
+selecting reviews for the papers and 2) obtaining a decision for a paper. 
+Although selecting reviewers to review a manuscript is a responsibility of the 
+associate editor, it is not uncommon for an author to suggest reviewers. 
+Sometimes he even needs to provide reviewers.
 
-After getting the results from the reviewers, the associate editor decides if the manuscript needs to be adjusted.
-Formally the reviewers give an advise, but it is up to the associate editor to do the final judgement.
-If adjustments are needed, the author adjusts his manuscript and this needs to be reviewed again. This can happen with other reviewers.
-An alternative path is that an author chooses to withdraw his paper.
+After getting the results from the reviewers, the associate editor decides if 
+the manuscript needs to be adjusted. Formally the reviewers give an advise, but 
+it is up to the associate editor to do the final judgement. If adjustments are 
+needed, the author adjusts his manuscript and this needs to be reviewed again. 
+This can happen with other reviewers. An alternative path is that an author 
+chooses to withdraw his paper.
 
-Eventually, hopefully, if the paper is accepted by the associate editor, an advise will be given to the editor-in-chief.
-Formally the editor-in-chief decides if a paper is being published, but most of the time the advise of the associate editor is adopted.
-This chain of advise and assignment is shown in Figure~\ref{fig:c2013}. Interesting in this schematic overview is the absolute power of the Editor-in-Chief. He can make a judgement without the advise of the associate-editor (and reviewers). Also this role can influence the process by choosing a specific associate-editor. Under the Editor-in-Chief, we draw the Associate editor. This role has two ways to influence the process; by choosing the reviewers and by giving the advise to the editor-in-chief.
-The reviewers have less power; off course they can provide an advise, but most of the cases there are multiple reviewers.
+Eventually, hopefully, if the paper is accepted by the associate editor, an 
+advise will be given to the editor-in-chief. Formally the editor-in-chief 
+decides if a paper is being published, but most of the time the advise of the 
+associate editor is adopted. This chain of advise and assignment is shown in 
+Figure~\ref{fig:c2013}. Interesting in this schematic overview is the absolute 
+power of the Editor-in-Chief. He can make a judgement without the advise of the 
+associate-editor (and reviewers). Also this role can influence the process by 
+choosing a specific associate-editor. Under the Editor-in-Chief, we draw the 
+Associate editor. This role has two ways to influence the process; by choosing 
+the reviewers and by giving the advise to the editor-in-chief. The reviewers 
+have less power; off course they can provide an advise, but most of the cases 
+there are multiple reviewers.
 
 \begin{figure}[H]
 \centering
@@ -997,6 +1006,43 @@ fabrication.
 \outline{
 \begin{itemize}
     \item dan modellering (hfst \ref{chp:modelling_the_publication_process})
+\end{itemize}
+}
+
+% ==============================================================================
+\chapter{Related work}
+% ==============================================================================
+\outline{
+Bijdrage aan contributies
+\begin{itemize}
+    \item 1) Studies die iets soortgelijks hebben gedaan
+    \begin{itemize}
+        \item Tielenburg
+    \end{itemize}
+    \item 2) Bouwstenen
+    \begin{itemize}
+        \item PDF Extractie
+        \item Outlier detectie
+    \end{itemize}
+    \item 3) Titels die altijd moeten worden genoemd
+\end{itemize}
+}
+
+
+% ==============================================================================
+\chapter{Methodology}
+% ==============================================================================
+Belangrijkste punten:
+\outline{
+\begin{itemize}
+    \item Wat ga je doen?
+    \item Waarom ga je dat zo doen?
+\end{itemize}
+\begin{itemize}
+    \item Draait om detecteren of er aanvallen plaats vinden
+    \item Wat hebben we nodig om aanvallen te detecteren (hoe kunnen wij dat 
+    doen?
+    \item Redenering dat we een model nodig hebben
 \end{itemize}
 }
 
