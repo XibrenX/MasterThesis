@@ -126,7 +126,7 @@ fabrication of research data. In addition, there may be as-of-yet unknown forms
 of fraud.
 
 Various prevention and detection measures are in place. In absence of these 
-deterrents, the scientific process would be inundated by dishonest behaviour. 
+deterrents, the scientific process would be vulnerable to dishonest behaviour. 
 These existing deterrents are typically focused on specific forms of dishonest 
 behaviour. Examples of these existing measures are Ithenticate to detect 
 plagiarism, or ORI's Forensic Droplets\footnote{\url{https://ori.hhs.gov/droplets}} 
@@ -136,11 +136,15 @@ p-hacking\footnote{P-hacking is manipulation of the data so the research becomes
 statistically important.}. Another measure is applying statistical evaluation to 
 uncover manipulation of research data~\cite{HGWA2019}. 
 
-Despite these deterrents, dishonest behaviour whose methods are beyond detection 
-by these measures, still occurs. Typically, these were discovered by whistle 
-blowers and manual investigation. However, manual investigation does not scale. 
-In particular, an obstacle is the huge (and growing) number of scientific 
-publication and scientific authors. For example, the DBLP website, which records 
+Despite these deterrents, some forms of dishonest behaviour still slip through.
+\HJ{eventueel hier enkele aanvallen noemen.}
+Such behaviours use dishonest tricks outside the detective capabilities of
+current detection methods and therefore escape initial scrutiny. We know of
+such cases typically through whistle blowers and manual investigation. 
+This has illustrated that there still exists a problem, yet the scale of the
+problem remains unknown.
+In particular, one obstacle is the huge (and growing) number of scientific 
+publications and scientific authors. For example, the DBLP website, which records 
 most publications in computer science, currently lists more than 2.5 million
 authors -- a number that cannot be manually investigated. Hence, a more generic 
 approach to detect fraud is needed. 
@@ -158,13 +162,13 @@ approach to detect fraud is needed.
 }
 
 In this project, we aim to take the first step in this direction by not focusing 
-on the method of fraud applied, but on the \emph{effect of scientific fraud} By
-looking at a holistic view of the publication process. 
+on the method of fraud applied, but on the \emph{effect of scientific fraud}, by
+taking a holistic view of the publication process. 
 The underlying assumption is that the various types of scientific fraud all 
 share a common characteristic: their goal is the same, that is, their goal is to 
 improve a researcher's or publication's quantitative measures of science. This 
 elevates them above their peers -- which on the one hand brings recognition and 
-accolades, but on the other, it makes them stand out. In short, the underlying 
+accolades, but on the other, makes them stand out. In short, the underlying 
 assumption is that fraudsters aim to become outliers (in terms of quantitative 
 measures of science).
 
@@ -317,8 +321,28 @@ areas\footnote{\url{https://www.natureindex.com/news-blog/paper-authorship-goes-
     
     %% we willen 'wat' kunnen; dat moet hypothese zijn
 %%    \item Our assumption is that some fraud on the publication process can be detected by monitoring certain features of the process.
-
-
+\outline{
+\paragraph{Tweetrapsraketten}
+% -------------------------------------
+Idee: (1) vind groep personen; (2) vind outliers binnen die groep
+\begin{itemize}
+\item Editors van hetzelfde journal $\implies$ \#pubs in journal
+\item Mensen met zelfde H-index  $\implies$
+    \begin{itemize}
+    \item \#publicaties
+    \item \#jaren actief
+    \item \#citaties in h-core (hoeveel papers hebben minimale score) \\
+        Dit is een beetje: hoe verloopt de citatie``curve'' vergeleken met anderen
+    \item ranking van venues in h-core
+        \begin{itemize}
+        \item In vergelijking met anderen
+        \item In vergelijking met papers buiten je eigen h-core \\
+            en dan ook in vergelijking met anderen
+        \end{itemize}
+        
+    \end{itemize}
+\end{itemize}
+}
 \section{Contributions}
 \outline{
 \begin{itemize}
