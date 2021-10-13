@@ -144,10 +144,10 @@ such cases typically through whistle blowers and manual investigation.
 This has illustrated that there still exists a problem, yet the scale of the
 problem remains unknown.
 In particular, one obstacle is the huge (and growing) number of scientific 
-publications and scientific authors. For example, the DBLP website, which records 
-most publications in computer science, currently lists more than 2.5 million
-authors -- a number that cannot be manually investigated. Hence, a more generic 
-approach to detect fraud is needed. 
+publications and scientific authors. For example, the DBLP website, which 
+records most publications in computer science, currently lists more than 
+2.5~million authors -- a number that cannot be manually investigated. Hence, a 
+more generic approach to detect fraud is needed. 
 
 \todo{
 \begin{itemize}
@@ -163,164 +163,54 @@ approach to detect fraud is needed.
 
 In this project, we aim to take the first step in this direction by not focusing 
 on the method of fraud applied, but on the \emph{effect of scientific fraud}, by
-taking a holistic view of the publication process. 
-The underlying assumption is that the various types of scientific fraud all 
-share a common characteristic: their goal is the same, that is, their goal is to 
-improve a researcher's or publication's quantitative measures of science. This 
-elevates them above their peers -- which on the one hand brings recognition and 
-accolades, but on the other, makes them stand out. In short, the underlying 
-assumption is that fraudsters aim to become outliers (in terms of quantitative 
-measures of science).
+taking a holistic view of the publication process. We tend to do this in two 
+steps:
+\begin{enumerate}
+    \item The first step is to identify groups of people sharing a 
+        charateristic (e.g. same role, same H-index).
+    \item The second step is to identiy outliers within this group based on
+        other characteristics (e.g. number of publications).
+    
+    
+    % The 
+    % underlying assumption is that the various types of scientific fraud all 
+    % share a common characteristic: their goal is the same, that is, their goal 
+    % is to improve a researcher's or publication's quantitative measures of 
+    % science. This elevates them above their peers -- which on the one hand 
+    % brings recognition and accolades, but on the other, makes them stand out. In 
+    % short, the underlying assumption is that fraudsters aim to become outliers 
+    % (in terms of quantitative measures of science).
+
+\end{enumerate}
+
+To clarify this with an example: An editor of a journal publishes in this 
+same journal. This is not a strange fact on itself. However, if other editors of
+this same journal do not publish (or publish much less), we can consider this 
+editor an outlier. Other examples are given in Section~\ref{interesting_cases}.
+
+People with malicious ways to accomplish improvement of their quantitative 
+measures, will be an outlier compared with their peers.
 
 We immediately caution that this implication does not hold in reverse. That is: 
-such outliers need not be fraudsters. Specifically, as the quantitative measures
-aim to detect scientific excellence, excellent scientists will also be outliers.
+such outliers need not be fraudsters. 
 However: identifying outliers may reduce the pool of authors to be investigated
 by several orders of magnitude. Thus, while not perfect, outlier classification
 should make manual investigation of cases where fraud would have had significant
 effect possible.
 
-%% \begin{description}
-    %% \item[Detection of plagiarism:] To detect plagiarism, most publishers use a
-        %% service which detects the equality of text with other publications, such as
-        %% Ithenticate.
-    %% %% Reviewers are encouraged to use these services.
-    %% \item[Preventing manipulation of research data:]
-        %% The common way to prevent the manipulation of research data is to preregister
-        %% your research. Preregistration is sharing of your research design and the
-        %% method before executing the actual research. The goal is to ensure
-        %% transparency, prevent data manipulation (such as p-hacking), and to execute
-        %% the research according to plan. Preregistration is not mandatory. By
-        %% preregister a research, the author is certain that the publication can not be
-        %% rejected due to its method \cite{GC2015}. 
-    %% \item[Detection of manipulated research data:]
-        %% Furthermore, there are ongoing efforts into applying statistical evaluation
-        %% to uncover manipulation of research data. Research of Hartgerink and Van
-        %% Assen is focused on this topic, e.g.~\cite{HGWA2019}.
-    % \item [detecting manipulation of research data:]
-    %     %%Besides preregistration as countermeasure for research data manipulation,
-    %     Statistical evaluation may uncover manipulation of research data, e.g.~\cite{}.
-    %%research is conducted in the area of detecting manipulation of research data by
-    %%applying statistical methods. 
-    %% \item[Detecting manipulated images:] Several tools can detect manipulated images,
-        %% such as ORI's Forensic Droplets\footnote{\url{https://ori.hhs.gov/droplets}}.
-        %% Furthermore, research how to
-        %% detect image manipulation is ongoing, e.g.,~\cite{KWI2017}.
-%% \end{description}
-%% The fact that there is research conducted in detecting data manipulation and image
-%% fraud, does not mean that prevention strategies are structural in place. People
-%% engaged in the publication process need to run this tool for every submitted paper.
-%% Tooling to detect plagiarism is widely available and making use of these is embedded
-%% in the review process. 
-%% As mentioned, these prevention strategies has the disadvantage
-%% of only detecting one type of fraud. 
-
-
-%% Detecting other types of fraud (not the regular kind) is not in place;
-%% countermeasures only exist for known attacks. Continuing this way results in one
-%% specific countermeasure for one type of discovered attack. This is not a sustainable
-%% situation, countermeasures are overtaken by events.
-
-%% To avoid this situation 
 The goal of this project is to take a first step to make this a possibility.
 Concretely, we will design a generic detection method which uses the metrics
-of the publication process and the incentives of the authors. Our proposal is to use
-machine learning techniques to detect authors which are outliers, given the metrics
-of the publication process. The goal we aim to achieve with our proposal is to focus
-the limited capacity of manual fraud investigation to strongly increase the
-probability of identifying the most egregious of fraudsters. 
+of the publication process and the incentives of the authors. Our proposal is to 
+use machine learning techniques to detect authors which are outliers, given the 
+metrics of the publication process. The goal we aim to achieve with our proposal 
+is to focus the limited capacity of manual fraud investigation to strongly 
+increase the probability of identifying the most egregious of fraudsters. 
 % ------------------------------------------------------------------------------
 The detection method which we will design is for the computer science 
 discipline. For other disciplines this method probably needs to be tuned. For 
 example: the average number of co-authors per article change between research 
 areas\footnote{\url{https://www.natureindex.com/news-blog/paper-authorship-goes-hyper}}.
 
-% is based on the common goal of these attacks, which is to skew metrics in favor of the author. By 
-% using machine learning to detect outliers given the metrics of the publication process, we can identify authors
-% who need further manual investigation.
-
-% The goal of this project is to use automation to focus the limited capacity of
-% manual fraud investigation to strongly increase the probability of identifying
-% the most egregious of fraudsters. 
-
-
-% The main reason is that we do not know
-% how the fraud is conducted \HJ{`the fraud' -- je bedoelt `fraud', maar dan moet je het subtieler
-% formuleren. We weten namelijk van sommige soorten fraude wel hoe ze gepleegd worden, maar niet
-% zomaar van alle. EN DAT IS NU NET DE KRACHT VAN WAAR WE HEEN WILLEN (dans op stoel).}.
-% From the ones that are detected, we notice that the trigger \HJ{trigger??}
-% is mostly based on gut feeling. Also, figuring out what happened asks a lot of human
-% effort.\HJ{Englishify please}
-
-
-%%     \item In the detection and prevention measurements we miss the possibility to structural detect attacks on the publication process.
-
-% \outline{
-% \begin{itemize}
-% \item Dus: tegenmaatregelen zijn nu specifiek tegen een specifiek type aanval
-% \item Als er dan een nieuw type aanval komt, is daar geen maatregel tegen
-% \item Zo krijg je een kat-en-muisspel: voor iedere aanval die we kunnen bedenken,
-%     moet er een nieuwe preventiemaatregel komen.
-% \item Dat is niet echt efficient, kan het ook beter?
-% \item JA!
-% \item Namelijk: al deze aanvallen hebben eenzelfde doel: metrieken verbeteren
-% \item \HJ{Als het past, zou je dit punt ook kunnen maken:}
-%     Extra bonus voordeel: zo kun je ook aanvallen detecteren op delen van het
-%     publicatieproces waar geen data voorhanden is (bijv.~Moon-achtige aanvallen op
-%     reviewing).
-% \item \ldots
-% \end{itemize}
-% }
-
-% %% This means that these forms of fraud can pass undetected.
-% However, all forms of fraud will, in general, have similar effects
-% \HJ{ben er niet van overtuigd dat dit zonder meer waar is\ldots verdient wat meer
-% argumentatie denk ik}: they impact metrics of the publication process. After all,
-% the purpose to commit \HJ{of committing} fraud is to adjust \HJ{skew/tweak?} those
-% metrics in favor of the author, given the scientific incentives.
-% \HJ{Directe versie is niet noodzakelijk waar: je zou ook kunnen proberen anderen
-% te beschadigen. Dat levert je dan indirect voordeel.}
-%     % \item However: scientific publication will, in general, have similar effects: they impact
-%     %     ``kengetallen''.
-% Our idea \HJ{The goal of this project} is to detect structural fraud \HJ{``structural
-% fraud''? die term is nog niet geintroduceerd.} on the publication process by
-% monitoring these metrics.
-% \HJ{``monitoring'': denk het niet. Dat betekent dat je ze constant in de gaten houdt.
-% Wij willen een offline analyse kunnen doen, niet eentje die continue kijkt welke
-% data er binnenkomt en wat er dan gebeurt. Dacht ik tenminste.}
-%     % \item Dus, bright idea: fraude in het publicatieproces kan worden opgemerkt door
-%     %     kengetallen van het publicatieproces te monitoren.
-    
-% The goal we want to achieve is to define a method which filters authors who may be
-% involved 
-% \HJ{te vaag -- alle auteurs ``may be involved''}
-% in consequent \HJ{???} structural attacks \HJ{not quite English} on the
-% publication process. Authors who are gaming the publication
-% process once or whose gaming does not significantly impact their metrics, are not of interest;; only these authors who
-% benefit are
-% of interest. After all, if one did commit fraud but did not
-% benefit, he or she just failed in gaming the publication process. 
-
-
-    
-%%During our process working towards this goal, we expect to deliver the following contributions:
-% We plan the following contributions:
-% \HJ{My bad -- ik heb altijd moeite met de balans tussen research questions
-% en contributions. (Contributions zijn veel beter, maar RQ's zijn verplicht *sad smiley*).
-% Nu ik het zo in context lees, is het duidelijk dat de contributions: (1) pas
-% na de RQs genoemd moeten worden; (2) dat (wat mij betreft) het VAF draait om RQs
-% voor je scriptie te defini\"eren.  (nou ja, wat mij betreft\ldots als RQs verplicht
-% zijn in je scriptie \'en je hebt ook nog een VAF, dan is het logisch dat het VAF
-% resulteert in de RQs voor je scriptie.)
-
-% In je scriptie kun je dus prima contributions (van
-% het project) noemen; hier zou je alleen contributions van het VAF-verslag moeten
-% noemen. Dat zijn typisch: initi\"ele verkenning $+$ RQs $+$ methodologie  $+$ planning.
-% Dat hoef je niet per se expliciet te maken. Dus copy-paste onderstaande contributions
-% maar alvast aan thesis.tex.}
-    
-    %% we willen 'wat' kunnen; dat moet hypothese zijn
-%%    \item Our assumption is that some fraud on the publication process can be detected by monitoring certain features of the process.
 \outline{
 \paragraph{Tweetrapsraketten}
 % -------------------------------------
@@ -398,19 +288,19 @@ During this research we will contribute the following items to the community.
 
 
     
-This research proposal continues in Section~\ref{RelatedWork}, 
-\nameref{RelatedWork}, where we discuss publications which are related to the 
-goal we want to achieve. A major topic in this project is outlier (or anomaly)
-detection; we will discuss this topic and how this incorporates in this project 
-in Section~\ref{anomaly_detection}. Next, we describe our research questions in
-Section~\ref{Research_ResearchQuestions} and how we think we should be able to 
-answer them in Section~\ref{Research_ResearchMethod}. Because the research we 
-propose is very dependent on data, we provide an initial investigation of 
-possible data sources. The outcome and result of this analysis is described in 
-Section~\ref{Research_Data} '\nameref{Research_Data}'. The validity of our 
-research is discussed in Section~\ref{Research_Validation}. The research
-proposal concludes with a planning in Section~\ref{Planning} and risks and 
-mitigation strategies in Section~\ref{Planning_RiskAnalysis}.
+% This research proposal continues in Section~\ref{RelatedWork}, 
+% \nameref{RelatedWork}, where we discuss publications which are related to the 
+% goal we want to achieve. A major topic in this project is outlier (or anomaly)
+% detection; we will discuss this topic and how this incorporates in this project 
+% in Section~\ref{anomaly_detection}. Next, we describe our research questions in
+% Section~\ref{Research_ResearchQuestions} and how we think we should be able to 
+% answer them in Section~\ref{Research_ResearchMethod}. Because the research we 
+% propose is very dependent on data, we provide an initial investigation of 
+% possible data sources. The outcome and result of this analysis is described in 
+% Section~\ref{Research_Data} '\nameref{Research_Data}'. The validity of our 
+% research is discussed in Section~\ref{Research_Validation}. The research
+% proposal concludes with a planning in Section~\ref{Planning} and risks and 
+% mitigation strategies in Section~\ref{Planning_RiskAnalysis}.
 
 
 
@@ -544,21 +434,6 @@ For our research, we took a diagram from their publication and took the activiti
 Hereby neglecting the steps "Negotiate copyright" and "Copyedit Article". The result is shown in Figure~\ref{fig:bh2004_a22331}.
 
 
-% \paragraph{IDEF0}
-% \vraag{Misschien als een soort intermezzo?}
-% \begin{itemize}
-%     \item The models of Björk and Hedlund are based on the IDEF0 specification. This is a modelling type for business processes.
-%     \item Every box represents an activity. In Figure~\ref{fig:idef0} an IDEF0 activity is shown. This activity has inputs to the left and outputs to the right. To perform such activity, resources are needed (e.g. people, tools). These resources are drawn from below in the activity. In Figure~\ref{fig:bh2004_a22331} we can see Publisher en Editor as a resource to perform 'Manage the review process'. To execute an activity, sometimes controls are needed such as plans, specification, or in this case, journal review policies.
-% \end{itemize}
-% \begin{figure}[H]
-% \centering
-% \includegraphics[width=6cm]{images/idef0.drawio.png}
-% \caption{IDEF0}
-% \label{fig:idef0}
-% \end{figure}
-
-   
-
 \begin{figure}[H]
 \centering
 \includegraphics[width=14cm]{images/bh2004_dia_a22331_part.drawio.png}
@@ -642,25 +517,6 @@ The result if a paper is being approved depends on the composition of the
 responsible committee. This means that the committee judging papers for 
 conferences has the power to determining whose paper is being accepted and 
 therefore whose career is going to thrive.
-
-
-% \outline{
-
-% LET OP: GEKOPIEERD!!!!!
-
-% \subsection{IEEE}
-% (https://ieeemce.org/planning-basics/getting-started/assembling-your-committee/):
-% \paragraph{General Chair}: Appointed by the sponsoring organization. Often responsible for selecting the conference location. Appoints the chairs of other committees that make up the conference committee.
-
-% \paragraph{Finance Chair \& Treasurer}: Depending on the size of the conference, a committee may be necessary to ensure all financial, tax, and audit requirements are met. Some of these requirements include establishing conference bank accounts, indirect tax, insurance and bonding, budget, expenses, financial reports, and conference closing. Also responsible for the final audit, if required.
-
-% \paragraph{Program Chair}: Ensures that a well-balanced, high-quality program is organized and presented at the conference. Handles the Call for Papers through the selection and review of every paper. Assists in the scheduling of session rooms and helping with local arrangements for the program.
-
-% \paragraph{Publications Chair}: Responsible for the coordination of conference content production (e.g., papers from special tutorial sessions or colloquia, summaries of conference papers, programs, etc.) and serves as the point of contact for all Xplore® submission-related inquiries before and after the conference.
-
-% \paragraph{Publicity \& Public Relations Chair}: Gathers, maintains, and utilizes lists of media contacts and past and potential attendees for targeted outreach; promotes the conference through placements in various publication calendars and advertisements in IEEE and non-IEEE publications and news media. May also develop and manage the website and any social-media applications.
-% }
-% EIND KOPIE
 
 
 \outline{
@@ -770,6 +626,7 @@ these are cases that need further manual investigation.
 
 
 \section{Interesting cases}
+\label{interesting_cases}
 In this section we describe theoretical and practical (actually happened) 
 attacks on the integrity of the publication process. We can use these attacks to 
 complete the theoretical (or logical) publication model.
