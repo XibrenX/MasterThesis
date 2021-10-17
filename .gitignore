@@ -2,3 +2,4 @@
 /solution/config
 /solution/database/data
 /.idea
+**/__pycache__

@@ -2,3 +2,4 @@ POSTGRES_USER=<dbusername>
 POSTGRES_PASSWORD=<dbpassword>
 POSTGRES_DB=<dbname>
 RAW_DATA=/blabla/blabla
+TOR_PASSWORD=1234567890
