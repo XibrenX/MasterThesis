@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: ieee_explore
+    schema: ieee_explore
+    tables:
+      - name: document
+      - name: affiliation
+      - name: author
+      - name: isbn
+      - name: issn
+        

@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: dblp_api
+    schema: dblp_api
+    tables:
+      - name: author
+      - name: document
+

@@ -15,9 +15,9 @@ public class Postgres implements Database {
 
     private final static String SCHEMA_NAME = "lncs_front_matter";
 
-    public Postgres(String username, String password, String database) {
+    public Postgres(String server, String username, String password, String database) {
         LOGGER.info("Initializing Postgres connection");
-        String url = "jdbc:postgresql://localhost/" + database;
+        String url = "jdbc:postgresql://" + server + "/" + database;
         Properties props = new Properties();
         props.setProperty("user",username);
         props.setProperty("password",password);

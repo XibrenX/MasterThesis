@@ -43,6 +43,7 @@ public class Program {
             LOGGER.warning("Unable to read properties file.");
         }
         Database database = DatabaseFactory.getDatabase(
+                properties.getProperty("POSTGRES_SERVER"),
                 properties.getProperty("POSTGRES_USER"),
                 properties.getProperty("POSTGRES_PASSWORD"),
                 properties.getProperty("POSTGRES_DB")

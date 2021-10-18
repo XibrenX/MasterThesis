@@ -1,0 +1,76 @@
+version: 2
+
+sources:
+  - name: dblp
+    schema: dblp
+    tables:
+      - name: address
+        columns:
+          - name: address
+            tests:
+              - not_null
+
+      - name: article
+        columns:
+          - name: $_object_id
+            quote: true
+          - name: $_object_type
+            quote: true
+          - name: key
+            quote: true
+            tests:
+              - not_null
+
+      - name: author
+        columns:
+          - name: author
+
+      - name: book
+        columns:
+          - name: $_object_id
+            quote: true
+          - name: $_object_type
+            quote: true
+          - name: key
+            quote: true
+            tests:
+              - not_null
+      - name: booktitle
+        columns:
+          - name: booktitle
+            tests:
+              - not_null
+      - name: cdrom
+      - name: chapter
+      - name: cite
+      - name: crossref
+      - name: editor
+      - name: ee
+      - name: incollection
+      - name: inproceedings
+      - name: isbn
+      - name: journal
+      - name: mastersthesis
+      - name: month
+      - name: note
+      - name: number
+      - name: pages
+      - name: phdthesis
+      - name: proceedings
+      - name: publisher
+      - name: publnr
+      - name: school
+      - name: series
+      - name: title
+        columns:
+          - name: title
+            tests:
+              - not_null
+      - name: url
+      - name: volume
+      - name: www
+      - name: year
+        columns:
+          - name: year
+            tests:
+              - not_null

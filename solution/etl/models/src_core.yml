@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: core
+    schema: core
+    quoting:
+      database: true
+      schema: true
+      identifier: true
+    tables:
+      - name: conf-ranks
+      - name: jnl-ranks  

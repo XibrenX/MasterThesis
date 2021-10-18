@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: arxiv
+    schema: arxiv
+    tables:
+      - name: author
+        columns:
+          - name: $_dblp_ee
+            quote: true
+          - name: $_arxiv_entry_id
+            quote: true
+          - name: name
+          - name: $_api_extract_dts
+            quote: true   
+
+      - name: document
+        columns:
+          - name: entry_id
+          - name: updated
+          - name: published
+          - name: title
+          - name: journal_ref
+          - name: doi
+            quote: true
+          - name: $_dblp_ee
+            quote: true
+          - name: $_api_extract_dts
+            quote: true
+          - name: $_api_status
+            quote: true
