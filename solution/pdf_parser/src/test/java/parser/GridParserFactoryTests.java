@@ -3,20 +3,16 @@ package parser;
 import document.Section;
 import document.SectionInfo;
 import grid.UnbalancedGrid;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.config.Configurator;
-import org.junit.Before;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GridParserFactoryTests {
 
-    final Logger logger = LogManager.getLogger(SectionInfoFactory.class.getName());
+    final Logger logger = LogManager.getLogger();
 
 //    @Before
 //    public void setUp() {
@@ -146,6 +142,26 @@ public class GridParserFactoryTests {
 
         assertEquals("OneColumnOddNameEvenAffiliation", parser.getName());
         assertEquals(2, result.size());
+        for (Member m : result) {
+            logger.debug(m);
+        }
+    }
+
+    @org.junit.Test
+    public void OneColumnNameAffiliation() {
+        SectionToGridConverter sut = new SectionToGridConverter();
+        Section section = new Section("Program Committee");
+        section.addToContent("Alessandro Sperduti, University of Padova, Italy");
+        section.addToContent("Alessandro Villa, University of Grenoble, France");
+        section.addToContent("Amir Hussain, University of Stirling, UK");
+        section.addToContent("Andreas Nuernberger, University of Magdeburg, Germany");
+        section.addToContent("Andreas Stafylopatis, NTUA, Greece");
+
+        GridParser parser = getParser(sut, section);
+        List<Member> result = parser.parse();
+
+        assertEquals("OneColumnNameAffiliation", parser.getName());
+        assertEquals(5, result.size());
         for (Member m : result) {
             logger.debug(m);
         }

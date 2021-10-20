@@ -29,6 +29,9 @@ public class GridParserFactory {
                 && sectionInfo.getAffiliationRatio(0, Rows.EVEN) > 0) {
                 return new OneColumnOddNameEvenAffiliation(grid);
             }
+            if (sectionInfo.getCommaRatio(0) >= 1) {
+                return new OneColumnNameAffiliation(grid);
+            }
         }
 
         if (sectionInfo.getNumberOfColumns() == 2) {

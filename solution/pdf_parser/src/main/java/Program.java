@@ -4,7 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
-import java.util.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import database.Database;
 import database.DatabaseFactory;
@@ -20,7 +21,7 @@ import textstripper.TextLine;
 
 public class Program {
 
-    private final static Logger LOGGER = Logger.getLogger(Program.class.getName());
+    private final static Logger LOGGER = LogManager.getLogger();
 
     public static void main(String[] args) throws Exception {
 
@@ -38,9 +39,9 @@ public class Program {
         try (FileInputStream fis = new FileInputStream(fileName)) {
             properties.load(fis);
         } catch (FileNotFoundException ex) {
-            LOGGER.warning("Properties file not found.");
+            LOGGER.warn("Properties file not found.");
         } catch (IOException ex) {
-            LOGGER.warning("Unable to read properties file.");
+            LOGGER.warn("Unable to read properties file.");
         }
         Database database = DatabaseFactory.getDatabase(
                 properties.getProperty("POSTGRES_SERVER"),
@@ -121,7 +122,7 @@ public class Program {
 
 
         if (parser == null) {
-            LOGGER.warning("Unable to find appropriate parser.");
+            LOGGER.warn("Unable to find appropriate parser.");
         }
         if (parser != null) {
             try {
@@ -132,7 +133,7 @@ public class Program {
                 }
                 LOGGER.info("Processing section: " + role + " succeeded (" + result.size() + " results).");
             } catch (Exception ex) {
-                LOGGER.warning("Exception occurred in the parsing process.");
+                LOGGER.warn("Exception occurred in the parsing process.");
             }
         }
     }
