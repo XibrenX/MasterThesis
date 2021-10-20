@@ -1,5 +1,7 @@
 package parser;
 
+import com.google.gson.Gson;
+
 public class Member {
 
     private final String name;
@@ -27,7 +29,9 @@ public class Member {
 
     @Override
     public String toString() {
-        return "{ Name: " + name + ", Affiliation: " + affiliation + ", Role: " + role + " }";
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(this);
+        return jsonString;
     }
 
 }

@@ -61,14 +61,13 @@ public class SectionInfo {
         if (commaRatios.size() > 0) {
             sb.append("commaRatios:" + System.lineSeparator());
             for (Ratio ratio : commaRatios) {
-                sb.append("\t" + ratio.toString());
+                sb.append("\t" + ratio.toString() + System.lineSeparator());
             }
         }
-        sb.append(System.lineSeparator());
         if (affiliationRatios.size() > 0) {
             sb.append("affiliationRatios:" + System.lineSeparator());
             for (Ratio ratio : affiliationRatios) {
-                sb.append("\t" + ratio.toString());
+                sb.append("\t" + ratio.toString() + System.lineSeparator());
             }
         }
         return sb.toString();

@@ -21,8 +21,14 @@ public class GridParserFactory {
     public GridParser GetParser(SectionInfo sectionInfo, UnbalancedGrid<TextPart> grid) throws Exception {
 
         if (sectionInfo.getNumberOfTextParts() == 0) {
-            System.out.println("Return ZeroParser");
             return new ZeroParser(grid);
+        }
+
+        if (sectionInfo.getNumberOfColumns() == 1) {
+            if (sectionInfo.getAffiliationRatio(0, Rows.ODD) == 0
+                && sectionInfo.getAffiliationRatio(0, Rows.EVEN) > 0) {
+                return new OneColumnOddNameEvenAffiliation(grid);
+            }
         }
 
         if (sectionInfo.getNumberOfColumns() == 2) {
