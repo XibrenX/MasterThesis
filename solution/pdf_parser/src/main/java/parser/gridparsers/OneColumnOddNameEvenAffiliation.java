@@ -2,6 +2,8 @@ package parser.gridparsers;
 
 import grid.Position;
 import grid.UnbalancedGrid;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import parser.GridParser;
 import parser.Member;
 import parser.TextPart;
@@ -12,9 +14,10 @@ import java.util.List;
 public class OneColumnOddNameEvenAffiliation implements GridParser {
 
     private UnbalancedGrid<TextPart> grid;
+    private final static Logger LOGGER = LogManager.getLogger();
 
     public OneColumnOddNameEvenAffiliation(UnbalancedGrid<TextPart> grid) {
-        System.out.println("Created OneColumnOddNameEvenAffiliation");
+        LOGGER.debug("Created OneColumnOddNameEvenAffiliation");
         this.grid = grid;
     }
 

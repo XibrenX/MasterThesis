@@ -15,7 +15,7 @@ public class SectionInfoFactory {
     private static final Logger logger = LogManager.getLogger(SectionInfoFactory.class.getName());
 
     public static SectionInfo GetSessionInfo(UnbalancedGrid<TextPart> grid) {
-        logger.info("Start GetSessionInfo");
+        logger.debug("Start GetSessionInfo");
         SectionInfo si = new SectionInfo();
         si.setAllValuesContainsCommas(AllValuesContainsComma(grid));
         si.setNumberOfColumns(grid.columnCount());

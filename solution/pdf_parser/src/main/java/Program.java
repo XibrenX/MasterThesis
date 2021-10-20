@@ -23,6 +23,10 @@ public class Program {
 
     private final static Logger LOGGER = LogManager.getLogger();
 
+    public Program() {
+
+    }
+
     public static void main(String[] args) throws Exception {
 
         long runId = System.currentTimeMillis();
@@ -54,6 +58,8 @@ public class Program {
 
         try {
             File file = new File(pathname);
+            LOGGER.info("Start processing {}", file.getName());
+            int fileId = database.startProcessingFile(runId, file);
             PDFParser pdfParser = new PDFParser(new RandomAccessFile(file, "r"));
             pdfParser.parse();
             PDDocument pdDocument = new PDDocument(pdfParser.getDocument());
@@ -80,6 +86,10 @@ public class Program {
                 }
             }
 
+            if (organisationPosition == null) {
+                database.endProcessingFile(fileId, representation, "FAILED", "No organisation position found");
+            }
+
             SectionToGridConverter sectionToGridConverter = new SectionToGridConverter();
 
             // Itereer door alle posities binnen de organisatie
@@ -88,7 +98,7 @@ public class Program {
                 Section section = p.getElement();
 //                processSection(section, sectionToGridConverter);
 
-                System.out.println(section.toString());
+                LOGGER.debug(section.toString());
                 UnbalancedGrid<TextPart> grid = getGrid(sectionToGridConverter, section);
                 SectionInfo sectionInfo = SectionInfoFactory.GetSessionInfo(grid);
                 section.setSectionInfo(sectionInfo);
@@ -99,8 +109,16 @@ public class Program {
                 if (parser != null) {
                     parserName = parser.getName();
                 }
-                database.saveSection(runId, file.getName(), section, parserName);
-            }
+                int sectionId = database.saveSection(runId, file.getName(), section, parserName, fileId);
+                if (parser != null) {
+                    List<Member> members = parser.parse();
+                    for (Member m : members) {
+                        m.setRole(section.getTitle());
+                        database.saveMember(runId, sectionId, m);
+                    }
+                }
+            } // end loop sections
+            database.endProcessingFile(fileId, representation, "SUCCEEDED", "");
 
 
         } catch (FileNotFoundException e) {
@@ -108,7 +126,7 @@ public class Program {
         } catch (IOException e) {
             e.printStackTrace();
         };
-        System.out.println("Done");
+        LOGGER.info("Done");
     }
 
     private static UnbalancedGrid<TextPart> getGrid(SectionToGridConverter sectionToGridConverter, Section section) {

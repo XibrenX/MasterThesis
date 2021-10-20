@@ -1,7 +1,16 @@
 package database;
 
 import document.Section;
+import parser.Member;
+
+import java.io.File;
 
 public interface Database {
-    void saveSection(long runId, String filename, Section section, String parser);
+    int saveSection(long runId, String filename, Section section, String parser, int fileId);
+
+    int startProcessingFile(long runId, File file);
+
+    void endProcessingFile(int fileId, String representation, String status, String message);
+
+    void saveMember(long runId, int sectionId, Member m);
 }

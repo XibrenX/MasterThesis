@@ -8,6 +8,7 @@ public class Member {
     private String affiliation;
     private String role;
     private String firstname;
+
     private String lastname;
 
     public Member(String name) {
@@ -20,6 +21,26 @@ public class Member {
         this.name = lastname + ", " + firstname;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public String getFirstname() {
+        return this.firstname;
+    }
+
+
+    public String getAffiliation() {
+        return affiliation;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
 
     public void setAffiliation(String affiliation) {
         this.affiliation = affiliation;

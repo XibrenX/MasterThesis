@@ -2,6 +2,8 @@ package parser.gridparsers;
 
 import grid.Position;
 import grid.UnbalancedGrid;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import parser.GridParser;
 import parser.Member;
 import parser.TextPart;
@@ -13,10 +15,11 @@ import java.util.List;
 // second column the firstname and third column the affiliation;
 public class ThreeLastFirstAffParser implements GridParser {
 
+    private final static Logger LOGGER = LogManager.getLogger();
     private UnbalancedGrid<TextPart> grid;
 
     public ThreeLastFirstAffParser(UnbalancedGrid<TextPart> grid) {
-        System.out.println("Created ThreeLastFirstAffParser");
+        LOGGER.debug("Created ThreeLastFirstAffParser");
         this.grid = grid;
     }
 
