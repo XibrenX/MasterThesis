@@ -9,12 +9,12 @@ import parser.TextPart;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllNamesParser implements GridParser {
+public class AllLastNameFirstNameParser implements GridParser {
 
     private UnbalancedGrid<TextPart> grid;
 
-    public AllNamesParser(UnbalancedGrid<TextPart> grid) {
-        System.out.println("Created AllNamesParser");
+    public AllLastNameFirstNameParser(UnbalancedGrid<TextPart> grid) {
+        System.out.println("Created AllLastNameFirstNameParser");
         this.grid = grid;
     }
 
@@ -36,6 +36,6 @@ public class AllNamesParser implements GridParser {
 
     @Override
     public String getName() {
-        return "AllNamesParser";
+        return "AllLastNameFirstNameParser";
     }
 }

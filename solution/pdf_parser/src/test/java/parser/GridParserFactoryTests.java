@@ -4,6 +4,7 @@ import document.Section;
 import document.SectionInfo;
 import grid.UnbalancedGrid;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,8 +13,15 @@ public class GridParserFactoryTests {
 
     private GridParser getParser(SectionToGridConverter sut, Section section) {
         UnbalancedGrid<TextPart> grid = sut.convert(section.getContent());
+        System.out.println(grid);
         SectionInfo sectionInfo = SectionInfoFactory.GetSessionInfo(grid);
-        GridParser parser = GridParserFactory.getInstance().GetParser(sectionInfo, grid);
+        System.out.println(sectionInfo);
+        GridParser parser = null;
+        try {
+            parser = GridParserFactory.getInstance().GetParser(sectionInfo, grid);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return parser;
     }
 
@@ -26,6 +34,7 @@ public class GridParserFactoryTests {
         GridParser parser = getParser(sut, section);
         List<Member> result = parser.parse();
 
+        assertEquals("ZeroParser", parser.getName());
         assertEquals(result.size(), 0);
     }
 
@@ -42,8 +51,10 @@ public class GridParserFactoryTests {
         section.addToContent("");
 
         GridParser parser = getParser(sut, section);
+
         List<Member> result = parser.parse();;
 
+        assertEquals("FirstNameLastNameAffiliationParser", parser.getName());
         assertEquals(3, result.size());
     }
 
@@ -65,6 +76,7 @@ public class GridParserFactoryTests {
         GridParser parser = getParser(sut, section);
         List<Member> result = parser.parse();
 
+        assertEquals("AllLastNameFirstNameParser", parser.getName());
         assertEquals(28, result.size());
     }
 
@@ -86,7 +98,41 @@ public class GridParserFactoryTests {
         GridParser parser = getParser(sut, section);
         List<Member> result = parser.parse();
 
+        assertEquals("AllLastNameFirstNameParser", parser.getName());
         assertEquals(20, result.size());
+    }
+
+    @org.junit.Test
+    public void threeLastFirstAffiliation() {
+        SectionToGridConverter sut = new SectionToGridConverter();
+        Section section = new Section("Program Committee");
+        section.addToContent("Abe                 Shigeo           Kobe University");
+        section.addToContent("Agell               Nuria            Ramon Llull University");
+        section.addToContent("Aiolli              Fabio            Pisa Universit");
+
+        GridParser parser = getParser(sut, section);
+        List<Member> result = parser.parse();
+
+        assertEquals("ThreeLastFirstAffParser", parser.getName());
+        assertEquals(3, result.size());
+    }
+
+    @org.junit.Test
+    public void OneColumnOddNameEvenAffiliation() {
+        SectionToGridConverter sut = new SectionToGridConverter();
+        Section section = new Section("Program Committee");
+        section.addToContent("Wl odzis law Duch");
+        section.addToContent("Torun, Poland & Singapore, ENNS President");
+        section.addToContent("                                         ");
+        section.addToContent("Danilo Mandic      ");
+        section.addToContent("Imperial College London, UK       ");
+        section.addToContent("                            ");
+
+        GridParser parser = getParser(sut, section);
+        List<Member> result = parser.parse();
+
+        assertEquals("OneColumnOddNameEvenAffiliation", parser.getName());
+        assertEquals(3, result.size());
     }
 
 

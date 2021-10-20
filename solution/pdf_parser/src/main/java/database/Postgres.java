@@ -52,6 +52,8 @@ public class Postgres implements Database {
                 add("number_of_columns INT");
                 add("number_of_text_parts INT");
                 add("all_values_contain_commas BOOLEAN");
+                add("comma_ratios TEXT");
+                add("affiliation_ratios TEXT");
                 add("parser TEXT");
             }
         };
@@ -89,7 +91,7 @@ public class Postgres implements Database {
         sb.append("INSERT INTO " + SCHEMA_NAME + ".section (" +
                 "run_id, " +
                 "filename, title, content, number_of_columns, " +
-                "number_of_text_parts, all_values_contain_commas, parser)" + System.lineSeparator());
+                "number_of_text_parts, all_values_contain_commas, comma_ratios, affiliation_ratios, parser)" + System.lineSeparator());
         sb.append("VALUES (" + System.lineSeparator());
         sb.append(runId + ", ");
         sb.append("'" + filename + "', ");
@@ -98,6 +100,8 @@ public class Postgres implements Database {
         sb.append(section.getSectionInfo().getNumberOfColumns() + ", ");
         sb.append(section.getSectionInfo().getNumberOfTextParts() + ", ");
         sb.append(section.getSectionInfo().isAllValuesContainsCommas() + ", ");
+        sb.append("'" + section.getSectionInfo().stringRepCommaRatios() + "', ");
+        sb.append("'" + section.getSectionInfo().stringRepAffiliationRatios() + "', ");
         sb.append("'" + parser + "'");
         sb.append(");" + System.lineSeparator());
         executeQueryNonResult(sb.toString());

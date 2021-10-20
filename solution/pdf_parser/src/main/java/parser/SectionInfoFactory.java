@@ -4,8 +4,12 @@ import document.SectionInfo;
 import grid.Position;
 import grid.UnbalancedGrid;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+
+
 
 public class SectionInfoFactory {
     public static SectionInfo GetSessionInfo(UnbalancedGrid<TextPart> grid) {
@@ -13,27 +17,49 @@ public class SectionInfoFactory {
         si.setAllValuesContainsCommas(AllValuesContainsComma(grid));
         si.setNumberOfColumns(grid.columnCount());
         si.setNumberOfTextParts(grid.getNumberOfCells());
-        HashMap<Integer, Double> commaRatios = new HashMap<>();
-        for (int i = 0; i < si.getNumberOfColumns(); i ++) {
-            si.getCommaRatios().put(i, columnCommaRatio(grid, i));
-        }
+        si.setCommaRatios(columnRatio(grid, new String[] {","}));
+        si.setAffiliationRatios(columnRatio(grid, new String[] {"universi", "instut", "college"}));
         return si;
     }
 
-    private static double columnCommaRatio(UnbalancedGrid<TextPart> grid, int columnIndex) {
-        List<Position<TextPart>> positions = grid.getColumn(columnIndex);
-        int numberOfPos = positions.size();
-        int numberWithCommas = 0;
-        for (Position<TextPart> tp : positions) {
-            if(tp != null && tp.getElement().getText().contains(",")) {
-                numberWithCommas++;
+
+    private static List<Ratio> columnRatio(UnbalancedGrid<TextPart> grid, String[] searchArguments) {
+        List<Ratio> ratios = new ArrayList<>();
+        for (int columnIndex = 0; columnIndex < grid.columnCount(); columnIndex++) {
+            for (Rows rows : Rows.values()) {
+                Ratio ratio = columnRatio(grid, columnIndex, rows, searchArguments);
+                ratios.add(ratio);
             }
         }
-        if (numberOfPos == 0) {
-            return 0;
+        return ratios;
+    }
+
+
+    private static Ratio columnRatio(UnbalancedGrid<TextPart> grid, int columnIndex, Rows rows, String[] searchArguments) {
+        List<Position<TextPart>> positions = grid.getColumn(columnIndex);
+        int numberOfPos = positions.size();
+        int resultCounter = 0;
+        for (int position = 0; position < numberOfPos; position++) {
+            if (
+                    rows == Rows.ALL
+                    || (rows == Rows.ODD && position % 2 == 1)
+                    || (rows == Rows.EVEN && position % 2 == 0)
+            ) {
+                if (positions.get(position) != null) {
+                    for (String s : searchArguments) {
+                        if (positions.get(position).getElement().getText().toLowerCase().contains(s)) {
+                            resultCounter++;
+                            break;
+                        }
+                    }
+                }
+            }
         }
-        double commaRatio = (double)numberWithCommas / (double)numberOfPos;
-        return commaRatio;
+        double ratio = 0;
+        if (numberOfPos != 0) {
+            ratio = (double) resultCounter / (double) numberOfPos;
+        }
+        return new Ratio(columnIndex, rows, ratio);
     }
 
     private static boolean AllValuesContainsComma(UnbalancedGrid<TextPart> grid) {

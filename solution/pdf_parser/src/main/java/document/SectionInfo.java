@@ -1,6 +1,12 @@
 package document;
 
+import com.google.gson.Gson;
+import parser.Ratio;
+import parser.Rows;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -21,12 +27,12 @@ public class SectionInfo {
         this.numberOfTextParts = numberOfTextParts;
     }
 
-    public HashMap<Integer, Double> getCommaRatios() {
+    public List<Ratio> getCommaRatios() {
         return commaRatios;
     }
 
-    public void setCommaRatios(HashMap<Integer, Double> commaRatios) {
-        this.commaRatios = commaRatios;
+    public List<Ratio> getAffiliationRatios() {
+        return affiliationRatios;
     }
 
     public boolean isAllValuesContainsCommas() {
@@ -39,7 +45,8 @@ public class SectionInfo {
 
     private int numberOfColumns;
     private int numberOfTextParts;
-    private HashMap<Integer, Double> commaRatios = new HashMap<>();
+    private List<Ratio> commaRatios = new ArrayList<>();
+    private List<Ratio> affiliationRatios = new ArrayList<>();
     private boolean allValuesContainsCommas;
 
     public SectionInfo() {
@@ -53,10 +60,63 @@ public class SectionInfo {
         sb.append("numberOfTextParts:\t" + numberOfTextParts + System.lineSeparator());
         if (commaRatios.size() > 0) {
             sb.append("commaRatios:" + System.lineSeparator());
-            for (Map.Entry<Integer, Double> entry : commaRatios.entrySet()) {
-                sb.append("\t" + entry.getKey() + " -> " + entry.getValue() + System.lineSeparator());
+            for (Ratio ratio : commaRatios) {
+                sb.append("\t" + ratio.toString());
+            }
+        }
+        sb.append(System.lineSeparator());
+        if (affiliationRatios.size() > 0) {
+            sb.append("affiliationRatios:" + System.lineSeparator());
+            for (Ratio ratio : affiliationRatios) {
+                sb.append("\t" + ratio.toString());
             }
         }
         return sb.toString();
+    }
+
+    public double getCommaRatio(int columnIndex) throws Exception {
+        return getCommaRatio(columnIndex, Rows.ALL);
+    }
+
+    public double getCommaRatio(int columnIndex, Rows rows) throws Exception {
+        for (Ratio ratio : commaRatios) {
+            if (ratio.getRows() == rows && ratio.getColumnNumber() == columnIndex) {
+                return ratio.getRatio();
+            }
+        }
+        throw new Exception("No ColumnRatio found for columnIndex: " + columnIndex + " and rows: " + rows);
+    }
+
+    public double getAffiliationRatio(int columnIndex) throws Exception {
+        return getAffiliationRatio(columnIndex, Rows.ALL);
+    }
+
+    public double getAffiliationRatio(int columnIndex, Rows rows) throws Exception {
+        for (Ratio ratio : affiliationRatios) {
+            if (ratio.getRows() == rows && ratio.getColumnNumber() == columnIndex) {
+                return ratio.getRatio();
+            }
+        }
+        throw new Exception("No AffiliationRatio found for columnIndex: " + columnIndex + " and rows: " + rows);
+    }
+
+    public String stringRepCommaRatios() {
+        Gson gson = new Gson();
+        String json = gson.toJson(commaRatios);
+        return json;
+    }
+
+    public String stringRepAffiliationRatios() {
+        Gson gson = new Gson();
+        String json = gson.toJson(affiliationRatios);
+        return json;
+    }
+
+    public void setCommaRatios(List<Ratio> columnRatio) {
+        this.commaRatios = columnRatio;
+    }
+
+    public void setAffiliationRatios(List<Ratio> columnRatio) {
+        this.affiliationRatios = columnRatio;
     }
 }

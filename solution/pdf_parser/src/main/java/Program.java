@@ -22,7 +22,7 @@ public class Program {
 
     private final static Logger LOGGER = Logger.getLogger(Program.class.getName());
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         long runId = System.currentTimeMillis();
         LOGGER.info("Run id: " + runId);
