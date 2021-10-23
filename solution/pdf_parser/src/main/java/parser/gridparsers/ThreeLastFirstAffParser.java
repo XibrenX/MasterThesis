@@ -2,9 +2,6 @@ package parser.gridparsers;
 
 import grid.Position;
 import grid.UnbalancedGrid;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import parser.GridParser;
 import parser.Member;
 import parser.TextPart;
 
@@ -25,9 +22,21 @@ public class ThreeLastFirstAffParser extends Parser {
         for (int i = 0; i < grid.rowCount(); i++) {
             List<Position<TextPart>> row = grid.getRow(i);
             if (row.size() > 0) {
-                String lastname = row.get(0).getElement().getText();
-                String firstname = row.get(1).getElement().getText();
-                String affiliation = row.get(2).getElement().getText();
+                Position<TextPart> p = row.get(0);
+                String lastname = null;
+                String firstname = null;
+                String affiliation = null;
+                if (p != null) {
+                    lastname = p.getElement().getText();
+                }
+                p = row.get(1);
+                if (p != null) {
+                    firstname = p.getElement().getText();
+                }
+                p = row.get(2);
+                if (p != null) {
+                    affiliation = p.getElement().getText();
+                }
                 Member member = new Member(lastname, firstname);
                 member.setAffiliation(affiliation);
                 returnValue.add(member);

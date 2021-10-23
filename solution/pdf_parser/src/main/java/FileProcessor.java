@@ -42,42 +42,48 @@ public class FileProcessor {
             PDFParser pdfParser = new PDFParser(new RandomAccessFile(file, "r"));
             pdfParser.parse();
             PDDocument pdDocument = new PDDocument(pdfParser.getDocument());
-            PDFTextStripper pdfTextStripper = new PDFLayoutTextStripperFontSize();
-            String string = pdfTextStripper.getText(pdDocument);
+            try {
+                PDFTextStripper pdfTextStripper = new PDFLayoutTextStripperFontSize();
+                String string = pdfTextStripper.getText(pdDocument);
 
-            List<TextLine> textLines = ((PDFLayoutTextStripperFontSize)pdfTextStripper).getAllTextLines();
+                List<TextLine> textLines = ((PDFLayoutTextStripperFontSize) pdfTextStripper).getAllTextLines();
 
-            // for debugging
+                // for debugging
 //            for (TextLine s1 : textLines) {
 //                System.out.println(s1);
 //            }
 
-            DocumentFactory df = new DocumentFactory();
-            Tree<Section> documentTree = df.getDocumentTreePreOrder(textLines);
+                DocumentFactory df = new DocumentFactory();
+                Tree<Section> documentTree = df.getDocumentTreePreOrder(textLines);
 
-            String representation = documentTree.preOrderRepresentation();
-            LOGGER.info("Document tree representation " + System.lineSeparator() + representation);
+                String representation = documentTree.preOrderRepresentation();
+                LOGGER.info("Document tree representation " + System.lineSeparator() + representation);
 
-            Position<Section> organisationPosition = null;
-            for (Position<Section> p : documentTree.positions()) {
-                if (p.getElement().getTitle().toLowerCase().contains(("organization"))) {
-                    organisationPosition = p;
-                    break;
+                Position<Section> organisationPosition = null;
+                for (Position<Section> p : documentTree.positions()) {
+                    if (p.getElement().getTitle().toLowerCase().contains(("organization"))) {
+                        organisationPosition = p;
+                        break;
+                    }
                 }
+                if (organisationPosition == null) {
+                    throw new Exception("No organisation position found");
+                }
+                LOGGER.info("Organisation position: {}", organisationPosition.getElement().getTitle());
+
+
+                // Itereer door alle posities binnen de organisatie
+                for (Position<Section> p : documentTree.preorder(organisationPosition)) {
+                    Section section = p.getElement();
+                    processSection(section);
+                } // end loop sections
+
+                database.endProcessingFile(fileId, representation, "SUCCEEDED", "");
+            } catch (Exception e) {
+                throw e;
+            } finally {
+                pdDocument.close();
             }
-            if (organisationPosition == null) {
-                throw new Exception("No organisation position found");
-            }
-            LOGGER.info("Organisation position: {}", organisationPosition.getElement().getTitle());
-
-
-            // Itereer door alle posities binnen de organisatie
-            for (Position<Section> p : documentTree.preorder(organisationPosition)) {
-                Section section = p.getElement();
-                processSection(section);
-            } // end loop sections
-
-            database.endProcessingFile(fileId, representation, "SUCCEEDED", "");
         } catch (Exception e) {
             LOGGER.error("Error occurred while processing a file", e);
             e.printStackTrace();

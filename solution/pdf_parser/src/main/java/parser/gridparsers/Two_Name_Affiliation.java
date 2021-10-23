@@ -1,17 +1,16 @@
 package parser.gridparsers;
 
 import grid.Position;
-import grid.UnbalancedGrid;
-import parser.GridParser;
+import grid.UnbalancedGrid;;
 import parser.Member;
 import parser.TextPart;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FirstNameLastNameAffiliationParser extends Parser {
+public class Two_Name_Affiliation extends Parser {
 
-    public FirstNameLastNameAffiliationParser(UnbalancedGrid<TextPart> grid) {
+    public Two_Name_Affiliation(UnbalancedGrid<TextPart> grid) {
         super(grid);
     }
 

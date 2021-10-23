@@ -31,7 +31,9 @@ public class SectionInfoFactory {
         for (int columnIndex = 0; columnIndex < grid.columnCount(); columnIndex++) {
             for (Rows rows : Rows.values()) {
                 Ratio ratio = columnRatio(grid, columnIndex, rows, searchArguments);
-                ratios.add(ratio);
+                if (ratio != null) {
+                    ratios.add(ratio);
+                }
             }
         }
         return ratios;
@@ -75,7 +77,12 @@ public class SectionInfoFactory {
                 resultCounter,
                 numberOfProcessedRows,
                 ratio);
-        return new Ratio(columnIndex, rows, ratio);
+        if (numberOfProcessedRows > 0) {
+            return new Ratio(columnIndex, rows, ratio);
+        } else {
+            return null;
+        }
+
     }
 
     private static boolean AllValuesContainsComma(UnbalancedGrid<TextPart> grid) {

@@ -20,8 +20,10 @@ public class Member {
         this.name = name;
         if (name.contains(",")) {
             String[] parts = name.split(",");
-            this.firstname = parts[1];
-            this.lastname = parts[0];
+            if (parts.length >= 2) {
+                this.firstname = parts[1];
+                this.lastname = parts[0];
+            }
         }
     }
 

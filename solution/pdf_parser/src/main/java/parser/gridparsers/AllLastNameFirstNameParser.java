@@ -21,9 +21,11 @@ public abstract class AllLastNameFirstNameParser extends Parser {
             List<Position<TextPart>> row = grid.getRow(i);
             if (row.size() > 0) {
                 for (Position<TextPart> pos : row) {
-                    String text = pos.getElement().getText();
-                    Member member = new Member(text);
-                    returnValue.add(member);
+                    if (pos != null) {
+                        String text = pos.getElement().getText();
+                        Member member = new Member(text);
+                        returnValue.add(member);
+                    }
                 }
             }
         }

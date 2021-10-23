@@ -48,7 +48,7 @@ public class GridParserFactoryTests {
     }
 
     @org.junit.Test
-    public void test2() {
+    public void Two_Name_Affiliation_02() {
         SectionToGridConverter sut = new SectionToGridConverter();
         Section section = new Section("Program Committee");
         section.addToContent("");
@@ -63,7 +63,7 @@ public class GridParserFactoryTests {
 
         List<Member> result = parser.parse();
 
-        assertEquals("FirstNameLastNameAffiliationParser", parser.getName());
+        assertEquals("Two_Name_Affiliation", parser.getName());
         assertEquals(3, result.size());
     }
 
@@ -208,6 +208,22 @@ public class GridParserFactoryTests {
         }
     }
 
+    //
+    @org.junit.Test
+    public void Two_Name_Affiliation_01() {
+        SectionToGridConverter sut = new SectionToGridConverter();
+        Section section = new Section("Program Committee");
+        section.addToContent("              Samhaa R. El-Beltagy               Nile University, Egypt  ");
+
+        GridParser parser = getParser(sut, section);
+        List<Member> result = parser.parse();
+
+        assertEquals("Two_Name_Affiliation", parser.getName());
+        assertEquals(1, result.size());
+        for (Member m : result) {
+            LOGGER.debug(m.toString());
+        }
+    }
 
 
 }

@@ -39,7 +39,7 @@ public class GridParserFactory {
                 return new Two_Role_NameAff(grid);
             }
             if (sectionInfo.getCommaRatio(0) < COMMARATIO && sectionInfo.getCommaRatio(1) > COMMARATIO) {
-                return new FirstNameLastNameAffiliationParser(grid);
+                return new Two_Name_Affiliation(grid);
             }
             else {
                 return new TwoLastNameFirstNameParser(grid);
