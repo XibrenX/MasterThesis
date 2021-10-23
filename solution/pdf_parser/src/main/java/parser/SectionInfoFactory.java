@@ -22,9 +22,9 @@ public class SectionInfoFactory {
         si.setNumberOfTextParts(grid.getNumberOfCells());
         si.setCommaRatios(columnRatio(grid, new String[] {","}));
         si.setAffiliationRatios(columnRatio(grid, new String[] {"universi", "instut", "college"}));
+        si.setPositionRations(columnRatio(grid, new String[] {"chair"}));
         return si;
     }
-
 
     private static List<Ratio> columnRatio(UnbalancedGrid<TextPart> grid, String[] searchArguments) {
         List<Ratio> ratios = new ArrayList<>();
@@ -54,8 +54,9 @@ public class SectionInfoFactory {
                     || (rows == Rows.EVEN && (rowIndex+1) % 2 == 0)
             ) {
                 LOGGER.trace("Processing rowIndex: {} (rowNumber: {})", rowIndex, rowIndex+1 );
-                numberOfProcessedRows++;
+
                 if (positions.get(rowIndex) != null) {
+                    numberOfProcessedRows++;
                     for (String s : searchArguments) {
                         if (positions.get(rowIndex).getElement().getText().toLowerCase().contains(s)) {
                             resultCounter++;
@@ -67,7 +68,7 @@ public class SectionInfoFactory {
         }
         double ratio = 0;
         if (numberOfRows != 0) {
-            ratio = (double) resultCounter / (double) numberOfRows;
+            ratio = (double) resultCounter / (double) numberOfProcessedRows;
         }
         LOGGER.trace("Result: numberOfRows: {}, resultCounter: {}, numberOfProcessedRows: {}, ratio: {}",
                 numberOfRows,

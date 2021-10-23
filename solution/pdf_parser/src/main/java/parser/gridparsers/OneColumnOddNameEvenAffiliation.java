@@ -11,14 +11,10 @@ import parser.TextPart;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OneColumnOddNameEvenAffiliation implements GridParser {
-
-    private UnbalancedGrid<TextPart> grid;
-    private final static Logger LOGGER = LoggerFactory.getLogger(OneColumnOddNameEvenAffiliation.class);
+public class OneColumnOddNameEvenAffiliation extends Parser {
 
     public OneColumnOddNameEvenAffiliation(UnbalancedGrid<TextPart> grid) {
-        LOGGER.debug("Created OneColumnOddNameEvenAffiliation");
-        this.grid = grid;
+        super(grid);
     }
 
     @Override
@@ -40,8 +36,4 @@ public class OneColumnOddNameEvenAffiliation implements GridParser {
         return returnValue;
     }
 
-    @Override
-    public String getName() {
-        return "OneColumnOddNameEvenAffiliation";
-    }
 }

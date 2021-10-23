@@ -8,18 +8,15 @@ import parser.TextPart;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ZeroParser implements GridParser {
+public class ZeroParser extends Parser {
 
-    public ZeroParser(UnbalancedGrid<TextPart> grid) {}
+    public ZeroParser(UnbalancedGrid<TextPart> grid) {
+        super(grid);
+    }
 
     @Override
     public List<Member> parse() {
         return new ArrayList<Member>();
-    }
-
-    @Override
-    public String getName() {
-        return "ZeroParser";
     }
 
 

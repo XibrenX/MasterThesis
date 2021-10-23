@@ -9,13 +9,10 @@ import parser.TextPart;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FirstNameLastNameAffiliationParser implements GridParser {
-
-    private UnbalancedGrid<TextPart> grid;
+public class FirstNameLastNameAffiliationParser extends Parser {
 
     public FirstNameLastNameAffiliationParser(UnbalancedGrid<TextPart> grid) {
-        System.out.println("Created FirstNameLastNameAffiliationParser");
-        this.grid = grid;
+        super(grid);
     }
 
     @Override
@@ -34,8 +31,4 @@ public class FirstNameLastNameAffiliationParser implements GridParser {
         return returnValue;
     }
 
-    @Override
-    public String getName() {
-        return "FirstNameLastNameAffiliationParser";
-    }
 }

@@ -2,22 +2,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
 import java.util.Properties;
 
 import database.Database;
 import database.DatabaseFactory;
-import document.*;
-import grid.UnbalancedGrid;
-import org.apache.pdfbox.io.RandomAccessFile;
-import org.apache.pdfbox.pdfparser.PDFParser;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.text.PDFTextStripper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import parser.*;
-import textstripper.PDFLayoutTextStripperFontSize;
-import textstripper.TextLine;
+
 
 public class Program {
 
@@ -44,9 +35,17 @@ public class Program {
         String[] filepaths = directory.list();
         int numberOfFiles = filepaths.length;
         LOGGER.info("Number of files to process: {}", numberOfFiles);
-        String filepath = directoryPath + "conf_icann_2007-2.pdf";
-        FileProcessor fp = new FileProcessor(filepath, database, runId);
-        fp.execute();
+        FileProcessor fp = null;
+        int numberOfFilesProcessed = 0;
+        for (String file : filepaths) {
+            String filepath = directoryPath + file;
+            fp = new FileProcessor(filepath, database, runId);
+            fp.execute();
+            numberOfFilesProcessed++;
+            double percentage = ((double)numberOfFilesProcessed / (double)numberOfFiles) * 100;
+            LOGGER.info("Processed {} of {} ({}%)", numberOfFilesProcessed, numberOfFiles, percentage);
+        }
+
     }
     // End class
 

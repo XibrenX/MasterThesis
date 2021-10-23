@@ -2,20 +2,16 @@ package parser.gridparsers;
 
 import grid.Position;
 import grid.UnbalancedGrid;
-import parser.GridParser;
 import parser.Member;
 import parser.TextPart;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllLastNameFirstNameParser implements GridParser {
-
-    private UnbalancedGrid<TextPart> grid;
+public abstract class AllLastNameFirstNameParser extends Parser {
 
     public AllLastNameFirstNameParser(UnbalancedGrid<TextPart> grid) {
-        System.out.println("Created AllLastNameFirstNameParser");
-        this.grid = grid;
+        super(grid);
     }
 
     @Override
@@ -25,8 +21,8 @@ public class AllLastNameFirstNameParser implements GridParser {
             List<Position<TextPart>> row = grid.getRow(i);
             if (row.size() > 0) {
                 for (Position<TextPart> pos : row) {
-                    String name = pos.getElement().getText();
-                    Member member = new Member(name);
+                    String text = pos.getElement().getText();
+                    Member member = new Member(text);
                     returnValue.add(member);
                 }
             }
@@ -34,8 +30,4 @@ public class AllLastNameFirstNameParser implements GridParser {
         return returnValue;
     }
 
-    @Override
-    public String getName() {
-        return "AllLastNameFirstNameParser";
-    }
 }

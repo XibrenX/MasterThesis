@@ -35,8 +35,8 @@ public class SectionToGridConverter {
         ArrayList<Integer> partStarts = new ArrayList<>();
         // boolean if the partStarts hashmap should be reloaded e.g. after an empty line
         boolean resetPartStarts = true;
-        boolean merged = false;
         for (String line : content) {
+            boolean merged = false;
             if (line.trim().equals("")) {
                 resetPartStarts = true;
                 continue;
@@ -92,8 +92,8 @@ public class SectionToGridConverter {
                         grid.createCell(new TextPart(newText, 0), rowNumber-1, colNumberLinePart);
                     }
 
-                } // end for row
-            } // end for line
+                } // end for col
+            } // end if
             if (merged) {
                 mergedLines++;
             }

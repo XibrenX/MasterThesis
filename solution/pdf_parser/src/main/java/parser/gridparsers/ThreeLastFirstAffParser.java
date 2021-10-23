@@ -13,14 +13,10 @@ import java.util.List;
 
 // Class to interpreted grids with in the first column the last name,
 // second column the firstname and third column the affiliation;
-public class ThreeLastFirstAffParser implements GridParser {
-
-    private final static Logger LOGGER = LoggerFactory.getLogger(ThreeLastFirstAffParser.class);
-    private UnbalancedGrid<TextPart> grid;
+public class ThreeLastFirstAffParser extends Parser {
 
     public ThreeLastFirstAffParser(UnbalancedGrid<TextPart> grid) {
-        LOGGER.debug("Created ThreeLastFirstAffParser");
-        this.grid = grid;
+        super(grid);
     }
 
     @Override
@@ -40,8 +36,4 @@ public class ThreeLastFirstAffParser implements GridParser {
         return returnValue;
     }
 
-    @Override
-    public String getName() {
-        return "ThreeLastFirstAffParser";
-    }
 }

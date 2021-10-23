@@ -35,8 +35,14 @@ public class GridParserFactory {
         }
 
         if (sectionInfo.getNumberOfColumns() == 2) {
+            if (sectionInfo.getPositionRatio(0) > 0.5) {
+                return new Two_Role_NameAff(grid);
+            }
             if (sectionInfo.getCommaRatio(0) < COMMARATIO && sectionInfo.getCommaRatio(1) > COMMARATIO) {
                 return new FirstNameLastNameAffiliationParser(grid);
+            }
+            else {
+                return new TwoLastNameFirstNameParser(grid);
             }
         }
 
@@ -46,14 +52,11 @@ public class GridParserFactory {
                 && sectionInfo.getAffiliationRatio(2) > AFFILIATIONRATIO
             ) {
                 return new ThreeLastFirstAffParser(grid);
+            } else {
+                return new ThreeLastNameFirstNameParser(grid);
             }
         }
 
-        if (sectionInfo.getNumberOfColumns() >= 2) {
-            return new AllLastNameFirstNameParser(grid);
-        }
-
-        System.out.println("Unable to find appropriate parser.");
         return null;
     }
 

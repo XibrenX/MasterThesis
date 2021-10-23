@@ -12,6 +12,7 @@ import java.util.Map;
 
 public class SectionInfo {
     private int numberOfRows;
+    private List<Ratio> positionRations;
 
     public int getNumberOfColumns() {
         return numberOfColumns;
@@ -35,6 +36,9 @@ public class SectionInfo {
 
     public List<Ratio> getAffiliationRatios() {
         return affiliationRatios;
+    }
+    public List<Ratio> getPositionRations() {
+        return positionRations;
     }
 
     public boolean isAllValuesContainsCommas() {
@@ -72,6 +76,12 @@ public class SectionInfo {
                 sb.append("\t" + ratio.toString() + System.lineSeparator());
             }
         }
+        if (positionRations.size() > 0) {
+            sb.append("positionRations:" + System.lineSeparator());
+            for (Ratio ratio : positionRations) {
+                sb.append("\t" + ratio.toString() + System.lineSeparator());
+            }
+        }
         return sb.toString();
     }
 
@@ -101,6 +111,23 @@ public class SectionInfo {
         throw new Exception("No AffiliationRatio found for columnIndex: " + columnIndex + " and rows: " + rows);
     }
 
+    public double getPositionRatio(int columnIndex) throws Exception {
+        return getPositionRatio(columnIndex, Rows.ALL);
+    }
+
+    public double getPositionRatio(int columnIndex, Rows rows) throws Exception {
+        for (Ratio ratio : positionRations) {
+            if (ratio.getRows() == rows && ratio.getColumnNumber() == columnIndex) {
+                return ratio.getRatio();
+            }
+        }
+        throw new Exception("No PositionRatio found for columnIndex: " + columnIndex + " and rows: " + rows);
+    }
+
+    public void setPositionRations(List<Ratio> columnRatio) {
+        this.positionRations = columnRatio;
+    }
+
     public String stringRepCommaRatios() {
         Gson gson = new Gson();
         String json = gson.toJson(commaRatios);
@@ -110,6 +137,12 @@ public class SectionInfo {
     public String stringRepAffiliationRatios() {
         Gson gson = new Gson();
         String json = gson.toJson(affiliationRatios);
+        return json;
+    }
+
+    public String stringRepPositionRatios() {
+        Gson gson = new Gson();
+        String json = gson.toJson(positionRations);
         return json;
     }
 
@@ -128,4 +161,6 @@ public class SectionInfo {
     public int getNumberOfRows() {
         return this.numberOfRows;
     }
+
+
 }

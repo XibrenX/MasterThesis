@@ -61,14 +61,14 @@ public class GridParserFactoryTests {
 
         GridParser parser = getParser(sut, section);
 
-        List<Member> result = parser.parse();;
+        List<Member> result = parser.parse();
 
         assertEquals("FirstNameLastNameAffiliationParser", parser.getName());
         assertEquals(3, result.size());
     }
 
     @org.junit.Test
-    public void threeColumnNames() {
+    public void threeLastNameFirstNameParser_1() {
         SectionToGridConverter sut = new SectionToGridConverter();
         Section section = new Section("Program Committee");
         section.addToContent("           Gusev, Vladimir               Nicaud, Cyril                Valentin, Oriol");
@@ -85,12 +85,15 @@ public class GridParserFactoryTests {
         GridParser parser = getParser(sut, section);
         List<Member> result = parser.parse();
 
-        assertEquals("AllLastNameFirstNameParser", parser.getName());
+        assertEquals("ThreeLastNameFirstNameParser", parser.getName());
         assertEquals(28, result.size());
+        for (Member m : result) {
+            LOGGER.trace("{}", m);
+        }
     }
 
     @org.junit.Test
-    public void twoColumnsNames() {
+    public void twoLastNameFirstNameParser_1() {
         SectionToGridConverter sut = new SectionToGridConverter();
         Section section = new Section("Program Committee");
         section.addToContent("           Gusev, Vladimir               Nicaud, Cyril                ");
@@ -107,8 +110,11 @@ public class GridParserFactoryTests {
         GridParser parser = getParser(sut, section);
         List<Member> result = parser.parse();
 
-        assertEquals("AllLastNameFirstNameParser", parser.getName());
+        assertEquals("TwoLastNameFirstNameParser", parser.getName());
         assertEquals(20, result.size());
+        for (Member m : result) {
+            LOGGER.trace("{}", m);
+        }
     }
 
     @org.junit.Test
@@ -162,6 +168,41 @@ public class GridParserFactoryTests {
 
         assertEquals("OneColumnNameAffiliation", parser.getName());
         assertEquals(5, result.size());
+        for (Member m : result) {
+            LOGGER.debug(m.toString());
+        }
+    }
+
+    @org.junit.Test
+    public void TwoColumnSection_Name_Affiliation() {
+        SectionToGridConverter sut = new SectionToGridConverter();
+        Section section = new Section("Program Committee");
+        section.addToContent("          Honorary Chairs             Yunhe Pan (Chinese Academy of Engineering,      ");
+        section.addToContent("                                         China)                                       ");
+        section.addToContent("                                      Songde Ma (Institute of Automation, Chinese     ");
+        section.addToContent("                                         Academy of Science, China)                   ");
+        section.addToContent("                                      Katsushi Ikeuchi (University of Tokyo, Japan)   ");
+        section.addToContent("                                                                                      ");
+        section.addToContent("          General Chairs              Tieniu Tan (Institute of Automation, Chinese    ");
+        section.addToContent("                                         Academy of Science, China)                   ");
+        section.addToContent("                                      Nanning Zheng (Xi’an Jiaotong University,       ");
+        section.addToContent("                                         China)                                       ");
+        section.addToContent("                                      Yasushi Yagi (Osaka University, Japan)          ");
+        section.addToContent("                                                                                      ");
+        section.addToContent("          Program Chairs              Hongbin Zha (Peking University, China)          ");
+        section.addToContent("                                      Rin-ichiro Taniguchi (Kyushu University,        ");
+        section.addToContent("                                         Japan)                                       ");
+        section.addToContent("                                      Stephen Maybank (University of London, UK)      ");
+        section.addToContent("                                                                                      ");
+        section.addToContent("          Organization Chairs         Yanning Zhang (Northwestern Polytechnical       ");
+        section.addToContent("                                         University, China)                           ");
+        section.addToContent("                                      Jianru Xue (Xi’an Jiaotong University, China)   ");
+
+        GridParser parser = getParser(sut, section);
+        List<Member> result = parser.parse();
+
+        assertEquals("Two_Role_NameAff", parser.getName());
+        assertEquals(11, result.size());
         for (Member m : result) {
             LOGGER.debug(m.toString());
         }

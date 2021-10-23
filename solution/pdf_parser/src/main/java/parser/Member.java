@@ -1,8 +1,12 @@
 package parser;
 
 import com.google.gson.Gson;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Member {
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(Member.class);
 
     private final String name;
     private String affiliation;
@@ -12,7 +16,13 @@ public class Member {
     private String lastname;
 
     public Member(String name) {
+
         this.name = name;
+        if (name.contains(",")) {
+            String[] parts = name.split(",");
+            this.firstname = parts[1];
+            this.lastname = parts[0];
+        }
     }
 
     public Member(String firstname, String lastname) {
@@ -46,7 +56,13 @@ public class Member {
         this.affiliation = affiliation;
     }
 
-    public void setRole(String role) { this.role = role; }
+    public void setRole(String role) {
+        if (this.role == null) {
+            this.role = role;
+        } else {
+            LOGGER.trace("Preventing existing role {} to be overridden with value: {}", this.role, role);
+        }
+    }
 
     @Override
     public String toString() {
