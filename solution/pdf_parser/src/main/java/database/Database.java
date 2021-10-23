@@ -6,7 +6,7 @@ import parser.Member;
 import java.io.File;
 
 public interface Database {
-    int saveSection(long runId, String filename, Section section, String parser, int fileId);
+    int saveSection(long runId, Section section, String parser, int fileId, int mergedLines);
 
     int startProcessingFile(long runId, File file);
 

@@ -5,20 +5,20 @@ import grid.Position;
 import grid.UnbalancedGrid;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.List;;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SectionInfoFactory {
 
-    private static final Logger logger = LogManager.getLogger(SectionInfoFactory.class.getName());
+    private final static Logger LOGGER = LoggerFactory.getLogger(SectionInfoFactory.class);
 
     public static SectionInfo GetSessionInfo(UnbalancedGrid<TextPart> grid) {
-        logger.debug("Start GetSessionInfo");
+        LOGGER.trace("Start GetSessionInfo");
         SectionInfo si = new SectionInfo();
         si.setAllValuesContainsCommas(AllValuesContainsComma(grid));
         si.setNumberOfColumns(grid.columnCount());
+        si.setNumberOfRows(grid.rowCount());
         si.setNumberOfTextParts(grid.getNumberOfCells());
         si.setCommaRatios(columnRatio(grid, new String[] {","}));
         si.setAffiliationRatios(columnRatio(grid, new String[] {"universi", "instut", "college"}));
@@ -39,7 +39,7 @@ public class SectionInfoFactory {
 
 
     private static Ratio columnRatio(UnbalancedGrid<TextPart> grid, int columnIndex, Rows rows, String[] searchArguments) {
-        logger.debug("Getting columnRatio for columnIndex {} rows {} searcharguments: {}",
+        LOGGER.trace("Getting columnRatio for columnIndex {} rows {} searcharguments: {}",
                 columnIndex, rows, searchArguments);
         List<Position<TextPart>> positions = grid.getColumn(columnIndex);
         int numberOfRows = positions.size();
@@ -53,7 +53,7 @@ public class SectionInfoFactory {
                     || (rows == Rows.ODD && (rowIndex+1) % 2 == 1)
                     || (rows == Rows.EVEN && (rowIndex+1) % 2 == 0)
             ) {
-                logger.debug("Processing rowIndex: {} (rowNumber: {})", rowIndex, rowIndex+1 );
+                LOGGER.trace("Processing rowIndex: {} (rowNumber: {})", rowIndex, rowIndex+1 );
                 numberOfProcessedRows++;
                 if (positions.get(rowIndex) != null) {
                     for (String s : searchArguments) {
@@ -69,7 +69,7 @@ public class SectionInfoFactory {
         if (numberOfRows != 0) {
             ratio = (double) resultCounter / (double) numberOfRows;
         }
-        logger.debug("Result: numberOfRows: {}, resultCounter: {}, numberOfProcessedRows: {}, ratio: {}",
+        LOGGER.trace("Result: numberOfRows: {}, resultCounter: {}, numberOfProcessedRows: {}, ratio: {}",
                 numberOfRows,
                 resultCounter,
                 numberOfProcessedRows,

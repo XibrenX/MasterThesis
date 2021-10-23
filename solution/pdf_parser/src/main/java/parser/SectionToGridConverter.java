@@ -15,11 +15,19 @@ import java.util.logging.Logger;
  */
 public class SectionToGridConverter {
 
+    public int getMergedLines() {
+        return mergedLines;
+    }
+
+    private int mergedLines;
+
     /**
      * Converts a section to a grid
      */
     public UnbalancedGrid<TextPart> convert(Iterable<String> content) {
         UnbalancedGrid<TextPart> grid = new UnbalancedGrid<>();
+
+        mergedLines = 0; // The number of lines that are merged into the lines before
 
         int rowNumber = 0; // vertical position in the grid
         // key value pair to get the startposition for a certain columns
@@ -27,6 +35,7 @@ public class SectionToGridConverter {
         ArrayList<Integer> partStarts = new ArrayList<>();
         // boolean if the partStarts hashmap should be reloaded e.g. after an empty line
         boolean resetPartStarts = true;
+        boolean merged = false;
         for (String line : content) {
             if (line.trim().equals("")) {
                 resetPartStarts = true;
@@ -79,10 +88,14 @@ public class SectionToGridConverter {
                     } else {
                         String oldText = grid.getPosition(rowNumber-1, colNumberLinePart).getElement().getText();
                         String newText = oldText + " " + text;
+                        merged = true;
                         grid.createCell(new TextPart(newText, 0), rowNumber-1, colNumberLinePart);
                     }
 
-                }
+                } // end for row
+            } // end for line
+            if (merged) {
+                mergedLines++;
             }
             rowNumber++;
         } // end for every line

@@ -1,9 +1,10 @@
 package parser.gridparsers;
 
+import database.Postgres;
 import grid.Position;
 import grid.UnbalancedGrid;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import parser.GridParser;
 import parser.Member;
 import parser.TextPart;
@@ -14,7 +15,7 @@ import java.util.List;
 public class OneColumnNameAffiliation implements GridParser {
 
     private UnbalancedGrid<TextPart> grid;
-    private final static Logger LOGGER = LogManager.getLogger();
+    private final static Logger LOGGER = LoggerFactory.getLogger(OneColumnNameAffiliation.class);
 
     public OneColumnNameAffiliation(UnbalancedGrid<TextPart> grid) {
         LOGGER.debug("Created OneColumnNameAffiliation");

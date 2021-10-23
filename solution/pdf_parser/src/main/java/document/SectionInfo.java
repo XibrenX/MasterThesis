@@ -11,6 +11,8 @@ import java.util.Map;
 
 
 public class SectionInfo {
+    private int numberOfRows;
+
     public int getNumberOfColumns() {
         return numberOfColumns;
     }
@@ -117,5 +119,13 @@ public class SectionInfo {
 
     public void setAffiliationRatios(List<Ratio> columnRatio) {
         this.affiliationRatios = columnRatio;
+    }
+
+    public void setNumberOfRows(int rowCount) {
+        this.numberOfRows = rowCount;
+    }
+
+    public int getNumberOfRows() {
+        return this.numberOfRows;
     }
 }

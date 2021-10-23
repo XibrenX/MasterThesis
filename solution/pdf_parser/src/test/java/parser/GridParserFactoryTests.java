@@ -3,8 +3,8 @@ package parser;
 import document.Section;
 import document.SectionInfo;
 import grid.UnbalancedGrid;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GridParserFactoryTests {
 
-    final Logger logger = LogManager.getLogger();
+    private final static Logger LOGGER = LoggerFactory.getLogger(GridParserFactoryTests.class);
 
 //    @Before
 //    public void setUp() {
@@ -143,7 +143,7 @@ public class GridParserFactoryTests {
         assertEquals("OneColumnOddNameEvenAffiliation", parser.getName());
         assertEquals(2, result.size());
         for (Member m : result) {
-            logger.debug(m);
+            LOGGER.debug(m.toString());
         }
     }
 
@@ -163,7 +163,7 @@ public class GridParserFactoryTests {
         assertEquals("OneColumnNameAffiliation", parser.getName());
         assertEquals(5, result.size());
         for (Member m : result) {
-            logger.debug(m);
+            LOGGER.debug(m.toString());
         }
     }
 

@@ -6,20 +6,20 @@ import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import parser.Member;
 
 public class Postgres implements Database {
 
     private Connection conn;
 
-    private final static Logger LOGGER = LogManager.getLogger();
+    private final static Logger LOGGER = LoggerFactory.getLogger(Postgres.class);
 
     private final static String SCHEMA_NAME = "lncs_front_matter";
 
     public Postgres(String server, String username, String password, String database) {
-        LOGGER.info("Initializing Postgres connection");
+        LOGGER.trace("Initializing Postgres connection");
         String url = "jdbc:postgresql://" + server + "/" + database;
         Properties props = new Properties();
         props.setProperty("user",username);
@@ -52,7 +52,6 @@ public class Postgres implements Database {
                 add("id SERIAL PRIMARY KEY");
                 add("run_id BIGINT");
                 add("filename TEXT");
-                add("representation TEXT");
                 add("status TEXT");
                 add("message TEXT");
             }
@@ -66,11 +65,13 @@ public class Postgres implements Database {
                 add("id SERIAL PRIMARY KEY");
                 add("run_id BIGINT");
                 add("file_id BIGINT");
-                add("filename TEXT");
                 add("title TEXT");
-                add("content TEXT");
-                add("number_of_columns INT");
-                add("number_of_text_parts INT");
+                add("num_parts INT");
+                add("num_section_lines INT");
+                add("num_section_lines_non_empty INT");
+                add("num_merged_lines INT");
+                add("num_grid_rows INT");
+                add("num_grid_columns INT");
                 add("all_values_contain_commas BOOLEAN");
                 add("comma_ratios TEXT");
                 add("affiliation_ratios TEXT");
@@ -105,7 +106,7 @@ public class Postgres implements Database {
     }
 
     private void executeQueryNonResult(String query){
-        LOGGER.debug("Executing statement: " + System.lineSeparator() + query);
+        LOGGER.trace("Executing statement: " + System.lineSeparator() + query);
         Statement st = null;
         try {
             st = conn.createStatement();
@@ -126,19 +127,33 @@ public class Postgres implements Database {
     }
 
     @Override
-    public int saveSection(long runId, String filename, Section section, String parser, int fileId) {
+    public int saveSection(long runId, Section section, String parser, int fileId, int mergedLines) {
         StringBuilder sb = new StringBuilder();
         sb.append("INSERT INTO " + SCHEMA_NAME + ".section (" +
-                "run_id, file_id, " +
-                "filename, title, content, number_of_columns, " +
-                "number_of_text_parts, all_values_contain_commas, comma_ratios, affiliation_ratios, parser) " + System.lineSeparator());
+                "run_id, " +
+                "file_id, " +
+                "title, " +
+                "num_parts, " +
+                "num_section_lines, " +
+                "num_section_lines_non_empty, " +
+                "num_merged_lines, " +
+                "num_grid_rows, " +
+                "num_grid_columns, " +
+                "all_values_contain_commas, " +
+                "comma_ratios, " +
+                "affiliation_ratios, " +
+                "parser" +
+                ") " + System.lineSeparator());
         sb.append("VALUES (" + System.lineSeparator());
-        sb.append(runId + ", " + fileId + ", ");
-        sb.append("'" + filename + "', ");
+        sb.append(runId + ", ");
+        sb.append(fileId + ", ");
         sb.append("'" + section.getTitle() + "', ");
-        sb.append("'" + section.getContent() + "', ");
-        sb.append(section.getSectionInfo().getNumberOfColumns() + ", ");
         sb.append(section.getSectionInfo().getNumberOfTextParts() + ", ");
+        sb.append(section.getContentSize() + ", ");
+        sb.append(section.getNonEmptyContentSize() + ", ");
+        sb.append(mergedLines + ", ");
+        sb.append(section.getSectionInfo().getNumberOfRows() + ", ");
+        sb.append(section.getSectionInfo().getNumberOfColumns() + ", ");
         sb.append(section.getSectionInfo().isAllValuesContainsCommas() + ", ");
         sb.append("'" + section.getSectionInfo().stringRepCommaRatios() + "', ");
         sb.append("'" + section.getSectionInfo().stringRepAffiliationRatios() + "', ");
@@ -149,7 +164,7 @@ public class Postgres implements Database {
     }
 
     private int executeQueryIntResult(String query) {
-        LOGGER.debug("Executing statement: " + System.lineSeparator() + query);
+        LOGGER.trace("Executing statement: " + System.lineSeparator() + query);
         Statement st = null;
         int result = -1;
         try {
@@ -186,8 +201,7 @@ public class Postgres implements Database {
     public void endProcessingFile(int fileId, String representation, String status, String message) {
         StringBuilder sb = new StringBuilder();
         sb.append("UPDATE " + SCHEMA_NAME + ".file SET" + System.lineSeparator() +
-                "  representation = '" + representation + "'" + System.lineSeparator() +
-                ", status = '" + status + "'" + System.lineSeparator() +
+                "  status = '" + status + "'" + System.lineSeparator() +
                 ", message = '" + message + "'" + System.lineSeparator());
         sb.append("WHERE id = " + fileId);
         executeQueryNonResult(sb.toString());

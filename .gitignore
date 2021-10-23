@@ -3,3 +3,4 @@
 /solution/database/data
 /.idea
 **/__pycache__
+/log
