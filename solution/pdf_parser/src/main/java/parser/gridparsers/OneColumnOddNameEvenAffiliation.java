@@ -2,6 +2,8 @@ package parser.gridparsers;
 
 import grid.Position;
 import grid.UnbalancedGrid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import parser.GridParser;
 import parser.Member;
 import parser.TextPart;
@@ -9,24 +11,24 @@ import parser.TextPart;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FirstNameLastNameAffiliationParser implements GridParser {
+public class OneColumnOddNameEvenAffiliation extends Parser {
 
-    private UnbalancedGrid<TextPart> grid;
-
-    public FirstNameLastNameAffiliationParser(UnbalancedGrid<TextPart> grid) {
-        System.out.println("Created FirstNameLastNameAffiliationParser");
-        this.grid = grid;
+    public OneColumnOddNameEvenAffiliation(UnbalancedGrid<TextPart> grid) {
+        super(grid);
     }
 
     @Override
     public List<Member> parse() {
         List<Member> returnValue = new ArrayList<>();
+        Member member = null;
         for (int i = 0; i < grid.rowCount(); i++) {
             List<Position<TextPart>> row = grid.getRow(i);
-            if (row.size() > 0) {
+
+            if (i%2 == 0) {
                 String name = row.get(0).getElement().getText();
-                String affiliation = row.get(1).getElement().getText();
-                Member member = new Member(name);
+                member = new Member(name);
+            } else {
+                String affiliation = row.get(0).getElement().getText();
                 member.setAffiliation(affiliation);
                 returnValue.add(member);
             }
@@ -34,8 +36,4 @@ public class FirstNameLastNameAffiliationParser implements GridParser {
         return returnValue;
     }
 
-    @Override
-    public String getName() {
-        return "FirstNameLastNameAffiliationParser";
-    }
 }

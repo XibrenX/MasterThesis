@@ -1,6 +1,10 @@
 package document;
 
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,6 +65,30 @@ public class Section {
      */
     @Override
     public String toString() {
+        JsonObject props = new JsonObject();
+        props.addProperty("title", getTitle().trim());
+        props.addProperty("# lines", content.size());
+        JsonObject root = new JsonObject();
+        root.add("section", props);
+        String json = new Gson().toJson(root);
+        return json;
+    }
+
+    public int getContentSize() {
+        return content.size();
+    }
+
+    public int getNonEmptyContentSize() {
+        int counter = 0;
+        for (String s : content) {
+            if (s.trim().length() != 0) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+    public String detailedRepresentation() {
         StringBuilder sb = new StringBuilder();
         sb.append("Title: " + getTitle().trim() + System.lineSeparator());
         sb.append("Start content:" + System.lineSeparator());

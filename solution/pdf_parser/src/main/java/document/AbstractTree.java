@@ -115,7 +115,7 @@ public abstract class AbstractTree<E> implements Tree<E> {
 
     protected String preOrderRepresentation(Position<E> p, int indent) {
         StringBuilder sb = new StringBuilder();
-        sb.append(" ".repeat(indent) + p.getElement() + System.lineSeparator());
+        sb.append("- ".repeat(indent) + p.getElement() + System.lineSeparator());
         for (Position<E> c : children(p)) {
             sb.append((preOrderRepresentation(c, indent + 1)));
         }

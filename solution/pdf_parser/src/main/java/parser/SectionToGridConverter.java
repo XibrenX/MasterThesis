@@ -5,6 +5,7 @@ import grid.UnbalancedGrid;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,73 +15,90 @@ import java.util.logging.Logger;
  */
 public class SectionToGridConverter {
 
+    public int getMergedLines() {
+        return mergedLines;
+    }
+
+    private int mergedLines;
+
     /**
      * Converts a section to a grid
      */
     public UnbalancedGrid<TextPart> convert(Iterable<String> content) {
         UnbalancedGrid<TextPart> grid = new UnbalancedGrid<>();
 
-        // First step is to determine the columns
-        List<Integer> horizontalPositions = new ArrayList<>();
+        mergedLines = 0; // The number of lines that are merged into the lines before
 
-        for(String line : content) {
-            String[] parts = line.split("\\s\\s+");
-            for (String part : parts) {
-                if(part.equals("")) continue;
-                int position = line.indexOf(part);
-                horizontalPositions.add(position);
+        int rowNumber = 0; // vertical position in the grid
+        // key value pair to get the startposition for a certain columns
+        // e.g. column 2 starts at position 20
+        ArrayList<Integer> partStarts = new ArrayList<>();
+        // boolean if the partStarts hashmap should be reloaded e.g. after an empty line
+        boolean resetPartStarts = true;
+        for (String line : content) {
+            boolean merged = false;
+            if (line.trim().equals("")) {
+                resetPartStarts = true;
+                continue;
             }
-        }
-//        for(Integer hp : horizontalPositions) {
-//            System.out.println(hp);
-//        }
-
-        List<ColumnRange> rawColumnRanges = getColumnRanges(horizontalPositions);
-
-//        System.out.println("Number of rawColumnRanges: " + rawColumnRanges.size());
-//        for (ColumnRange cr : rawColumnRanges) {
-//            System.out.println(cr);
-//        }
-
-        List<ColumnRange> cleanColumnRanges = cleanColumnRanges(rawColumnRanges);
-
-//        System.out.println("Number of cleanColumnRanges: " + cleanColumnRanges.size());
-//        for (ColumnRange cr : cleanColumnRanges) {
-//            System.out.println(cr);
-//        }
-
-
-        // Second step is to fill the grid per column
-        Collections.sort(cleanColumnRanges);
-        for (int columnRangeNum = 0; columnRangeNum < cleanColumnRanges.size(); columnRangeNum++) {
-            ColumnRange cr = cleanColumnRanges.get(columnRangeNum);
-
-            int lineNumber = 0;
-            for(String line : content) {
-                String[] parts = line.split("\\s\\s+");
-                for (String part : parts) {
-                    if(part.equals("")) continue;
-                    int position = line.indexOf(part);
-                    if (position >= cr.getMinimum() && position <= cr.getMaximum()) {
-                        int offset = position - cr.getModus();
-                        TextPart tp = new TextPart(part, offset);
-                        grid.createCell(tp, lineNumber, columnRangeNum);
-                    }
+            String[] lineParts = line.trim().split("\\s\\s+");
+            if (resetPartStarts) {
+                partStarts.clear();
+                for (int colNumber = 0; colNumber < lineParts.length; colNumber++) {
+                    String text = lineParts[colNumber];
+                    int index = line.indexOf(text);
+                    partStarts.add(Integer.valueOf(index));
                 }
-                lineNumber++;
+                resetPartStarts = false;
             }
-        }
 
-//        System.out.println(grid.toString());
+            boolean allTextPartsAlligned = true;
+            for (int colNumber = 0; colNumber < lineParts.length; colNumber++) {
+                String text = lineParts[colNumber].trim();
+                int textIndex = line.indexOf(text);
+                int partStart = partStarts.get(colNumber);
+                if (partStart != textIndex) {
+                    allTextPartsAlligned = false;
+                }
+            }
 
+            if (lineParts.length == partStarts.size() && allTextPartsAlligned) {
+                for (int colNumber = 0; colNumber < lineParts.length; colNumber++) {
+                    grid.createCell(new TextPart(lineParts[colNumber], 0), rowNumber, colNumber);
+                }
+            } else {
+                for (int colNumber = 0; colNumber < lineParts.length; colNumber++) {
+                    String text = lineParts[colNumber].trim();
+                    int textIndex = line.indexOf(text);
+                    // Column where this part should be placed
+                    int colNumberLinePart = 0;
+                    int offset = 0;
+                    int newOffset = 0;
+                    for (int colIndex : partStarts) {
+                        newOffset = Math.abs(textIndex - colIndex);
+                        if (textIndex >= colIndex || newOffset <= 1) {
+                            colNumberLinePart = partStarts.indexOf(colIndex);
+                            offset = newOffset;
+                        } else {
+                            break;
+                        }
+                    }
+                    if (offset <= 1) {
+                        grid.createCell(new TextPart(text, 0), rowNumber, colNumberLinePart);
+                    } else {
+                        String oldText = grid.getPosition(rowNumber-1, colNumberLinePart).getElement().getText();
+                        String newText = oldText + " " + text;
+                        merged = true;
+                        grid.createCell(new TextPart(newText, 0), rowNumber-1, colNumberLinePart);
+                    }
 
-//            for (String part : ) {
-//                if (!part.equals("")) {
-//                    parts.add(part);
-//                }
-//            }
-//            members.add(createMember(parts.get(0).trim(), parts.get(1).trim()));
-//        }
+                } // end for col
+            } // end if
+            if (merged) {
+                mergedLines++;
+            }
+            rowNumber++;
+        } // end for every line
         return grid;
     }
 

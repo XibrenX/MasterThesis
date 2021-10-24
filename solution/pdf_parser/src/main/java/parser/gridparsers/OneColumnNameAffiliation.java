@@ -1,7 +1,10 @@
 package parser.gridparsers;
 
+import database.Postgres;
 import grid.Position;
 import grid.UnbalancedGrid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import parser.GridParser;
 import parser.Member;
 import parser.TextPart;
@@ -9,13 +12,10 @@ import parser.TextPart;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllNamesParser implements GridParser {
+public class OneColumnNameAffiliation extends Parser {
 
-    private UnbalancedGrid<TextPart> grid;
-
-    public AllNamesParser(UnbalancedGrid<TextPart> grid) {
-        System.out.println("Created AllNamesParser");
-        this.grid = grid;
+    public OneColumnNameAffiliation(UnbalancedGrid<TextPart> grid) {
+        super(grid);
     }
 
     @Override
@@ -25,8 +25,11 @@ public class AllNamesParser implements GridParser {
             List<Position<TextPart>> row = grid.getRow(i);
             if (row.size() > 0) {
                 for (Position<TextPart> pos : row) {
-                    String name = pos.getElement().getText();
+                    String text = pos.getElement().getText();
+                    String name = text.substring( 0, text.indexOf(",")).trim();
+                    String affiliation = text.substring(text.indexOf(",")+1, text.length()).trim();
                     Member member = new Member(name);
+                    member.setAffiliation(affiliation);
                     returnValue.add(member);
                 }
             }
@@ -34,8 +37,4 @@ public class AllNamesParser implements GridParser {
         return returnValue;
     }
 
-    @Override
-    public String getName() {
-        return "AllNamesParser";
-    }
 }
