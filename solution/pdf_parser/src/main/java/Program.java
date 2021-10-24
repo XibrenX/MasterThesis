@@ -37,19 +37,19 @@ public class Program {
         LOGGER.info("Number of files to process: {}", numberOfFiles);
         FileProcessor fp = null;
         int numberOfFilesProcessed = 0;
-//        for (String file : filepaths) {
-//            String filepath = directoryPath + file;
-//            fp = new FileProcessor(filepath, database, runId);
-//            fp.execute();
-//            numberOfFilesProcessed++;
-//            double percentage = ((double)numberOfFilesProcessed / (double)numberOfFiles) * 100;
-//            LOGGER.info("Processed {} of {} ({}%)", numberOfFilesProcessed, numberOfFiles, percentage);
-//        }
+        for (String file : filepaths) {
+            String filepath = directoryPath + file;
+            fp = new FileProcessor(filepath, database, runId);
+            fp.execute();
+            numberOfFilesProcessed++;
+            double percentage = ((double)numberOfFilesProcessed / (double)numberOfFiles) * 100;
+            LOGGER.info("Processed {} of {} ({}%)", numberOfFilesProcessed, numberOfFiles, percentage);
+        }
 
-        String file = "conf_cicling_2015-1.pdf";
-        String filepath = directoryPath + file;
-        fp = new FileProcessor(filepath, database, runId);
-        fp.execute();
+//        String file = "conf_cicling_2015-1.pdf";
+//        String filepath = directoryPath + file;
+//        fp = new FileProcessor(filepath, database, runId);
+//        fp.execute();
 
 
     }
