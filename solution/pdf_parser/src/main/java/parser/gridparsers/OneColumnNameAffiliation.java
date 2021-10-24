@@ -1,11 +1,7 @@
 package parser.gridparsers;
 
-import database.Postgres;
 import grid.Position;
 import grid.UnbalancedGrid;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import parser.GridParser;
 import parser.Member;
 import parser.TextPart;
 

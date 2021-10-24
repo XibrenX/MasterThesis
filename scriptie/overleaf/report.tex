@@ -1137,6 +1137,275 @@ necessary metrics.
 \section{Flow proceedings and conferences}
 
 
+% ==============================================================================
+\chapter{Group identification}
+% ==============================================================================
+The first step in detecting outliers is to identify groups of people who are in 
+the same position. We identify the followig groups in his research because they
+may be interesting.
+
+\section{Editors of proceedings}
+
+\section{Authors submitting at the same conference}
+
+\section{Author submitting at the same journal}
+
+\section{Authors that publish with each other}
+
+\section{H-Index}
+
+
+% ==============================================================================
+\chapter{LNCS Front Matter PDF}
+% ==============================================================================
+\begin{itemize}
+    \item People involved in the proceedings are mentioned in the Front Matter.
+    \item Front Matter can be downloaded as PDF.
+    \item PDF are considered unstructured data.
+    \item PDF's are meant to read by humans, not computers. However, currently 
+        we have 4370 Front Matters, which is an unbearable task to copy and 
+        paste the data manual from these PDF's.
+    \item To be able to get the data inside these PDF's, we need to convert the 
+        PDF's to a structured or semi-structured dataset.
+\end{itemize}
+
+\section{Reading a PDF}
+\begin{itemize}
+    \item Multiple options to make the pdf computer-readable:
+    \begin{description}
+        \item[Convert to HTML] There are multiple tools available to convert PDF
+            to html format. Further processing can be applied by using HTML
+            libraries. Unfortunately, this HTML pages are complex to interpret
+            because a tag can contain just one letter. We need to glue these 
+            tags together, with taking the location of the tag in consideration
+            (how much space is between two letters, is that a space, is that a 
+            new column, or an indent in an existing column etc.). We did an 
+            experiment to process PDF's this way, but the resulting solution to 
+            process one PDF was not able to process another one. The effort to 
+            make this a generic solution which can easily be extended where 
+            necessary was very high in comparison with the result we achieved.
+
+        \item[Convert to plain text] Almost all libraries to read a pdf file 
+            support the option to read the file as plain text. Drawback is that
+            the lay-out is gone. This lay-out is necessary to get some structure
+            from the document.
+        
+        \item[Convert to image and extract text] This was we can use machine 
+            learning liberaries to get the text from an image. We tries this 
+            with Tesseract, but too much information was lost to get the 
+            structure of the document.
+
+        \item[Use low level library] In this experiment we tried of we were able
+            to process the PDF with a more low level library. This give us more
+            control of the process. First small experiments with PDFBox were 
+            succesfull.
+    \end{description}
+\end{itemize}
+
+\section{Using PDFBox to get the necessary raw data}
+\begin{itemize}
+    \item First we need to get the raw data from the PDF's.
+    \item PDFBox has an parser that gives the PDF back as text. As mentioned
+        before, for our case this is not enough. The problem is within this text
+        all spaces between words are converted to one space. However, we need to
+        be able to identify columns, so we need to keep all spaces.
+    \item Luckely, we were not the only one with this problem. On 
+        Github\footnote{\url{https://github.com/JonathanLink/PDFLayoutTextStripper}} 
+        there is an open source additional parser available for PDFBox that 
+        keeps the layout as is.
+    \item However, this extension still did not have all properties of a text we
+        need to get the structure of a file. Luckely, because this extension 
+        issue open source, we can add this information to the text objects we 
+        read from the PDF.
+    \item Besides the text with all the spaces in between we get by using this 
+        extension, we also added:
+    \begin{itemize}
+        \item FontSize
+        \item FontSizeInPt
+        \item XScale
+        \item IsBold
+    \end{itemize}
+    \item The result is now that we have the pdf file as textobjects with 
+        extra properties.
+\end{itemize}
+
+\section{Building a document tree}
+\label{sec:lncs_parser_doc_tree}
+\begin{itemize}
+    \item By using the properties textsize and bold we are able to build an 
+        hierarchical structure of the document. 
+    \item We need this, because in most
+        Front Matters there is an organization header, with subheaders 
+        containing the role of the people.
+    \item As datastructure to work with the data we use a tree.
+    \item The objects we store in this tree are Sections. These contain the 
+        textlines and the header as title of the section.
+\end{itemize}
+
+\section{Focus on organisation}
+\begin{itemize}
+    \item Having this tree, we can easily get the section that contains the 
+        organisation (because this section is called, you have never guessed it, 
+        'organisation').
+    \item Because we have a tree data structure, we can ask this organisation 
+        section to loop trough all sections underneath.
+\end{itemize}
+
+\section{Processing a section}
+\begin{itemize}
+    \item All text in a section that is under a role, has some kind of table 
+        struture.
+    \item For that reason we use a grid a data structure to put the data from 
+        the raw lines in to.
+    \item This grid structure gives us some possibilities, e.g. to get 
+        statistics of a column.
+    \item The challende in this part is to merge lines into one line.
+    \item This process is done in a section to grid converter. To separate this
+        process from the process of building a tree, improves testability.
+\end{itemize}
+
+\section{Getting information from a grid}
+\begin{itemize}
+    \item We calculate some statistics of a grid which we need to choose a
+        parser further down the processing.
+    \item The statistics we get:
+    \begin{description}
+        \item[Number of textparts] The total number of cells that are filled in
+            the grid.
+        \item[Number of columns] The number of columns that the grid contains.
+            Most sections contains two columns, but this is certainly not the 
+            case for all sections.
+        \item[Affiliation ratio] The ratio of textparts that contain keywords 
+            for an affiliation (e.g. "universi"). This is calculated for every 
+            column and for odd, even and all rows.
+        \item[Comma ratio] Same as affiliation ratio, but for comma's. Can also
+            be used to identify affiliations. However, names also contains 
+            comma's if the format is lastname, firstname.
+    \end{description}
+    \item All this information is stored in a SectionInfo object which is added
+        to the section.
+\end{itemize}
+
+\section{Choosing a parser}
+\begin{itemize}
+    \item With the information the program can choose the appropiate parser to
+        interpret the data correctly and convert the grid into members.
+\end{itemize}
+
+\section{Data storage}
+\begin{itemize}
+    \item During this process we store data in a database and in logfiles.
+\end{itemize}
+
+\subsection{Database}
+In the database we store three entities: file, section and member. All tables 
+contain at least the following attributes:
+\begin{description}
+    \item[id] Auto generated number.
+    \item[run\_id] The identification of the program run (epoch).
+\end{description}
+In Figure~\ref{fig:lncs_pdf_database} the relationship between the tables are
+shown.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{images/lncs_pdf_parser_tool.drawio.png}
+    \caption{Relationship between tables}
+    \label{fig:lncs_pdf_database}
+\end{figure}
+
+\subsubsection{File}
+This table contains information of the file. It can be use to link to previous 
+gathered data. The following attributes are in this table:
+\begin{description}
+    \item[filename] The filename of the pdf to refer to other tables in the 
+        process.
+    \item[status] If the process of the file succeeded or failed.
+    \item[message] If the process failed, how come. 
+\end{description}
+
+\subsubsection{section}
+This table contains information of the section. The following attributes are in 
+this table:
+\begin{description}
+    \item[title] The title of the section (e.g. Program chair).
+    \item[num\_parts] The number of textparts that are detected in this section.
+    \item[num\_section\_lines] The total number of lines in a section.
+    \item[num\_section\_lines\_non\_empty] The number of lines in a section that
+        are not empty.
+    \item[num\_merges\_lines] The number of lines that are merged in to the 
+        previous line.
+    \item[num\_grid\_rows] The number of rows the grid has.
+    \item[num\_grid\_columns] The nubmber of columns the grid has.
+    \item[all\_values\_contain\_commas] Indicator if all values contain commas.
+    \item[comma\_ratios] A json structure with statistics of comma's in the text.
+    \item[affiliation\_ratios] A json structure with statistics of affiliation 
+        keywords in the text.
+    \item[parser] The parse the program choose to process the section.
+\end{description}
+
+\subsubsection{Member}
+This table contains eventually the resulting data we are interested in.
+\begin{description}
+    \item[role] The role of the member. This is in most cases the same as the 
+        the title of the section (but, not always). 
+    \item[name] The name as we get from the data, whatever format it is. If we
+        get a separate firstname and lastname from the section, the name is 
+        built based on those values. However, we prefer separate firstname and
+        lastname, because this gives us more options when we need to integrate
+        this data with data from other sources.
+    \item[firstname] If we are able to get separate firstname and lastname of
+        the member, we will store this here. We do tend to interpret names which 
+        contain a comma as <lastname>, <firstname>.
+    \item[lastname] Same as before, but then the lastname :).
+    \item[affiliation] The affiliation of the member. This data is not always
+        available, but we do not tend to use it.
+\end{description}
+
+\subsection{Logging}
+For every file that the program process, it keeps a separate logfile. This gives
+us the ability to investigate why the program was unable to process some files 
+or sections. Missing parser for example can be detected using this mechanism in
+combination with the data in the section table in the database.
+
+For every file the logfile shows the document tree as described in 
+Section~\ref{sec:lncs_parser_doc_tree}. 
+
+If sections are found, the logfile shows for every section:
+\begin{description}
+    \item[Textlines] All the lines that are in this section.
+    \item[Grid] The derived grid from the textlines.
+    \item[Members] The members that are extracted from the section.
+\end{description}
+This may seem a lot, but having this information gives us the possibility to 
+investigate in detail why data can not be interpreted and easily build new 
+functionality (e.g. new parsers) and add unit tests for this functionality.
+
+\section{Validation}
+Currently 4370 Front Matters are available. How are we able to tell something 
+about the quality of the program without manually go through the results?
+
+For every section we have some metrics. With these metrics, depending on the
+parser we can see if the number of extracted members is correct, or close to
+correct.
+
+For example, The parser Two\_Role\_NameAff contains two columns: first with a name
+and second with the affiliation. We can measure if the number of resulting 
+members is equal to the non empty lines in the section minus the merged lines.
+
+
+
+\subsubsection{Current state}
+PDF's:
+3205 succeeded 
+    72 hiervan geen sections (handmatig analyseren)
+1165 failed
+
+van de succeeded, aantal secties:
+validation  count
+FAIL	    1714
+UNKNOWN	    72      <- (handmatig analyseren)
+PASS	    21594
+
 
 
 % ==============================================================================
