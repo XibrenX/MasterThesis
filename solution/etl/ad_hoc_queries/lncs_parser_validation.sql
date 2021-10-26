@@ -1,11 +1,12 @@
+
 WITH members_cte AS (
     SELECT section_id, COUNT(*) as "num_members"
     FROM lncs_front_matter.member
     GROUP BY section_id
 )
+, metrics_cte AS (
 SELECT 
-      f.filename
-    , s.title
+      s.file_id
     , s.num_parts
     , s.num_section_lines_non_empty
     , s.num_merged_lines
@@ -54,13 +55,29 @@ SELECT
               THEN 'PASS'
             ELSE 'FAIL'
           END
-        ELSE 'UNKOWN'
+        WHEN s.parser = 'OneColumnOddNameEvenAffiliation'
+        THEN
+          CASE 
+            WHEN (s.num_section_lines_non_empty - s.num_merged_lines) / 2 = m.num_members
+              THEN 'PASS'
+            ELSE 'FAIL'
+          END
+        WHEN s.parser = 'ThreeLastFirstAffParser'
+        THEN
+          CASE 
+            WHEN s.num_section_lines_non_empty - s.num_merged_lines = m.num_members
+              THEN 'PASS'
+            ELSE 'FAIL'
+          END
+        ELSE 'UNKNOWN'
       END as "validation"
 
-FROM lncs_front_matter.file f
-LEFT OUTER JOIN lncs_front_matter.section s
-ON f.id = s.file_id
+FROM  lncs_front_matter.section s
 LEFT OUTER JOIN members_cte m
 ON s.id = m.section_id
 WHERE f.status = 'SUCCEEDED'
-LIMIT 100;
+)
+
+SELECT validation, count(*)
+from metrics_cte
+group by validation;
