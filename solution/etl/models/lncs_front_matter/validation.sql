@@ -1,5 +1,11 @@
+{{ 
+    config(materialized='table') 
+}}
 WITH member_role_cte AS (
-SELECT  id
+SELECT
+      run_id
+    , id
+    , section_id
     ,   CASE
             WHEN 
                     LOWER("role") LIKE '%program%' 
@@ -27,16 +33,18 @@ SELECT  id
             
             ELSE '-'
         END as "clean_role"
-FROM lncs_front_matter.member
+FROM {{ source('lncs_front_matter', 'member') }}
 )
 , section_members_count_cte AS (
-    SELECT section_id, COUNT(*) as "num_members"
-    FROM lncs_front_matter.member
-    GROUP BY section_id
+    SELECT run_id, section_id, COUNT(*) as "num_members"
+    FROM {{ source('lncs_front_matter', 'member') }}
+    GROUP BY run_id, section_id
 )
 , section_validation_cte AS (
     SELECT 
-      s.id
+      s.run_id
+    , s.id
+    , s.file_id
     , CASE 
         WHEN s.parser = 'ZeroParser'
         THEN
@@ -97,58 +105,52 @@ FROM lncs_front_matter.member
         ELSE 'UNKNOWN'
       END as "validation"
 
-    FROM  lncs_front_matter.section s
+    FROM  {{ source('lncs_front_matter', 'section') }} s
     LEFT OUTER JOIN section_members_count_cte m
     ON s.id = m.section_id
+    AND s.run_id = m.run_id
 )
-, section_cte as (
-    SELECT s.*, mc.num_members, sv.validation
-    FROM lncs_front_matter.section s
-    LEFT OUTER JOIN section_members_count_cte mc
-    ON s.id = mc.section_id
-    LEFT OUTER JOIN section_validation_cte sv
-    ON s.id = sv.id
-)
-, member_cte as (
-    SELECT m.*
-    , mr.clean_role
-    , CASE 
-        WHEN mr.clean_role IN ('program committee')
-            THEN 1 
-        ELSE 0 END as "ind_interest"
-    FROM lncs_front_matter.member m
-    LEFT OUTER JOIN member_role_cte mr
-    ON m.id = mr.id
-)
-, file_cte as (
+, interested_sections_cte AS (
     SELECT 
-          f.*
-        , CASE 
-            WHEN f.message <> 'No organisation position found' 
-            THEN 'Error processing file'
-            ELSE f.message
-        END as "error_description"
-    FROM lncs_front_matter.file f 
-)
-, file_metrics as ()
-SELECT s.file_id
-    , s.validation
-    FROM section_cte s
-    ON f.id = s.file_id
-    LEFT OUTER JOIN member_cte m
+          s.run_id
+        , s.id as "section_id"
+        , m.clean_role
+        , MAX(CASE WHEN m.clean_role IN ('program committee') THEN 1 ELSE 0 END) OVER (PARTITION BY s.run_id, s.id) as "ind_interest"
+        , COUNT(m.*) as "num_members"
+    FROM {{ source('lncs_front_matter', 'section') }} s
+    LEFT OUTER JOIN member_role_cte m
     ON s.id = m.section_id
+    AND s.run_id = m.run_id
+    GROUP BY s.id, m.clean_role
+)
+, file_section_cte AS (
+    SELECT 
+           f.run_id
+         , f.id as "file_id"
+         , COUNT(s.*) as "num_sections"
+    FROM lncs_front_matter.file f
+    LEFT OUTER JOIN {{ source('lncs_front_matter', 'section') }} s
+    ON f.id = s.file_id
+    GROUP BY f.id
+)
+, file_cte AS (
+    SELECT
+          f.run_id
+        , f.id as "file_id"
+        , CASE WHEN fs.num_sections = 0 OR "status" = 'FAILED' THEN 0 ELSE 1 END as "ind_pass"
+        , CASE WHEN fs.num_sections = 0 AND f.message IS NULL THEN 'No sections' ELSE f.message END as "message"
+    FROM {{ source('lncs_front_matter', 'file') }} f
+    LEFT OUTER JOIN file_section_cte fs
+    ON f.id = fs.file_id
+    AND f.run_id = fs.run_id
 )
 
-LIMIT 100;
-
-
-
--- SELECT *
--- FROM lncs_front_matter.file f 
--- LEFT OUTER JOIN lncs_front_matter.section s
--- ON f.id = s.file_id
--- LEFT OUTER JOIN member m
--- ON s.id = m.section_id
--- WHERE m.clean_role IN ('program committee')
--- LIMIT 100;
-
+    SELECT f.run_id, f.file_id, f.ind_pass as "file_pass", intsec.ind_interest as "section_interested", secval.validation as "section_pass", f.message, intsec.section_id, intsec.clean_role, intsec.num_members
+    FROM file_cte f
+    LEFT OUTER JOIN section_validation_cte secval
+        ON f.file_id = secval.file_id
+        AND f.ind_pass = 1
+        AND f.run_id = secval.run_id
+    LEFT OUTER JOIN interested_sections_cte intsec
+        ON secval.id = intsec.section_id
+        AND secval.run_id = intsec.run_id

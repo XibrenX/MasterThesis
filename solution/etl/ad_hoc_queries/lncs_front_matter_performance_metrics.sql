@@ -29,26 +29,33 @@ FROM (
 ) x 
 GROUP BY x.ind_interested;
 
+SELECT section_interested, COUNT(*)
+FROM lncs_front_matter.validation
+WHERE file_pass = 1
+GROUP BY section_interested;
+
 -- STEP 3
-SELECT count_validation_pass, count(*) as "file_count", ROUND((COUNT(*) / SUM(COUNT(*)) OVER ()) * 100, 2) as "percentage"
+SELECT CASE WHEN y.count_validation_pass > 0 THEN 1 ELSE 0 END as "contains_passed_sections"
+, SUM(y.file_count) as "file_count"
 FROM (
-    SELECT file_id, SUM(CASE WHEN section_pass = 'PASS' THEN 1 ELSE 0 END) as "count_validation_pass"
-    FROM lncs_front_matter.validation
-    WHERE file_pass = 1 AND section_interested = 1
-    GROUP BY file_id, CASE WHEN section_pass = 'PASS' THEN 1 ELSE 0 END
-) x 
-GROUP BY x.count_validation_pass
-ORDER BY x.count_validation_pass;
+    SELECT count_validation_pass
+    , count(*) as "file_count"
+    , ROUND((COUNT(*) / SUM(COUNT(*)) OVER ()) * 100, 2) as "percentage"
+    ,SUM(COUNT(*)) OVER ()
+    FROM (
+        SELECT file_id
+        , COUNT(*) as "count_validations"
+        , SUM(CASE WHEN section_pass = 'PASS' THEN 1 ELSE 0 END) as "count_validation_pass"
+        FROM lncs_front_matter.validation
+        WHERE file_pass = 1 AND section_interested = 1
+        GROUP BY file_id
+    ) x 
+    GROUP BY x.count_validation_pass
+) y
+GROUP BY CASE WHEN y.count_validation_pass > 0 THEN 1 ELSE 0 END
+ORDER BY "contains_passed_sections" DESC;
 
--- SELECT file_id
--- FROM (
---     SELECT file_id, SUM(CASE WHEN section_pass = 'PASS' THEN 1 ELSE 0 END) as "count_validation_pass"
---     FROM lncs_front_matter.validation
---     WHERE file_pass = 1 AND section_interested = 1
---     GROUP BY file_id, CASE WHEN section_pass = 'PASS' THEN 1 ELSE 0 END
--- ) x 
--- WHERE count_validation_pass = 16
--- -- GROUP BY x.count_validation_pass;
-
--- SELECT COUNT(*)
--- FROM lncs_front_matter.file;
+SELECT section_pass, COUNT(*)
+FROM lncs_front_matter.validation
+WHERE file_pass = 1 AND section_interested = 1
+GROUP BY section_pass;

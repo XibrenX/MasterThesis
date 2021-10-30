@@ -1,0 +1,42 @@
+version: 2
+
+sources:
+  - name: lncs_front_matter
+    schema: lncs_front_matter
+    tables:
+      - name: file
+        columns:
+          - name: id
+          - name: run_id
+          - name: filename
+          - name: status
+          - name: message
+
+      - name: section
+        columns: 
+          - name: id
+          - name: run_id
+          - name: file_id
+          - name: title
+          - name: num_parts
+          - name: num_section_lines
+          - name: num_section_lines_non_empty
+          - name: num_merged_lines
+          - name: num_grid_rows
+          - name: num_grid_columns
+          - name: all_values_contain_commas
+          - name: comma_ratios
+          - name: affiliation_ratios
+          - name: parser
+
+      - name: member
+        columns:
+          - name: id
+          - name: run_id
+          - name: section_id
+          - name: role
+          - name: name
+          - name: firstname
+          - name: lastname
+          - name: affiliation
+
