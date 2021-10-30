@@ -4,16 +4,13 @@ from typing import Callable
 import requests
 from bs4 import BeautifulSoup
 import datetime
-import database
-from saver import Saver
+from ...database import Saver, Postgress
 import requests
 import time
 from stem import Signal
 from stem.control import Controller
 
 logging.basicConfig(level=logging.INFO, format='%(name)s - %(levelname)s - %(message)s')
-
-
 
 def read_config(path) -> configparser.SectionProxy:
     logging.info('Reading configuration')
@@ -25,7 +22,7 @@ def read_config(path) -> configparser.SectionProxy:
 
 
 config = read_config('solution/config')
-db = database.Postgress(
+db = Postgress(
     server=config['POSTGRES_SERVER'], 
     database=config['POSTGRES_DB'],
     user=config['POSTGRES_USER'],

@@ -4,19 +4,30 @@ import codecs
 from bs4 import BeautifulSoup
 import time
 import datetime
-import database
-import saver
+from database import Postgress, Saver
 import pyodbc
 import re
+import configparser
 
-server = 'localhost'
-db_name = 'study'
-driver = '{ODBC Driver 17 for SQL Server}'
-conn_str = f'Driver={driver};Server={server};Database={db_name};Trusted_Connection=yes;'
-schema_name = 'core'
+logging.basicConfig(level=logging.INFO, format='%(name)s - %(levelname)s - %(message)s')
 
-db = database.SqlServer(conn_str)
-saver = saver.Saver(db)
+def read_config(path) -> configparser.SectionProxy:
+    logging.info('Reading configuration')
+    with open(path, 'r') as f:
+        config_string = '[SECTION]\n' + f.read()
+    config = configparser.ConfigParser()
+    config.read_string(config_string)
+    return config['SECTION']
+
+
+config = read_config('../config')
+db = Postgress(
+    server=config['POSTGRES_SERVER'], 
+    database=config['POSTGRES_DB'],
+    user=config['POSTGRES_USER'],
+    password=config['POSTGRES_PASSWORD']
+    )
+saver = Saver(db)
 
 def parse(content, dts, url) -> list:
     
@@ -45,17 +56,17 @@ def parse(content, dts, url) -> list:
 if __name__ == '__main__':
     types = ['jnl-ranks', 'conf-ranks']
     for t in types:
-        print(f"Working on {t}")
+        logging.info(f"Working on {t}")
         for i in range(1, 20):
-            print(f"site: {i}")
+            logging.info(f"site: {i}")
             url = f"http://portal.core.edu.au/{t}/?search=&by=all&source=CORE2020&sort=atitle&page={i}"
             timestamp = str(datetime.datetime.now())
             response = requests.get(url)
             if response.status_code != 200:
-                print(f"Got {response.status_code}: stopping script")
+                logging.info(f"Got {response.status_code}: stopping script")
                 break
             data = parse(response.content, timestamp, url)
-            saver.save('core', t, data)
+            saver.save('core', t.replace('-', '_'), data)
             time.sleep(1)
-    print(f"done")
+    logging.info(f"done")
 

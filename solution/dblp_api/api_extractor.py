@@ -4,19 +4,32 @@ import codecs
 from bs4 import BeautifulSoup
 import time
 import datetime
-import database
-import saver
+from database import Postgress, Saver
 import pyodbc
 import json
+import configparser
 
-server = 'localhost'
-db_name = 'study'
-driver = '{ODBC Driver 17 for SQL Server}'
-conn_str = f'Driver={driver};Server={server};Database={db_name};Trusted_Connection=yes;'
+logging.basicConfig(level=logging.INFO, format='%(name)s - %(levelname)s - %(message)s')
+
 schema_name = 'dblp_api'
 
-db = database.SqlServer(conn_str)
-saver = saver.Saver(db)
+def read_config(path) -> configparser.SectionProxy:
+    logging.info('Reading configuration')
+    with open(path, 'r') as f:
+        config_string = '[SECTION]\n' + f.read()
+    config = configparser.ConfigParser()
+    config.read_string(config_string)
+    return config['SECTION']
+
+
+config = read_config('../config')
+db = Postgress(
+    server=config['POSTGRES_SERVER'], 
+    database=config['POSTGRES_DB'],
+    user=config['POSTGRES_USER'],
+    password=config['POSTGRES_PASSWORD']
+    )
+saver = Saver(db)
 
 
 def read_content(content) -> dict:
@@ -117,23 +130,29 @@ def execute_request(query) -> dict:
 
 
 def get_queries() -> list:
-    #print("Fetch queries from database")
-    try:
-        query = f"SELECT [dblp_key] FROM [integration].[conferences] WHERE [dblp_key] IS NOT NULL"
+    logging.info("Fetch queries from database")
+    query = f"SELECT dblp_key FROM core.conferences WHERE dblp_key IS NOT NULL"
+    query_result = db.execute_query_result(query)
+    result = [x['dblp_key'] for x in query_result]
+    return result
 
-        conn = pyodbc.connect(conn_str)
-        cursor = conn.cursor()
-        cursor.execute(query)
-        row = cursor.fetchone()
-        res = []
-        while row:
-            res.append(str(row[0]))
-            row = cursor.fetchone()
-        return res
-    except:
-        print("error occured")
-    finally:
-        cursor.close()
+
+    # try:
+    #     
+
+    #     conn = pyodbc.connect(conn_str)
+    #     cursor = conn.cursor()
+    #     cursor.execute(query)
+    #     row = cursor.fetchone()
+    #     res = []
+    #     while row:
+    #         res.append(str(row[0]))
+    #         row = cursor.fetchone()
+    #     return res
+    # except:
+    #     print("error occured")
+    # finally:
+    #     cursor.close()
 
 
 def equal_list_of_dicts(l):

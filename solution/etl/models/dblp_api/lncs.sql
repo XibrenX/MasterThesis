@@ -1,8 +1,8 @@
 WITH dblp_cte AS
 (
     SELECT 
-        [info_key] as 'dblp_key',
-        [info_ee] as 'url'
+        info_key as dblp_key,
+        info_ee as "url"
     FROM 
         {{ source('dblp_api', 'document') }}
     WHERE 
@@ -17,24 +17,20 @@ WITH dblp_cte AS
 , man_cte AS
 (
     SELECT
-        [dblp_key],
-        [url]
+        dblp_key,
+        "url"
     FROM 
-        {{ ref('add_dblp_api_document') }}
+        {{ ref('manual_dblp_api_document') }}
     WHERE 
         [type] = 'LNCS'
 )
 
-SELECT 
-    [dblp_key],
-    [url]
-FROM 
-    dblp_cte
+SELECT dblp_key
+     , "url"
+FROM dblp_cte
 
 UNION
 
-SELECT 
-    [dblp_key],
-    [url]
-FROM 
-    man_cte
+SELECT dblp_key
+     , "url"
+FROM man_cte

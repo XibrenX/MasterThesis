@@ -9,7 +9,7 @@ import re
 
 
 def read_content(content) -> list:
-    soup = BeautifulSoup(contents, 'html.parser')
+    soup = BeautifulSoup(content, 'html.parser')
     conference_name = "< UNKOWN >"
     conference_id = "< UNKOWN >"
     events = []

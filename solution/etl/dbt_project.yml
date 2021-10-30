@@ -34,12 +34,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   thesis:
       # Applies to all files under models/example/
-      # dblp_clean:
-      #   schema: dblp_clean
+      dblp_api:
+        schema: dblp_api
       # arxiv_clean:
       #   schema: arxiv_clean
-      # core_clean:
-      #   schema: core_clean
+      core:
+        schema: core
       # integration:
       #   schema: integration
       lncs_front_matter:
@@ -48,5 +48,8 @@ models:
 seeds:
   thesis:
     schema: seed
-    lncs_front_matter:
-        schema: lncs_front_matter
+    core:
+      schema: core
+    dblp_api:
+      schema: dblp_api
+      

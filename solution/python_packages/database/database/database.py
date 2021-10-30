@@ -12,11 +12,26 @@ class Generic:
 
 
     def execute_query(self, query):
-        print(query)
+        logging.debug(query)
         conn = self.get_connection()
         with conn:
             cursor = conn.cursor()
             cursor.execute(query)
+
+
+    def execute_query_result(self, query) -> list:
+        logging.debug(f"Exeuting query: {query}")
+        conn = self.get_connection()
+        with conn:
+            cursor = conn.cursor()
+            cursor.execute(query)
+            row = cursor.fetchone()
+            result = []
+            columns = [column[0] for column in cursor.description]
+            for row in cursor.fetchall():
+                result.append(dict(zip(columns, row)))
+            return result
+
 
 
     def execute_many(self, query, data):

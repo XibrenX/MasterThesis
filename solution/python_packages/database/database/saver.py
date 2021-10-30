@@ -1,5 +1,3 @@
-import database
-
 class Saver:
 
     def __init__(self, db):
@@ -8,6 +6,7 @@ class Saver:
 
     def check_schema(self, schema_name):
         if not self.db.schema_exists(schema_name):
+            print("Schema does not exists -> creating")
             self.db.create_schema(schema_name)
 
 
@@ -19,10 +18,10 @@ class Saver:
             for an in row:
                 length = 1
                 if row[an] is not None:
-                    length = len(row[an])
+                    length = len(row[an]) if len(row[an]) > 0 else 1
                 if an not in al or al[an] <= length:
                     al[an] = length
-        #print(al)
+        # print(al)
 
         if self.db.table_exists(schema_name, table_name):
             ec = self.db.get_column_info(schema_name, table_name)
@@ -35,31 +34,21 @@ class Saver:
                     to_adjust[new_column] = al[new_column]
             
             if len(not_existent) > 0:
-                #print(f"adding {len(not_existent)} columns")
-                query = f"ALTER TABLE [{schema_name}].[{table_name}] ADD "
-                column_parts = [f"[{c}] NVARCHAR({not_existent[c]}) NULL " for c in not_existent]
-                query += ", ".join(column_parts) + ";"
-                self.db.execute_query(query)
+                print(f"adding {len(not_existent)} columns")
+                self.db.add_columns(schema_name, table_name, not_existent)
 
             for c in to_adjust:
-                #print(f"adjusting column {c}")
-                query = f"ALTER TABLE [{schema_name}].[{table_name}] ALTER COLUMN [{c}] NVARCHAR({to_adjust[c]}) NULL "
-                self.db.execute_query(query)
+                print(f"adjusting column {c}")
+                self.db.change_size(schema_name=schema_name, table_name=table_name, column_name=c, new_size=to_adjust[c])
 
         else:
-            #print("table does not exist")
+            print("table does not exist")
             self.check_schema(schema_name)
             self.db.create_table(schema_name, table_name, al)
 
-        # write the data
-        
-        db_data = [tuple(dic.values()) for dic in data]
+        # write the data    
 
-        columns = ", ".join(["[" + x + "]" for x in data[0]])
-        qm = ", ".join(["?"] * len(data[0]))
-        query = f"INSERT INTO [{schema_name}].[{table_name}] ({columns}) VALUES ({qm})"
-
-        self.db.execute_many(query, db_data)
+        self.db.insert_into(schema_name, table_name, data)
 
         
 
