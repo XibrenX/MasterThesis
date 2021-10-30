@@ -1156,9 +1156,22 @@ may be interesting.
 
 
 % ==============================================================================
-\chapter{LNCS Front Matter PDF}
+\chapter{Extracting auxiliary publication data}
 % ==============================================================================
 \begin{itemize}
+    \item There is more to the publication process than the data
+        in A-miner / DBLP can tell you.
+    \item Examples: PC memberships, editorships, reviewers (who reviewed which paper),
+        how fast was the review process, etc.
+    \item Some of this data is publicly available, but not integrated into existing
+        publication data sets.
+    \item For example: Elsevier gives timelines of paper revisions for journal articles;
+        in their LNCS series, Springer typically lists the PC members in the front matter.
+    \item This data may be useful for identifying outliers.
+    \item In this chapter, we investigate how to extract both Elsevier and LNCS data and
+        how to integrate them with existing data sources.
+    \item
+    \item 
     \item People involved in the proceedings are mentioned in the Front Matter.
     \item Front Matter can be downloaded as PDF.
     \item PDF are considered unstructured data.
@@ -1202,7 +1215,8 @@ may be interesting.
     \end{description}
 \end{itemize}
 
-\section{Using PDFBox to get the necessary raw data}
+\section{A prototype extractor of raw data}
+\todo{We chose option 4 because \$REASONS.}
 \begin{itemize}
     \item First we need to get the raw data from the PDF's.
     \item PDFBox has an parser that gives the PDF back as text. As mentioned
@@ -1229,7 +1243,7 @@ may be interesting.
         extra properties.
 \end{itemize}
 
-\section{Building a document tree}
+\subsection{Building a document tree}
 \label{sec:lncs_parser_doc_tree}
 \begin{itemize}
     \item By using the properties textsize and bold we are able to build an 
@@ -1242,7 +1256,7 @@ may be interesting.
         textlines and the header as title of the section.
 \end{itemize}
 
-\section{Focus on organisation}
+\subsection{Focus on organisation}
 \begin{itemize}
     \item Having this tree, we can easily get the section that contains the 
         organisation (because this section is called, you have never guessed it, 
@@ -1251,7 +1265,7 @@ may be interesting.
         section to loop trough all sections underneath.
 \end{itemize}
 
-\section{Processing a section}
+\subsection{Processing a section}
 \begin{itemize}
     \item All text in a section that is under a role, has some kind of table 
         struture.
@@ -1264,7 +1278,7 @@ may be interesting.
         process from the process of building a tree, improves testability.
 \end{itemize}
 
-\section{Getting information from a grid}
+\subsection{Getting information from a grid}
 \begin{itemize}
     \item We calculate some statistics of a grid which we need to choose a
         parser further down the processing.
@@ -1286,7 +1300,7 @@ may be interesting.
         to the section.
 \end{itemize}
 
-\section{Choosing a parser}
+\subsection{Choosing a parser}
 \begin{itemize}
     \item With the information the program can choose the appropiate parser to
         interpret the data correctly and convert the grid into members.
@@ -1361,7 +1375,7 @@ This table contains eventually the resulting data we are interested in.
         available, but we do not tend to use it.
 \end{description}
 
-\subsection{Logging}
+\subsection{Iterative Logging-based development process}
 For every file that the program process, it keeps a separate logfile. This gives
 us the ability to investigate why the program was unable to process some files 
 or sections. Missing parser for example can be detected using this mechanism in
@@ -1390,7 +1404,7 @@ correct.
 
 For example, The parser Two\_Role\_NameAff contains two columns: first with a name
 and second with the affiliation. We can measure if the number of resulting 
-members is equal to the non empty lines in the section minus the merged lines.
+members is equal to the non-empty lines in the section minus the merged lines.
 
 
 
@@ -1400,7 +1414,7 @@ members is equal to the non empty lines in the section minus the merged lines.
 \begin{figure}[H]
     \centering
     \includegraphics[width=17cm]{images/lncs_front_matter_result.drawio.png}
-    \caption{Relationship between tables}
+    \caption{Current results}
     \label{fig:lncs_pdf_database}
 \end{figure}
 
