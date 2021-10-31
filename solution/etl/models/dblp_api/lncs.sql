@@ -7,12 +7,12 @@ WITH dblp_cte AS
         {{ source('dblp_api', 'document') }}
     WHERE 
         (
-            [info_venue] = 'Lecture Notes in Computer Science' 
-            OR [info_venue_0] = 'Lecture Notes in Computer Science' 
-            OR [info_venue_1] = 'Lecture Notes in Computer Science'
+            info_venue = 'Lecture Notes in Computer Science' 
+            OR info_venue_0 = 'Lecture Notes in Computer Science' 
+            OR info_venue_1 = 'Lecture Notes in Computer Science'
         )
-        AND [info_ee] IS NOT NULL
-    GROUP BY [info_ee], [info_key]
+        AND info_ee IS NOT NULL
+    GROUP BY info_ee, info_key
 )
 , man_cte AS
 (
@@ -22,7 +22,7 @@ WITH dblp_cte AS
     FROM 
         {{ ref('manual_dblp_api_document') }}
     WHERE 
-        [type] = 'LNCS'
+        "type" = 'LNCS'
 )
 
 SELECT dblp_key

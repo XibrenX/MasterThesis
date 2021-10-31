@@ -2,27 +2,44 @@ import codecs
 from bs4 import BeautifulSoup
 import logging
 import datetime
-import requests
-import pyodbc
-import time
 import database
-import saver
+import requests
+import time
+import sys
+sys.path.append('./solution/python_packages/database')
+from database import Postgress, Saver 
+import configparser
+from helpers import clean_value
+from person_affiliation import get_affiliations
+import pyodbc
+import os
+import paper
+from stem import Signal
+from stem.control import Controller
 
+logging.basicConfig(level=logging.DEBUG, format='%(name)s - %(levelname)s - %(message)s')
 
+logging.info(f"Working directory: {os.getcwd()}")
 
-
-server = 'localhost'
-db_name = 'study'
-driver = '{ODBC Driver 17 for SQL Server}'
-conn_str = f'Driver={driver};Server={server};Database={db_name};Trusted_Connection=yes;'
 schema_name = 'springer_lncs'
 
-db = database.SqlServer(conn_str)
-saver = saver.Saver(db)
-logging.basicConfig(level=logging.INFO)
+def read_config(path) -> configparser.SectionProxy:
+    logging.info('Reading configuration')
+    with open(path, 'r') as f:
+        config_string = '[SECTION]\n' + f.read()
+    config = configparser.ConfigParser()
+    config.read_string(config_string)
+    return config['SECTION']
 
-def clean_value(input) -> str:
-    return ' '.join(input.split())
+
+config = read_config('./solution/config')
+db = Postgress(
+    server=config['POSTGRES_SERVER'], 
+    database=config['POSTGRES_DB'],
+    user=config['POSTGRES_USER'],
+    password=config['POSTGRES_PASSWORD']
+    )
+saver = Saver(db)
 
 
 def get_bibliographic_information(soup):
@@ -42,7 +59,7 @@ def get_document_info(soup) -> dict:
         if title == 'Editors' or title == 'Topics':
             continue
         value = clean_value(value_elem.text)
-        document_info[title] = value
+        document_info[title.replace(' ', '_').lower()] = value
     front_matter_item = soup \
         .find('div', class_="book-toc-container", id="booktoc") \
         .find('ol', class_="content-type-list", recursive=False) \
@@ -73,6 +90,17 @@ def get_editors_from_document_info(soup) -> list:
     return ret
 
 
+def get_chapters_links(soup) -> list:
+    logging.info('getting chapters')
+    ret = []
+    chapters = soup.find_all('li', class_=["chapter-item"])
+    for c in chapters:
+        anchor = c.find('a', class_='u-interface-link')
+        link = anchor['href']
+        ret.append(link)
+    return ret
+
+
 def get_editors(soup) -> list:
     logging.debug("get_editors")
     ed_and_af = soup.find('div', id="editorsandaffiliations")
@@ -100,27 +128,11 @@ def get_editors(soup) -> list:
     return ret
 
 
-def get_affiliations(soup) -> list:
-    logging.debug("get_affiliations")
-    affiliations = soup.find_all('li', class_="affiliation")
-    aff_list = []
-    for aff in affiliations:
-        a = {}
-        a["id"] = aff["data-test"]
-        for x in ["department", "name", "citry", "country"]:
-            elem = aff.find('span', class_=f"affiliation__{x}")
-            if elem is not None:
-                a[x] = clean_value(elem.text)
-        aff_list.append(a)
-    logging.debug(f"get_affiliations() returned {len(aff_list)} objects")
-    return aff_list
-
-
-def read_content(content):
+def read_content(content, dblp_key):
     soup = BeautifulSoup(content, 'html.parser')
     content = {}
     document_info = get_document_info(soup)
-    content["document_info"] = document_info
+    content["book"] = document_info
     editors = get_editors(soup)
     if len(editors) == 0:
         logging.warn(f"Unable to find editors, falling back to get editors from document info")
@@ -133,6 +145,24 @@ def read_content(content):
             del e['affiliation_ids']
     content["editor"] = editors
     content["editor_affiliation"] = editor_affiliation
+
+    paper_lists = ['chapter', 'author', 'author_affiliation']
+    for pl in paper_lists:
+        content[pl] = []
+    
+    chapter_links = get_chapters_links(soup)
+    for chapter_link in chapter_links:
+        raw_paper_content = get_content_from_url(f'https://link.springer.com{chapter_link}')
+        paper_content = paper.process_paper_page(content=raw_paper_content)
+        for pl in paper_lists:
+            if isinstance(paper_content[pl], dict):
+                paper_content[pl]["$_paper_url"] = chapter_link
+                content[pl].append(paper_content[pl])
+            if isinstance(paper_content[pl], list):
+                for d in paper_content[pl]:
+                    d["$_paper_url"] = chapter_link
+                    content[pl].append(d)
+
     return content
 
 
@@ -154,26 +184,27 @@ def add_editor_to_affiliation(editors, affiliations) -> list:
                         aa[k] = v
                     # print(aa)
                     ret.append(aa)
-    logging.debug(f"add_author_to_affiliation() returned {len(ret)} objects")
+    logging.debug(f"add_editor_to_affiliation() returned {len(ret)} objects")
     return ret
 
 
 def process_content_entry(timestamp, url, dblp_key, content):
-    info = read_content(content)
+    info = read_content(content, dblp_key)
     for k in info:
         if isinstance(info[k], dict):
             l = []
             info[k]["$_extract_dts"] = timestamp
-            info[k]["$_url"] = url
+            info[k]["$_book_url"] = url
             info[k]["$_dblp_key"] = dblp_key
             l.append(info[k])
             saver.save(schema_name, k, l)
         if isinstance(info[k], list):
             for d in info[k]:
                 d["$_extract_dts"] = timestamp
-                d["$_url"] = url
+                d["$_book_url"] = url
                 d["$_dblp_key"] = dblp_key
             saver.save(schema_name, k, info[k])
+    
 
 
 def get_content_from_url(url) -> str:
@@ -184,52 +215,66 @@ def get_content_from_url(url) -> str:
 
 def get_workload():
     logging.debug("get_workload")
-    query = "SELECT [dblp_key], [url] FROM [integration].[lncs_scraper_input]"
-    if db.table_exists(schema_name, "document_info"):
+    query = "SELECT dblp_key, url FROM dblp_api.lncs"
+    if db.table_exists(schema_name, "book"):
         query = f"""
-        SELECT [dblp_key], [url] 
-        FROM [integration].[lncs_scraper_input]
-        WHERE [dblp_key] NOT IN 
+        SELECT dblp_key, url
+        FROM dblp_api.lncs
+        WHERE dblp_key NOT IN 
         (
-            SELECT [$_dblp_key] 
-            FROM [{schema_name}].[document_info]
+            SELECT "$_dblp_key"
+            FROM {schema_name}.book
         )
         """
+    result = db.execute_query_result(query)
+    return result
+
+
+def get_current_ip():
+    session = requests.session()
+
+    session.proxies = {}
+    session.proxies['http']='socks5h://localhost:9050'
+    session.proxies['https']='socks5h://localhost:9050'
+
     try:
-        conn = pyodbc.connect(conn_str)
-        cursor = conn.cursor()
-        cursor.execute(query)
-        row = cursor.fetchone()
-        res = []
-        while row:
-            res.append({
-                "dblp_key": str(row[0]),
-                "url": str(row[1])
-                })
-            row = cursor.fetchone()
-        return res
-    except:
-        logging.error("error occured while getting workload from database")
-    finally:
-        cursor.close()
+        r = session.get('http://httpbin.org/ip')
+    except Exception as e:
+        logging.debug(str(e))
+    else:
+        return r.text
+
+
+def renew_tor_ip():
+    with Controller.from_port(port = 9051) as controller:
+        controller.authenticate(password=config['TOR_PASSWORD'])
+        controller.signal(Signal.NEWNYM)
+
 
 
 def main_process():
-    
     workload = get_workload()
     rec_to_do = len(workload)
     i = 0
     for workitem in workload:
-        i += 1
+        
+        
         url = workitem["url"]
         dblp_key = workitem["dblp_key"]
         try:
-            logging.info(f"Processing {i} of {rec_to_do}")
+            logging.info(f"Processing {i+1} of {rec_to_do}")
+            if i % 10 == 0:
+                logging.info(f"Renewing ip")
+                renew_tor_ip()
+                time.sleep(5)
+                ip = get_current_ip()
+                logging.info(f"new ip: {ip}")
             timestamp = str(datetime.datetime.now())
             content = get_content_from_url(url)
             process_content_entry(timestamp, url, dblp_key, content)
         except:
             logging.error(f"Unable to process: {dblp_key}")
+        i += 1
 
 
 
@@ -238,9 +283,9 @@ def test():
 
     logging.debug("test")
     files = [
-        'software/lncs/examples/single_book.html',
-        'software/lncs/examples/test2.html',
-        'software/lncs/examples/oldest.html'
+        'solution/lncs/scraper/examples/single_book.html',
+        'solution/lncs/scraper/examples/test2.html',
+        'solution/lncs/scraper/examples/oldest.html'
     ]
     i = 1
     for x in files:

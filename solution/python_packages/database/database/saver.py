@@ -9,8 +9,24 @@ class Saver:
             print("Schema does not exists -> creating")
             self.db.create_schema(schema_name)
 
+    
+    def equal_list_of_dicts(self, l) -> list:
+        keys = []
+        ret = []
+        for d in l:
+            for k in d:
+                if k not in keys:
+                    keys.append(k)
+        for d in l:
+            new_d = {}
+            for k in sorted(keys):
+                new_d[k] = d[k] if k in d else None
+            ret.append(new_d)
+        return ret
+
 
     def save(self, schema_name, table_name, data):
+        data = self.equal_list_of_dicts(data)
         if len(data) == 0:
             return
         al = {}

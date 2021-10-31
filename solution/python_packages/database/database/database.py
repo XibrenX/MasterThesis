@@ -3,7 +3,7 @@ import logging
 
 class Generic:
     def execute_bool(self, query) -> bool:
-        print(f"Executing query: {query}")
+        logging.debug(f"Executing query: {query}")
         conn = self.get_connection()
         with conn:
             cursor = conn.cursor()
@@ -90,7 +90,7 @@ class SqlServer(Generic):
         query += ",".join(ap)
         query += ");"
         self.execute_query(query)
-        print("Done creating table")
+        logging.debug("Done creating table")
 
 
     def change_size(self, schema_name, table_name, column_name, new_size):

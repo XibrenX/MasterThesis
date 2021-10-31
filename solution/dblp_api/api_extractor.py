@@ -5,7 +5,6 @@ from bs4 import BeautifulSoup
 import time
 import datetime
 from database import Postgress, Saver
-import pyodbc
 import json
 import configparser
 
