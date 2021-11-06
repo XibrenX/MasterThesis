@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: springer_lncs
+    schema: springer_lncs
+    tables:
+      - name: author
+        columns:
+          - name: $_book_url
+          - name: $_dblp_key
+          - name: $_extract_dts
+          - name: $_paper_url
+          - name: doc_person_id
+          - name: name
+          - name: email
+          - name: ord
+          - name: url
+            description: Wrong extracted. We do not need this field.
+      - name: author_affiliation
+      - name: book
+      - name: chapter
+      - name: editor
+      - name: editor_affiliation
+
