@@ -12,28 +12,51 @@ namespace Aminer
     { 
 
         private static string schemaName = "aminer";
-        //private static string propertiesFile = ""
+        private static string propertiesFile = "solution/config";
 
         static void Main(string[] args)
         {
             Console.WriteLine("Program started");
 
-            string user = "SENSITVE";
-            string password = "SENSITVE";
-            string database = "SENSITVE";
-            string server = "SENSITVE";
+            Dictionary<string, string> properties = ReadProperties(propertiesFile);
+
+            string user = properties["POSTGRES_USER"];
+            string password = properties["POSTGRES_PASSWORD"];
+            string database = properties["POSTGRES_DB"];
+            string server = properties["POSTGRES_SERVER"];
+            string dataStorage = properties["RAW_DATA"];
 
             IDatabase db = DatabaseFactory.GetDatabase(DatabaseType.Postgres, user, password, database, server);
             
             Program p = new Program(db);
 
-            string filepath = @"C:\dblp\aminer\dblp.v12.json";
+            string filepath = Path.Combine(dataStorage, "aminer", "dblp.v12.json");
 
             p.Execute(filepath);
-            //p.Test();
 
             Console.WriteLine("Program ended");
             Console.ReadKey();
+        }
+
+        private static Dictionary<string, string> ReadProperties(string path)
+        {
+            Dictionary<string, string> returnValue = new Dictionary<string, string>();
+            using StreamReader sr  = new StreamReader(path);
+            string line = string.Empty;
+            while ((line = sr.ReadLine()) != null)
+            {
+                line = line.Trim();
+                if (line.StartsWith('#') || string.IsNullOrEmpty(line)) continue;
+                string[] lineParts = line.Split('=');
+                List<string> valueParts = new List<string>();
+                for (int i = 1; i < lineParts.Length; i ++)
+                {
+                    valueParts.Add(lineParts[i]);
+                }
+                string value = string.Join('=', valueParts);
+                returnValue.Add(lineParts[0], value);
+            }
+            return returnValue;
         }
 
         private readonly IDatabase _database;
