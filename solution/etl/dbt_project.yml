@@ -40,8 +40,8 @@ models:
       #   schema: arxiv_clean
       core:
         schema: core
-      # integration:
-      #   schema: integration
+      integration:
+        schema: integration
       lncs_front_matter:
         schema: lncs_front_matter
       springer_lncs:

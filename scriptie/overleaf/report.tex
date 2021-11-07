@@ -1420,6 +1420,21 @@ members is equal to the non-empty lines in the section minus the merged lines.
 
 
 % ==============================================================================
+\chapter{Data integration}
+% ==============================================================================
+To get an integrated dataset across all sources some challenges need to be 
+addressed. First challenge is to make the authors unique. This comes with the
+second challenge of data quality.
+For example, from springer we scrape get the chapters (inproceedings) and their 
+authors from their site. This authors sometimes comes with an orcid, which 
+should be unique. However, we found situations where an author gets an orcid of
+someone else. This is a data quality issue.
+Seconds challenge is that a name does not make an author unique. The same name
+refers to other authors. Luckely, DBLP addresses this problem by suffixing the
+name with a four digit code~\footnote{\url{https://dblp.org/faq/1474704.html}}.
+
+
+% ==============================================================================
 \chapter{Data acquisition}
 % ==============================================================================
 \outline{
