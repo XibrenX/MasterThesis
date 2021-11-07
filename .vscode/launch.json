@@ -5,11 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": ".NET Core Launch (console)",
+            "name": "Aminer .NET Core Launch (console)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}/solution/aminer_loader/Aminer/bin/Debug/net5.0/Aminer.dll",
+            "preLaunchTask": "build_aminer",
+            "program": "${workspaceFolder}/solution/.net/AminerLoader/bin/Debug/net5.0/AminerLoader.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
@@ -19,6 +19,17 @@
             "name": ".NET Core Attach",
             "type": "coreclr",
             "request": "attach"
+        },
+        {
+            "name": "DBLP .NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build_dblp",
+            "program": "${workspaceFolder}/solution/.net/DblpLoader/bin/Debug/net5.0/DblpLoader.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
         }
     ]
 }

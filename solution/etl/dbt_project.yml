@@ -46,6 +46,8 @@ models:
         schema: lncs_front_matter
       springer_lncs:
         schema: springer_lncs
+      dblp_dump:
+        schema: dblp_dump
           
 seeds:
   thesis:

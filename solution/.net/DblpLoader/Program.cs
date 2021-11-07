@@ -9,60 +9,51 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Xml;
 using System.Xml.Linq;
+using Helper;
+using Database;
 
 namespace dblp.loader
 {
     class Program
     {
-        private static string dblpFile = @"C:\dblp\dblp.xml";
-
-        private static string dblpOut = @"C:\dblp\dblp_1000.xml";
-
-        private static string connStr = @"Server=localhost;Database=study;Integrated Security=True;";
-
-        private static string schema = "dblp";
+        private static string schema = "dblp_dump";
+        private static string propertiesFile = "solution/config";
 
 
         [Obsolete]
         static void Main(string[] args)
         {
-            //XmlReaderSettings settings = new XmlReaderSettings()
-            //{
-            //    DtdProcessing = DtdProcessing.Parse,
-            //    ValidationType = ValidationType.DTD,
-            //    XmlResolver = new XmlUrlResolver()
-            //};
-            //XmlReader reader = XmlReader.Create(dblpFile, settings);
+            Console.WriteLine("Program started");
 
-            //DataSet dataSet = new DataSet();
+            Dictionary<string, string> properties = PropertiesReader.ReadProperties(propertiesFile);
 
-            //dataSet.ReadXml(reader);
+            string user = properties["POSTGRES_USER"];
+            string password = properties["POSTGRES_PASSWORD"];
+            string database = properties["POSTGRES_DB"];
+            string server = properties["POSTGRES_SERVER"];
+            string dataStorage = properties["RAW_DATA"];
 
+            IDatabase db = DatabaseFactory.GetDatabase(DatabaseType.Postgres, user, password, database, server);
+            
+            Program p = new Program(db);
 
-            //StreamReader sr = new StreamReader(dblpFile 
-            //StreamWriter sw = new StreamWriter(dblpOut);
-            //int i = 0;
-            //bool reading = false;
-            //while (i < 1000)
-            //{
-            //    string s = sr.ReadLine();
-            //    //if (reading || (s.Contains("journals/eccc/Wagner11") && !s.Contains("dblpnote")))
-            //    //{
-            //    //    reading = true;
-            //        sw.WriteLine(s);
-            //        i++;
-            //    //}
-            //}
+            string filepath = Path.Combine(dataStorage, "dblp_xml_dump", "data");
 
-
-            ReadPublications(dblpFile);
+            p.ReadPublications(filepath);
 
             Console.WriteLine("Done");
             Console.ReadKey();
 
         }
 
-        private static void ReadPublications(string inputstring)
+        private readonly IDatabase _database;
+
+        private Program(IDatabase database)
+        {
+            _database = database;
+        }
+
+        private void ReadPublications(string filepath)
         {
             XmlReaderSettings settings = new XmlReaderSettings()
             {
@@ -73,7 +64,7 @@ namespace dblp.loader
 
             long id = 0;
 
-            using (XmlReader reader = XmlReader.Create(dblpFile, settings))
+            using (XmlReader reader = XmlReader.Create(filepath, settings))
             {
                 long x = 0;
                 while (reader.Read())
@@ -87,7 +78,6 @@ namespace dblp.loader
                         {
                             List<Dictionary<string, string>> sets = ProcessElement(element, id);
                             ConvertSets(sets);
-                            //yield return element;
                         }
                     }
                     if (x % 100000 == 0)
@@ -99,18 +89,18 @@ namespace dblp.loader
             }
         }
 
-        private static void DumpDataSetsToDb()
+        private void DumpDataSetsToDb()
         {
             Console.WriteLine("dumping...");
             foreach (KeyValuePair<string, DataTable> kv in tables)
             {
-                DatabaseHelper.WriteToDb(connStr, schema, kv.Key, kv.Value);
+                _database.WriteToDb(schema, kv.Key, kv.Value);
                 kv.Value.Clear();
             }
         }
         
 
-        private static List<Dictionary<string, string>> ProcessElement(XElement element, long id, long parentObjectId = 0, string parentObjectType = null)
+        private List<Dictionary<string, string>> ProcessElement(XElement element, long id, long parentObjectId = 0, string parentObjectType = null)
         {
             //Console.WriteLine(element.Name);
             List<Dictionary<string, string>> sets = new List<Dictionary<string, string>>();
@@ -148,9 +138,9 @@ namespace dblp.loader
             return sets;
         }
 
-        private static Dictionary<string, DataTable> tables = new Dictionary<string, DataTable>();
+        private Dictionary<string, DataTable> tables = new Dictionary<string, DataTable>();
 
-        private static void ConvertSets(List<Dictionary<string, string>> sets)
+        private void ConvertSets(List<Dictionary<string, string>> sets)
         {
             foreach (Dictionary<string, string> dict in sets)
             {

@@ -4,12 +4,12 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "build_aminer",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/solution/aminer_loader/Aminer/Aminer.csproj",
+                "${workspaceFolder}/solution/.net/AminerLoader/AminerLoader.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -21,7 +21,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/solution/aminer_loader/Aminer/Aminer.csproj",
+                "${workspaceFolder}/solution/.net/AminerLoader/AminerLoader.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -34,7 +34,19 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/solution/aminer_loader/Aminer/Aminer.csproj",
+                "${workspaceFolder}/solution/.net/AminerLoader/AminerLoader.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build_dblp",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/solution/.net/DblpLoader/DblpLoader.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],

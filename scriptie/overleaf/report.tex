@@ -1423,16 +1423,79 @@ members is equal to the non-empty lines in the section minus the merged lines.
 \chapter{Data integration}
 % ==============================================================================
 To get an integrated dataset across all sources some challenges need to be 
-addressed. First challenge is to make the authors unique. This comes with the
+addressed. Also, to be able to integrate the sources where we need to get the
+data from, we sometimes need to get data from another source.
+
+The main entities we need to integrate are person (authors, members of program
+committees etc.) and articles (chapters from lncs with papers from aminers).
+
+\section{Integration of persons}
+
+First challenge is to make the authors unique. This comes with the
 second challenge of data quality.
+
 For example, from springer we scrape get the chapters (inproceedings) and their 
 authors from their site. This authors sometimes comes with an orcid, which 
 should be unique. However, we found situations where an author gets an orcid of
 someone else. This is a data quality issue.
+\todo{voorbeeld toevoegen}
+Luckely, this does not occur much, and for the few it occurs we can easily 
+create a manual file to override this. Of course with caution; if two orcid 
+have the same name, we can not override this; some authors have the same name.
+On the other hand, if one orcid refers to a totally different name, we can.
+
+
 Seconds challenge is that a name does not make an author unique. The same name
 refers to other authors. Luckely, DBLP addresses this problem by suffixing the
 name with a four digit code~\footnote{\url{https://dblp.org/faq/1474704.html}}.
+DBLP is making progress here, but this is not entirely done yet. But even if
+they mention to unique identity authors, the match to authors in other 
+datasources (like Aminer and Springer) is not straightforward. In that case we 
+need to ignore the authors from these sources and make the match by going 
+through the paper (or chapter, as is it is called within LNCS Springer).
 
+Third challenge is the name. For most authors these sources do not contain an
+orcid or an email address, which means we need to match the authors on name.
+But, in some sources the names are fully written (with or without the 
+middlename), sometimes the middlename only has a initial while the firstname is 
+fully written, and sometimes we only get the initials and lastname.
+DBLP covers this by naming all aliases of a single person.
+
+Still we do have a problem, because inthe end we need to match these authors
+with members we get from the frontmatters of lncs. Within this frontmatters, 
+there is no orcid, email, or a four digit number to match to dblp records; these
+documents or not written with the intention to identify persons.
+
+\subsection{Approach}
+\begin{itemize}
+    \item Get DBLP data dump and create unique authors. DBLP also has their 
+        aliases and sometimes orcid.
+    \item Also use this dump to get the inproceedings, incollections and 
+        articles.
+    \item This dump can also be used to create the author relationship between 
+        articles and persons.
+    \item Integrate springer lncs chapters into the article entity.
+    \item Use springer lncs to get the book (collection) and identify the 
+        relationship between chapter and book.
+    \item Integrate members from the frontmatter into the person entity.
+    \item Use he frontmatter to lay the relationship between the proceeding and
+        the person.
+    \item *** Now we can get a few groups
+    \item Integrate the aminer papers in the article entity.
+    \item Use aminer to get the relationship between articles.
+\end{itemize}
+
+\section{Integration of papers}
+
+So, the next issue then is how we can match the papers. In this case we can use
+the document id. However, this document id is not filled in for all titles. For
+the papers that do not have an doi, we can do the match on title. Unfortunately,
+this also is not that straightforward. The title sometimes contains latex 
+specific characters, or other weird characters.
+\todo{voorbeeld toevoegen}
+
+To get the groups we identified, we need to integrate the chapters from lncs 
+frontmatter with the papers from aminer.
 
 % ==============================================================================
 \chapter{Data acquisition}

@@ -61,7 +61,7 @@ namespace Database
                 if (columnsToAdd.Count > 0)
                 {
                     StringBuilder qry = new StringBuilder();
-                    qry.AppendLine($"ALTER TABLE [{schemaName}].[{tableName}] ");
+                    qry.AppendLine($"ALTER TABLE \"{schemaName}\".\"{tableName}\" ");
                     List<string> columnAdd = new List<string>();
                     foreach (string c in columnsToAdd)
                     {
