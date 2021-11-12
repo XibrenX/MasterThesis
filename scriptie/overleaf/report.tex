@@ -1422,6 +1422,113 @@ members is equal to the non-empty lines in the section minus the merged lines.
 % ==============================================================================
 \chapter{Data integration}
 % ==============================================================================
+
+\section{Selection criteria}
+We are looking for people that came to a position with influence.
+People with influence can be found at top conferences and journals.
+Because of this, out primary selction criteria are top conferences and journals.
+
+For our study, which focuses on computer science, we get the top conferences 
+and journals from The Computing Research and Education Association of 
+Australasia (core)\footnote{\url{https://www.core.edu.au/}}. Based on their 
+ranking, we selected the conferences and journals for our research whch has
+a ranking of B or higher.
+
+To get this data the website provides an export functionality. However, we need
+to get a reference to DBLP\todo{DBLP beschrijven bij data acquisitie}, which is not incorporated in this export, but is 
+available on their website. For that reason, we built a webscraper which is able
+to get the necessary information for our use case (tool: core\_scraper). 
+
+\subsection{selection of conferences}
+With this initial selection we can get the proceedings of the conferences.
+
+The dataset from Core does not contain DBLP links for all conferences we want; 
+for 17 conferences we looked them up.
+
+With the complete list of DBLP links, we are able to get data from DBLP. DBLP
+provides the option to download the complete data dump from their website. 
+Unfortunately, conferences are not part of this dump. But, with the API of DBLP
+we are able to get the proceedings based on the searchterm from the url of core.
+So we built a tool to load this data in the database (tool: dblp\_api).
+
+Looking at the publishers of the proceedings we see the following publisher with 
+more than a 1000 proceedings:
+\begin{center}
+    \begin{tabular}{ |c|c|c|c| }
+        \hline
+        Publisher & \# of proceedings \\
+        \hline
+        Springer & 4751 \\
+        ACM & 4115 \\
+        IEEE Computer Society & 2422 \\
+        IEEE & 1210 \\
+        \hline
+    \end{tabular}
+\end{center}
+Springer publishes their proceedings under the Lecture Notes of Computer Science 
+(LNCS). The resulting set contains 4467 unique proceedings (the DBLP API search
+function sometimes returns double results).
+
+The data acquired from the DBLP api contains the doi link to the proceeding on 
+LNCS (for 1 document this misses, so we added it manually). With this anchor we 
+can start acquiring the necessary data for our research.
+
+\section{Aquisition and integration}
+To get the data from LNCS we built a tool (lncs, scraper). As input it takes the
+doi links from the dblp api and the output is a dataset with books 
+(proceedings), chapters (article), editors and authors and their affiliation. 
+See Figure~\ref{fig:lncs_scraper_datamodel} for a graphic representation of the 
+entities and their relations.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{images/lncs_scraper_datamodel.drawio.png}
+    \caption{Datamodel of the output of the LNCS scraper}
+    \label{fig:lncs_scraper_datamodel}
+\end{figure}
+
+The reason we also extracted the chapters is get the relation between a book and
+the articles it conains. Te keep our main goal clear: we need to get the people
+involved, so while we are scraping the articles, we can just get the authors as 
+well.
+
+\section{Uniquify people}
+The author dataset contains all authors for every article. This means, if an 
+author wrote multiple articles, it is multiple times present in this set. For
+our use case, this is not sufficient; we need identify these people as the same 
+person, otherwise collecting metrics for a person is impossible.
+
+The set we achieved from LNCS conains name, orcid and email. An analysis of this
+set made clear that we got the same name with multiple orcid, or one orcid that 
+refers to more than one person. Concluding: a name does not make a person 
+unique.
+
+Luckely, DBLP acknowledges this problem. Although they do not yet have all 
+authors unique, they are working on this problem and provide a way to get the 
+unique persons already identified.
+
+DBLP has the relation between author and article, so to get the `correct' author
+of an article, we need to match the articles in DBLP with the chapters in LNCS.
+
+
+\section{Article integration}
+Not only do we need to match the articles of DBLP and Springer LNCS, we also 
+need to incorporate Aminer. Aminer is an enrichment of DBLP in that it adds
+citations. Although DBLP is working to incorporate citations in their dataset,
+this is still work in progress and Aminer has already a lot of that data.
+\todo{Stukje over Aminer}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{images/linking_article_dblp_lncs_aminer.drawio.png}
+    \caption{Matching Springer LNCS, DBLP and Aminer}
+    \label{fig:linking_article_dblp_lncs_aminer}
+\end{figure}
+
+
+\section{Nog onbenoemd}
+
+
 To get an integrated dataset across all sources some challenges need to be 
 addressed. Also, to be able to integrate the sources where we need to get the
 data from, we sometimes need to get data from another source.
