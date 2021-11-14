@@ -58,4 +58,6 @@ seeds:
       schema: dblp_api
     springer_lncs:
       schema: springer_lncs
+
+# on-run-end: "drop schema tempory_tables cascade"
       

@@ -2,12 +2,12 @@
     config(
         materialized='table',
         indexes=[      
-            {'columns': ['hash_key'], 'type': 'hash'},        
+            {'columns': ['person_hash_key'], 'type': 'hash'},        
             ]
         )
 }}
 SELECT 
-      business_key
-    , hash_key
-FROM {{ ref('stg_author') }}
+      person_business_key
+    , person_hash_key
+FROM {{ ref('stg_person') }}
 GROUP BY business_key, hash_key
