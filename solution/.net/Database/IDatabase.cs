@@ -5,6 +5,6 @@ namespace Database
 {
     public interface IDatabase
     {
-        void WriteToDb(string schemaName, string tableName, DataTable dt);
+        ulong WriteToDb(string schemaName, string tableName, DataTable dt);
     }
 }

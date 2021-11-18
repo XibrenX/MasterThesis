@@ -37,13 +37,70 @@ namespace dblp.loader
             
             Program p = new Program(db);
 
-            string filepath = Path.Combine(dataStorage, "dblp_xml_dump", "data");
+            string filepath = Path.Combine(dataStorage, "dblp_xml_dump", "dblp.xml");
 
-            p.ReadPublications(filepath);
+            // string filepath = "solution/.net/DblpLoader/testfiles/test.xml";
 
-            Console.WriteLine("Done");
+            // p.ReadPublications(filepath);
+
+            p.Execute(filepath);
+
+            // string searchTerm = "GP-Based Electricity Price Forecasting.";
+            // long lineNumber =  p.Search(filepath, searchTerm);
+            // if (lineNumber != 0)
+            // {
+            //     p.WriteRange(filepath, lineNumber, 100, "output.xml");
+            // }
+
+            Console.WriteLine("Done, press any key to exit");
             Console.ReadKey();
 
+        }
+
+        private void WriteRange(string filePath, long lineNumber, int spread, string outputFile)
+        {
+            long readLineNumber = 0;
+            long startNumber = lineNumber - spread;
+            long endNumber = lineNumber + spread;
+            using StreamReader sr = new StreamReader(filePath);
+            using StreamWriter sw = new StreamWriter(outputFile);
+            string line = String.Empty;
+            while ((line = sr.ReadLine()) != null)
+            {
+                readLineNumber++;
+                if (readLineNumber == startNumber)
+                {
+                    Console.WriteLine("Start writing");
+                }
+                if (readLineNumber >= startNumber && readLineNumber <= endNumber)
+                {
+                    sw.WriteLine(line);
+                }
+                if (readLineNumber > endNumber)
+                {
+                    sw.Flush();
+                    Console.WriteLine("End writing");
+                    break;
+                }
+            }
+        }
+
+        private long Search(string filepath, string searchTerm)
+        {
+            long lineNumber = 0;
+            using StreamReader sr = new StreamReader(filepath);
+            string line = String.Empty;
+            while ((line = sr.ReadLine()) != null)
+            {
+                lineNumber++;
+                if (line.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.WriteLine($"Found {searchTerm} in {line} ({lineNumber})");
+                    
+                    break;
+                }
+            }
+            return lineNumber;
         }
 
         private readonly IDatabase _database;
@@ -53,7 +110,24 @@ namespace dblp.loader
             _database = database;
         }
 
-        private void ReadPublications(string filepath)
+        private void Execute(string filepath)
+        {
+            long id = 0;
+            foreach (XElement element in ReadElements(filepath))
+            {
+                id++;
+                List<Dictionary<string, string>> sets = ProcessElement(element, id);
+                ConvertSets(sets);
+                if (id % 100000 == 0)
+                {
+                    Console.WriteLine($"Processed {id} elements");
+                    DumpDataSetsToDb();
+                }
+            }
+            DumpDataSetsToDb();
+        }
+
+        private IEnumerable<XElement> ReadElements(string filePath)
         {
             XmlReaderSettings settings = new XmlReaderSettings()
             {
@@ -61,40 +135,40 @@ namespace dblp.loader
                 ValidationType = ValidationType.DTD,
                 XmlResolver = new XmlUrlResolver()
             };
-
-            long id = 0;
-
-            using (XmlReader reader = XmlReader.Create(filepath, settings))
+            using (XmlReader reader = XmlReader.Create(filePath, settings))
             {
-                long x = 0;
-                while (reader.Read())
+                reader.MoveToContent();
+                while (!reader.EOF)
                 {
-                    x++;
                     if (reader.NodeType == XmlNodeType.Element && reader.Depth == 1)
                     {
-                        id++;
-                        XElement element = XNode.ReadFrom(reader) as XElement;
-                        if (element != null)
+                        XElement el = XElement.ReadFrom(reader) as XElement;
+                        if (el != null)
                         {
-                            List<Dictionary<string, string>> sets = ProcessElement(element, id);
-                            ConvertSets(sets);
+                            yield return el;
                         }
                     }
-                    if (x % 100000 == 0)
+                    else
                     {
-                        DumpDataSetsToDb();
+                        reader.Read();
                     }
                 }
-                DumpDataSetsToDb();
             }
+            yield break;
         }
 
         private void DumpDataSetsToDb()
         {
-            Console.WriteLine("dumping...");
             foreach (KeyValuePair<string, DataTable> kv in tables)
             {
-                _database.WriteToDb(schema, kv.Key, kv.Value);
+                if (kv.Value.Rows.Count > 0)
+                {
+                    ulong rowCopied = _database.WriteToDb(schema, kv.Key, kv.Value);
+                    if (rowCopied != (ulong)kv.Value.Rows.Count)
+                    {
+                        throw new Exception("Number of rows to write is not equal to written to database");
+                    }
+                }
                 kv.Value.Clear();
             }
         }

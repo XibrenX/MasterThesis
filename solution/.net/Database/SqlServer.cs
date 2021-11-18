@@ -9,7 +9,7 @@ namespace Database
 {
     class SqlServer
     {
-        public static void WriteToDb(string connStr, string schemaName, string tableName, DataTable dt)
+        public static ulong WriteToDb(string connStr, string schemaName, string tableName, DataTable dt)
         {
 
             if (!SchemaExists(connStr, schemaName))
@@ -91,6 +91,7 @@ namespace Database
                 //{
                 //    //Console.WriteLine(e.Message);
                 //}
+                return 0;
             }
         }
 

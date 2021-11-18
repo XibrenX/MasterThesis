@@ -29,7 +29,7 @@ namespace Database
             return connection;
         }
 
-        public override void WriteToDb(string schemaName, string tableName, DataTable dt)
+        public override ulong WriteToDb(string schemaName, string tableName, DataTable dt)
         {
             bool schemaExists = SchemaExists(schemaName);
             if (!schemaExists)
@@ -45,7 +45,7 @@ namespace Database
             }
             else
             {
-                Console.WriteLine("Checking if database needs to be adjusted.");
+                
                 List<string> columnsToAdd = new List<string>();
                 // check if we need to change
                 List<string> columnsFromStaging = GetColumnInfo(schemaName, tableName);
@@ -60,6 +60,7 @@ namespace Database
                 // Voeg kolommen toe als die nodig zijn.
                 if (columnsToAdd.Count > 0)
                 {
+                    Console.WriteLine($"Adding {columnsToAdd.Count} columns");
                     StringBuilder qry = new StringBuilder();
                     qry.AppendLine($"ALTER TABLE \"{schemaName}\".\"{tableName}\" ");
                     List<string> columnAdd = new List<string>();
@@ -73,11 +74,11 @@ namespace Database
                 }
             }
 
-            CopyData(schemaName, tableName, dt);
+            return CopyData(schemaName, tableName, dt);
 
         }
 
-        private void CopyData(string schemaName, string tableName, DataTable dt)
+        private ulong CopyData(string schemaName, string tableName, DataTable dt)
         {
             List<string> columns = new List<string>();
             foreach (DataColumn sc in dt.Columns)
@@ -118,8 +119,8 @@ namespace Database
                 }
             }
             ulong result = writer.Complete();
-            Console.WriteLine($"Wrote {result} rows");
-
+            Console.WriteLine($"Wrote {result} rows to {tableName}");
+            return result;
         }
 
         private List<string> GetColumnInfo(string schemaName, string tableName)

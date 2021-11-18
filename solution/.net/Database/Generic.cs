@@ -25,6 +25,6 @@ namespace Database
             return columnsToReturn;
         }
 
-        public abstract void WriteToDb(string schemaName, string tableName, DataTable dt);
+        public abstract ulong WriteToDb(string schemaName, string tableName, DataTable dt);
     }
 }
