@@ -25,7 +25,6 @@ class Generic:
         with conn:
             cursor = conn.cursor()
             cursor.execute(query)
-            row = cursor.fetchone()
             result = []
             columns = [column[0] for column in cursor.description]
             for row in cursor.fetchall():

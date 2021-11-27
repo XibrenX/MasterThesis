@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_lncs_fm_member_book
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - member_name
+            - book_filename
+            - role
+    columns:
+      - name: member_name
+      - name: book_filename
+      - name: role

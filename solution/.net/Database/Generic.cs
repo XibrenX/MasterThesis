@@ -26,5 +26,7 @@ namespace Database
         }
 
         public abstract ulong WriteToDb(string schemaName, string tableName, DataTable dt);
+
+        public abstract DataTable GetData(string query);
     }
 }

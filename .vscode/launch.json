@@ -30,6 +30,17 @@
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "stopAtEntry": false
+        },
+        {
+            "name": "OpenCitations .NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build_opencitations",
+            "program": "${workspaceFolder}/solution/.net/OpenCitations/bin/Debug/net5.0/OpenCitations.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
         }
     ]
 }

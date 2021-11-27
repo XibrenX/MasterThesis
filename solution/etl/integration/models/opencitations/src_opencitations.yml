@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: opencitations_dump
+    schema: opencitations_dump
+    tables:
+      - name: reference
+
+

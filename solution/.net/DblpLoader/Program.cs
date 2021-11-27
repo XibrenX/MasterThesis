@@ -43,14 +43,14 @@ namespace dblp.loader
 
             // p.ReadPublications(filepath);
 
-            p.Execute(filepath);
+            // p.Execute(filepath);
 
-            // string searchTerm = "GP-Based Electricity Price Forecasting.";
-            // long lineNumber =  p.Search(filepath, searchTerm);
-            // if (lineNumber != 0)
-            // {
-            //     p.WriteRange(filepath, lineNumber, 100, "output.xml");
-            // }
+            string searchTerm = "https://doi.org/10.1007/978-3-540-36668-3_1";
+            long lineNumber =  p.Search(filepath, searchTerm);
+            if (lineNumber != 0)
+            {
+                p.WriteRange(filepath, lineNumber, 100, "output2.xml");
+            }
 
             Console.WriteLine("Done, press any key to exit");
             Console.ReadKey();
@@ -87,6 +87,7 @@ namespace dblp.loader
 
         private long Search(string filepath, string searchTerm)
         {
+            Console.Write($"Searching for: {searchTerm}... ");
             long lineNumber = 0;
             using StreamReader sr = new StreamReader(filepath);
             string line = String.Empty;
@@ -95,12 +96,12 @@ namespace dblp.loader
                 lineNumber++;
                 if (line.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.WriteLine($"Found {searchTerm} in {line} ({lineNumber})");
-                    
-                    break;
+                    Console.WriteLine($"FOUND in '{line}' ({lineNumber})");
+                    return lineNumber;
                 }
             }
-            return lineNumber;
+            Console.WriteLine("NOT FOUND");
+            return 0;
         }
 
         private readonly IDatabase _database;

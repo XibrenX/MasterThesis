@@ -86,26 +86,9 @@ namespace Database
                 columns.Add($"{sc.ColumnName}");
             }
             string columnNames = string.Join(", " + Environment.NewLine, columns.Select(c => '\"' + c + '\"'));
-            //string query = $"INSERT INTO {schemaName}.{tableName} (" + columnNames + ") VALUES ";
-            //string values = string.Join(", " + Environment.NewLine, columns.Select(c => '@' + c.Replace("$", "")));
-            //string total_query = query + "(" + values + ")";
-
-            //Console.WriteLine($"Query: {total_query}");
 
             using var connection = GetConnection();
             connection.Open();
-            //using var command = new NpgsqlCommand(total_query, connection);
-
-
-            //foreach (DataRow dr in dt.Rows)
-            //{
-            //    command.Parameters.Clear();
-            //    foreach (string c in columns)
-            //    n 
-            //        command.Parameters.AddWithValue(c.Replace("$", ""), dr[c]);
-            //    }
-            //    command.ExecuteNonQuery();
-            //}
 
             string copySatement = $"COPY {schemaName}.{tableName} ({columnNames}) FROM STDIN (FORMAT BINARY)";
             using var writer = connection.BeginBinaryImport(copySatement);
@@ -139,6 +122,17 @@ namespace Database
                 columns.Add(reader.GetString(0));
             }
             return columns;
+        }
+
+        public override DataTable GetData(string query)
+        {
+            DataTable dt = new DataTable();
+            using var connection = GetConnection();
+            connection.Open();
+            using var command = new NpgsqlCommand(query, connection);
+            using NpgsqlDataAdapter da = new NpgsqlDataAdapter(command);
+            da.Fill(dt);
+            return dt;
         }
 
         private string GetCreateTableStatement(DataTable dt, string schemaName, string tableName)
