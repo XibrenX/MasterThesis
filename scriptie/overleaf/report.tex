@@ -1495,6 +1495,15 @@ doi.
 We are looking for people that came to a position with influence.
 People with influence can be found at top conferences and journals.
 Because of this, out primary selction criteria are top conferences and journals.
+Considering the dataflow in Figure~\ref{fig:dataflow_jm2017}, this is the 
+sigma-sign.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{images/data_to_publication_metrics_jm2017.png}
+    \caption{Data flow (\cite{JM2017})}
+    \label{fig:dataflow_jm2017}
+\end{figure}
 
 For our study, which focuses on computer science, we get the top conferences 
 and journals from The Computing Research and Education Association of 
@@ -1584,6 +1593,8 @@ discussed before.
 \end{figure}
 
 \subsection{Hiding our identity}
+\vraag{waar moet dit}
+
 In this research we scrape a lot of data from websites.
 During our research preparation we got blocked by Science Direct 
 because we scraped the site with the same IP. To work around this problem of 
@@ -1605,12 +1616,16 @@ limited available.
 
 \section{Integration}
 People, articles and venues are retrieved
-from multiple source. TO be able to work with these entities, we need to 
+from multiple source. To be able to work with these entities, we need to 
 integrate these sources in one model. To make this possible, we need to 
 unqiquely identify the entities.
 
+Again refering to Figure~\ref{fig:dataflow_jm2017}, we can consider this the 
+tilde sign.
+
 In the ideal situation al entities have an unique identifier which is 
-independent of the source. 
+independent of the source. However, in practice it is a bit more complex than 
+that.
 
 
 
