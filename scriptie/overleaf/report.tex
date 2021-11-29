@@ -1565,6 +1565,25 @@ discussed before.
     \label{fig:lncs_scraper_datamodel}
 \end{figure}
 
+\subsection{Hiding the identity}
+During our research preparation we got blocked by Science Direct 
+because we scraped the site with the same IP. To work around this problem of 
+being caught, two options exists.
+
+The first option is the use of a Virtual Private Network. Some free VPN 
+providers exists and scraping sites using a VPN hides the IP for the website; 
+the website only got the IP from the VPN server. The drawback is that the VPN
+provider may get blocked.
+
+The second option is using the TOR project as a proxy. TOR is a network of 
+servers that hides the identity from the requester. It also encrypts the 
+connection and is used during the Arab spring to reach social networks. This 
+TOR project is also known of the `Dark net' and certain illegal activities.
+
+For our purpose we choose to use the TOR network because we can programmaticaly
+change the route after a certain requests and free VPN servers are slow and 
+limited available.
+
 \section{Uniquify people}
 The author dataset contains all authors for every article. This means, if an 
 author wrote multiple articles, it is multiple times present in this set. For
