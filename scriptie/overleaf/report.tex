@@ -1501,6 +1501,16 @@ Unfortunately, conferences are not part of this dump. But, with the API of DBLP
 we are able to get the proceedings based on the searchterm from the url of core.
 So we built a tool to load this data in the database (tool: dblp\_api).
 
+In Figure~\ref{fig:data_integration_core_dblp_api} we see how this selection 
+influence what is being gathered from dblp.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=8cm]{images/data_integration/core_dblp_api.drawio.png}
+    \caption{Current results}
+    \label{fig:data_integration_core_dblp_api}
+\end{figure}
+
 Looking at the publishers of the proceedings we see the following publisher with 
 more than a 1000 proceedings:
 \begin{center}
@@ -1541,6 +1551,19 @@ The reason we also extracted the chapters is get the relation between a book and
 the articles it conains. Te keep our main goal clear: we need to get the people
 involved, so while we are scraping the articles, we can just get the authors as 
 well.
+
+The most important entities we gather from LNCS are the books (proceedings), 
+chapter (articles) and authors.
+By scraping the books we also get the link to the front matter pdf. We use this
+to download the front matter and process this downloaded PDF by the tool 
+discussed before.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=8cm]{images/data_integration/lncs.drawio.png}
+    \caption{Process LNCS data}
+    \label{fig:lncs_scraper_datamodel}
+\end{figure}
 
 \section{Uniquify people}
 The author dataset contains all authors for every article. This means, if an 
