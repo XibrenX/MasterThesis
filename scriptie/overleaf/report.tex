@@ -1256,6 +1256,23 @@ may be interesting.
         textlines and the header as title of the section.
 \end{itemize}
 
+\begin{lstlisting}[caption={Representation of the document},captionpos=b]
+{"section":{"title":"DocumentRoot","# lines":1}}
+- {"section":{"title":"Lecture Notes in Computer Science 7727","# lines":7}}
+- - {"section":{"title":"Editorial Board","# lines":32}}
+- {"section":{"title":"Kyoung Mu Lee Y asuyuki Matsushita James M. Rehg Zhanyi Hu (Eds.)","# lines":1}}
+- {"section":{"title":"Computer V ision - A CCV 2012","# lines":3}}
+- - {"section":{"title":"11th Asian Conference on Computer Vision Daejeon, Korea, November 5-9, 2012 Revised Selected Papers, Part IV","# lines":22}}
+- - {"section":{"title":"1 3","# lines":19}}
+- - - {"section":{"title":"Preface","# lines":77}}
+- - - {"section":{"title":"Organization","# lines":8}}
+- - - - {"section":{"title":"Steering Committee","# lines":7}}
+- - - - {"section":{"title":"General Chairs","# lines":7}}
+- - - - {"section":{"title":"Program Chairs","# lines":7}}
+- - - - {"section":{"title":"Workshop Chairs","# lines":8}}
+\end{lstlisting}
+
+
 \subsection{Focus on organisation}
 \begin{itemize}
     \item Having this tree, we can easily get the section that contains the 
@@ -1266,9 +1283,17 @@ may be interesting.
 \end{itemize}
 
 \subsection{Processing a section}
+A section is a textpart of the document. In 
+Figure~\ref{fig:front_matter_section} an example is shown.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{images/front_matter/section.png}
+    \caption{Section in the Front Matter}
+    \label{fig:front_matter_section}
+\end{figure}
 \begin{itemize}
-    \item All text in a section that is under a role, has some kind of table 
-        struture.
+    \item All text in a section, has some kind of table 
+        struture. In the example, the role of the member is in the title.
     \item For that reason we use a grid a data structure to put the data from 
         the raw lines in to.
     \item This grid structure gives us some possibilities, e.g. to get 
@@ -1277,6 +1302,14 @@ may be interesting.
     \item This process is done in a section to grid converter. To separate this
         process from the process of building a tree, improves testability.
 \end{itemize}
+The resulting visual representation is shown in 
+Figure~\ref{fig:front_matter_section_grid}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{images/front_matter/section_table.png}
+    \caption{Section in the Front Matter}
+    \label{fig:front_matter_section_grid}
+\end{figure}
 
 \subsection{Getting information from a grid}
 \begin{itemize}
@@ -1299,17 +1332,34 @@ may be interesting.
     \item All this information is stored in a SectionInfo object which is added
         to the section.
 \end{itemize}
+In Listing~\ref{lst:front_matter_grid_info} we show some statistics for 
+identifying affiliations.
+\begin{lstlisting}[caption={Some derived information from the grid},captionpos=b,label={lst:front_matter_grid_info}]
+numberOfColumns:	2
+affiliationRatios:
+	{"columnNumber":0,"rows":"ALL","ratio":0.0}
+	{"columnNumber":0,"rows":"ODD","ratio":0.0}
+	{"columnNumber":0,"rows":"EVEN","ratio":0.0}
+	{"columnNumber":1,"rows":"ALL","ratio":0.6666666666666666}
+	{"columnNumber":1,"rows":"ODD","ratio":0.5}
+	{"columnNumber":1,"rows":"EVEN","ratio":1.0}
+\end{lstlisting}
 
 \subsection{Choosing a parser}
 \begin{itemize}
     \item With the information the program can choose the appropiate parser to
         interpret the data correctly and convert the grid into members.
 \end{itemize}
+In this case, because the ration of affiliation keywords in the second column is 
+above a certain threshold and the section consists of two columns, the software 
+chooses a Two\_Name\_Affiliation parser which means two columns, first column is a 
+name, and the second column is the affiliation.
 
 \section{Data storage}
 \begin{itemize}
     \item During this process we store data in a database and in logfiles.
 \end{itemize}
+
 
 \subsection{Database}
 In the database we store three entities: file, section and member. All tables 
