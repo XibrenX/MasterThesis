@@ -21,7 +21,7 @@ def read_config(path) -> configparser.SectionProxy:
     return config['SECTION']
 
 
-config = read_config('../config')
+config = read_config('solution/config')
 db = Postgress(
     server=config['POSTGRES_SERVER'], 
     database=config['POSTGRES_DB'],
@@ -89,7 +89,9 @@ def execute_request(query) -> dict:
         hits = 1000
         first = i * hits
         q = query_in.replace("/", "%2F")
-        query = f"stream%3Astreams%2F{q}%3A editorship"
+        # query = f"stream%3Astreams%2F{q}%3A editorship"
+        query = f"stream%3Astreams%2F{q}%3A"
+
         # ":facetid:stream:streams\"/\"conf\"/\"cpm"
         # stream%3Astreams%2Fconf%2Fcpm%3A
         # print(f"Request for query: {query}, first: {first}")
@@ -97,6 +99,7 @@ def execute_request(query) -> dict:
         content["document"] = []
         content["author"] = []
         url = f"https://dblp.uni-trier.de/search/publ/api?q={query}&h={hits}&format=json&f={first}"
+        logging.info(f"query: {query}  | hits: {hits} | first: {first}")
         response = requests.get(url)
         timestamp = str(datetime.datetime.now())
         if response.status_code != 200:
@@ -130,29 +133,11 @@ def execute_request(query) -> dict:
 
 def get_queries() -> list:
     logging.info("Fetch queries from database")
-    query = f"SELECT dblp_key FROM core.conferences WHERE dblp_key IS NOT NULL"
+    query = f"select * from core.cln_jnl_ranks where dblp_url is not null"
 
     query_result = db.execute_query_result(query)
     result = [x['dblp_key'] for x in query_result]
     return result
-
-
-    # try:
-    #     
-
-    #     conn = pyodbc.connect(conn_str)
-    #     cursor = conn.cursor()
-    #     cursor.execute(query)
-    #     row = cursor.fetchone()
-    #     res = []
-    #     while row:
-    #         res.append(str(row[0]))
-    #         row = cursor.fetchone()
-    #     return res
-    # except:
-    #     print("error occured")
-    # finally:
-    #     cursor.close()
 
 
 def equal_list_of_dicts(l):
@@ -176,9 +161,9 @@ def main():
     total_queries = len(queries)
     i = 1
     for q in queries:
-        #print(f"Query {i} / {total_queries}")
+        print(f"Query {i} / {total_queries}")
         dt = execute_request(q)
-        #print("Writing to database")
+        print("Writing to database")
         for x in dt:
             d = equal_list_of_dicts(dt[x])
             saver.save(schema_name, x, d)

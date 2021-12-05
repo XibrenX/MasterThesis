@@ -5,4 +5,4 @@ sources:
     schema: core
     tables:
       - name: conf_ranks
-      - name: jnl_ranks  
+      - name: jnl_ranks
