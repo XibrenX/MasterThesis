@@ -41,6 +41,17 @@
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "stopAtEntry": false
+        },
+        {
+            "name": "Elsevier .NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build_elsevier",
+            "program": "${workspaceFolder}/solution/.net/Elsevier.ParseOutput/bin/Debug/net5.0/Elsevier.ParseOutput.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
         }
     ]
 }

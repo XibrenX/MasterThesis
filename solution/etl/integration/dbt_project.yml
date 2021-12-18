@@ -48,6 +48,10 @@ models:
         schema: springer_lncs
       dblp_dump:
         schema: dblp_dump
+      acm_analysis:
+        schema: acm_analysis
+      elsevier_analysis:
+        schema: elsevier_analysis
           
 seeds:
   thesis:
@@ -58,6 +62,9 @@ seeds:
       schema: dblp_api
     springer_lncs:
       schema: springer_lncs
+    acm:
+      schema: acm
+    
 
 # on-run-end: "drop schema tempory_tables cascade"
       

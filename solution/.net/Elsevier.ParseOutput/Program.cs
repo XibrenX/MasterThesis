@@ -2,118 +2,37 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.IO;
+using Helper;
+using Database;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Elsevier.ParseOutput
 {
     class Program
     {
-        static void Main(string[] args)
+        private static string schema = "elsevier";
+        private static string propertiesFile = "solution/config";
+
+        static async Task Main(string[] args)
         {
             Console.WriteLine("Started");
+            Dictionary<string, string> properties = PropertiesReader.ReadProperties(propertiesFile);
 
-            List<string> articleTags = new List<string>
-            {
-                "cid",
-                "cover-date-start",
-                "cover-date-text",
-                "document-subtype",
-                "document-type",
-                "eid",
-                "doi",
-                "issuePii",
-                "language",
-                "pii",
-                "srctitle",
-                "suppl",
-                "vol-first",
-                "vol-iss-suppl-text",
-                "issn",
-                "issn-primary-formatted",
-                "volRange",
-                "titleString",
-                "first-fp",
-                "last-lp"
-            };
+            string user = properties["POSTGRES_USER"];
+            string password = properties["POSTGRES_PASSWORD"];
+            string database = properties["POSTGRES_DB"];
+            string server = properties["POSTGRES_SERVER"];
+            string dataStorage = properties["RAW_DATA"];
 
-            DataTable articles = new DataTable();
-            articles.Columns.Add(new DataColumn("$_id", typeof(int)));
-            foreach (var at in articleTags)
-            {
-                articles.Columns.Add(new DataColumn(at.Replace("-", "_"), typeof(string)));
-            }
+            IDatabase db = DatabaseFactory.GetDatabase(DatabaseType.Postgres, user, password, database, server);
+            
+            Program p = new Program(db);
+            
+            string filepath = Path.Combine(dataStorage, "elsevier_output", "__new");
 
-            DataTable datesDt = new DataTable();
-            datesDt.Columns.Add(new DataColumn("$_id", typeof(int)));
-            datesDt.Columns.Add(new DataColumn("type", typeof(string)));
-            datesDt.Columns.Add(new DataColumn("value", typeof(string)));
-
-            string dir = @"C:\Users\EwoudWesterbaan\Desktop\elsevier_output";
-            foreach (string file in Directory.EnumerateFiles(dir))
-            {
-                Console.WriteLine($"Processing: {file}");
-
-
-                //var file = @"C:\Users\EwoudWesterbaan\Desktop\elsevier_output\7328.json";
-
-                int id = Int32.Parse(Path.GetFileNameWithoutExtension(file));
-                Console.WriteLine($"id: {id}");
-                JObject obj = JObject.Parse(File.ReadAllText(file));
-                JObject article = (JObject)obj["article"];
-
-                DataRow dr = articles.NewRow();
-                dr["$_id"] = id;
-                foreach (var t in articleTags)
-                {
-                    var value = article[t]?.Value<string>();
-                    dr[t.Replace("-", "_")] = value;
-                }
-
-                articles.Rows.Add(dr);
-
-                JObject dates = (JObject)article["dates"];
-                foreach (var k in dates)
-                {
-                    if (k.Key.Equals("Revised", StringComparison.OrdinalIgnoreCase))
-                    {
-                        JArray revisedDates = (JArray)k.Value;
-                        foreach (var rd in revisedDates)
-                        {
-                            DataRow dater = datesDt.NewRow();
-                            dater["$_id"] = id;
-                            dater["type"] = k.Key;
-                            dater["value"] = rd.ToString();
-                            datesDt.Rows.Add(dater);
-                        }
-
-                    }
-                    else
-                    {
-                        DataRow dater = datesDt.NewRow();
-                        dater["$_id"] = id;
-                        dater["type"] = k.Key;
-                        dater["value"] = k.Value;
-                        datesDt.Rows.Add(dater);
-                    }
-                }
-
-                // authors
-                JObject authorsJson = (JObject)obj["authors"];
-                (DataTable authors, DataTable refs, DataTable affiliations) = ReadAuthors(authorsJson, id);
-
-                BulkCopy(authors, "dbo.authors");
-                BulkCopy(refs, "dbo.[references]");
-                BulkCopy(affiliations, "dbo.affiliations");
-                BulkCopy(datesDt, "dbo.dates");
-                BulkCopy(articles, "dbo.articles");
-                authors.Clear();
-                refs.Clear();
-                affiliations.Clear();
-                datesDt.Clear();
-                articles.Clear();
-
-            } // end for each file
+            await p.Execute(filepath);
 
             Console.WriteLine("Done.");
 
@@ -122,35 +41,173 @@ namespace Elsevier.ParseOutput
 
         }
 
-        private static readonly string connStr = @"Data Source=localhost; Initial Catalog=elsevier; Integrated Security=True;";
+        private readonly IDatabase _database;
 
-        private static void BulkCopy(DataTable dt, string targetTable)
+        private Program(IDatabase database)
         {
-            using SqlConnection conn = new SqlConnection(connStr);
-            conn.Open();
-            using SqlBulkCopy bc = new SqlBulkCopy(conn)
-            {
-                DestinationTableName = targetTable
-            };
-            bc.WriteToServer(dt);
+            _database = database;
         }
 
-        private static (DataTable authors, DataTable refs, DataTable affiliations) ReadAuthors(JObject authorsJson, int article_id)
+        private async Task Execute(string inputDir)
+        {
+            int maxConcurrency = 1;
+            using(SemaphoreSlim concurrencySemaphore = new SemaphoreSlim(maxConcurrency))
+            {
+                List<Task> tasks = new List<Task>();
+                foreach (string file in Directory.EnumerateFiles(inputDir, "*.json", SearchOption.AllDirectories))
+                {
+                    concurrencySemaphore.Wait();
+
+                    var t = Task.Factory.StartNew(() =>
+                    {
+                        try
+                        {
+                            ProcessFile(file);
+                        }
+                        finally
+                        {
+                            concurrencySemaphore.Release();
+                        }
+                    });
+
+                    tasks.Add(t);
+                }
+                Console.WriteLine("Waiting for tasks to finish");
+                Task.WaitAll(tasks.ToArray());
+            }
+        }
+
+        private readonly List<string> articleTags = new List<string>
+        {
+            "cid",
+            "cover-date-start",
+            "cover-date-text",
+            "document-subtype",
+            "document-type",
+            "eid",
+            "doi",
+            "issuePii",
+            "language",
+            "pii",
+            "srctitle",
+            "suppl",
+            "vol-first",
+            "vol-iss-suppl-text",
+            "issn",
+            "issn-primary-formatted",
+            "volRange",
+            "titleString",
+            "first-fp",
+            "last-lp"
+        };
+
+        private void ProcessFile(string file)
+        {
+            string journal = Directory.GetParent(file).Name; // Path.GetDirectoryName(file);
+            
+            Console.WriteLine($"Processing: {file} ({journal})");
+            DataTable articles = new DataTable();
+            articles.Columns.Add(new DataColumn("$_id", typeof(int)));
+            articles.Columns.Add(new DataColumn("$_journal", typeof(string)));
+            foreach (var at in articleTags)
+            {
+                articles.Columns.Add(new DataColumn(at.Replace("-", "_"), typeof(string)));
+            }
+
+            DataTable datesDt = new DataTable();
+            datesDt.Columns.Add(new DataColumn("$_id", typeof(int)));
+            datesDt.Columns.Add(new DataColumn("$_journal", typeof(string)));
+            datesDt.Columns.Add(new DataColumn("type", typeof(string)));
+            datesDt.Columns.Add(new DataColumn("value", typeof(string)));
+
+            int id = Int32.Parse(Path.GetFileNameWithoutExtension(file));
+            // Console.WriteLine($"id: {id}");
+            JObject obj = JObject.Parse(File.ReadAllText(file));
+            JObject article = (JObject)obj["article"];
+
+            DataRow dr = articles.NewRow();
+            dr["$_id"] = id;
+            dr["$_journal"] = journal;
+            foreach (var t in articleTags)
+            {
+                var value = article[t]?.Value<string>();
+                dr[t.Replace("-", "_")] = value;
+            }
+
+            articles.Rows.Add(dr);
+
+            JObject dates = (JObject)article["dates"];
+            foreach (var k in dates)
+            {
+                if (k.Key.Equals("Revised", StringComparison.OrdinalIgnoreCase))
+                {
+                    JArray revisedDates = (JArray)k.Value;
+                    foreach (var rd in revisedDates)
+                    {
+                        DataRow dater = datesDt.NewRow();
+                        dater["$_id"] = id;
+                        dater["$_journal"] = journal;
+                        dater["type"] = k.Key;
+                        dater["value"] = rd.ToString();
+                        datesDt.Rows.Add(dater);
+                    }
+                }
+                else
+                {
+                    DataRow dater = datesDt.NewRow();
+                    dater["$_id"] = id;
+                    dater["$_journal"] = journal;
+                    dater["type"] = k.Key;
+                    dater["value"] = k.Value;
+                    datesDt.Rows.Add(dater);
+                }
+            }
+
+            // authors
+            JObject authorsJson = (JObject)obj["authors"];
+            (DataTable authors, DataTable refs, DataTable affiliations) = ReadAuthors(authorsJson, id, journal);
+
+            WriteToDb(authors, "authors");
+            WriteToDb(refs, "references");
+            WriteToDb(affiliations, "affiliations");
+            WriteToDb(datesDt, "dates");
+            WriteToDb(articles, "articles");
+            authors.Clear();
+            refs.Clear();
+            affiliations.Clear();
+            datesDt.Clear();
+            articles.Clear();
+        }
+
+        private void WriteToDb(DataTable dt, string targetTable)
+        {
+            Console.WriteLine("Writing to database");
+            ulong rowCopied = _database.WriteToDb(schema, targetTable, dt);
+            if (rowCopied != (ulong)dt.Rows.Count)
+            {
+                throw new Exception("Number of rows to write is not equal to written to database");
+            }          
+        }
+
+        private (DataTable authors, DataTable refs, DataTable affiliations) ReadAuthors(JObject authorsJson, int article_id, string journal)
         {
             DataTable dtAuthors = new DataTable();
             dtAuthors.Columns.Add(new DataColumn("$_id", typeof(int)) { DefaultValue = article_id });
+            dtAuthors.Columns.Add(new DataColumn("$_journal", typeof(string)) { DefaultValue = journal });
             dtAuthors.Columns.Add(new DataColumn("article_author_id", typeof(string)));
             dtAuthors.Columns.Add(new DataColumn("property", typeof(string)));
             dtAuthors.Columns.Add(new DataColumn("value", typeof(string)));
 
             DataTable refsDt = new DataTable();
             refsDt.Columns.Add(new DataColumn("$_id", typeof(int)) { DefaultValue = article_id });
+            refsDt.Columns.Add(new DataColumn("$_journal", typeof(string)) { DefaultValue = journal });
             refsDt.Columns.Add(new DataColumn("article_author_id", typeof(string)));
             refsDt.Columns.Add(new DataColumn("refid", typeof(string)));
             refsDt.Columns.Add(new DataColumn("article_cross_ref_id", typeof(string)));
 
             DataTable affDt = new DataTable();
             affDt.Columns.Add(new DataColumn("$_id", typeof(int)) { DefaultValue = article_id });
+            affDt.Columns.Add(new DataColumn("$_journal", typeof(string)) { DefaultValue = journal });
             affDt.Columns.Add(new DataColumn("affiliation_id", typeof(string)));
             affDt.Columns.Add(new DataColumn("property", typeof(string)));
             affDt.Columns.Add(new DataColumn("value", typeof(string)));

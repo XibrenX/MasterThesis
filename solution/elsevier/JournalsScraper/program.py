@@ -83,7 +83,13 @@ def renew_tor_ip():
 def get_page(page_number: int):
     logging.info(f'Getting page {page_number}')
     url = f"https://www.elsevier.com/search-results?labels=journals&page={page_number}"
-    response = requests.get(url)
+    session = requests.session()
+
+    # TO Request URL with SOCKS over TOR
+    session.proxies = {}
+    session.proxies['http']='socks5h://localhost:9050'
+    session.proxies['https']='socks5h://localhost:9050'
+    response = session.get(url)
     return response.content
 
 
