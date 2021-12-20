@@ -52,6 +52,8 @@ models:
         schema: acm_analysis
       elsevier_analysis:
         schema: elsevier_analysis
+      analysis:
+        schema: analysis
           
 seeds:
   thesis:
@@ -64,6 +66,7 @@ seeds:
       schema: springer_lncs
     acm:
       schema: acm
+    
     
 
 # on-run-end: "drop schema tempory_tables cascade"

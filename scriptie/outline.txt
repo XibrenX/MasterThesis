@@ -1,0 +1,56 @@
+scriptie
+- introductie
+    - the problem
+    - the complication
+    - current approach
+        - weakness
+        - A generic approach fails
+        - what went wrong
+    - new approach
+- Domain Analysis
+    - Huidig model Jonker/Maauw
+- Related Work
+- Research Methodology
+     - Question
+        - Heeft outlier detectie binnen een groep zin?
+     - Subquestions
+        - Welke data is er nodig
+        - Hoeverre is die data beschikbaar
+        - Hoe kan die geintegreerd worden
+     - Approach
+     - Scope: case studies
+     - 
+- Case study 1: Springer LNCS
+    - Motivation
+    - Data acquisition
+    - Data integration
+    - Analysis
+    - Validation
+        - Wat is er te valideren?
+        - Wat is de onzekerheid?
+        - Hoe valideren?
+        - Valideren vertrouwen op grote schaal?
+            - Bootstrap sampling?
+        - Klopt de input data?
+        - Het is niet erg als we iemand over het hoofd zien
+        - Handmatig
+            - Klopt de data wel?
+            - Is het echt een outlier?
+- Case study 2: ACM
+    - Motivation
+    - Data acquisition
+    - Data integration
+    - Analysis
+    - Validation
+- Case study 3: Publication Lag
+    - Motivation
+    - Data acquisition
+    - Data integration
+    - Analysis
+    - Validation
+- Conclusion
+    - Recommendation
+    - Terugkomen op onderzoeksvragen
+    - Discussion
+
+Aanname: Outliers kunnen attacks zijn, maar ook excellente wetenschappers
