@@ -9,8 +9,16 @@
 
 \usepackage{float}
 \usepackage{tikz}
+\usepackage[shortlabels]{enumitem}
+\usepackage[normalem]{ulem}
+
 \usetikzlibrary{positioning}
 \usepackage{graphicx}
+
+% Settings for code fragments
+\lstset{
+  basicstyle=\fontsize{9}{13}\selectfont\ttfamily
+}
 
 % Dit template is gemaakt door P.J. Molijn in het kader van zijn afstuderen aan de OU in 2014.
 % Waarvoor hartelijk dank.
@@ -309,18 +317,19 @@ During this research we will contribute the following items to the community.
 
 % ==============================================================================
 \chapter{Domain analysis of the publication process}
+\label{chp:domainanalysis}
 % ==============================================================================
-\outline{
-\begin{itemize}
-    \item Beginnen met verhaal over publicatieprocess
-    \item Reden: wetenschapper wilt publiceren
-\end{itemize}
-}
+% \outline{
+% \begin{itemize}
+%     \item Beginnen met verhaal over publicatieprocess
+%     \item Reden: wetenschapper wilt publiceren
+% \end{itemize}
+% }
 
 Incentives for scientists rely on quantitative measures of science, such as 
 number of publications, number of citations and amount of grants received. This 
 gives scientist a higher status, salary, more resources (funds, students) to do 
-more research (which leads to more rewards); recognition and accolades. To 
+more research which leads to more rewards, recognition and accolades. To 
 achieve these rewards, scientists need to have their papers published for their 
 career to thrive. This process of publishing and rewarding is shown by Bj\"ork 
 and Hedlund~\cite{BH2004} in a cycle within their visualisation of the 
@@ -450,7 +459,6 @@ The phase "Manage the review process" from Bj\"ork and Hedlund is described by C
 
 % ==============================================================================
 \section{Conference publication}
-\outline{
 The following is an informal description of the process for conference 
 publication. This can also be a workshop or symposium. Not all conferences 
 follow this approach.
@@ -506,17 +514,6 @@ version for publication.
 In the \textbf{publication phase} the PC chairs judge on the the camera-ready 
 version, and papers is published online.
 % ============================================================================== 
-}
-
-\paragraph{The NIPS experiment}
-For scientists getting a paper in a conference is important for their career. 
-Unfortunately, the NIPS experiments makes clear that reviewing papers for a 
-conference is not a deterministic
-process\footnote{\url{http://blog.mrtz.org/2014/12/15/the-nips-experiment.html}}.
-The result if a paper is being approved depends on the composition of the 
-responsible committee. This means that the committee judging papers for 
-conferences has the power to determining whose paper is being accepted and 
-therefore whose career is going to thrive.
 
 
 \outline{
@@ -703,8 +700,834 @@ situation where a publications cites other publications in that venue can occur.
 % }
 
 
+
+
+
 % ------------------------------------------------------------------------------
-\subsection{Work member of editorial board is being cited}
+\subsection{All time favourite: Diederik Stapel}
+\outline{ergens in het begin: er zijn manieren om te frauderen...}
+
+The fraud that Diederik Stapel committed was not related to the publication 
+process, but to the data he used to draw conclusion on.
+With our specific method, we will not be able to detect data manupulation and
+fabrication.
+
+\outline{door neven effect van fraude (bijvoorbeeld heel veel publicaties) of 
+zijn resultatenn halen het nieuws / opgemerkt in academische wereld omdat ze 
+fout zijn / omdat heel veel citaties eerste maanden zijn}.
+
+% ------------------------------------------------------------------------------
+
+\outline{
+\section{placeholder}
+
+\begin{itemize}
+    \item Author and reviewer are the same person: $\{h \in \Humans \mid \authors(p, h) \land \reviews(p, h)\}$ (Moon)
+    \item Editor-in-Chief is part of authors: $\{h \in \Humans \mid \authors(p, h) \land \receives(p, h)\}$. Logisch gevolg is dus dat $\accepts(p, h)$
+    \item Citaat naar paper van iemand in het proces: stel q is de publicatie waar het om draait dan:
+    $\{h \in \Editors \cup \Reviewers \mid \cites(q, p) \land \authors(h, p)\}$
+    \item bovengemiddeld zelfcitaties
+    \item publicaties die geciteerd worden komen uit dezelfde journal\todo{???}
+\end{itemize}
+}
+
+\outline{
+\begin{itemize}
+    \item dan modellering (hfst \ref{chp:modelling_the_publication_process})
+\end{itemize}
+}
+
+% ==============================================================================
+\chapter{Related work}
+% ==============================================================================
+\outline{
+Bijdrage aan contributies
+\begin{itemize}
+    \item 1) Studies die iets soortgelijks hebben gedaan
+    \begin{itemize}
+        \item Tielenburg
+    \end{itemize}
+    \item 2) Bouwstenen
+    \begin{itemize}
+        \item PDF Extractie
+        \item Outlier detectie
+    \end{itemize}
+    \item 3) Titels die altijd moeten worden genoemd
+\end{itemize}
+}
+
+
+% ==============================================================================
+\chapter{Methodology}
+% ==============================================================================
+Belangrijkste punten:
+\outline{
+\begin{itemize}
+    \item Wat ga je doen?
+    \item Waarom ga je dat zo doen?
+\end{itemize}
+\begin{itemize}
+    \item Draait om detecteren of er aanvallen plaats vinden
+    \item Wat hebben we nodig om aanvallen te detecteren (hoe kunnen wij dat 
+    doen?
+    \item Redenering dat we een model nodig hebben
+\end{itemize}
+}
+
+During this research we want to verify if it is possible to detect possible
+attacks on the publication process by using a group based approach. That is,
+not looking at the whole population of people involved in this process, but
+looking at a group of peers.
+
+
+
+
+% ==============================================================================
+\section{Research Questions}
+
+% Hoofdvraag: Heeft outlier detectie binnen een groep zin?
+The main question we want to answer in this research is: \\
+\textbf{What is the impact of using a group-based outlier detecion approach in 
+detecting fraud in the scientific publication process?}
+
+What we want to validate in this research is: \\
+\textit{There exists fraud in the publication process which causes fraudsters
+to become detectable outliers with respect to their peers.}
+
+We define the following subquestions:
+
+\begin{enumerate}[label=RQ\arabic*]
+
+    \item \label{RQ1} \textit{How can we define a dataset from known public 
+    datasources to populate a formal publication model?}
+    \item \label{RQ2} \textit{How can we apply outlier detection techniques on this 
+    dataset to identify interesting authors in a specific group?}
+
+\end{enumerate}
+
+
+
+\subsection{Research method}
+\label{Research_ResearchMethod}
+In this section we elaborate on how we are going to answer the questions.
+
+% -----------------------------------------------------------------------------------
+\subsubsection*{RQ1: Data model and acquisition}
+This subquestion is twofold: first a definition of the formal publication datamodel, 
+and second how we can load this dataset with existing sources.
+
+To support outlier detection, we need a datamodel of the publication process. This 
+data model is needed to provide a framework where to place the necessary objects and 
+attributes and define the relationships between these objects.
+
+After we have this model we will discuss some public available datasets in the area 
+of computer science and how we can use these sets to load the data model. 
+
+We will judge this step by completeness and integratability of the datasets.
+
+% -----------------------------------------------------------------------------------
+
+\subsubsection*{RQ2: Group based outlier detection}
+To answer this question, we will perform a case studies for three groups:
+\begin{itemize}
+    \item Program Committee Members
+    \item Editors of a journal
+    \item Authors \todo{articles?}
+\end{itemize}
+During these case studies we will need to answer some questions:
+Why is this an interesting group to analyse?
+Is the dataset from RQ1 sufficient to analyse this group?
+If we need additional data, what is the availability of this data?
+And how can we integrate this data to perform an outlier detection.
+
+
+% ==============================================================================
+\chapter{Data model and Acquisition}
+\label{chp:data}
+% ==============================================================================
+In this chapter we describe the underlying data model to perform group based 
+outlier detection. This chapter addresses three point:
+\begin{itemize}
+    \item The ideal data model for the publication process;
+    \item Known data sources to fill this data model;
+    \item Completeness of these known sources to fill the data model.
+\end{itemize}
+
+
+\section{Ideal data model}
+By formalising the ideal data model, we can answer which entities and which 
+roles are involved and how are they related.
+The ideal situation is one dataset which contains all entities and relations 
+and can serve as base to easily create the necessary datasets upon to perform 
+the data analysis. As 
+input to reason about this dataset we use the domain analysis given in 
+Chapter~\ref{chp:domainanalysis}.
+
+As starting point; Jonker and Mauw formalised the publication model~\cite{JM2017} 
+and created an entity based view of the publication process. 
+Figure~\ref{fig:jm2017_induced_pub_model} depicts their final model.
+\begin{figure}[H]
+\centering
+\includegraphics[width=3cm]{images/jm2017_undiced_pub_view.drawio.png}
+\caption{Set-theoretic publication model of papers (P), venues (V), and 
+authors (A) (adapted from~\cite{JM2017})}
+\label{fig:jm2017_induced_pub_model}
+\end{figure}
+% In this figure, the V stands for venue, P for publication and A for author. 
+% Based on this model, research is conducted to identify if interesting authors 
+% can be identified based on metrics derived from this model. One such research 
+% is the work of Tielenburg~\cite{TEJ2017}. Unfortunately, the results where not 
+% sufficient to provide a solid framework to detect interesting authors.
+
+% ==============================================================================
+
+Whereas the Jonker and Mauw only modelled the author as a role in the process, 
+Bj\"ork and Hedlund mention the publisher, editor and reviewer as well. 
+We consider the author from Jonker and Mauw the same as the researcher from 
+Bj\"ork and Hedlund. In this research, we ignore the publisher. Although the 
+publisher is responsible in the end and sets the regulations and constraints for 
+editors to work within, the actual work is delegated to editors.
+
+% \todo{Hier moet nog iets meer. Bijvoorbeeld: https://www.councilscienceeditors.org/resource-library/editorial-policies/white-paper-on-publication-ethics/2-1-editor-roles-and-responsibilities/}
+
+
+% Unfortunately, Bjork and Hedmung lacks the opportunity to describe the process. However, we can get some textual information from Cormode from his work as an associate editor~\cite{C2013}.
+
+% Cormode also focusses on the journal publication. We will gather the roles and responsibilities from his article and use this to complete our perspective.
+% % ==============================================================================
+% \paragraph{Editorial Board} Cormode describes that the structure can vary depending per journal. In most cases, generic structure for a journal is that there is a editorial board. This board consist of the Editor-in-Chief and multiple Associate Editors. The main role of this board is to determine which papers to accept.
+% % ==============================================================================
+% \paragraph{Editor-in-chief} This role decides which papers to include. The information to make this decision comes from the Associate Editor. This role receives the actual papers and delegate the work to associate editors.
+
+% % ==============================================================================
+% \paragraph{What about the author}
+% Cormode also gives suggestions to certain roles in the process. In our case, the suggestions he makes for an author are important: 1) Suggest suitable Associate Editor and 2) Suggest suitable Reviewer. If the editor-in-chief and associate editor make use of this suggestion, the author can gain power in the judgement of his own work.
+
+
+
+\outline{
+\begin{itemize}
+    \item Reviews
+    \item vaak meerdere
+    \item daarom minder risico op fraude???
+    \item ali \& watson bekijken
+\end{itemize}
+}
+
+% ==============================================================================
+% \section{Extending the model}
+We can extend the model of Jonker and Mauw with the description of Cormode to 
+come up 
+with a model that incorporates the most important roles with influence on the 
+judgement of the work of an author, which results in judgement of the production 
+of the author, which eventual lead to possible benefits for the author. We 
+ignore roles like the editorial assistance and subeditor, because these roles 
+does not seem to have influence on the judgement of a manuscript. In 
+Figure~\ref{fig:structure_journal} we provide an overview of the entities and 
+roles from Jonker and Maauw combined with the information from Cormode which 
+answers which roles are involved and how they are related.
+
+The red rectangles are objects and the green circles are roles.
+As objects we have a venue which contains papers. Multiple roles are related to these objects.
+We define the following sets:
+\begin{itemize}
+    \item Authors: $A(p) = \{h \in H \mid \authors(p, h)\}$
+    \item Reviewers: $R(p) = \{h \in H \mid \reviews(p, h)\}$
+\end{itemize}
+
+
+% ==============================================================================
+
+\begin{figure}[H]
+  \begin{center}
+  \small
+        \begin{tikzpicture}[
+            auto,node distance=2cm,thick,
+            rolenode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=1.05cm},
+            thingnode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=1.05cm},
+            ]
+            % Nodes
+            \node[rolenode] (eic) {EiC};
+            \node[rolenode] (ae) [below=of eic] {AE};
+            \node[rolenode] (reviewer) [below=of ae] {R};
+            
+            \node[thingnode] (venue) [left=of eic] {V};
+            \node[thingnode] (publication) [left=of reviewer] {P};
+            \node[rolenode] (author) [below=of publication] {A};
+            
+            % Lines
+            \draw[->] (publication) -- node [text width=2.5cm,midway,above,sloped] {published at} (venue);
+            \draw[->] (eic) -- node [midway,above,sloped] {responsible for} (venue);
+            \draw[->] (eic) -- node [midway,above,sloped] {accept / reject / receives} (publication);
+            \draw[->] (reviewer) -- node [text width=2.5cm,midway,above,align=center] {reviews} (publication);
+            \draw[->] (author) -- node [midway,above,sloped] {authors} (publication);
+            \draw[->, transform canvas={xshift=2pt}] (eic) -- node [midway,above,sloped] {assigns} (ae);
+            \draw[->, transform canvas={xshift=-2pt}] (ae) -- node [midway,above,sloped] {recommendation} (eic);
+            \draw[->, transform canvas={xshift=2pt}] (ae) -- node [midway,above,sloped] {assigns} (reviewer);
+            \draw[->, transform canvas={xshift=-2pt}] (reviewer) -- node [midway,above,sloped] {feedback} (ae);
+            
+            \path (publication) edge [loop left] node {cites} (publication);
+            
+            % \draw[->] (publication.west) .. controls +(down:7mm) and +(left:5cm) .. (publication.west);
+        \end{tikzpicture}
+  \end{center}
+  \caption{Set-theoretic model of the publication process for collections.}
+  \label{fig:structure_journal}
+\end{figure}
+
+It is important to notice that the green circles are roles, not entities. These 
+roles are fulfilled by people. This results in one more entity (person) with 
+relation to other entities. This relationsips can be expressed as the roles 
+(e.g. a person is a reviewer for a publication).
+
+% ==============================================================================
+\subsection{What about conferences?}
+So far we only focused on the process for journals. But, as mentioned before, 
+for computer science, publishing for a conference is a big deal.
+
+In case of conference publications, the author, publication and its relation to 
+the venue stays the same. It can be that this venue becomes more extensive 
+because of tracks, but it stays a venue.
+The important part are the Program Committee Members. However, this is this a 
+person that has a certain role in relation to the venue.
+
+% ==============================================================================
+\subsection{Resulting model}
+In the resulting model we choose to abstract the roles away and use one entity 
+called person where we define the roles to certain entities in the relationship. 
+This makes the model far more easy to reason about when person has multiple 
+roles.
+
+The model in Figure~\ref{fig:resulting_model} is not a physical model. The 
+physical model can in implemented in multiple design strategies like Ensemble 
+Modelling (Data Vault or Anchor modelling). However the physical model needs to 
+be aware of time and changes to the entity to create a physical model that is 
+able to give answer to the important things. E.g. a person is not 'always' 
+editor of a venue, this role starts and stops at a certain moment in time.
+\begin{figure}[H]
+\centering
+\includegraphics[width=9cm]{images/set_model.png}
+\caption{Set model which covers necessary entities and relationships}
+\label{fig:resulting_model}
+\end{figure}
+
+
+% \section{Main source}
+
+
+% \subsection{Data acquisition}
+
+
+% \outline{
+% % \begin{itemize}
+% %     \item Question to answer: Which data do we need and how can we get it?
+% %     \item om te weten welke data we nodig hebben kijken we naar het publicatie process -> beschreven in voorgaand hoofdstuk
+% %     \item vervolgens kijken we naar de data die beschikbaar is in de publiek beschikbare databronnen
+% %     \item mismatch
+% %     \begin{itemize}
+% %         \item welke informatie missen we
+% %         \item hoe kunnen we hier aan komen
+% %     \end{itemize}
+% %     \item ophalen van mismatch
+% % \end{itemize}
+
+% }
+
+% ==============================================================================
+\section{Public available datasets}
+In this section we will explore some publicly available datasets with the focus 
+on Computer Science which can be use to fill the model from the previous 
+section. Because of the necessary ability to integrate datasets, we
+will judge these sets on integrability and completeness.
+
+As a guideline, we will use Figure~\ref{fig:dataflow_jm2017_2}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{images/data_to_publication_metrics_jm2017.png}
+    \caption{Data flow (\cite{JM2017})}
+    \label{fig:dataflow_jm2017_2}
+\end{figure}
+
+The sigma-sign represents the filter on the set. For now, this filter sets the 
+focus on the Computer Science area. Later on, this filter can be more 
+strict, depending on the case study.
+
+One datasets is known which focus solely on Computer Science; DBLP.
+For other research areas, other datasources should be taken (e.g. for biomedical 
+research, one can use PubMed).
+
+% \begin{itemize}
+%     \item Publicly available sources are limited in available data. Most datasets provides information on who wrote what and sometimes which article refers what. This provides a good insight and based on these datasets a lot of research is already conducted.
+%     \item However, we think these datasets miss actors on the publication process that are in a position with enough power to influence the publication process.
+%     \item Data about these people involved in the publication process are not structured available to use in analysis. The information is provided in front matters and masthead documents. Because of the nature of these documents, mostly PDF's, we consider this as unstructured data.
+%     \item We are somehow surprised of the lack of structured data availability about these people, because of their power and influence.
+%     \item Our focus in this chapter is to incorporate this less structured available data into publicly available data about the publication process to get a dataset which provides a more complete view of the publication process.
+%     \item Our research focus on information technology so our start point to gather these people is to use the most prominent conferences and journals. As source for this data we use the core ranking.
+% \end{itemize}
+
+\outline{
+\begin{itemize}
+    \item Model wat in dblp, aminer en in HJ staat
+    \item Model publicatieprocess
+    \item Sluit niet aan
+    \item meer rollen -> niet in publieke datasets
+    \item Most public available datasources for the publicationprocess contain information about the author and what the author publishes. Sometimes (but not all, or incomplete) these datasets also contain references.
+    \item The model of these datasets are visualized by the publication process of Jonker and Mauw.
+    \item Examples of these datasets are DBLP and Aminer.
+\end{itemize}
+}
+
+
+% ==============================================================================
+\subsection{DBLP}
+DBLP is a dataset with bibliographic information in the computer science 
+discipline which can be downloaded in XML format. In 
+Figure~\ref{fig:set_model_dblp} we show which elements of the set are 
+covered by DBLP.
+
+\begin{figure}[H]
+\includegraphics[width=9cm]{images/set_model_dblp.png}
+\centering
+\caption{Set model DBLP}
+\label{fig:set_model_dblp}
+\end{figure}
+
+% \outline{
+% \begin{itemize}
+%     \item Structure of delivery
+%     \item Processing
+%     \begin{itemize}
+%         \item convert XML to relational tables
+%         \item Every bibliographic type in separate table
+%         \item Assign unique id
+%         \item Make separate table for elements with id of bibliographic record
+%         \item Attributes of elements are columns in table
+%         \item Add metadata to all data entries
+%     \end{itemize}
+%     \item Result
+%     \begin{itemize}
+%         \item 35 tables
+%         \item overzicht van tabellen en relaties
+%     \end{itemize}
+% \end{itemize}    
+% }
+
+Unfortunate DBLP misses some important information to be complete; the dataset
+does not contain references (yet), editor and pc members and reviewers. For 
+references, other sources can be addressed: Aminer and OpenCitations.
+
+% ==============================================================================
+\subsection{Aminer}
+Aminer positions itself as an AI for academic publications. One dataset they 
+provide is the 
+'Citation Network Dataset'. This dataset combines data from DBLP, ACM (a 
+publisher), MAG (Microsoft Acaedmic Graph)
+and other sources. Becauses it uses DBLP as a source, it is interesting to 
+investigate if we can use this for filling the gap of the citations.
+In Figure~\ref{fig:set_model_aminer} we presented which entities and roles
+from our ideal data model this dataset contains. Although this set contains data
+from this entities, the attributes are not that much. This set was created for
+citations, so other entities are not filled in with valuable attributes.
+\begin{figure}[H]
+\includegraphics[width=9cm]{images/set_model_aminer.png}
+\centering
+\caption{Set model Aminer}
+\label{fig:set_model_aminer}
+\end{figure}
+
+
+\subsection{OpenCitation} is DOI based. So the cited and citing articles are 
+referred to by a doi. For references we use opencitations. Because opencitations is DOI based, it is 
+very good integrable with LNCS.
+
+The dataset from opencitation is can be downloaded, or questioned by an API request. 
+
+
+\subsection{Google Scholar}
+\label{subsec:google_scholar}
+Also Google Scholar contains the references from and to articles. This data is 
+only available online. Some software packages exists that support scraping this
+information. However, experiments from the research preparation phase concluded
+that this was not a feasible solution; because of the amount of captcha's when
+trying to scrape the site. So the acquisition of data is not pratical.
+
+\subsection{Conclusion data availability}
+\label{subsec:ConclusionsDataAvailablity}
+Referring to the ideal model as given in Figure~\ref{fig:resulting_model}, we 
+can make a few statements:
+\begin{itemize}
+    \item The availability of data about publications, venues and authors is 
+    good; almost all public sources contains some information about these 
+    entities. 
+    \item References are available in two public available sources (we ignore 
+    Google Scholar for given reasons in Subsection~\ref{subsec:google_scholar}).
+    \item Other roles than `author' is not available in public datasets.
+\end{itemize}
+
+In the next section we will investigate how these sources can be integrated.
+
+% \section{Deviation publication model and available data}
+% As visualised in Figure~\ref{fig:set_model_dblp} and Figure~\ref{fig:set_model_aminer}, both datasets miss some crucial roles.
+% Both sources miss the reviewer, editor and PC Member. These roles are crucial in the publication process and are a must-haves in our group-based outlier detection.
+
+% This raises the question where we are able to get this data. Luckily, there are is some data about these roles publicly available, but this is not straight forward. We will come back to this point when we describe the case studies.
+
+% ==============================================================================
+\section{Integrability}
+People, articles and venues can be acquired from multiple source. To be able to 
+work with these entities, we need to integrate these sources in one model. To 
+make this possible, we need to uniquely identify the entities.
+
+Again referring to Figure~\ref{fig:dataflow_jm2017_2}, we can consider this the 
+tilde sign.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{images/data_to_publication_metrics_jm2017.png}
+    \caption{Data flow (\cite{JM2017})}
+    \label{fig:dataflow_jm2017_2}
+\end{figure}
+
+In the ideal situation is that entities have an unique identifier which is 
+independent of the source. However, in practice it is a bit more complex than 
+that.
+
+% ==============================================================================
+\subsection{Articles}
+The unique key which is used identity an article is the Digital Object 
+Identifier. This field is available in DBLP, Aminer and OpenCitations. DOI 
+should be unique across all articles. So, theoretical this should be easy going.
+
+However, an analysis of the DBLP data set leaves us with a few DOI's which refer
+to multiple articles. The number of articles this occurs, is very low. Also, DBLP 
+has a lot of documents where the DOI is unknown; so data completeness 
+is an issue here. \todo{Hoe veel dan? Iets van aantallen?}
+
+\subsubsection{DOI Availability}
+DBLP contains additional information about an entry in an ee tag. These contain 
+links to doi.org, wikidata, etc. Sometimes an article has multiple doi.org links; 
+this seems mostly the case with the publisher ACM. Although the links are 
+different, they redirect to the same page at ACM.
+For articles the following count of dois is available.
+\begin{center}
+    \begin{tabular}{ |c|c|c|c| }
+        \hline
+        \# of DOI & \# of articles \\
+        \hline
+        0 & 1051229 \\
+        1 & 4626193 \\
+        2 & 22396 \\
+        > 3 & 1202 \\
+        \hline
+    \end{tabular}
+\end{center}
+
+Most articles do have a link to doi.org in the ee
+
+For DBLP approximaly 78\% has one or multiple doi's.
+
+Aminer provides one doi field for an article. Also not all DOI's are not available.
+From the 4894081 articles in Aminer, 3920939 has a DOI (approximally 80\%).
+However, the doi's provided in the dataset are not unique: 3316 DOI's are used
+to identity multiple articles. A quick investigation learned us that Aminer 
+sometimes uses a doi to refer to a journal instead of an article. 
+Another finding with a quick analysis in the case of DOI's, is that multiple articles
+are represted multiple times in the dataset; the article dataset is not unique. This 
+raises some doubt about the quality of the dataset of Aminer.
+
+\subsubsection{Alternative key}
+Because the DOI is not a good key across all sources to integrate data because 
+of
+availability and uniqueness, we can see if there are alternatives. In this case
+we need to define the fields that make a good candidate to serve as key. 
+A combination of title, authors, year and journal make a good candidate.
+% ==============================================================================
+Let's start with the title; the title and how sources save this title may differ. 
+Sometimes the sources uses other characters. For example, BDLP uses specific 
+some kind of html tags to specify characters in the title, e.g. see 
+Listing~\ref{lst:DblpTitle}. This in combination 
+with specific synbols (e.g. Greek delta-sign) which are expressed differently 
+depending on the source, make joining sets on these signs cumbersome.
+
+\lstset{language=XML}
+\begin{lstlisting}[caption={Example title in DBLP},label={lst:DblpTitle}]
+<title>Graphs of Bounded Treewidth can be Canonized in AC<sup>1</sup>.</title>
+\end{lstlisting}
+
+However, these problems can be overcome. Still we need a way to figure out how 
+to join on authors. Which raises a next integration problem: people.
+
+% === oud, weg misschien
+% However, this document id is not filled in for all titles. For
+% the papers that do not have an doi, we can do the match on title. Unfortunately,
+% this also is not that straightforward. The title sometimes contains latex 
+% specific characters, or other weird characters.
+
+% ==============================================================================
+\subsection{People}
+In the publication domain there exists an identifier for people, this is called
+the Open Researcher and Contributor ID (ORCID). This field is (partially) 
+available in DBLP, but not in Aminer.
+
+Alternative approach to uniquely identify authors is the name. However, this has
+multiple issues. 
+\begin{description}
+    \item[Format] A name can be written in multiple formats. Say a person is 
+    named Alfred Jodocus Kwak\footnote{Although the chance this is a duck 
+    instead of a person, is pretty high}. This can be written as `Alfred Kwak', 
+    `Alfred J. Kwak', `A. J. Kwak', `A. Kwak' and off course the full name. 
+    With names that contain accents on letter, the possibilities increases.
+    Also, in some countries it is used to put the family name first.
+    \item[Multiple people with same name] The name does not make an author unique. The same name
+    refers to other authors. 
+    \item[Other names for the same person] E.g. when Robert is also called Bob.
+\end{description}
+
+The only source that acknowledge this problem is DBLP. In case of mulitple 
+people with the same name, DBLP addresses this problem by suffixing the
+name with a four digit code~\footnote{\url{https://dblp.org/faq/1474704.html}}.
+DBLP is making progress here, but this is not entirely done yet. 
+The format issue and alias issue is covered by DBLP to create a master 
+record for the author, see Listing~\ref{lst:DblpAuthorMasterRecord} as an 
+example.
+% ==========================================================================
+\lstset{language=XML}
+\begin{lstlisting}[caption={Example master record(https://dblp.org/faq/1474690.html)},label={lst:DblpAuthorMasterRecord}]
+<www key="homepages/r/CJvanRijsbergen">
+<author>C. J. van Rijsbergen</author>
+<author>Cornelis Joost van Rijsbergen</author>
+<author>Keith van Rijsbergen</author>
+<title>Home Page</title>
+<url>http://www.dcs.gla.ac.uk/~keith/</url>
+</www>
+\end{lstlisting}
+
+However, an exploratory analysis of the DBLP data makes clear this is not 
+flawless; we have noticed cases where the same master record authors one 
+article multiple times. It seems that a father and son both authored this 
+article (Robert and Bob, same lastname so DBLP 'chooses' to treat these names
+as the same person).
+
+But hypothetically, even if DBLP mentions to unique identity authors, 
+the match to authors in other datasources is not possible, if they do 
+adhere the same method
+
+
+% \subsection{Article integration}
+% Not only do we need to match the articles of DBLP and Springer LNCS, we also 
+% need to incorporate Aminer. Aminer is an enrichment of DBLP in that it adds
+% citations. Although DBLP is working to incorporate citations in their dataset,
+% this is still work in progress and Aminer has already a lot of that data.
+% \todo{Stukje over Aminer}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=10cm]{images/linking_article_dblp_lncs_aminer.drawio.png}
+%     \caption{Matching Springer LNCS, DBLP and Aminer}
+%     \label{fig:linking_article_dblp_lncs_aminer}
+% \end{figure}
+
+
+% ==============================================================================
+\subsection{Conclusion integrability}
+From this section we can draw the following conclusions:
+\begin{itemize}
+    \item Attributes that could serve as a cross-source key to integrate data 
+    (orcid, doi), is not complete enough.
+    \item Alternative methods to integrate the data have too many weak spots to
+    rely on this.
+\end{itemize}
+
+Combining these statements with the statements from 
+Subsection~\ref{subsec:ConclusionsDataAvailablity}, we choose DBLP as root for
+the way forward.
+
+Because of the lack of integrability we are unable to fill the citations, 
+although Aminer and OpenCitations can deliver these. The result is that we 
+should take a pragmatic approach when working out the case studies; see what 
+data we need to incorporate, what attributes are to our disposal and make 
+choices based on that information.
+
+Next step is to actually load the data of DBLP.
+
+% ==============================================================================
+\section{Processing of DBLP dataset}
+The dataset of DBLP is XML based. For every bibliograpic record an XML element 
+is available. These record contains elements with additional information, e.g. 
+author, title and journal. In Listing~\ref{lst:DblpExample} we show one 
+bibliographic record (an article) as delivered in the dataset of DBLP.
+
+\lstset{language=XML}
+\begin{lstlisting}[caption={DBLP bibliografic record example},label={lst:DblpExample}]
+<article mdate="2019-10-25" key="tr/gte/TM-0332-11-90-165" publtype="informal">
+<author>Frank Manola</author>
+<author>Mark F. Hornick</author>
+<author>Alejandro P. Buchmann</author>
+<title>Object Data Model Facilities for Multimedia Data Types.</title>
+<journal>GTE Laboratories Incorporated</journal>
+<volume>TM-0332-11-90-165</volume>
+<month>December</month>
+<year>1990</year>
+<url>db/journals/gtelab/index.html#TM-0332-11-90-165</url>
+</article>
+\end{lstlisting}
+
+% ==============================================================================
+Possible approaches to load this dataset are:
+\begin{description}
+\item[Option 1: Load all elements to separate tables] This approach splits all 
+the data in separate tables; it converts this semi-structured dataset in a 
+structured (relational) dataset. The positive points are that we have all data 
+(however, also data we do not need, but we do not know that at forehand) and it 
+is a process which is easily to automate. Also, storing the dataset in a 
+relational database gives the opportunity to integrate the data with other 
+sources. However, this approach leads to a lot of tables, costs storage and 
+requires an structure that keeps the referential integrity.
+% ==============================================================================
+\item[Option 2: Keep it as a file and make software to question the file] We can 
+choose to not load the data at all, and create some interfacing to the file to 
+be able to read the data. By taking this approach we need to know the model of 
+the data at forehand and create software that gives access to the data in the 
+file. Also, we are not able to easy query the data, unless we build this 
+functionality; functionality which already exists in every other database. 
+However, taking this approach does not need to copy the data into another 
+dataset, which is positive for disk allocation.
+% ==============================================================================
+\item[Option 3: Split the file in separate XML's and load these in the database] 
+Nowadays, databases are able to handle XML file as a native datatype. The 
+drawback is that, even current relational databases support this task, the 
+performance is not optimal. Also querying this data is more complex and slow 
+than when all data is relational stored. Using another type of database is also 
+an option (document based). However, for analysis tasks we are going to perform, 
+this is not an ideal solution. These document databases are built for 'single' 
+requests (e.g. to support an API with predefined requests), and not for 
+analysis workloads (e.g. aggregating).
+\end{description}
+% ==============================================================================
+The decision we made to load this dataset, is to load all subelements in a 
+separate table (option 1). The main reason is the possibility for integrating 
+this set with other sources. Given the example in Listing~\ref{lst:DblpExample}, 
+this results in multiple tables: Article, which is the main object, Author, 
+where all authors can be put and separate tables for title, journal, volume, 
+month, year and url.
+% By extracting these elements in a separate table we can normalise the data.
+% We can even go further and normalise everything, which makes it easy to automate the load of data.
+
+% This code part will then 
+% \begin{description}
+%     \item[All data] By using this approach, we load all the data. We do not need to specify which data we need at forehand, which is a tedious task with a huge XML file (the file is 3,4 GB).
+%     \item[Easy to automate] We can automatically see all the attributes in the article element and create tables for the fields.
+% \end{description}
+% Drawbacks of this approach are:
+% \begin{description}
+%     \item[A lot of tables] For every element we need to create a table. This can decrease the overview of available data.
+%     \item[Storage] Loading all the data comes with a cost in storage.
+%     \item[Unnecessary data] All the data means also data we do not need.
+%     \item[Relationships] Because the data is being splitted up accross mutliple tables, we need to keep the referential integrity. We need to add identification to all tables to know which article (or other parent object) is belongs to.
+% \end{description}
+
+
+
+% \begin{itemize}
+%     \item Bibliografische records zijn gedefinieerd door een element met subelementen. Deze subelementen bevatten waardes, en geen andere elementen.
+    
+%     \item 
+%     \begin{itemize}
+%         \item zie author element in voorbeeld
+%         \item moeten manier vinden om hier mee om te gaan
+%         \item oplossing is id generereren voor elk 'parent' object.
+%         \item dit zijn objecten die direct onder de tag <dblp> vallen.
+%     \end{itemize}
+   
+    
+    
+%     \item deze objecten aparte tabellen opslaan
+%     \item waarbij tabel naam de naam van het attribuut is (bijv. article)
+%      \item ander probleem geen zuivere xml: 
+
+% \end{itemize}
+
+
+
+
+
+% \section{Overcoming the difference}
+% \begin{itemize}
+%     \item Tielemans vooral gebasseerd op beschikbare data (DBLP)
+%     \item Machtsverhoudingen komen niet terug in de publieke datasets
+% \end{itemize}
+% \subsection{Justification}
+% \begin{itemize}
+%     \item Overzicht real-life cases (probleem verder beschrijven)
+%     \begin{itemize}
+%         \item Voorbeeld Vasilakos, citaten uit 2 journals waar hij zelf in zit
+%         \item Publicatie lag
+%     \end{itemize}
+% \end{itemize}
+
+% \subsection{Process and choices}
+\section{Conclusion}
+% Antwoord op welke data is nodig en hoe komen we eraan
+In his chapter we defined the model which we need to fill to be able to do 
+analysis on the publication data. Also, we explain how we can fill this model
+with publicly available data source and what misses. The most important 
+conclusion probably is that power relations in the scientific publication 
+process are not present in publicly available datasets.
+
+In the next chapters we will work out three case studies and dive deeper in 
+the missing data and how we can acquire this.
+
+% ==============================================================================
+\chapter{Case study 1: Program Committee Members}
+\label{chp:case1}
+% ==============================================================================
+This chapter focuses on the Program Committee Members as group. We will start 
+with a motivation why this group is interesting. After this motivation we will
+investigate how we can put the dataset together to perform analysis upon. 
+We continue with performing some analysis which give (in combination with the 
+other case studies) answer to the main question of this study. In the last 
+section we will validate the results of the analysis.
+
+\section{Motivation}
+The most important motivation to investigate this group, is that this group is 
+in a position with great power. In the end, these people decides which articles
+(and which authors) get published. Implicit, they decide whose career is going 
+to thrive.
+This power comes clear in an experiment conducted on an Artificial Intelligence 
+conference; the NIPS experiment.
+
+
+\begin{itemize}
+    \item PC Members are in a position with power.
+    \begin{itemize}
+        \item Power of this group indicated with NIPS experiment.
+        \item Decision who gets published, implicit who succeeds.
+    \end{itemize}
+    \item Possible to exploit this power.
+    \item PC Members with high impact power are on high impact conferences.
+    \item Thus, we are focussing on top conferences.
+    \item The goal with this case study is to see if we can identity outliers 
+    within a group of PC members.
+\end{itemize}
+\outline{
+\begin{itemize}
+    \item dat je ze krijgt niet interessant
+    \item wel waarom, en hoe goed
+\end{itemize}
+}
+
+\paragraph{The NIPS experiment}
+For scientists getting a paper in a conference is important for their career. 
+Unfortunately, the NIPS experiments makes clear that reviewing papers for a 
+conference is not a deterministic
+process\footnote{\url{http://blog.mrtz.org/2014/12/15/the-nips-experiment.html}}.
+If a paper gets approved depends on the composition of the 
+responsible committee. This means that the committee judging papers for 
+conferences has the power to determine whose paper is being accepted and 
+therefore whose career is going to thrive.
+
+% ------------------------------------------------------------------------------
+\subsection{Interesting case: Work member of editorial board is being cited}
 \label{sec:work_member_editorial_board_cited}
 % The editorial board can also be the program committee in case of incollections.
 When an author becomes a specialist of a certain subject, it is not uncommon 
@@ -772,391 +1595,253 @@ to occur. The detection strategy is not foolproof. We need to take into account
 that a person is actually that good, it is logic he is being cited far more that 
 its peers.
 
-% ------------------------------------------------------------------------------
-\subsection{Author reviews his own work}
-This is off course a major attack on the integrity of the publication model. It 
-should never be the case that an author becomes in a position where he can 
-review his own work. Unfortunately, we know of such case with Moon. In 
-Figure~\ref{fig:air} we present an instance model of this situation. We have one 
-person (pers1) who have multiple roles in relation with one publication (p2).
+% ==============================================================================
+\section{Data acquisition}
+In this section we will elaborate which data we need and how we get that data.
+
+% ==============================================================================
+\subsection{Top conferences}
+The focus of this case study is people that came to a position with influence.
+People with influence can be found at top conferences and journals.
+Because of this, the primary selection criteria are top conferences and journals.
+Considering the dataflow in Figure~\ref{fig:dataflow_jm2017_2}, this is the 
+sigma-sign.
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=3cm]{images/author_is_reviewer.drawio.png}
-\caption{Instance model where author is also the reviewer}
-\label{fig:air}
+    \centering
+    \includegraphics[width=10cm]{images/data_to_publication_metrics_jm2017.png}
+    \caption{Data flow (\cite{JM2017})}
+    \label{fig:dataflow_jm2017_2}
 \end{figure}
-% ------------------------------------------------------------------------------
-From a set theory perspective we can describe this situation as: 
-$\{h \in \Humans \mid \authors(p, h) \land \reviews(p, h)\}$.
 
-In theory this situation should not be hard to found. However, besides 
-availability of the necessary data, one who will execute such an attack, will 
-most likely not give his own name as reviewer at submitting his paper (it is 
-normal to identify possible reviewers at submission). The main question here 
-is, how are we able to identify the author and reviewer as the same person.
+For our study, which focuses on computer science, we get the top conferences 
+and journals from The Computing Research and Education Association of 
+Australasia (core)\footnote{\url{https://www.core.edu.au/}}. Based on their 
+ranking, we selected the conferences and journals for our research with a 
+ranking of B or higher.
 
-We can also see this from a timeline perspective, which is how Moon is 
-detected. In Figure~\ref{fig:timeline} we draw a timeline with the milestones of 
-the publication process. Submitted is when the paper is received by the venue. 
-Revised is the moment a paper is submitted again after review with changes. The 
-asterisks means that this can occur multiple times, or none at all if the paper 
-is good at first submission. Published is the last step and is the date the 
-paper is published.
-% ------------------------------------------------------------------------------
+The CORE website provides an export functionality for this data. However, for 
+integration purposes, this is not sufficient; the export misses the link to 
+the DBLP conference, which is available on their website. For that reason, we 
+built a webscraper which is able to get the necessary information for our case 
+study (tool: core\_scraper) instead of using the download functionality.
+
+The dataset misses 17 DBLP links which we added by hand.
+
+% ==============================================================================
+\subsection{Proceedings}
+With the selection criteria in place, we can get the proceedings of the 
+conferences from DBLP. DBLP provides the option to download the complete data 
+dump from their website. 
+Unfortunately, conferences are not part of this dump. But, with the API of DBLP
+we are able to get the proceedings based on the searchterm from the url of core.
+So we built a tool to load this data from the API in the database (tool: dblp\_api).
+
+In Figure~\ref{fig:data_integration_core_dblp_api} we see how this selection 
+influence what is being gathered from dblp. 
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=9cm]{images/timeline.drawio.png}
-\caption{Milestones in timeline publication model with publication lag}
-\label{fig:timeline}
+    \centering
+    \includegraphics[width=8cm]{images/data_integration/core_dblp_api.drawio.png}
+    \caption{Gathering proceedings with selection criteria. The parallelogram are 
+    (intermediate) datasets and the rectangles are process steps.}
+    \label{fig:data_integration_core_dblp_api}
 \end{figure}
 
-From this process we can measure the time between submission and acceptance (
-publication-lag) and use this measure as comparison with other authors en within 
-the same venue. A low publication-lag compared with 'normal' can be used to 
-identify interesting cases like an abnormal short time of review.
+Looking at the publishers of the proceedings we see the following publisher with 
+more than a 1000 proceedings:
+\begin{center}
+    \begin{tabular}{ |c|c|c|c| }
+        \hline
+        Publisher & \# of proceedings \\
+        \hline
+        Springer & 4751 \\
+        ACM & 4115 \\
+        IEEE Computer Society & 2422 \\
+        IEEE & 1210 \\
+        \hline
+    \end{tabular}
+\end{center}
+For this case study we want to use the biggest source, which is Springer. 
+Springer publishes their proceedings under the Lecture 
+Notes of Computer Science (LNCS). The resulting set contains 4467 unique 
+proceedings (the DBLP API search function sometimes returns double results).
 
-\paragraph{Beneign alternatives}
-The possibility exists that a paper is that good, no revision is needed and the 
-review did not take that much time. This also results in a low publication-lag.
+% ==============================================================================
+\subsection{Eye on the ball; where are those PC Members?}
+On the site of a LNCS proceeding, a document is available for download which 
+includes the members involved in that specific conference; also the PC members. This 
+document is called the Front Matter.
 
-% ------------------------------------------------------------------------------
-\subsection{Member of the editorial board is (co-)author}
-In this case, publications in a venue are co-authored by a member of the 
-editorial board, which means he is publishing his own work. A questionable case
-in this situation is Griffiths\footnote{\url{http://deevybee.blogspot.com/2020/07/percent-by-most-prolific-author-score.html}}.
-Except for editorial boards, this can also happen for conferences.
-In Figure~\ref{fig:eia} we present an instance model of this situation.
+The data acquired from the DBLP api contains the doi link to 
+the proceeding on LNCS (for 1 document this misses, so we added it manually). 
+With this anchor we can start acquiring the necessary data, including the 
+download link to the front matter.
+
+% ==============================================================================
+\subsection{Proceeding information, articles and authors}
+To get the data from LNCS we built a webscraper (lncs, scraper). As input it 
+takes the doi links from the dblp api and the output is a dataset with books 
+(proceedings), chapters (article), editors and authors and their affiliation. 
+See Figure~\ref{fig:lncs_scraper_datamodel} for a graphic representation of the 
+entities and their relations.
+
 \begin{figure}[H]
-\centering
-\includegraphics[width=3cm]{images/editor_is_author.drawio.png}
-\caption{Instance model of the situation where the editor is (co-)author of the publication}
-\label{fig:eia}
+    \centering
+    \includegraphics[width=12cm]{images/lncs_scraper_datamodel.drawio.png}
+    \caption{Datamodel of the output of the LNCS scraper}
+    \label{fig:lncs_scraper_datamodel}
 \end{figure}
 
+The reason we also extracted the chapters is get the relation between a book and
+the articles it contains. To keep our main goal clear: we need to get the people
+involved, so while we are scraping the articles, we can scrape the authors as 
+well.
 
-\paragraph{Attack}
-We can imagine a situation where the author is being forces to mention the 
-person-of-interest as co-author. Which is abuse of the power of the editor.
-
-\paragraph{Model impact}
-The impact on the publication model is between the person which is editor for a 
-venue, and the venue itself. 
-The number of publications he has in that venue while he works for that venue 
-will increase. For detection we can measure how much he publish in the Venue 
-when he work for that specific venue.
-One metric we need here is \textit{number\_of\_publications}. Also with the case~\ref{sec:work_member_editorial_board_cited}, we need the number of issues 
-here.
-
-% ------------------------------------------------------------------------------
-\paragraph{Beneign alternatives}
-Besides possible ethical questions that can be raised, there is a perfectly good
-reason for someone to publish in the venue he is editing. Say, a person is a 
-specialist in his field and works at a venue which publishes about this 
-specific subject. He has new work to publish but there is not another venue 
-which captures this subject.
-
-
-% ------------------------------------------------------------------------------
-\subsection{All time favourite: Diederik Stapel}
-\outline{ergens in het begin: er zijn manieren om te frauderen...}
-
-The fraud that Diederik Stapel committed was not related to the publication 
-process, but to the data he used to draw conclusion on.
-With our specific method, we will not be able to detect data manupulation and
-fabrication.
-
-\outline{door neven effect van fraude (bijvoorbeeld heel veel publicaties) of zijn resultatenn halen het nieuws / opgemerkt in academische wereld omdat ze fout zijn / omdat heel veel citaties eerste maanden zijn}.
-
-% ------------------------------------------------------------------------------
-
-\outline{
-\section{placeholder}
-
-\begin{itemize}
-    \item Author and reviewer are the same person: $\{h \in \Humans \mid \authors(p, h) \land \reviews(p, h)\}$ (Moon)
-    \item Editor-in-Chief is part of authors: $\{h \in \Humans \mid \authors(p, h) \land \receives(p, h)\}$. Logisch gevolg is dus dat $\accepts(p, h)$
-    \item Citaat naar paper van iemand in het proces: stel q is de publicatie waar het om draait dan:
-    $\{h \in \Editors \cup \Reviewers \mid \cites(q, p) \land \authors(h, p)\}$
-    \item bovengemiddeld zelfcitaties
-    \item publicaties die geciteerd worden komen uit dezelfde journal\todo{???}
-\end{itemize}
-}
-
-\outline{
-\begin{itemize}
-    \item dan modellering (hfst \ref{chp:modelling_the_publication_process})
-\end{itemize}
-}
+The most important entities we gather from LNCS are the books (proceedings), 
+chapter (articles) and authors. The editors and their affiliation are not 
+important for this case study. For all chapters from we scraped the DOI. 
+By scraping the books we also get the link to the front matter pdf which can be 
+used to download the front matter.
 
 % ==============================================================================
-\chapter{Related work}
-% ==============================================================================
-\outline{
-Bijdrage aan contributies
-\begin{itemize}
-    \item 1) Studies die iets soortgelijks hebben gedaan
-    \begin{itemize}
-        \item Tielenburg
-    \end{itemize}
-    \item 2) Bouwstenen
-    \begin{itemize}
-        \item PDF Extractie
-        \item Outlier detectie
-    \end{itemize}
-    \item 3) Titels die altijd moeten worden genoemd
-\end{itemize}
-}
+\subsection{PC Members}
+With a simple tool we downloaded all the front matter from the urls acquired 
+from the previous step. An important step is to convert this collection of PDF 
+files in to information. Because of the effort and size, we elaborate on this 
+ste in Chapter~\ref{chp:front_matter_parsing}.
 
+In Figure~\ref{fig:lncs_scraper_datamodel} we show the flow from the proceedings
+to the PC Members.
 
-% ==============================================================================
-\chapter{Methodology}
-% ==============================================================================
-Belangrijkste punten:
-\outline{
-\begin{itemize}
-    \item Wat ga je doen?
-    \item Waarom ga je dat zo doen?
-\end{itemize}
-\begin{itemize}
-    \item Draait om detecteren of er aanvallen plaats vinden
-    \item Wat hebben we nodig om aanvallen te detecteren (hoe kunnen wij dat 
-    doen?
-    \item Redenering dat we een model nodig hebben
-\end{itemize}
-}
-
-% ==============================================================================
-\chapter{Modelling the publication process}
-\label{chp:modelling_the_publication_process}
-% ==============================================================================
-
-
-
-\section{Generic Model}
-
-Jonker and Mauw formalised the publication model~\cite{JM2017} and created an entity based \todo{high over view}. Figure~\ref{fig:jm2017_induced_pub_model} depicts their final model, 
-which unifies different representations of the same author/paper/venue.
 \begin{figure}[H]
-\centering
-\includegraphics[width=3cm]{images/jm2017_undiced_pub_view.drawio.png}
-\caption{Set-theoretic publication model of papers (P), venues (V), and authors (A) (adapted from~\cite{JM2017})}
-\label{fig:jm2017_induced_pub_model}
-\end{figure}
-In this figure, the V stands for venue, P for publication and A for author. Based on this model, research is conducted to identify if interesting authors can be identified based on metrics derived from this model. One such research is the work of Tielenburg~\cite{TEJ2017}. Unfortunately, the results where not sufficient to provide a solid framework to detect interesting authors.
-
-
-
-Whereas the Jonker and Mauw only modelled the Author as a role in the process, we can now also get the publisher, editor and reviewer from Bjork and Hedlund. We consider the Author from Jonker and Mauw the same as the Researcher form Bjork and Hedlund.
-
-\todo{Hier moet nog iets meer. Bijvoorbeeld: https://www.councilscienceeditors.org/resource-library/editorial-policies/white-paper-on-publication-ethics/2-1-editor-roles-and-responsibilities/}
-\outline{We think it is save to ignore the publisher as a role. The publisher is responsible in the end and sets the regulations and constraints for editors to work within, but the actual work is delegated to editors.}
-
-Unfortunately, Bjork and Hedmung lacks the opportunity to describe the process. However, we can get some textual information from Cormode from his work as an associate editor~\cite{C2013}.
-
-Cormode also focusses on the journal publication. We will gather the roles and responsibilities from his article and use this to complete our perspective.
-\paragraph{Editorial Board} Cormode describes that the structure can vary depending per journal. In most cases, generic structure for a journal is that there is a editorial board. This board consist of the Editor-in-Chief and multiple Associate Editors. The main role of this board is to determine which papers to accept.
-\paragraph{Editor-in-chief} This role decides which papers to include. The information to make this decision comes from the Associate Editor. This role receives the actual papers and delegate the work to associate editors.
-
-
-\paragraph{What about the author}
-Cormode also gives suggestions to certain roles in the process. In our case, the suggestions he makes for an author are important: 1) Suggest suitable Associate Editor and 2) Suggest suitable Reviewer. If the editor-in-chief and associate editor make use of this suggestion, the author can gain power in the judgement of his own work.
-
-
-
-\outline{
-\begin{itemize}
-    \item Reviews
-    \item vaak meerdere
-    \item daarom minder risico op fraude???
-    \item ali \& watson bekijken
-\end{itemize}
-}
-
-\section{Extending the model}
-The main questions we want to ask are which entities and which roles are involved and how are they related.
-To recap, Figure~\ref{fig:jm2017_induced_pub_model} shows the publication model as seen by Jonker and Mauw. We can extend this with the description of Cormode to come up with a model that incorporates the most important roles with influence on the judgement of the work of an author, which results in judgement of the production of the author, which eventual lead to possible the benefits for the author. We ignore roles like the editorial assistance and subeditor, because these roles does not seem to have influence on the judgement of a menuscript. In Figure~\ref{fig:structure_journal} we provide an overview of the entities and roles from Jonker and Maauw combined with the information from Cormode which answers which roles are involved and how they are related.
-
-The red rectangles are objects and the green circles are roles.
-As objects we have a venue which contains papers. Multiple roles are related to these objects.
-We define the following sets:
-\begin{itemize}
-    \item Authors: $A(p) = \{h \in H \mid \authors(p, h)\}$
-    \item Reviewers: $R(p) = \{h \in H \mid \reviews(p, h)\}$
-    
-\end{itemize}
-
-
-
-\todo{
-\outline{
-\begin{itemize}
-    \item wie kiest de EiC?
-    \item Ik lees overal dat deze vaak gekozen wordt uit de editors.
-    \item Je wordt editor door vaak en veel te reviewen of als author voor dat journal te werken.
-    \item Uiteindelijk wordt je dan gevraagd (KUNNEN WIJ DIT TERUGVINDEN IN DE DATA? (openemen in interessante gevallen?) WORDT MEN ECHT GEKOZEN OP BEWEZEN DIENSTEN? AANSLUITING MET SNCMBL2021???).
-    \item Punt is dat je gevraagd wordt als EA (DOOR WIE DAN?) en gekozen wordt als EiC (DOOR WIE? OP WELKE CRITERIA? MOGELIJKHEID TOT VRIENDJESPOLITIEK?).
-    \item Ik kan hier niet veel informatie over vinden.
-\end{itemize}
-}
-}
-
-HOE VERDER???
-\begin{itemize}
-    \item Vanuit fraude oogpunt interessante gevallen / OOK BESTAANDE AANVALLEN???
-    \item Voor detectie moeten we data hebben
-    \item Welke data is wel beschikbaar / welke niet
-    \item Hoe komen we hier aan -> overgang naar hoofdstuk data acquisition
-\end{itemize}
-
-
-% ==============================================================================
-
-\begin{figure}[htbp]
-  \begin{center}
-  \small
-        \begin{tikzpicture}[
-            auto,node distance=2cm,thick,
-            rolenode/.style={circle, draw=green!60, fill=green!5, very thick, minimum size=1.05cm},
-            thingnode/.style={rectangle, draw=red!60, fill=red!5, very thick, minimum size=1.05cm},
-            ]
-            % Nodes
-            \node[rolenode] (eic) {EiC};
-            \node[rolenode] (ae) [below=of eic] {AE};
-            \node[rolenode] (reviewer) [below=of ae] {R};
-            
-            \node[thingnode] (venue) [left=of eic] {V};
-            \node[thingnode] (publication) [left=of reviewer] {P};
-            \node[rolenode] (author) [below=of publication] {A};
-            
-            % Lines
-            \draw[->] (publication) -- node [text width=2.5cm,midway,above,sloped] {published at} (venue);
-            \draw[->] (eic) -- node [midway,above,sloped] {responsible for} (venue);
-            \draw[->] (eic) -- node [midway,above,sloped] {accept / reject / receives} (publication);
-            \draw[->] (reviewer) -- node [text width=2.5cm,midway,above,align=center] {reviews} (publication);
-            \draw[->] (author) -- node [midway,above,sloped] {authors} (publication);
-            \draw[->, transform canvas={xshift=2pt}] (eic) -- node [midway,above,sloped] {assigns} (ae);
-            \draw[->, transform canvas={xshift=-2pt}] (ae) -- node [midway,above,sloped] {recommendation} (eic);
-            \draw[->, transform canvas={xshift=2pt}] (ae) -- node [midway,above,sloped] {assigns} (reviewer);
-            \draw[->, transform canvas={xshift=-2pt}] (reviewer) -- node [midway,above,sloped] {feedback} (ae);
-            
-            \path (publication) edge [loop left] node {cites} (publication);
-            
-            % \draw[->] (publication.west) .. controls +(down:7mm) and +(left:5cm) .. (publication.west);
-        \end{tikzpicture}
-  \end{center}
-  \caption{Set-theoretic model of the publication process for collections.}
-  \label{fig:structure_journal}
+    \centering
+    \includegraphics[width=8cm]{images/data_integration/lncs.drawio.png}
+    \caption{Process LNCS data}
+    \label{fig:lncs_scraper_datamodel}
 \end{figure}
 
-
 % ==============================================================================
-% \subsection{Roles in the editorial process}
-% In the editorial process multiple roles are involved. These roles are executed
-% by persons. We define all persons involved somehow in the editorial process by 
-% \textit{H}. Publications are defined by the letter \textit{P}.
-% % ------------------------------------------------------------------------------
-% \paragraph{Author}
-% \begin{itemize}
-%     \item How evident, this role writes the text to be published.
-%     The main question is, how is someone with this role able to influence the process in his favor.
-%     One way is to suggest a reviewer and indicate non-preferred reviewers \cite{C2013}. This relates to the case of Moon.
-%     \item Suggest Associate Editor
-% \end{itemize}
-% We define the collection authors of a paper $A(p) = \{h \in H \mid \authors(p, h)\}$
+\subsection{Citations}
+For citations we described two sources in Chapter~\ref{chp:data} may be 
+sufficient. The first is Aminer, 
+which is a dataset that has the articles, references and authors.
+The second is OpenCitations. OpenCitations is a service which is DOI based.
 
-% % ------------------------------------------------------------------------------
-% \paragraph{Editor-in-chief}
-% Wie bepaalt wie de editor-in-chief is? -> macht
-% \begin{itemize}
-%     \item receives the manuscript $\receives(p, h)$
-%     \item Performs initial check (relevance, suitability to undergo peer review)
-%     \item Assigns Associate Editor based on Area of expertise and avoiding potential conflicts of interest between author and AE
-%     \item end decision if paper is being published: Stel h = Editor in chief en p = publication dan: $\accepts(p, h)$ of $\rejects(p, h)$
-%     \item An editor-in-chief has this role for a certain period (span multiple issues).
-% \end{itemize}
+\paragraph{Aminer} has article, author and reference. The DOI of articles is not fully 
+filled. For articles without a DOI the integrity should be based
+on multiple attributes, e.g. the title in combination with the authors. 
+However it is not uncommon that an article which is written by the same authors
+is being republished. In theory, this publication is different.
+
+% is verplaatst naar
 
 
-% % ------------------------------------------------------------------------------
-% \paragraph{Editorial assistance}
-% \begin{itemize}
-%     \item Checks similarity to other publication (iThenticate)
-%     \item Verder geen invloed op process
-% \end{itemize}
+\paragraph{OpenCitation} is DOI based. So the cited and citing articles are 
+referred to by a doi. Because opencitations is DOI based, the integrability depends
+on the availability of DOI's.
 
-% % ------------------------------------------------------------------------------
-% \paragraph{Reviewer}
-% \begin{itemize}
-%     \item Reviews a paper
-% \end{itemize}
-% We define the collection reviewers of a paper $R(p) = \{h \in H | reviews(p, h)\}$
-% % ------------------------------------------------------------------------------
-% \paragraph{Subeditor}
-% \begin{itemize}
-%     \item Niet echt relevant
-%     \item Om tekst leesbaarder te maken
-% \end{itemize}
-% % ------------------------------------------------------------------------------
-% \paragraph{Associate editor}
-% \begin{itemize}
-%     \item Identify and Assigns reviewers
-%     \item administrative reject (desk reject): vaak al in eerder stadum eruit 
-%         gehaald door Editor-in-Chief of Editorial assistance
-%     \item recommendation to editor in chief
-%     \item Following roles sometimes combined into the Associate Editor:
-%     \item Managing editor
-%     \begin{itemize}
-%         \item Checks journal standards, word length, use of internal reporting 
-%             standard
-%         \item assigns editor
-%         \item assigns reviewers
-%     \end{itemize}
-%     \item Editor
-%     \begin{itemize}
-%         \item Initial check
-%     \end{itemize}
-%     \item This role is also for a period of time
-% \end{itemize}
-% ------------------------------------------------------------------------------
+\todo{Onderbouwing met getallen}
+For our case study we used opencitations. We have all doi from chapters from the
+LNCS website, so the from is covered.
+The dataset we are going to use to get the referred article, is coming from DBLP,
+which is quite complete in case of doi.
 
-
+The dataset from opencitation is a download, but very large. For this reason
+we choose to filter the data at loading, so we only load the references from an
+article in LNCS.
 
 
 
 % ==============================================================================
-\section{General process}
-Bjorn and hedlund descirbed the publication process from a cost perspective 
-\cite{BH2004}. We can use this to visualize the publication process from a time 
-perspective. This view is input to determine if we are able to collect all 
-necessary metrics.
+\section{Data integration}
+In this section we explain how we integrate the data we collected from the
+previous section. Not all sources need to be integrated:
+\begin{description}
+    \item[CORE] is used to filter the conferences on score. This source
+    does not contain data that has to be integrated.
+    \item[DBLP API] is used to get the proceedings of the conferences. Although 
+    integration of this API source is not needed, we will integrate with the 
+    bulk data from DBLP.
+\end{description}
 
+\subsection{People}
+The author dataset contains all authors for every article. This means, if an 
+author wrote multiple articles, it is multiple times present in this set. For
+our use case, this is not sufficient; we need identify these people as the same 
+person, otherwise collecting metrics for a person is impossible.
+
+The set we achieved from LNCS conains name, orcid and email. An analysis of this
+set made clear that we got the same name with multiple orcid, or one orcid that 
+refers to more than one person. Concluding: a name does not make a person 
+unique.
+
+Luckely, DBLP acknowledges this problem. Although they do not yet have all 
+authors unique, they are working on this problem and provide a way to get the 
+unique persons already identified.
+
+DBLP has the relation between author and article, so to get the `correct' author
+of an article, we need to match the articles in DBLP with the chapters in LNCS.
+
+
+\subsection{Integration of persons}
+
+First challenge is to make the authors unique. This comes with the
+second challenge of data quality.
+
+For example, from springer we scrape get the chapters (inproceedings) and their 
+authors from their site. This authors sometimes comes with an orcid, which 
+should be unique. However, we found situations where an author gets an orcid of
+someone else. This is a data quality issue.
+\todo{voorbeeld toevoegen}
+Luckely, this does not occur much, and for the few it occurs we can easily 
+create a manual file to override this. Of course with caution; if two orcid 
+have the same name, we can not override this; some authors have the same name.
+On the other hand, if one orcid refers to a totally different name, we can.
+
+Seconds challenge is that a name does not make an author unique. The same name
+refers to other authors. Luckely, DBLP addresses this problem by suffixing the
+name with a four digit code~\footnote{\url{https://dblp.org/faq/1474704.html}}.
+DBLP is making progress here, but this is not entirely done yet. But even if
+they mention to unique identity authors, the match to authors in other 
+datasources (like Aminer and Springer) is not straightforward. In that case we 
+need to ignore the authors from these sources and make the match by going 
+through the paper (or chapter, as is it is called within LNCS Springer).
+
+Third challenge is the name. For most authors these sources do not contain an
+orcid or an email address, which means we need to match the authors on name.
+But, in some sources the names are fully written (with or without the 
+middlename), sometimes the middlename only has a initial while the firstname is 
+fully written, and sometimes we only get the initials and lastname.
+DBLP covers this by naming all aliases of a single person.
+
+Still we do have a problem, because in the end we need to match these authors
+with members we get from the frontmatters of lncs. Within this frontmatters, 
+there is no orcid, email, or a four digit number to match to dblp records; these
+documents or not written with the intention to identify persons.
 
 
 % ==============================================================================
-\section{Flow proceedings and conferences}
+\section{Analysis}
+\outline{
+\begin{itemize}
+    \item Wat betekent de data?
+\end{itemize}
+}
+
+% ==============================================================================
+\section{Validation}
+\outline{
+\begin{itemize}
+    \item Werkt je methode
+    \item Aan het eind van ieder hoofdstuk of een eigen hoofdstuk
+\end{itemize}
+}
 
 
 % ==============================================================================
-\subsection{Group identification}
-% ==============================================================================
-The first step in detecting outliers is to identify groups of people who are in 
-the same position. We identify the followig groups in his research because they
-may be interesting.
-
-\paragraph{Editors of proceedings}
-
-\paragraph{Authors submitting at the same conference}
-
-\paragraph{Author submitting at the same journal}
-
-\paragraph{Authors that publish with each other}
-
-\paragraph{H-Index}
-
-
-% ==============================================================================
-\chapter{Extracting auxiliary publication data}
+\chapter{Front matter parsing}
+\label{chp:front_matter_parsing}
 % ==============================================================================
 \begin{itemize}
     \item There is more to the publication process than the data
@@ -1470,127 +2155,335 @@ members is equal to the non-empty lines in the section minus the merged lines.
 
 
 % ==============================================================================
+\chapter{Case study 2: Journal editors}
+\label{chp:case2}
+% ==============================================================================
+\section{Motivation}
+
+\subsection{Interesting case: Member of the editorial board is (co-)author}
+In this case, publications in a venue are co-authored by a member of the 
+editorial board, which means he is publishing his own work. A questionable case
+in this situation is Griffiths\footnote{\url{http://deevybee.blogspot.com/2020/07/percent-by-most-prolific-author-score.html}}.
+Except for editorial boards, this can also happen for conferences.
+In Figure~\ref{fig:eia} we present an instance model of this situation.
+\begin{figure}[H]
+\centering
+\includegraphics[width=3cm]{images/editor_is_author.drawio.png}
+\caption{Instance model of the situation where the editor is (co-)author of 
+the publication}
+\label{fig:eia}
+\end{figure}
+
+
+\paragraph{Attack}
+We can imagine a situation where the author is being forces to mention the 
+person-of-interest as co-author. Which is abuse of the power of the editor.
+
+\paragraph{Model impact}
+The impact on the publication model is between the person which is editor for a 
+venue, and the venue itself. 
+The number of publications he has in that venue while he works for that venue 
+will increase. For detection we can measure how much he publish in the Venue 
+when he work for that specific venue.
+One metric we need here is \textit{number\_of\_publications}. Also with the 
+case~\ref{sec:work_member_editorial_board_cited}, we need the number of issues 
+here.
+
+% ------------------------------------------------------------------------------
+\paragraph{Beneign alternatives}
+Besides possible ethical questions that can be raised, there is a perfectly good
+reason for someone to publish in the venue he is editing. Say, a person is a 
+specialist in his field and works at a venue which publishes about this 
+specific subject. He has new work to publish but there is not another venue 
+which captures this subject.
+
+
+\section{Data acquisition}
+\subsection{Editorial board}
+\begin{itemize}
+    \item Editor-in-chiefs, associate-editors and sometimes a list of reviewers (generic, not who reviewed what paper) are most of the time available on the publisher of the specific venue. 
+    \item This is a positive point.
+    \item However, this is most of the time not machine readable (which is; easy to query through an interface). It is placed on the website for humans to read.
+    \item The second issue is that only the current editorial board is shown on the website. This may be sufficient for guest of the site, but for collection data with the purpose of detecting fraud, this is not sufficient.
+    \item Not everything is lost however; Most of the time the previous editorial boards are available in mastheads of a certain issue. Most of the time written in PDF's (as chapter in the journal). Also within one publisher, the format in which these mastheads are presented changes.
+    \item The combination of the facts above make it hard for a fraud detection system to use this information.
+    \item These are known fraud cases where this information is worth to have:
+    
+\end{itemize}
+
+\section{Data integration}
+
+% ==============================================================================
+\section{Analysis}
+\outline{
+\begin{itemize}
+    \item Wat betekent de data?
+\end{itemize}
+}
+
+% ==============================================================================
+\section{Validation}
+\outline{
+\begin{itemize}
+    \item Werkt je methode
+    \item Aan het eind van ieder hoofdstuk of een eigen hoofdstuk
+\end{itemize}
+}
+% ==============================================================================
+\chapter{Case study 3: Authors}
+\label{chp:case3}
+% ==============================================================================
+\section{Motivation}
+
+% ------------------------------------------------------------------------------
+\subsection{Interesting case: Author reviews his own work}
+This is off course a major attack on the integrity of the publication model. It 
+should never be the case that an author becomes in a position where he can 
+review his own work. Unfortunately, we know of such case with Moon. In 
+Figure~\ref{fig:air} we present an instance model of this situation. We have one 
+person (pers1) who have multiple roles in relation with one publication (p2).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=3cm]{images/author_is_reviewer.drawio.png}
+\caption{Instance model where author is also the reviewer}
+\label{fig:air}
+\end{figure}
+% ------------------------------------------------------------------------------
+From a set theory perspective we can describe this situation as: 
+$\{h \in \Humans \mid \authors(p, h) \land \reviews(p, h)\}$.
+
+In theory this situation should not be hard to found. However, besides 
+availability of the necessary data, one who will execute such an attack, will 
+most likely not give his own name as reviewer at submitting his paper (it is 
+normal to identify possible reviewers at submission). The main question here 
+is, how are we able to identify the author and reviewer as the same person.
+
+We can also see this from a timeline perspective, which is how Moon is 
+detected. In Figure~\ref{fig:timeline} we draw a timeline with the milestones of 
+the publication process. Submitted is when the paper is received by the venue. 
+Revised is the moment a paper is submitted again after review with changes. The 
+asterisks means that this can occur multiple times, or none at all if the paper 
+is good at first submission. Published is the last step and is the date the 
+paper is published.
+% ------------------------------------------------------------------------------
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=9cm]{images/timeline.drawio.png}
+\caption{Milestones in timeline publication model with publication lag}
+\label{fig:timeline}
+\end{figure}
+
+From this process we can measure the time between submission and acceptance (
+publication-lag) and use this measure as comparison with other authors en within 
+the same venue. A low publication-lag compared with 'normal' can be used to 
+identify interesting cases like an abnormal short time of review.
+
+\paragraph{Beneign alternatives}
+The possibility exists that a paper is that good, no revision is needed and the 
+review did not take that much time. This also results in a low publication-lag.
+
+% ------------------------------------------------------------------------------
+
+
+\section{Data acquisition}
+
+% ------------------------------------------------------------------------------
+\subsection{publication lag}
+% ------------------------------------------------------------------------------
+While writing the proposal for this study, Scanff et al. published a preprint of 
+their research about editorial bias~\cite{SNCMBL2021}. One part this research is 
+the relationship between the publication-lag and prolific authors, which may be 
+a member of the editorial board. This study makes clear that dates about the 
+publication process are interesting features. DBLP and Aminer only provide the 
+publication date. To enrich our initial dataset based on DBLP and Aminer with 
+dates about the publication process, we need other sources. One of the journals 
+that presents publication process dates of their articles is Elsevier. We 
+conducted an experiment to verify if the data is obtainable.
+
+As it turns out, when Elsevier presents an article on their website, a JSON 
+document with details about the article is available in the HTML document. Among 
+other details, this JSON contains a date section, see 
+Listing~\ref{lst:ElsevierJsonDates}.
+
+\begin{lstlisting}[caption={Dates in the JSON document},label={lst:ElsevierJsonDates}]
+"dates": {
+    "Available online": "25 January 2021",
+    "Received": "16 July 2020",
+    "Revised": [
+        "14 December 2020"
+    ],
+    "Accepted": "4 January 2021",
+    "Publication date": "25 January 2021"
+}
+\end{lstlisting}
+
+By using web scraping and HTML interpretation we extracted the JSON documents 
+with metadata of articles of 20 journals from Elsevier (Elsevier runs 2751 
+journals). This resulted in a total of 7334 documents. We were able to calculate 
+the average publication lag per journal and filter on the articles for which the 
+publication lag was significant lower. A quick look at the editorial board of 
+that specific issue showed that one of the authors was indeed part of the 
+editorial board. Based on this small experiment, we conclude that it is 
+possible to get the publication lag for most articles of Elsevier journals.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=5cm]{ACM_Digital_Threats_Research_and_Practice.png}
+\caption{Publication history of an article in ACM (\url{https://dl.acm.org/doi/10.1145/3442445})}
+\label{fig:acm_dates}
+\end{figure}
+\begin{itemize}
+    \item A paper goes through certain stages until it is published.
+    \item Not all publishers expose the dates these stages are achieved. 
+    \item Fortunately some do. For example ACM (\ref{fig:acm_dates}) and Springer. However, this is not for all publications available. So there are some missing data points.
+    \item Fraud cases where this information can be helpful:
+    \begin{itemize}
+        \item Moon was detected because the time that his work was submitted and was approved by the reviewer (which was Moon himself) was remarkable short.
+        \item ~\cite{SNCMBL2021}
+    \end{itemize}
+\end{itemize}
+
+\section{Data integration}
+
+% ==============================================================================
+\section{Analysis}
+\outline{
+\begin{itemize}
+    \item Wat betekent de data?
+\end{itemize}
+}
+
+% ==============================================================================
+\section{Validation}
+\outline{
+\begin{itemize}
+    \item Werkt je methode
+    \item Aan het eind van ieder hoofdstuk of een eigen hoofdstuk
+\end{itemize}
+}
+
+% ==============================================================================
+
+
+
+% ==============================================================================
+% \subsection{Roles in the editorial process}
+% In the editorial process multiple roles are involved. These roles are executed
+% by persons. We define all persons involved somehow in the editorial process by 
+% \textit{H}. Publications are defined by the letter \textit{P}.
+% % ------------------------------------------------------------------------------
+% \paragraph{Author}
+% \begin{itemize}
+%     \item How evident, this role writes the text to be published.
+%     The main question is, how is someone with this role able to influence the process in his favor.
+%     One way is to suggest a reviewer and indicate non-preferred reviewers \cite{C2013}. This relates to the case of Moon.
+%     \item Suggest Associate Editor
+% \end{itemize}
+% We define the collection authors of a paper $A(p) = \{h \in H \mid \authors(p, h)\}$
+
+% % ------------------------------------------------------------------------------
+% \paragraph{Editor-in-chief}
+% Wie bepaalt wie de editor-in-chief is? -> macht
+% \begin{itemize}
+%     \item receives the manuscript $\receives(p, h)$
+%     \item Performs initial check (relevance, suitability to undergo peer review)
+%     \item Assigns Associate Editor based on Area of expertise and avoiding potential conflicts of interest between author and AE
+%     \item end decision if paper is being published: Stel h = Editor in chief en p = publication dan: $\accepts(p, h)$ of $\rejects(p, h)$
+%     \item An editor-in-chief has this role for a certain period (span multiple issues).
+% \end{itemize}
+
+
+% % ------------------------------------------------------------------------------
+% \paragraph{Editorial assistance}
+% \begin{itemize}
+%     \item Checks similarity to other publication (iThenticate)
+%     \item Verder geen invloed op process
+% \end{itemize}
+
+% % ------------------------------------------------------------------------------
+% \paragraph{Reviewer}
+% \begin{itemize}
+%     \item Reviews a paper
+% \end{itemize}
+% We define the collection reviewers of a paper $R(p) = \{h \in H | reviews(p, h)\}$
+% % ------------------------------------------------------------------------------
+% \paragraph{Subeditor}
+% \begin{itemize}
+%     \item Niet echt relevant
+%     \item Om tekst leesbaarder te maken
+% \end{itemize}
+% % ------------------------------------------------------------------------------
+% \paragraph{Associate editor}
+% \begin{itemize}
+%     \item Identify and Assigns reviewers
+%     \item administrative reject (desk reject): vaak al in eerder stadum eruit 
+%         gehaald door Editor-in-Chief of Editorial assistance
+%     \item recommendation to editor in chief
+%     \item Following roles sometimes combined into the Associate Editor:
+%     \item Managing editor
+%     \begin{itemize}
+%         \item Checks journal standards, word length, use of internal reporting 
+%             standard
+%         \item assigns editor
+%         \item assigns reviewers
+%     \end{itemize}
+%     \item Editor
+%     \begin{itemize}
+%         \item Initial check
+%     \end{itemize}
+%     \item This role is also for a period of time
+% \end{itemize}
+% ------------------------------------------------------------------------------
+
+
+
+
+
+% ==============================================================================
+\section{General process}
+Bjorn and hedlund descirbed the publication process from a cost perspective 
+\cite{BH2004}. We can use this to visualize the publication process from a time 
+perspective. This view is input to determine if we are able to collect all 
+necessary metrics.
+
+
+
+% ==============================================================================
+\section{Flow proceedings and conferences}
+
+
+% ==============================================================================
+\subsection{Group identification}
+% ==============================================================================
+The first step in detecting outliers is to identify groups of people who are in 
+the same position. We identify the followig groups in his research because they
+may be interesting.
+
+\paragraph{Editors of proceedings}
+
+\paragraph{Authors submitting at the same conference}
+
+\paragraph{Author submitting at the same journal}
+
+\paragraph{Authors that publish with each other}
+
+\paragraph{H-Index}
+
+
+
+% ==============================================================================
 \chapter{Data integration}
 % ==============================================================================
 
 \section{References}
 \todo{misschien naar acquisition}
-FOr references we can use two sources. The first is Aminer, which is a dataset
-that has the articles, references and authors.
-The second is opencitations. Opencitations is a service which is DOI based.
-Selection of which source to use is based on two factors:
-\paragraph{Integrity}
-Aminer has article, author and reference. The DOI of articles is not fully 
-filled \todo{Getallen}. FOr articles without a DOI the integrity should be Based
-on multiple attrubutes. We can use the title in combination with the authors. 
-However is is not uncommon that an article which is written by the same authors
-is being republished. In theory, this publication is different.
 
-Opencitations is DOI based. So the cited and citing articles are referred to by
-doi.
 
 \todo{iets over completeness}
 
-\section{Selection criteria}
-We are looking for people that came to a position with influence.
-People with influence can be found at top conferences and journals.
-Because of this, out primary selction criteria are top conferences and journals.
-Considering the dataflow in Figure~\ref{fig:dataflow_jm2017}, this is the 
-sigma-sign.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=10cm]{images/data_to_publication_metrics_jm2017.png}
-    \caption{Data flow (\cite{JM2017})}
-    \label{fig:dataflow_jm2017}
-\end{figure}
-
-For our study, which focuses on computer science, we get the top conferences 
-and journals from The Computing Research and Education Association of 
-Australasia (core)\footnote{\url{https://www.core.edu.au/}}. Based on their 
-ranking, we selected the conferences and journals for our research whch has
-a ranking of B or higher.
-
-To get this data the website provides an export functionality. However, we need
-to get a reference to DBLP\todo{DBLP beschrijven bij data acquisitie}, which is not incorporated in this export, but is 
-available on their website. For that reason, we built a webscraper which is able
-to get the necessary information for our use case (tool: core\_scraper). 
-
-\subsection{selection of conferences}
-With this initial selection we can get the proceedings of the conferences.
-
-The dataset from Core does not contain DBLP links for all conferences we want; 
-for 17 conferences we looked them up.
-
-With the complete list of DBLP links, we are able to get data from DBLP. DBLP
-provides the option to download the complete data dump from their website. 
-Unfortunately, conferences are not part of this dump. But, with the API of DBLP
-we are able to get the proceedings based on the searchterm from the url of core.
-So we built a tool to load this data in the database (tool: dblp\_api).
-
-In Figure~\ref{fig:data_integration_core_dblp_api} we see how this selection 
-influence what is being gathered from dblp.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=8cm]{images/data_integration/core_dblp_api.drawio.png}
-    \caption{Current results}
-    \label{fig:data_integration_core_dblp_api}
-\end{figure}
-
-Looking at the publishers of the proceedings we see the following publisher with 
-more than a 1000 proceedings:
-\begin{center}
-    \begin{tabular}{ |c|c|c|c| }
-        \hline
-        Publisher & \# of proceedings \\
-        \hline
-        Springer & 4751 \\
-        ACM & 4115 \\
-        IEEE Computer Society & 2422 \\
-        IEEE & 1210 \\
-        \hline
-    \end{tabular}
-\end{center}
-Springer publishes their proceedings under the Lecture Notes of Computer Science 
-(LNCS). The resulting set contains 4467 unique proceedings (the DBLP API search
-function sometimes returns double results).
-
-The data acquired from the DBLP api contains the doi link to the proceeding on 
-LNCS (for 1 document this misses, so we added it manually). With this anchor we 
-can start acquiring the necessary data for our research.
-
-\section{Aquisition and integration}
-To get the data from LNCS we built a tool (lncs, scraper). As input it takes the
-doi links from the dblp api and the output is a dataset with books 
-(proceedings), chapters (article), editors and authors and their affiliation. 
-See Figure~\ref{fig:lncs_scraper_datamodel} for a graphic representation of the 
-entities and their relations.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=12cm]{images/lncs_scraper_datamodel.drawio.png}
-    \caption{Datamodel of the output of the LNCS scraper}
-    \label{fig:lncs_scraper_datamodel}
-\end{figure}
-
-The reason we also extracted the chapters is get the relation between a book and
-the articles it conains. Te keep our main goal clear: we need to get the people
-involved, so while we are scraping the articles, we can just get the authors as 
-well.
-
-The most important entities we gather from LNCS are the books (proceedings), 
-chapter (articles) and authors.
-By scraping the books we also get the link to the front matter pdf. We use this
-to download the front matter and process this downloaded PDF by the tool 
-discussed before.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=8cm]{images/data_integration/lncs.drawio.png}
-    \caption{Process LNCS data}
-    \label{fig:lncs_scraper_datamodel}
-\end{figure}
 
 \subsection{Hiding our identity}
 \vraag{waar moet dit}
@@ -1613,6 +2506,8 @@ TOR project is also known of the `Dark net' and certain illegal activities.
 For our purpose we choose to use the TOR network because we can programmaticaly
 change the route after a certain requests and free VPN servers are slow and 
 limited available.
+
+
 
 \section{Integration}
 People, articles and venues are retrieved
@@ -1751,207 +2646,6 @@ documents or not written with the intention to identify persons.
 \end{itemize}
 
 
-
-% ==============================================================================
-\chapter{Data acquisition}
-% ==============================================================================
-\outline{
-\begin{itemize}
-    \item Question to answer: Which data do we need and how can we get it?
-    \item om te weten welke data we nodig hebben kijken we naar het publicatie process -> beschreven in voorgaand hoofdstuk
-    \item vervolgens kijken we naar de data die beschikbaar is in de publiek beschikbare databronnen
-    \item mismatch
-    \begin{itemize}
-        \item welke informatie missen we
-        \item hoe kunnen we hier aan komen
-    \end{itemize}
-    \item ophalen van mismatch
-\end{itemize}
-\begin{itemize}
-    \item Publicly available sources are limited in available data. Most datasets provides information on who wrote what and sometimes which article refers what. This provides a good insight and based on these datasets a lot of research is already conducted.
-    \item However, we think these datasets miss actors on the publication process that are in a position with enough power to influence the publication process.
-    \item Data about these people involved in the publication process are not structured available to use in analysis. The information is provided in front matters and masthead documents. Because of the nature of these documents, mostly PDF's, we consider this as unstructured data.
-    \item We are somehow surprised of the lack of structured data availability about these people, because of their power and influence.
-    \item Our focus in this chapter is to incorporate this less structured available data into publicly available data about the publication process to get a dataset which provides a more complete view of the publication process.
-    \item Our research focus on information technology so our start point to gather these people is to use the most prominent conferences and journals. As source for this data we use the core ranking.
-\end{itemize}
-}
-
-\subsection{Editorial board}
-\begin{itemize}
-    \item Editor-in-chiefs, associate-editors and sometimes a list of reviewers (generic, not who reviewed what paper) are most of the time available on the publisher of the specific venue. 
-    \item This is a positive point.
-    \item However, this is most of the time not machine readable (which is; easy to query through an interface). It is placed on the website for humans to read.
-    \item The second issue is that only the current editorial board is shown on the website. This may be sufficient for guest of the site, but for collection data with the purpose of detecting fraud, this is not sufficient.
-    \item Not everything is lost however; Most of the time the previous editorial boards are available in mastheads of a certain issue. Most of the time written in PDF's (as chapter in the journal). Also within one publisher, the format in which these mastheads are presented changes.
-    \item The combination of the facts above make it hard for a fraud detection system to use this information.
-    \item These are known fraud cases where this information is worth to have:
-    
-\end{itemize}
-
-\subsection{publication lag}
-\begin{figure}[H]
-\centering
-\includegraphics[width=5cm]{ACM_Digital_Threats_Research_and_Practice.png}
-\caption{Publication history of an article in ACM (\url{https://dl.acm.org/doi/10.1145/3442445})}
-\label{fig:acm_dates}
-\end{figure}
-\begin{itemize}
-    \item A paper goes through certain stages until it is published.
-    \item Not all publishers expose the dates these stages are achieved. 
-    \item Fortunately some do. For example ACM (\ref{fig:acm_dates}) and Springer. However, this is not for all publications available. So there are some missing data points.
-    \item Fraud cases where this information can be helpful:
-    \begin{itemize}
-        \item Moon was detected because the time that his work was submitted and was approved by the reviewer (which was Moon himself) was remarkable short.
-        \item ~\cite{SNCMBL2021}
-    \end{itemize}
-\end{itemize}
-
-\section{Public available datasets}
-
-\outline{
-\begin{itemize}
-    \item Model wat in dblp, aminer en in HJ staat
-    \item Model publicatieprocess
-    \item Sluit niet aan
-    \item meer rollen -> niet in publieke datasets
-    \item Most public available datasources for the publicationprocess contain information about the author and what the author publices. Sometimes (but not all, or incomplete) these datasets also contain references.
-    \item The model of these datasets are visualized by the publication process of Jonker and Mauw.
-    \item Examples of these datasets are DBLP and Aminer.
-\end{itemize}
-}
-
-
-
-\subsection{DBLP}
-
-\begin{figure}[H]
-\includegraphics[width=5cm]{incollection_dblp}
-\centering
-\caption{In Collection DBLP}
-\end{figure}
-
-\outline{
-\begin{itemize}
-    \item Wat is DBLP
-    \begin{itemize}
-        \item DBLP is a dataset with information about publication in the computer science discipline.
-        \item 
-        \item Transformed to relational tables.
-        \item Result is 35 tables.
-    \end{itemize}
-
-    \item Structure of delivery
-    \begin{itemize}
-        \item Datastructure of DBLP is XML.
-        \item contains bibliographic records; like example
-        \item These bilbiographic records have elements such as author, title, journal
-    \end{itemize}
-    \item Processing
-    \begin{itemize}
-        \item convert XML to relational tables
-        \item Every bibliographic type in separate table
-        \item Assign unique id
-        \item Make separate table for elements with id of bibliographic record
-        \item Attributes of elements are columns in table
-        \item Add metadata to all data entries
-    \end{itemize}
-    \item Result
-    \begin{itemize}
-        \item 35 tables
-        \item overzicht van tabellen en relaties
-    \end{itemize}
-\end{itemize}    
-}
-
-
-\lstset{language=XML}
-\begin{lstlisting}[caption={DBLP bibliografic record example},label={lst:DblpExample}]
-<article mdate="2019-10-25" key="tr/gte/TM-0332-11-90-165" publtype="informal">
-<author>Frank Manola</author>
-<author>Mark F. Hornick</author>
-<author>Alejandro P. Buchmann</author>
-<title>Object Data Model Facilities for Multimedia Data Types.</title>
-<journal>GTE Laboratories Incorporated</journal>
-<volume>TM-0332-11-90-165</volume>
-<month>December</month>
-<year>1990</year>
-<url>db/journals/gtelab/index.html#TM-0332-11-90-165</url>
-</article>
-\end{lstlisting}
-\begin{itemize}
-    \item Bibliografische records zijn gedefinieerd door een element met subelementen. Deze subelementen bevatten waardes, en geen andere elementen.
-    
-    \item 
-    \begin{itemize}
-        \item zie author element in voorbeeld
-        \item moeten manier vinden om hier mee om te gaan
-        \item oplossing is id generereren voor elk 'parent' object.
-        \item dit zijn objecten die direct onder de tag <dblp> vallen.
-    \end{itemize}
-   
-    
-    
-    \item deze objecten aparte tabellen opslaan
-    \item waarbij tabel naam de naam van het attribuut is (bijv. article)
-     \item ander probleem geen zuivere xml: 
-    \lstset{language=XML}
-    \begin{lstlisting}[caption={XML fout},label={lst:DblpExample2}]
-    <title>Graphs of Bounded Treewidth can be Canonized in AC<sup>1</sup>.</title>
-    \end{lstlisting}
-    
-\end{itemize}
-
-\subsection{Aminer}
-
-\begin{figure}[H]
-\includegraphics[width=5cm]{incollection_aminer}
-\centering
-\caption{In Collection DBLP}
-\end{figure}
-
-\section{Deviation publication model and available data}
-\begin{itemize}
-    \item Publicatieprocess sluit niet aan met beschikbare databronnen
-    \item We missen het volgende:
-    \begin{itemize}
-        \item dit
-        \item dat
-        \item zus
-    \end{itemize}
-\end{itemize}
-
-\section{Overcoming the difference}
-\begin{itemize}
-    \item Tielemans vooral gebasseerd op beschikbare data (DBLP)
-    \item Machtsverhoudingen komen niet terug in de publieke datasets
-\end{itemize}
-\subsection{Justification}
-\begin{itemize}
-    \item Overzicht real-life cases (probleem verder beschrijven)
-    \begin{itemize}
-        \item Voorbeeld Vasilakos, citaten uit 2 journals waar hij zelf in zit
-        \item Publicatie lag
-    \end{itemize}
-
-\end{itemize}
-\subsection{Process and choices}
-\subsection{Case study: Lecture Notes in Computer Science}
-\outline{
-\begin{itemize}
-    \item dat je ze krijgt niet interessant
-    \item wel waarom, en hoe goed
-\end{itemize}
-}
-
-\subsection{Case study: Publication lag}
-
-\section{Conclusion}
-\outline{
-Antwoord op welke data is nodig en hoe komen we eraan
-
-}
-
 % ==============================================================================
 \chapter{Data integration}
 % ==============================================================================
@@ -1970,18 +2664,7 @@ Antwoord op welke data is nodig en hoe komen we eraan
     \subsection{Document Object Identifier}
     \begin{itemize}
         \item Wat is het? DOI is unique identifier of a document
-        \item Hoe in DBLP?
-            DBLP contains additional information about an entry in an ee tag.
-            These contain links to doi.org, wikidata, etc.
-            Sometimes an article has multiple doi.org links; this seems to be the case with the publisher ACM.
-            Although the links are different, they result in the same page at ACM.
-            for articles:
-            number of doi, number of articles
-            0 -> 322169
-            1 -> 1094002
-            2 -> 728
-            3 -> 61
-            most articles do have a link to doi.org in the ee
+        \item 
     \end{itemize} 
     \subsection{Enrichtment of DOI's}
     Some publication do not have an DOI in DBLP, but provide an additional link to arxiv site, or wikidata
@@ -2199,22 +2882,6 @@ Antwoord op welke data is nodig en hoe komen we eraan
 %     \item How to detect section headers? Option; get the font-size that is most used. consider this as the size of the content. Everything that is bigger, assume headers.
 % \end{itemize}
 
-% ==============================================================================
-\chapter{Data Analysis}
-% ==============================================================================
-\outline{
-\begin{itemize}
-    \item Wat betekent de data?
-\end{itemize}
-}
-
-\section{Validation}
-\outline{
-\begin{itemize}
-    \item Werkt je methode
-    \item Aan het eind van ieder hoofdstuk of een eigen hoofdstuk
-\end{itemize}
-}
 
 % ==============================================================================
 \chapter{Conclusions}
