@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: elsevier
+    schema: elsevier
+    tables:
+      - name: affiliations
+      - name: articles
+      - name: authors
+      - name: dates
+      - name: journals
+      - name: references
+
+

@@ -9,7 +9,7 @@ with author_agg_cte as (
       , article_author_id
       , MIN(value) FILTER (WHERE property = 'given-name') as given_name
       , MIN(value) FILTER (WHERE property = 'surname') as surname
-    from elsevier.authors
+    from {{ source('elsevier', 'authors') }}
     group by "$_id"
     ,"$_journal"
     ,article_author_id
@@ -17,9 +17,9 @@ with author_agg_cte as (
 , elsevier_author_journal_cte as (
     select 
         "$_id"
-    , "$_journal"
-    , article_author_id
-    , given_name || ' ' || surname as author_name
+      , "$_journal"
+      , article_author_id
+      , given_name || ' ' || surname as author_name
     from author_agg_cte
 )
 , dates_cte as (
@@ -32,7 +32,7 @@ with author_agg_cte as (
     , MIN(CAST(value AS DATE)) FILTER (WHERE type = 'Accepted') as date_accepted
     , MIN(CAST(value AS DATE)) FILTER (WHERE type = 'Publication date') as date_publication
     , MIN(CAST(value AS DATE)) FILTER (WHERE type = 'Accepted') - MIN(CAST(value AS DATE)) FILTER (WHERE type = 'Received') as publication_lag
-    FROM elsevier.dates
+    FROM {{ source('elsevier', 'dates') }}
     GROUP BY "$_id"
     , "$_journal"
 )
@@ -52,10 +52,10 @@ with author_agg_cte as (
     , a.dblp_year
     , COUNT(*) as cnt_journal_publications
     , COUNT(DISTINCT substring(ap.dblp_object_key, '\/(\w+)\/')) as cnt_distinct_venues
-    from dblp_dump.stg_dblp_person p
-    left outer join "dblp_dump"."stg_dblp_article_person" ap
+    from {{ ref('stg_dblp_person') }} p
+    left outer join {{ ref('stg_dblp_article_person') }} ap
     on p.dblp_unique_person_key = ap.dblp_unique_person_key
-    left outer join "dblp_dump"."stg_dblp_article" a
+    left outer join {{ ref('stg_dblp_article') }} a
     on ap.dblp_object_key = a.dblp_object_key
     where substring(ap.dblp_object_key, '(\w+)\/')  = 'journals'
     group by p.dblp_name, p.dblp_unique_person_key, a.dblp_year
