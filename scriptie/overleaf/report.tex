@@ -33,7 +33,9 @@
 
 \begin{document}
 \pagestyle{plain}
-\title{Applying outlier detection on the scientific publication process to support fraud detection}
+%% \title{Applying outlier detection on the scientific publication process to support fraud detection}
+\title{Acquisition and integration of public data to improve detection of scientific fraud}
+%% \title{Improving detection of scientific fraud by enriching the publication model with public data}
 \author{Ewoud Westerbaan}
 %Title of the thesis
 %\title[Subtitle]{Title}
@@ -115,10 +117,8 @@
 \begin{itemize}
     \item Wat moet een informaticus met een andere focus weten om deze scriptie 
         te kunnen lezen.
+    \item er bestaat fraude, sommige worden gevonden, blabla (smeuig maken)
 \end{itemize}
-}
-\outline{
-    er bestaat fraude, sommige worden gevonden, blabla (smeuig maken)
 }
 Incentives for scientists rely on quantitative measures of science, such as 
 number of publications, number of citations and amount of grants received. 
@@ -129,7 +129,12 @@ excellence by doing research and publishing the results; they also invite,
 maybe even more rewarding, dishonest approaches to achieve high rankings 
 -- gaming of these metrics, or, more simply, fraud in scientific publishing. 
 
-Examples of such fraud include plagiarism, manipulation of images (e.g., of cell 
+A perfect example of Goodhart's Law is the following case. Since 2010 in 
+Italy the number of citations is used as input for promotion. Seeber et al.
+concluded that this threshold increased the number of 
+self-citation~\cite{SEEBER2019478}.
+
+Other examples of fraud include plagiarism, manipulation of images (e.g., of cell 
 extracts in life science publications), manipulation of research data, 
 fabrication of research data. In addition, there may be as-of-yet unknown forms 
 of fraud.
@@ -177,17 +182,23 @@ of attack).
 % \end{itemize}
 % }
 % ==============================================================================
-In this project, we aim to take the first step in this generic approach by not 
+In this project, we aim to take a step in this generic approach by not 
 focusing on the method of fraud applied, but on the 
-\emph{effect of scientific fraud}, by
-taking a holistic view of the publication process. We tend to do this in two 
-steps:
+\emph{effect of scientific fraud}, by taking a holistic view of the publication 
+process. We tend to do this in two steps:
 \begin{enumerate}
-    \item The first step is to identify groups of people sharing a 
-        charateristic (e.g. same role).
-    \item The second step is to identify outliers within this group based on
-        other characteristics (e.g. number of publications).
+\item Provide a concise underlaying integrated datamodel to support fraud 
+detection.
+\item Identify outliers within groups sharing characteristics.
 \end{enumerate}
+% We tend to do this in two 
+% steps:
+% \begin{enumerate}
+%     \item The first step is to identify groups of people sharing a 
+%         charateristic (e.g. same role).
+%     \item The second step is to identify outliers within this group based on
+%         other characteristics (e.g. number of publications).
+% \end{enumerate}
 % Other examples are given in 
 % Section~\ref{interesting_cases}.
 
@@ -210,15 +221,19 @@ We immediately caution that this implication ($fraud \implies outlier$) does
 not hold in reverse. That is: such outliers need not be fraudsters. 
 
 However, identifying outliers may reduce the pool of authors to be investigated
-by several orders of magnitude. Thus, while not perfect, outlier classification
+by se\-veral orders of magnitude. Thus, while not perfect, outlier classification
 should make manual investigation of cases where fraud would have had significant
 effect possible.
 
 The goal of this project is to take a first step to make this a possibility.
-Concretely, we will perform a group based approach on the publication process
-to analyse if an group based outlier detection is a feasable option to focus
-the limit the capacity of manual investigation to strongly 
-increase the probability of identifying the most egregious of fraudsters. 
+Concretely, we will integrate multiple sources which provides the possibility
+to perform a group based outlier detection.
+
+
+% perform a group based approach on the publication process
+% to analyse if an group based outlier detection is a feasable option to focus
+% the limit the capacity of manual investigation to strongly 
+% increase the probability of identifying the most egregious of fraudsters. 
 % Concretely, we will design a generic detection method which uses the metrics
 % of the publication process and the incentives of the authors. 
 % Our proposal is to 
@@ -407,7 +422,8 @@ other disciplines, conference publications are common in Computer Science.
 The next sections describe these processes from a Computer Science perspective. 
 For other disciplines these processes may differ. For example, in CS 
 conferences, rigorous peer-review is the norm, with acceptance rates of 20\% or 
-less being common; in other disciplines, peer review may be less strict.
+less being common; in other disciplines, such strict peer review for conferences is
+less common.
     
 % In the next section we examine the process in more detail.
 
@@ -705,6 +721,33 @@ other authors that show this fraudulent behaviour also detectable?
 Case study 3 (Chapter~\ref{chp:case3} is based on the publication-lag (time 
 between submission and publication of an article).
 
+\section{Problem statement}
+\label{sec:problem_statement}
+There are processes to publish articles for journals and conferences.
+In these processes fraud is conducted.
+To improve detection of this fraud, data is necessary.
+Previous approach (\cite{TEJ2017}) to discover fraudulent behaviour was based 
+on public datasets, but misses important entities. 
+
+Considering the cases described in Section~\ref{sec:domain_analysis:fraud} and 
+public datasets that are generally represented by Jonker and Maauw~\cite{JM2017},
+missing entities can be pointed out.
+In Figure~\ref{fig:jm2017_missing_ent} the generic data model for public 
+sources is on the right side; V for venue, P for paper and A for author. Left of 
+this model missing entities are added.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=7cm]{images/jm2017_miss_ent.png}
+\caption{Right: Set-theoretic publication model adapted from~\cite{JM2017} Left: Missing entities considering example attacks.}
+\label{fig:jm2017_missing_ent}
+\end{figure}
+
+However, these missing entities are available and `human'-readable, but not 
+integrated in existing datasets.
+
+
+
 % \section{Interesting cases}
 % \label{interesting_cases}
 % In this section we describe theoretical and practical (actually happened) 
@@ -727,29 +770,20 @@ between submission and publication of an article).
 % }
 
 
+% \subsection{All time favourite: Diederik Stapel}
+% % ------------------------------------------------------------------------------
+% \vraag{Wat met Diederik Stapel?}
+% \outline{ergens in het begin: er zijn manieren om te frauderen...}
 
+% The fraud that Diederik Stapel committed was not related to the publication 
+% process, but to the data he used to draw conclusion on.
+% With our specific method, we will not be able to detect data manupulation and
+% fabrication.
+% However the \textit{effect} of his approach is a lot of publications.
 
-
-
-
-
-
-
-
-\subsection{All time favourite: Diederik Stapel}
-% ------------------------------------------------------------------------------
-\vraag{Wat met Diederik Stapel?}
-\outline{ergens in het begin: er zijn manieren om te frauderen...}
-
-The fraud that Diederik Stapel committed was not related to the publication 
-process, but to the data he used to draw conclusion on.
-With our specific method, we will not be able to detect data manupulation and
-fabrication.
-However the \textit{effect} of his approach is a lot of publications.
-
-\outline{door neven effect van fraude (bijvoorbeeld heel veel publicaties) of 
-zijn resultatenn halen het nieuws / opgemerkt in academische wereld omdat ze 
-fout zijn / omdat heel veel citaties eerste maanden zijn}.
+% \outline{door neven effect van fraude (bijvoorbeeld heel veel publicaties) of 
+% zijn resultatenn halen het nieuws / opgemerkt in academische wereld omdat ze 
+% fout zijn / omdat heel veel citaties eerste maanden zijn}.
 
 % ------------------------------------------------------------------------------
 
@@ -782,6 +816,12 @@ Bijdrage aan contributies
     \item 1) Studies die iets soortgelijks hebben gedaan
     \begin{itemize}
         \item Tielenburg
+        \item This work heavely relies on the work by Tielenburg~\cite{TEJ2017}.
+        \item T uses two steps:
+        \begin{itemize}
+            \item 1) outlier detection phase
+            \item 2) peer comparison phase
+        \end{itemize}
     \end{itemize}
     \item 2) Bouwstenen
     \begin{itemize}
@@ -797,13 +837,149 @@ Bijdrage aan contributies
 \chapter{Methodology}
 \label{chp:methodology}
 % ==============================================================================
-Belangrijkste punten:
+
+Chapter~\ref{chp:domainanalysis} ends with the available but not integrated 
+entities to enrich datasets about the scientific publication process.
+
+In this research we want to investigate 
+how integrated public data coming from different sources improves the detection 
+of scientific fraud.
+
+\paragraph{Define datamodel}
+In the problem statement (Section~\ref{sec:problem_statement}) we mention some 
+missing entities. The resulting figure is not sufficient to build a dataset 
+to detect fraud. Therefore, as first step we need a more concise datamodel to 
+enable detection of interesting cases. Our goal with this step is to identify
+entities and their relations.
+Possible approaches to get to a datamodel:
+\begin{description}
+    \item[1. Use an existing datamodel] Datamodels about the publication process
+    do exist.
+    \item[2. Create a model] In this case we need to build our own model. The 
+    description domain analysis can be used an input.
+\end{description}
+
+We choose a combination of these approaches. The reason is that we found 
+existing models are all somehow limited to 
+the author, venue and publication. Attacks as described in 
+Section~\ref{sec:domain_analysis:fraud} are not possible to detect in 
+these models. As an example: the Microsoft Acadamic Graph 
+model\footnote{\url{https://docs.microsoft.com/en-us/academic-services/graph/reference-data-schema}} 
+(which is the most detailed we came across) does not contain any other role 
+than author.
+By using a more high-level logical model approach, we can define a model 
+focused on the entities and relations involved, which can be implemented 
+using multiple physical modelling techniques. 
+
+The second step is to determine which publicly available dataset can fulfill 
+some parts of the model defined in the first step. Out appraoch is here to 
+discuss the available datasets and how these covers the model. Also, how 
+can we integrate these datasets to create a complete view of the model.
+
+
+
+% ============================================================================
+\paragraph{Acquiring and integrate data}
+Our approach is to execute case studies where we acquire and integrate 
+public sources into the model from the previous step. These case studies are 
+based on cases described in Section~\ref{sec:domain_analysis:fraud}.
+
+Alternitive approach would be to acquire data, create one integrated dataset, 
+followed by applying outlier analysis on this dataset. 
+But there are a few reasons not to do this:
+\begin{itemize}
+    \item 1) Not all data is available of all entities. Some data is hard to 
+    acquire and not generally available. We need to
+    execute a case study on a certain group where this data is available for.
+    As we only consider the group where we were able to get the data for, a 
+    more fair compare is done. Our purpose is to demonstrate that it is 
+    rewarding to integrate datasets; not to get this data for the whole population.
+    \item 2) Our defined attacks are all 'related to'; compared within a group of
+    peers. This also implies the need for a group based approach (e.g. group 
+    of editors).
+    \item 3) Tielemans tried to apply outlier detection on the whole population, 
+    without succes. This does not mean his approach will not work with integrated 
+    additional data. However his study we take a step back; add additional data 
+    for a group and perform outlier analysis within this group. An approach 
+    involving the whole set is probably too soon; first investigate if additional 
+    data improves the detection (this study), then acquiring the data for the 
+    complete set and maybe then a research can be conducted on applying outlier 
+    analysis on the whole set (alternative approach).
+\end{itemize}
+
+\paragraph{Case studies}
+In the domain analysis of the publication process interesting situations are 
+described with the groups having the power to abuse that particular situation
+(Section~\ref{sec:domain_analysis:fraud}). In Figure~\ref{fig:research_method} this
+is these are represented with the arrows from the publication process to the roles.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=13cm]{images/research_method/research_method.png}
+\caption{Relation publication process, roles and case studies}
+\label{fig:research_method}
+\end{figure}
+Based on these situations three cases studies (identifiable groups) are formulated:
+\begin{itemize}
+    \item Program Committee Members
+    \item Editors of a journal
+    \item Authors \todo{articles?}
+\end{itemize}
+
+For every use case we need to address a few items:
+\begin{itemize}
+    \item Acquiring the additional data
+    \item Create an analysis dataset from the publicly available data with the 
+    newly acquired data.
+    \item Validate possible interesting cases.
+\end{itemize}
+
+% To answer the question (how can we identify possible fraudulent 
+% behaviour in a specific group of peers) involves a structured approach.
+% First we need to formulate a dataset to perfrom the analysis on. At forehand
+% we do not know if the datasets available from public sources are sufficient enough.
+
+% During these case studies we will need to answer some questions:
+% Why is this an interesting group to analyse?
+% Is the dataset from RQ1 sufficient to analyse this group?
+% If we need additional data, what is the availability of this data?
+% And how can we integrate this data to perform outlier detection.
+
+\paragraph{Formalising the conclusing}
+The combinations of validations from the case studies will result in the
+answer on the question if acquiring and integrate publicly data improves
+the detectablility of scientific fraud.
+
+
 \outline{
+Belangrijkste punten:
 \begin{itemize}
     \item Wat ga je doen?
+    
+    We will do this by:
+    - Creating a model of the publication process that is extensible with other data related to the publication model and investigate how we can fill this with existing datasets.
+    - 
+    
+    
+    Approaches for validation:
+    \paragraph{Peer comparison} This approach contains comparing the `group' with its peers.
+    
+    \paragraph{Derived metrics} By calculating metrics of a certain group we could run an outlier detection.
+    
+    \paragraph{} We choose the first option. The reasons are:
+    \begin{itemize}
+        \item We want to stay as close to the raw data as possible. Defining derived metrics and apply outlier detection based on these, has been performed by Tielenburg without success.
+        \item 
+    \end{itemize}
+    
+    Validation will be executed for every case. Here we will consider the added
+    data as group and determine if this results in outliers.
+
+    
     \item Waarom ga je dat zo doen?
-\end{itemize}
-\begin{itemize}
+    \item er zijn andere manieren: ik kies deze methode want...
+    \item wordt nu gekeken naar input kant -> willen naar effect kijken (output kant, onafhankelijk van input kant)
+    \item tielenburg heeft gekeken groter trekken -> werkt niet, data niet rijk genoeg
     \item Draait om detecteren of er aanvallen plaats vinden
     \item Wat hebben we nodig om aanvallen te detecteren (hoe kunnen wij dat 
     doen?
@@ -811,17 +987,12 @@ Belangrijkste punten:
 \end{itemize}
 }
 
-During this research we want to verify if it is possible to detect possible
-attacks on the publication process by using a group based approach. That is,
-not looking at the whole population of people involved in this process, but
-looking at a group of peers.
-
 % ==============================================================================
 \section{Research Questions}
 
 % Hoofdvraag: Heeft outlier detectie binnen een groep zin?
 The main question we want to answer in this research is: \\
-\textbf{What is the impact of using a group-based outlier detecion approach in 
+\textbf{What is the impact of using a group-based outlier detection approach in 
 detecting fraud in the scientific publication process?}
 
 What we want to validate in this research is: \\
@@ -833,14 +1004,24 @@ The statement we want to verify with this study is:
 People with malicious ways to accomplish improvement of their quantitative 
 measures, will be an outlier compared with their peers.
 
+Hypothese: Door breder trekken van data zijn we wel in staat om outliers te detecteren
+
+Vraag: waar schiet het model te kort
+ant: in praktijk deze aanvallen -> deze data nodig -> niet beschikbaar in databronnen
+
+identificeren attributen
+data bronnen
+acquisitie
+integratie
+
 We define the following subquestions:
 
 \begin{enumerate}[label=RQ\arabic*]
 
     \item \label{RQ1} \textit{How can we define a dataset from known public 
     datasources to populate a formal publication model?}
-    \item \label{RQ2} \textit{How can we apply outlier detection techniques on this 
-    dataset to identify interesting authors in a specific group?}
+    \item \label{RQ2} \textit{How can we identify possible fraudulent behaviour
+    in a specific group of peers?}
 
 \end{enumerate}
 
@@ -864,20 +1045,7 @@ We will judge this step by completeness and integratability of the datasets.
 
 % -----------------------------------------------------------------------------------
 
-\subsubsection*{RQ2: Group based outlier detection}
-In the domain analysis of the publication process some interesting cases of possible
-fraud are described in Section~\ref{sec:domain_analysis:fraud}. Based on these cases
-three cases studies (identifiable groups) are formulated:
-\begin{itemize}
-    \item Program Committee Members
-    \item Editors of a journal
-    \item Authors \todo{articles?}
-\end{itemize}
-During these case studies we will need to answer some questions:
-Why is this an interesting group to analyse?
-Is the dataset from RQ1 sufficient to analyse this group?
-If we need additional data, what is the availability of this data?
-And how can we integrate this data to perform outlier detection.
+
 
 
 % ==============================================================================
@@ -944,14 +1112,14 @@ editors to work within, the actual work is delegated to editors.
 
 
 
-\outline{
-\begin{itemize}
-    \item Reviews
-    \item vaak meerdere
-    \item daarom minder risico op fraude???
-    \item ali \& watson bekijken
-\end{itemize}
-}
+% \outline{
+% \begin{itemize}
+%     \item Reviews
+%     \item vaak meerdere
+%     \item daarom minder risico op fraude???
+%     \item ali \& watson bekijken
+% \end{itemize}
+% }
 
 % ==============================================================================
 % \section{Extending the model}
@@ -968,11 +1136,11 @@ answers which roles are involved and how they are related.
 
 The red rectangles are objects and the green circles are roles.
 As objects we have a venue which contains papers. Multiple roles are related to these objects.
-We define the following sets:
-\begin{itemize}
-    \item Authors: $A(p) = \{h \in H \mid \authors(p, h)\}$
-    \item Reviewers: $R(p) = \{h \in H \mid \reviews(p, h)\}$
-\end{itemize}
+% We define the following sets:
+% \begin{itemize}
+%     \item Authors: $A(p) = \{h \in H \mid \authors(p, h)\}$
+%     \item Reviewers: $R(p) = \{h \in H \mid \reviews(p, h)\}$
+% \end{itemize}
 
 
 % ==============================================================================
@@ -2374,7 +2542,7 @@ members is equal to the non-empty lines in the section minus the merged lines.
 \label{chp:case2}
 % ==============================================================================
 In this chapter we work out a case study which focuses on journal editors of 
-ACM (Association for Computing Machinery)\footnote{\utl{https://dl.acm.org/}}; 
+ACM (Association for Computing Machinery)\footnote{\url{https://dl.acm.org/}}; 
 a publisher of journals in the area of computer science.
 With journal editors we mean the Editor-in-Chief and the associate editors.
 As with the previous case study, we will start with a motivation and example of
@@ -2767,6 +2935,9 @@ possible to get the publication lag for most articles of Elsevier journals.
     journals are not acquired. 
     \item For possible futher study; this may be a good statement to 
     investigate.
+    \item Unable to say something about the found oberservations; we do not know
+    who is the reviewer. This data set is unavailable.
+    \item Initiative: Open Peer Review (\url{https://www.fosteropenscience.eu/})
 \end{itemize}
 
 % ==============================================================================
