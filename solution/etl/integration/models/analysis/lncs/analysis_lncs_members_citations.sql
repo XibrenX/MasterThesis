@@ -24,7 +24,7 @@ WITH members_cte AS (
 )
 , book_member_cited_cte AS (
     SELECT 
-      c.from_dblp_key as dblp_key
+      m.dblp_key as dblp_key
     , m.member_name
     , COALESCE(cnt_author_cited_in_book, 0) as cnt_author_cited_in_book
     FROM members_cte m
