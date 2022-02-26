@@ -1,9 +1,9 @@
 # Elsevier
+
 This directory contains applications to get the necessary data from Elsevier.
 
-Itś better to use tor with scraping elsevier, because they are blocking IP's.
-
 ## Journal scraper
+
 Gets all journals from Elsevier.
 Information we retrieve is title, issn and href to more info about the journal.
 
@@ -15,3 +15,9 @@ sudo pip install stem
 apt-get install odbc-postgresql
 spt-get install tor
 
+## Subdir Elsevier
+
+This subdirectory is a Visual Studio Solution and targets a SQL Server database
+(legacy from Research Proposal experiment). To create one `flow', this needs to
+be transformed to Postgres and store data to the storage defined in the config 
+file.
