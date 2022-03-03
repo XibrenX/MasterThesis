@@ -33,7 +33,8 @@ public class SectionToGridConverter {
         // key value pair to get the startposition for a certain columns
         // e.g. column 2 starts at position 20
         ArrayList<Integer> partStarts = new ArrayList<>();
-        // boolean if the partStarts hashmap should be reloaded e.g. after an empty line
+        // boolean if the partStarts hashmap should be reloaded e.g. after an 
+        // empty line (page break)
         boolean resetPartStarts = true;
         for (String line : content) {
             boolean merged = false;

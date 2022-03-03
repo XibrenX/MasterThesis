@@ -5,10 +5,14 @@ import grid.Position;
 import grid.UnbalancedGrid;
 
 import java.util.ArrayList;
-import java.util.List;;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/*
+ * Verantwoording van deze class is om een SectionInfo te maken op basis van de
+ * grid.
+ */
 public class SectionInfoFactory {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(SectionInfoFactory.class);

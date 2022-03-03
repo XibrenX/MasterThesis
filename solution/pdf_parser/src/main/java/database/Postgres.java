@@ -126,6 +126,9 @@ public class Postgres implements Database {
 
     }
 
+    /*
+     * WARNING: Sensitive for SQL Injection.
+     */
     @Override
     public int saveSection(long runId, Section section, String parser, int fileId, int mergedLines) {
         StringBuilder sb = new StringBuilder();
@@ -190,6 +193,9 @@ public class Postgres implements Database {
         return result;
     }
 
+    /*
+     * WARNING: Sensitive for SQL Injection.
+     */
     @Override
     public int startProcessingFile(long runId, File file) {
         String query = "INSERT INTO " + SCHEMA_NAME + ".file (run_id, filename) VALUES (" + runId + ", '" + file.getName() + "') RETURNING id";
@@ -197,6 +203,9 @@ public class Postgres implements Database {
         return result;
     }
 
+    /*
+     * WARNING: Sensitive for SQL Injection.
+     */
     @Override
     public void endProcessingFile(int fileId, String representation, String status, String message) {
         StringBuilder sb = new StringBuilder();
@@ -207,6 +216,9 @@ public class Postgres implements Database {
         executeQueryNonResult(sb.toString());
     }
 
+    /*
+     * WARNING: Sensitive for SQL Injection.
+     */
     @Override
     public void saveMember(long runId, int sectionId, Member m) {
         String query = "INSERT INTO " + SCHEMA_NAME + ".member (run_id, section_id, role, name, firstname, lastname, affiliation) VALUES (" + System.lineSeparator()
