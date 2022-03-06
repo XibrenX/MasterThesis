@@ -8,7 +8,11 @@ models:
             - member_name
             - book_filename
             - role
+    description: Staged data from the LNCS front matter documents.
     columns:
       - name: member_name
+        description: Name of the member.
       - name: book_filename
+        description: Name of the file.
       - name: role
+        description: Role of the member.

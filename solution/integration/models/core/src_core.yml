@@ -3,6 +3,7 @@ version: 2
 sources:
   - name: core
     schema: core
+    description: Output of the CORE scraper (core_scraper/extractor.py).
     tables:
       - name: conf_ranks
       - name: jnl_ranks

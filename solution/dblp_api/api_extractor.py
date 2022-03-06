@@ -137,24 +137,6 @@ def get_queries() -> list:
     return result
 
 
-    # try:
-    #     
-
-    #     conn = pyodbc.connect(conn_str)
-    #     cursor = conn.cursor()
-    #     cursor.execute(query)
-    #     row = cursor.fetchone()
-    #     res = []
-    #     while row:
-    #         res.append(str(row[0]))
-    #         row = cursor.fetchone()
-    #     return res
-    # except:
-    #     print("error occured")
-    # finally:
-    #     cursor.close()
-
-
 def equal_list_of_dicts(l):
     keys = []
     ret = []

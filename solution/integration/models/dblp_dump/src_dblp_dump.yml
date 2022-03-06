@@ -3,6 +3,7 @@ version: 2
 sources:
   - name: dblp_dump
     schema: dblp_dump
+    description: Output of the dblp loader tool (.net/DblpLoader).
     tables:
       - name: address
       - name: article

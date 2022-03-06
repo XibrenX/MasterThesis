@@ -119,12 +119,21 @@ FROM {{ source('lncs_front_matter', 'member') }}
     AND f.run_id = fs.run_id
 )
 
-    SELECT f.run_id, f.file_id, f.ind_pass as "file_pass", intsec.ind_interest as "section_interested", secval.validation as "section_pass", f.message, intsec.section_id, intsec.clean_role, intsec.num_members
-    FROM file_cte f
-    LEFT OUTER JOIN section_validation_cte secval
-        ON f.file_id = secval.file_id
-        AND f.ind_pass = 1
-        AND f.run_id = secval.run_id
-    LEFT OUTER JOIN interested_sections_cte intsec
-        ON secval.id = intsec.section_id
-        AND secval.run_id = intsec.run_id
+SELECT 
+    f.run_id
+  , f.file_id
+  , f.ind_pass as "file_pass"
+  , intsec.ind_interest as "section_interested"
+  , secval.validation as "section_pass"
+  , f.message
+  , intsec.section_id
+  , intsec.clean_role
+  , intsec.num_members
+FROM file_cte f
+LEFT OUTER JOIN section_validation_cte secval
+    ON f.file_id = secval.file_id
+    AND f.ind_pass = 1
+    AND f.run_id = secval.run_id
+LEFT OUTER JOIN interested_sections_cte intsec
+    ON secval.id = intsec.section_id
+    AND secval.run_id = intsec.run_id

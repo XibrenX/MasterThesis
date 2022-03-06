@@ -3,20 +3,30 @@ version: 2
 sources:
   - name: lncs_front_matter
     schema: lncs_front_matter
+    description: Output of the pdf parser tool.
     tables:
       - name: file
+        description: A front matter document.
         columns:
           - name: id
+            description: Id of the file.
           - name: run_id
+            description: Id of the run.
           - name: filename
           - name: status
+            description: The state of the parse process (SUCCEEDED of FAILED).
           - name: message
+            descrption: Reason the process failed.
 
       - name: section
+        description: A section within a document.
         columns: 
           - name: id
+            description: Id of the section.
           - name: run_id
+            description: Id of the run.
           - name: file_id
+            description: Id of the file this section belongs to.
           - name: title
           - name: num_parts
           - name: num_section_lines
@@ -28,15 +38,23 @@ sources:
           - name: comma_ratios
           - name: affiliation_ratios
           - name: parser
+            description: The parser used to interpret this section.
 
       - name: member
         columns:
           - name: id
           - name: run_id
+            description: Id of the run.
           - name: section_id
+            description: Id of the section this member belongs to.
           - name: role
+            description: The role as in the Front Matter.
           - name: name
+            description: Name as in the Front Matter.
           - name: firstname
+            description: First name (if possible to extract).
           - name: lastname
+            description: Last name (if possible to extract).
           - name: affiliation
+            description: Affiliation as in the Front Matter.
 

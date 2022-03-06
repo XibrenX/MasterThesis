@@ -14,8 +14,6 @@ from person_affiliation import get_affiliations
 import pyodbc
 import os
 import paper
-from stem import Signal
-from stem.control import Controller
 
 logging.basicConfig(level=logging.DEBUG, format='%(name)s - %(levelname)s - %(message)s')
 
@@ -102,6 +100,12 @@ def get_chapters_links(soup) -> list:
 
 
 def get_editors(soup) -> list:
+    """
+    Gets editors from a book (proceeding) page.
+
+    args:
+        soup: BeautifulSoup object of the page.
+    """
     logging.debug("get_editors")
     ed_and_af = soup.find('div', id="editorsandaffiliations")
     if ed_and_af is None:
@@ -129,6 +133,9 @@ def get_editors(soup) -> list:
 
 
 def read_content(content, dblp_key):
+    """
+    Reads a book (proceeding) page.
+    """
     soup = BeautifulSoup(content, 'html.parser')
     content = {}
     document_info = get_document_info(soup)
@@ -189,6 +196,10 @@ def add_editor_to_affiliation(editors, affiliations) -> list:
 
 
 def process_content_entry(timestamp, url, dblp_key, content):
+    """
+    Adds static values to the datasets.
+    Flushes the data to the database.
+    """
     info = read_content(content, dblp_key)
     for k in info:
         if isinstance(info[k], dict):
@@ -230,45 +241,17 @@ def get_workload():
     return result
 
 
-def get_current_ip():
-    session = requests.session()
-
-    session.proxies = {}
-    session.proxies['http']='socks5h://localhost:9050'
-    session.proxies['https']='socks5h://localhost:9050'
-
-    try:
-        r = session.get('http://httpbin.org/ip')
-    except Exception as e:
-        logging.debug(str(e))
-    else:
-        return r.text
-
-
-def renew_tor_ip():
-    with Controller.from_port(port = 9051) as controller:
-        controller.authenticate(password=config['TOR_PASSWORD'])
-        controller.signal(Signal.NEWNYM)
-
-
-
 def main_process():
     workload = get_workload()
     rec_to_do = len(workload)
     i = 0
     for workitem in workload:
-        
-        
         url = workitem["url"]
         dblp_key = workitem["dblp_key"]
         try:
             logging.info(f"Processing {i+1} of {rec_to_do}")
             if i % 10 == 0:
-                logging.info(f"Renewing ip")
-                renew_tor_ip()
                 time.sleep(5)
-                ip = get_current_ip()
-                logging.info(f"new ip: {ip}")
             timestamp = str(datetime.datetime.now())
             content = get_content_from_url(url)
             process_content_entry(timestamp, url, dblp_key, content)

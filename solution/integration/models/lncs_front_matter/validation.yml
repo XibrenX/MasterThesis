@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: validation
+    description: >
+      Section level validation of data produced by the pdf_parser.
+    columns:
+      - name: run_id
+        description: Id of the run this validation belongs to.
+      - name: file_id
+        description: Id of the file this validation belongs to.
+      - name: file_pass
+        description: Indicator if this file is ok.
+      - name: section_interested
+        description: Indicator if this section is interesting for analysis.
+      - name: section_pass
+        description: >
+          Indicator is this section is ok. Based on used parser in combination
+          with number of members.
+      - name: message
+        description: Reason this file is not ok.
+      - name: section_id
+        description: Id of the section this validation belongs to.
+      - name: clean_role
+        description: Cleaned role name for this section.
+      - name: num_members
+        description: The number of members in this section.

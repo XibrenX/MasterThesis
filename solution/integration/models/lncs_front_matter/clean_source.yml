@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: clean_source
+    description: >
+      Cleaned data of the pdf parser.
+    columns:
+      - name: filename
+        description: Name of the file.
+      - name: role
+        description: Cleaned role name.
+      - name: name
+        description: Name of the member.
