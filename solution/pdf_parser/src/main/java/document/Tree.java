@@ -32,5 +32,9 @@ public interface Tree<E> extends Iterable<E> {
     Iterable<Position<E>> positions();
     Iterable<Position<E>> preorder(Position<E> p);
 
+    /**
+     *
+     * @return Textual representatino of the tree.
+     */
     String preOrderRepresentation();
 }

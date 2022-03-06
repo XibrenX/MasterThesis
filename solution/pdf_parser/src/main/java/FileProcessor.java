@@ -14,6 +14,9 @@ import textstripper.TextLine;
 import java.io.File;
 import java.util.List;
 
+/**
+ * Responsibility is to process a file.
+ */
 public class FileProcessor {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(FileProcessor.class);
@@ -29,10 +32,11 @@ public class FileProcessor {
         this.path = path;
         this.database = database;
         this.runId = runId;
-
-
     }
 
+    /**
+     * Hier wordt het document daadwerkelijk verwerkt.
+     */
     public void execute() {
         file = new File(path);
         MDC.put("filename", file.getName());
@@ -44,21 +48,17 @@ public class FileProcessor {
             PDDocument pdDocument = new PDDocument(pdfParser.getDocument());
             try {
                 PDFTextStripper pdfTextStripper = new PDFLayoutTextStripperFontSize();
-                String string = pdfTextStripper.getText(pdDocument);
 
+                // Tekstregels van het document
                 List<TextLine> textLines = ((PDFLayoutTextStripperFontSize) pdfTextStripper).getAllTextLines();
 
-                // for debugging
-//            for (TextLine s1 : textLines) {
-//                System.out.println(s1);
-//            }
-
+                // Maak een tree structure van het document
                 DocumentFactory df = new DocumentFactory();
                 Tree<Section> documentTree = df.getDocumentTreePreOrder(textLines);
-
                 String representation = documentTree.preOrderRepresentation();
                 LOGGER.info("Document tree representation " + System.lineSeparator() + representation);
 
+                // The position to start processing from. We are looking for the organization section.
                 Position<Section> organisationPosition = null;
                 for (Position<Section> p : documentTree.positions()) {
                     if (p.getElement().getTitle().toLowerCase().contains(("organization"))) {
@@ -75,6 +75,7 @@ public class FileProcessor {
                 // Itereer door alle posities binnen de organisatie
                 for (Position<Section> p : documentTree.preorder(organisationPosition)) {
                     Section section = p.getElement();
+                    // Verwerk de section
                     processSection(section);
                 } // end loop sections
 
@@ -93,27 +94,37 @@ public class FileProcessor {
         MDC.remove("filename");
     }
 
+    /**
+     * Verwerkt een section.
+     * @param section
+     */
     private void processSection(Section section) {
         LOGGER.info("Start processing section:" + System.lineSeparator() + section.detailedRepresentation());
         try {
+            // Converteer de section naar een grid
             SectionToGridConverter sectionToGridConverter = new SectionToGridConverter();
             UnbalancedGrid<TextPart> grid = sectionToGridConverter.convert(section.getContent());
             LOGGER.info("Grid representation:" + System.lineSeparator() + grid);
 
+            // Verzamel statistieken over de grid
             SectionInfo sectionInfo = SectionInfoFactory.GetSessionInfo(grid);
             LOGGER.info("Section info:" + System.lineSeparator() + sectionInfo);
-
             section.setSectionInfo(sectionInfo);
-            GridParser parser = GridParserFactory.getInstance().GetParser(section.getSectionInfo(), grid);
 
+            // Haal een parser op, gegeven de grid en de statistieken.
+            GridParser parser = GridParserFactory.getInstance().GetParser(section.getSectionInfo(), grid);
             String parserName = parser.getName();
             LOGGER.info("Parser: {}", parserName);
 
+            // Sla de section op in de database
             int sectionId = database.saveSection(runId, section, parserName, fileId, sectionToGridConverter.getMergedLines());
 
+            // Haal de members uit de section
             List<Member> members = parser.parse();
             StringBuilder logBuilder = new StringBuilder();
             logBuilder.append("Members (" + members.size() + "):" + System.lineSeparator());
+
+            // Sla de members op
             for (Member m : members) {
                 m.setRole(section.getTitle());
                 database.saveMember(runId, sectionId, m);

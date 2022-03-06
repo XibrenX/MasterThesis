@@ -8,6 +8,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * Responsibility is to create a tree of a document.
+ */
 public class DocumentFactory {
 
     private static final Logger LOGGER = Logger.getLogger( DocumentFactory.class.getName() );

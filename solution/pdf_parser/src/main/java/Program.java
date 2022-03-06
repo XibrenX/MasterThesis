@@ -27,9 +27,12 @@ public class Program {
         LOGGER.info("Run id: " + runId);
     }
 
+    /**
+     * Iterate through all files and delegates the processing to the FileProcessor.
+     * @throws Exception
+     */
     public void execute() throws Exception {
         LOGGER.info("Start executing");
-//  + "conf_icann_2007-2.pdf"
         String directoryPath = properties.getProperty("RAW_DATA") + RAW_DATA_SUB_DIRECTORY;
         File directory = new File(directoryPath);
         String[] filepaths = directory.list();
@@ -45,16 +48,14 @@ public class Program {
             double percentage = ((double)numberOfFilesProcessed / (double)numberOfFiles) * 100;
             LOGGER.info("Processed {} of {} ({}%)", numberOfFilesProcessed, numberOfFiles, percentage);
         }
-
-//        String file = "conf_cicling_2015-1.pdf";
-//        String filepath = directoryPath + file;
-//        fp = new FileProcessor(filepath, database, runId);
-//        fp.execute();
-
-
     }
     // End class
 
+    /**
+     * Main entry of the application.
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         Properties properties = new Properties();
         try (FileInputStream fis = new FileInputStream(PROPERTIES_FILE)) {

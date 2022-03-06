@@ -39,18 +39,18 @@ namespace dblp.loader
 
             string filepath = Path.Combine(dataStorage, "dblp_xml_dump", "dblp.xml");
 
-            // string filepath = "solution/.net/DblpLoader/testfiles/test.xml";
+            string filepath = "solution/.net/DblpLoader/testfiles/test.xml";
 
             // p.ReadPublications(filepath);
 
-            // p.Execute(filepath);
+            p.Execute(filepath);
 
-            string searchTerm = "https://doi.org/10.1007/978-3-540-36668-3_1";
-            long lineNumber =  p.Search(filepath, searchTerm);
-            if (lineNumber != 0)
-            {
-                p.WriteRange(filepath, lineNumber, 100, "output2.xml");
-            }
+            // string searchTerm = "https://doi.org/10.1007/978-3-540-36668-3_1";
+            // long lineNumber =  p.Search(filepath, searchTerm);
+            // if (lineNumber != 0)
+            // {
+            //     p.WriteRange(filepath, lineNumber, 100, "output2.xml");
+            // }
 
             Console.WriteLine("Done, press any key to exit");
             Console.ReadKey();

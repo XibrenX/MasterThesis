@@ -36,12 +36,16 @@ public class SectionToGridConverter {
         // boolean if the partStarts hashmap should be reloaded e.g. after an 
         // empty line (page break)
         boolean resetPartStarts = true;
+
+        // Itereer door de regels
         for (String line : content) {
             boolean merged = false;
             if (line.trim().equals("")) {
                 resetPartStarts = true;
                 continue;
             }
+
+            // Split de regel in stukken verdeeld door 2 of meer spaties
             String[] lineParts = line.trim().split("\\s\\s+");
             if (resetPartStarts) {
                 partStarts.clear();
