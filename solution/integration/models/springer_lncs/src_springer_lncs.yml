@@ -3,6 +3,7 @@ version: 2
 sources:
   - name: springer_lncs
     schema: springer_lncs
+    loader: lncs/scraper/lncs_scraper.py
     tables:
       - name: author
         columns:

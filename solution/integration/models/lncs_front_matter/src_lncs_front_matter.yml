@@ -4,6 +4,7 @@ sources:
   - name: lncs_front_matter
     schema: lncs_front_matter
     description: Output of the pdf parser tool.
+    loader: pdf_parser
     tables:
       - name: file
         description: A front matter document.

@@ -7,13 +7,6 @@ This directory contains applications to get the necessary data from Elsevier.
 Gets all journals from Elsevier.
 Information we retrieve is title, issn and href to more info about the journal.
 
-install and setup tor: https://techmonger.github.io/68/tor-new-ip-python/
-
-
-sudo pip install stem
-
-apt-get install odbc-postgresql
-spt-get install tor
 
 ## Subdir Elsevier
 

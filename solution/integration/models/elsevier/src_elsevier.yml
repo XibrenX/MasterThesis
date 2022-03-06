@@ -3,6 +3,7 @@ version: 2
 sources:
   - name: elsevier
     schema: elsevier
+    loader: .net/Elsevier.ParseOutput
     tables:
       - name: affiliations
       - name: articles

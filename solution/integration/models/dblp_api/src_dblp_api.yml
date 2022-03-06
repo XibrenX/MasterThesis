@@ -3,6 +3,8 @@ version: 2
 sources:
   - name: dblp_api
     schema: dblp_api
+    loader: dblp_api/api_extractor.py
+    description: Output of the API extractor of DBLP.
     tables:
       - name: author
       - name: document

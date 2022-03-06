@@ -3,9 +3,12 @@ import logging
 
 logging.basicConfig(level=logging.DEBUG, format='%(name)s - %(levelname)s - %(message)s')
 
-start_num = 27
+start_num = 0
 
 def main():
+    """
+    Reads input file.
+    """
     with open('solution/acm/list_journals.txt') as f:
         i = 0
         for l in f.readlines():
@@ -16,6 +19,9 @@ def main():
 
 
 def process_link(link: str, i: int):
+    """
+    Downloads HTML page of a link.
+    """
     logging.debug(link)
     try:
         redirect = requests.get(link)
