@@ -54,6 +54,8 @@ models:
         schema: elsevier_analysis
       analysis:
         schema: analysis
+      elsevier:
+        schema: elsevier
           
 seeds:
   thesis:
