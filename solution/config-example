@@ -1,10 +1,30 @@
+#
+# Database properties
+#
 POSTGRES_USER=<dbusername>
 POSTGRES_PASSWORD=<dbpassword>
 POSTGRES_DB=<dbname>
-RAW_DATA=/blabla/blabla
+POSTGRES_SERVER=<dbname>
+
+#
+# TOR settings
+#
+# Password for local TOR service
 TOR_PASSWORD=1234567890
+# Location tor browser (e.g. on windows):
+TOR_BROWSER=/Browser/firefox.exe
+
+#
+# Data storage properties
+#
+# Data storage root
+RAW_DATA=/blabla/blabla
+
 # Sub Location of store and read the LNCS Front Matter documents
 LNCS_FRONT_MATTER_SUBDIR=/lncs_front_matter/input
 
 # Sub location of editorial HTML pages from ACM
 ACM_EDITORIAL_BOARD_HTML_SUBDIR=/acm_editorial_boards
+
+# Sub location of elsevier article JSON files
+ELSEVIER_ARTICLE_JSON_SUBDIR=/elsevier_output

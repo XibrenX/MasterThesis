@@ -25,20 +25,17 @@ namespace Elsevier.ParseOutput
             string database = properties["POSTGRES_DB"];
             string server = properties["POSTGRES_SERVER"];
             string dataStorage = properties["RAW_DATA"];
+            string filepath = Path.Combine(properties["RAW_DATA"], properties["ELSEVIER_ARTICLE_JSON_SUBDIR"]);
 
             IDatabase db = DatabaseFactory.GetDatabase(DatabaseType.Postgres, user, password, database, server);
             
             Program p = new Program(db);
-            
-            // Location of elsevier output dir
-            string filepath = Path.Combine(dataStorage, "elsevier_output", "__new");
 
             await p.Execute(filepath);
 
             Console.WriteLine("Done.");
 
             Console.ReadKey();
-
 
         }
 

@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.IO;
+using Helper;
 
 namespace Elsevier.DownloadArticleMetadata
 {
     class Program
     {
-        private static readonly string savedir = @"<- output dir -> e.g. \Desktop\elsevier_output";
-
-        private static readonly string torPath = @"<- path to tor browser ->\Tor Browser\Browser\firefox.exe";
-
         private static int _retryCount = 5;
 
         static void Main(string[] args)
         {
             Console.WriteLine("Starting");
+
+            Dictionary<string, string> properties = PropertiesReader.ReadProperties(propertiesFile);
+            string savedir = Path.Combine(properties["RAW_DATA"], properties["ELSEVIER_ARTICLE_JSON_SUBDIR"]);
+            string torPath = properties["TOR_BROWSER"];
 
             JournalScraper js = new JournalScraper(savedir, torPath);
             js.RefreshBrowser();
