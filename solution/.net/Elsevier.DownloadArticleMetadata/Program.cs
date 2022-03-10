@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using Helper;
@@ -9,15 +10,16 @@ namespace Elsevier.DownloadArticleMetadata
     {
         private static int _retryCount = 5;
 
+        private static readonly string propertiesFile = "../../../../../config";
+
         static void Main(string[] args)
         {
             Console.WriteLine("Starting");
 
             Dictionary<string, string> properties = PropertiesReader.ReadProperties(propertiesFile);
             string savedir = Path.Combine(properties["RAW_DATA"], properties["ELSEVIER_ARTICLE_JSON_SUBDIR"]);
-            string torPath = properties["TOR_BROWSER"];
 
-            JournalScraper js = new JournalScraper(savedir, torPath);
+            JournalScraper js = new JournalScraper(savedir);
             js.RefreshBrowser();
 
             while (true)
@@ -55,6 +57,29 @@ namespace Elsevier.DownloadArticleMetadata
 
         private static readonly string connStr = @"Data Source=localhost; Initial Catalog=elsevier; Integrated Security=True;";
 
+        //static (long, string) GetJournal()
+        //{
+        //    string sql = "UPDATE [elsevier].[load].[journals] " +
+        //                 "SET [status] = 'RUNNING' " +
+        //                 "OUTPUT INSERTED.[$_id], INSERTED.[title] " +
+        //                 "WHERE [$_id] = (" +
+        //                 "SELECT MIN([$_id]) " +
+        //                 "FROM " +
+        //                 "elsevier.dbo.elsevier_workload)";
+        //    using SqlConnection connection = new SqlConnection(connStr);
+        //    connection.Open();
+        //    using SqlCommand command = new SqlCommand(sql, connection);
+        //    using SqlDataReader dr = command.ExecuteReader();
+        //    long id = 0;
+        //    string title = string.Empty;
+        //    while(dr.Read())
+        //    {
+        //        id = dr.GetInt64(0);
+        //        title = dr.GetString(1);
+        //    }
+        //    return (id, title);
+        //}
+
         static (long, string) GetJournal()
         {
             string sql = "UPDATE [elsevier].[load].[journals] " +
@@ -70,7 +95,7 @@ namespace Elsevier.DownloadArticleMetadata
             using SqlDataReader dr = command.ExecuteReader();
             long id = 0;
             string title = string.Empty;
-            while(dr.Read())
+            while (dr.Read())
             {
                 id = dr.GetInt64(0);
                 title = dr.GetString(1);

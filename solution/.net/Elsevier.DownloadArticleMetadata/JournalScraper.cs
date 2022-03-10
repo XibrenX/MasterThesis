@@ -3,9 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Text;
 using System.Threading;
 
 namespace Elsevier.DownloadArticleMetadata
@@ -14,13 +12,10 @@ namespace Elsevier.DownloadArticleMetadata
     {
         private IWebDriver _driver;
         private string _outputDirectory;
-        private Process _torProcess;
-        private string _torBrowserPath;
 
-        public JournalScraper(string outputDirectory, string torBrowserPath)
+        public JournalScraper(string outputDirectory)
         {
             _outputDirectory = outputDirectory;
-            _torBrowserPath = torBrowserPath;
         }
 
         public void RefreshBrowser()
@@ -28,8 +23,6 @@ namespace Elsevier.DownloadArticleMetadata
             Dispose();
             Console.WriteLine($"Initializing webdriver");
             _driver = CreateNewDriver();
-            string ip = GetCurrentPublicIp(_driver);
-            Console.WriteLine($"Executing from public ip: {ip}");
         }
 
         public void GetJournalData(long id, string title)
@@ -100,8 +93,6 @@ namespace Elsevier.DownloadArticleMetadata
             Console.WriteLine("Disposing...");
             if (_driver != null)
                 _driver.Close();
-            if (_torProcess != null)
-                _torProcess.Kill();
         }
 
         private IWebDriver CreateNewDriver()
@@ -109,23 +100,7 @@ namespace Elsevier.DownloadArticleMetadata
             Console.WriteLine("Create new webdriver");
             IWebDriver driver;
 
-            _torProcess = new Process();
-            _torProcess.StartInfo.FileName = _torBrowserPath;
-            _torProcess.StartInfo.Arguments = "-n";
-            _torProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized;
-            _torProcess.Start();
-
-            FirefoxProfile profile = new FirefoxProfile();
-            profile.SetPreference("network.proxy.type", 1);
-            profile.SetPreference("network.proxy.socks", "127.0.0.1");
-            profile.SetPreference("network.proxy.socks_port", 9150);
-
-            CodePagesEncodingProvider.Instance.GetEncoding(437);
-            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-
             FirefoxOptions options = new FirefoxOptions();
-            options.BrowserExecutableLocation = _torBrowserPath;
-            options.Profile = profile;
             driver = new FirefoxDriver(options);
             driver.Manage().Timeouts().ImplicitWait = new TimeSpan(0, 0, 30);
             driver.Manage().Timeouts().PageLoad = new TimeSpan(0, 0, 30);
@@ -133,14 +108,5 @@ namespace Elsevier.DownloadArticleMetadata
             return driver;
         }
 
-        private string GetCurrentPublicIp(IWebDriver driver)
-        {
-            string url = "https://www.whatsmyip.org/";
-            driver.Navigate().GoToUrl(url);
-            HtmlDocument doc = new HtmlDocument();
-            doc.LoadHtml(driver.PageSource);
-            string ip = doc.DocumentNode.SelectSingleNode("//*[@id='ip']").InnerText;
-            return ip;
-        }
     }
 }
