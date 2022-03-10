@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using Helper;
+using Database;
+using System.Data;
 
 namespace Elsevier.DownloadArticleMetadata
 {
@@ -11,6 +13,8 @@ namespace Elsevier.DownloadArticleMetadata
         private static int _retryCount = 5;
 
         private static readonly string propertiesFile = "../../../../../config";
+
+        private static IDatabase db;
 
         static void Main(string[] args)
         {
@@ -23,9 +27,8 @@ namespace Elsevier.DownloadArticleMetadata
             string password = properties["POSTGRES_PASSWORD"];
             string database = properties["POSTGRES_DB"];
             string server = properties["POSTGRES_SERVER"];
-            string dataStorage = properties["RAW_DATA"];
 
-            IDatabase db = DatabaseFactory.GetDatabase(DatabaseType.Postgres, user, password, database, server);
+            db = DatabaseFactory.GetDatabase(DatabaseType.Postgres, user, password, database, server);
 
 
             JournalScraper js = new JournalScraper(savedir);
@@ -63,52 +66,22 @@ namespace Elsevier.DownloadArticleMetadata
             Console.WriteLine("Done");
         }
 
-
-        private static readonly string connStr = @"Data Source=localhost; Initial Catalog=elsevier; Integrated Security=True;";
-
-        //static (long, string) GetJournal()
-        //{
-        //    string sql = "UPDATE [elsevier].[load].[journals] " +
-        //                 "SET [status] = 'RUNNING' " +
-        //                 "OUTPUT INSERTED.[$_id], INSERTED.[title] " +
-        //                 "WHERE [$_id] = (" +
-        //                 "SELECT MIN([$_id]) " +
-        //                 "FROM " +
-        //                 "elsevier.dbo.elsevier_workload)";
-        //    using SqlConnection connection = new SqlConnection(connStr);
-        //    connection.Open();
-        //    using SqlCommand command = new SqlCommand(sql, connection);
-        //    using SqlDataReader dr = command.ExecuteReader();
-        //    long id = 0;
-        //    string title = string.Empty;
-        //    while(dr.Read())
-        //    {
-        //        id = dr.GetInt64(0);
-        //        title = dr.GetString(1);
-        //    }
-        //    return (id, title);
-        //}
-
         static (long, string) GetJournal()
         {
-            string sql = "UPDATE [elsevier].[load].[journals] " +
-                         "SET [status] = 'RUNNING' " +
-                         "OUTPUT INSERTED.[$_id], INSERTED.[title] " +
-                         "WHERE [$_id] = (" +
-                         "SELECT MIN([$_id]) " +
+            string sql = "UPDATE elsevier.article_metadata_input " +
+                         "SET status = 'RUNNING' " +
+                         "WHERE id = (" +
+                         "SELECT MIN(id) " +
                          "FROM " +
-                         "elsevier.dbo.elsevier_workload)";
-            using SqlConnection connection = new SqlConnection(connStr);
-            connection.Open();
-            using SqlCommand command = new SqlCommand(sql, connection);
-            using SqlDataReader dr = command.ExecuteReader();
-            long id = 0;
-            string title = string.Empty;
-            while (dr.Read())
-            {
-                id = dr.GetInt64(0);
-                title = dr.GetString(1);
-            }
+                         "elsevier.article_metadata_input " +
+                         "WHERE status = 'TODO') " +
+                         "RETURNING id, title";
+            DataTable dt = db.GetData(sql);
+            if (dt.Rows.Count == 0) { return (0, ""); }
+            DataRow row = dt.Rows[0];
+            long id = (long)row["id"];
+            string title = row["title"].ToString();
+
             return (id, title);
         }
     }
