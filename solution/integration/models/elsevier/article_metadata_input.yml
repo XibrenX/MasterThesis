@@ -1,0 +1,6 @@
+version: 2
+
+models:
+  - name: article_metadata_input
+    description: Input for the tool that downloads the article metadata from elsevier.
+

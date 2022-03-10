@@ -19,6 +19,15 @@ namespace Elsevier.DownloadArticleMetadata
             Dictionary<string, string> properties = PropertiesReader.ReadProperties(propertiesFile);
             string savedir = Path.Combine(properties["RAW_DATA"], properties["ELSEVIER_ARTICLE_JSON_SUBDIR"]);
 
+            string user = properties["POSTGRES_USER"];
+            string password = properties["POSTGRES_PASSWORD"];
+            string database = properties["POSTGRES_DB"];
+            string server = properties["POSTGRES_SERVER"];
+            string dataStorage = properties["RAW_DATA"];
+
+            IDatabase db = DatabaseFactory.GetDatabase(DatabaseType.Postgres, user, password, database, server);
+
+
             JournalScraper js = new JournalScraper(savedir);
             js.RefreshBrowser();
 
