@@ -1,6 +1,6 @@
 import configparser
 import logging
-from typing import Callable
+from typing import Callable, Dict, List
 import requests
 from bs4 import BeautifulSoup
 import datetime
@@ -9,6 +9,8 @@ import requests
 import time
 from stem import Signal
 from stem.control import Controller
+
+ELSEVIER_DATABASE_SCHEMA = 'elsevier'
 
 logging.basicConfig(level=logging.INFO, format='%(name)s - %(levelname)s - %(message)s')
 
@@ -50,7 +52,7 @@ def main(
             break
         for j in journals:
             j["extract_dts_utc"] = extract_dts_utc
-        save('elsevier', 'journals', journals)
+        save(ELSEVIER_DATABASE_SCHEMA, 'journals', journals)
         page_number += 1
         # renew tor
         renew_tor_ip()
@@ -93,7 +95,7 @@ def get_page(page_number: int):
     return response.content
 
 
-def get_journals(content) -> list:
+def get_journals(content) -> List[Dict]:
     logging.info(f'Getting journals from content')
     soup = BeautifulSoup(content, 'html.parser')
     journal_entries = soup.find_all('article', class_='search-result')

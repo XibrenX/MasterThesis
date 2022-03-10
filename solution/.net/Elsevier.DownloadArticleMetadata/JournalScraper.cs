@@ -15,10 +15,12 @@ namespace Elsevier.DownloadArticleMetadata
         private IWebDriver _driver;
         private string _outputDirectory;
         private Process _torProcess;
+        private string _torBrowserPath;
 
-        public JournalScraper(string outputDirectory)
+        public JournalScraper(string outputDirectory, string torBrowserPath)
         {
             _outputDirectory = outputDirectory;
+            _torBrowserPath = torBrowserPath;
         }
 
         public void RefreshBrowser()
@@ -106,12 +108,9 @@ namespace Elsevier.DownloadArticleMetadata
         {
             Console.WriteLine("Create new webdriver");
             IWebDriver driver;
-            
-
-            string torPath = @"<- path to tor browser ->\Tor Browser\Browser\firefox.exe";
 
             _torProcess = new Process();
-            _torProcess.StartInfo.FileName = torPath;
+            _torProcess.StartInfo.FileName = _torBrowserPath;
             _torProcess.StartInfo.Arguments = "-n";
             _torProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized;
             _torProcess.Start();
@@ -125,7 +124,7 @@ namespace Elsevier.DownloadArticleMetadata
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
             FirefoxOptions options = new FirefoxOptions();
-            options.BrowserExecutableLocation = torPath;
+            options.BrowserExecutableLocation = _torBrowserPath;
             options.Profile = profile;
             driver = new FirefoxDriver(options);
             driver.Manage().Timeouts().ImplicitWait = new TimeSpan(0, 0, 30);

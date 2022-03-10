@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: lncs_front_matter
     schema: lncs_front_matter
-    description: Output of the pdf parser tool.
+    description: Parsed data from the LNCS Front Matter documents.
     loader: pdf_parser
     tables:
       - name: file

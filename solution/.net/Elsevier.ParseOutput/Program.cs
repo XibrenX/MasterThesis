@@ -30,6 +30,7 @@ namespace Elsevier.ParseOutput
             
             Program p = new Program(db);
             
+            // Location of elsevier output dir
             string filepath = Path.Combine(dataStorage, "elsevier_output", "__new");
 
             await p.Execute(filepath);

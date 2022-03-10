@@ -10,7 +10,7 @@ import configparser
 
 logging.basicConfig(level=logging.INFO, format='%(name)s - %(levelname)s - %(message)s')
 
-schema_name = 'dblp_api'
+DBLP_API_DATABASE_SCHEMA = 'dblp_api'
 
 def read_config(path) -> configparser.SectionProxy:
     logging.info('Reading configuration')
@@ -163,7 +163,7 @@ def main():
         #print("Writing to database")
         for x in dt:
             d = equal_list_of_dicts(dt[x])
-            saver.save(schema_name, x, d)
+            saver.save(DBLP_API_DATABASE_SCHEMA, x, d)
         i = i + 1
     print("Done")
 

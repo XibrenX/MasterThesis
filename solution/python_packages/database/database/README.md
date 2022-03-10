@@ -1,2 +1,2 @@
 # database
-Genereric package to interact with database
+Generic package to interact with database

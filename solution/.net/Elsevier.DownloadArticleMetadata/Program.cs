@@ -5,7 +5,9 @@ namespace Elsevier.DownloadArticleMetadata
 {
     class Program
     {
-        private static readonly string savedir = @"<- output dir -> e.g. \Desktop\esle_core2";
+        private static readonly string savedir = @"<- output dir -> e.g. \Desktop\elsevier_output";
+
+        private static readonly string torPath = @"<- path to tor browser ->\Tor Browser\Browser\firefox.exe";
 
         private static int _retryCount = 5;
 
@@ -13,7 +15,7 @@ namespace Elsevier.DownloadArticleMetadata
         {
             Console.WriteLine("Starting");
 
-            JournalScraper js = new JournalScraper(savedir);
+            JournalScraper js = new JournalScraper(savedir, torPath);
             js.RefreshBrowser();
 
             while (true)

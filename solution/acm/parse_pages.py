@@ -6,6 +6,11 @@ import re
 import configparser
 import os
 
+# Directory with HTML pages
+EDITORIAL_BOARD_HTML_DIR = "solution/acm/editorial_boards/"
+# Schema where the resulting tables should be placed
+ACM_DATABASE_SCHEMA = "acm"
+
 logging.basicConfig(level=logging.INFO, format='%(name)s - %(levelname)s - %(message)s')
 
 def read_config(path) -> configparser.SectionProxy:
@@ -29,8 +34,7 @@ saver = Saver(db)
 
 def main():
     logging.info("main")
-    dir = "solution/acm/editorial_boards/"
-    for filename in os.listdir(dir):
+    for filename in os.listdir(EDITORIAL_BOARD_HTML_DIR):
         if filename.endswith(".html"):
             logging.info(f"processing {filename}")
             with open(dir + filename) as fp:
@@ -53,7 +57,7 @@ def read_content(soup: BeautifulSoup):
                 p = process_profile(profile_element, role=role, journal=journal)
                 profiles.append(p)
 
-    saver.save('acm', 'editorial_boards', profiles)
+    saver.save(ACM_DATABASE_SCHEMA, 'editorial_boards', profiles)
 
 
 def clean_text(input: str) -> str:

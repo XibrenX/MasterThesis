@@ -19,6 +19,7 @@ logging.basicConfig(level=logging.DEBUG, format='%(name)s - %(levelname)s - %(me
 
 logging.info(f"Working directory: {os.getcwd()}")
 
+# Database schema the data should be stored
 schema_name = 'springer_lncs'
 
 def read_config(path) -> configparser.SectionProxy:
@@ -225,6 +226,9 @@ def get_content_from_url(url) -> str:
 
 
 def get_workload():
+    """
+    Returns the items which have not been processed previously.
+    """
     logging.debug("get_workload")
     query = "SELECT dblp_key, url FROM dblp_api.lncs"
     if db.table_exists(schema_name, "book"):

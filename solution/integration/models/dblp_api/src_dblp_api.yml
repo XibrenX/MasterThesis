@@ -7,5 +7,7 @@ sources:
     description: Output of the API extractor of DBLP.
     tables:
       - name: author
+        description: Editors of the proceeding.
       - name: document
+        description: Proceedings.
 

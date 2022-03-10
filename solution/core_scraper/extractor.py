@@ -5,9 +5,11 @@ from bs4 import BeautifulSoup
 import time
 import datetime
 from database import Postgress, Saver
-import pyodbc
 import re
 import configparser
+
+# Schema where the resulting tables should be placed
+CORE_DATABASE_SCHEMA = "core"
 
 logging.basicConfig(level=logging.INFO, format='%(name)s - %(levelname)s - %(message)s')
 
@@ -66,7 +68,7 @@ if __name__ == '__main__':
                 logging.info(f"Got {response.status_code}: stopping script")
                 break
             data = parse(response.content, timestamp, url)
-            saver.save('core', t.replace('-', '_'), data)
+            saver.save(CORE_DATABASE_SCHEMA, t.replace('-', '_'), data)
             time.sleep(1)
     logging.info(f"done")
 

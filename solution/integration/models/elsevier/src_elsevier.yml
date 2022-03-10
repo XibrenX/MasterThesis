@@ -4,6 +4,7 @@ sources:
   - name: elsevier
     schema: elsevier
     loader: .net/Elsevier.ParseOutput
+    description: The JSON file of Elsevier converted to tables.
     tables:
       - name: affiliations
       - name: articles

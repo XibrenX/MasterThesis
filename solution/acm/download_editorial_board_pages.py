@@ -5,6 +5,9 @@ logging.basicConfig(level=logging.DEBUG, format='%(name)s - %(levelname)s - %(me
 
 start_num = 0
 
+# Directory with HTML pages
+EDITORIAL_BOARD_HTML_DIR = "solution/acm/editorial_boards/"
+
 def main():
     """
     Reads input file.
@@ -28,7 +31,7 @@ def process_link(link: str, i: int):
         logging.debug(redirect.url)
         editors_url = redirect.url + '/editorial-board'
         editorial_board_content = requests.get(editors_url)
-        with open(f"solution/acm/editorial_boards/{i}.html", "w") as f:
+        with open(f"{EDITORIAL_BOARD_HTML_DIR}{i}.html", "w") as f:
             f.write(editorial_board_content.text)
     except Exception as e:
         logging.error(f"{i} failed")
