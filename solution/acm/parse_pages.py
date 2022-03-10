@@ -6,8 +6,7 @@ import re
 import configparser
 import os
 
-# Directory with HTML pages
-EDITORIAL_BOARD_HTML_DIR = "solution/acm/editorial_boards/"
+
 # Schema where the resulting tables should be placed
 ACM_DATABASE_SCHEMA = "acm"
 
@@ -31,10 +30,12 @@ db = Postgress(
     )
 saver = Saver(db)
 
+# Directory with HTML pages
+html_dir = os.path.join(config["RAW_DATA"], config["ACM_EDITORIAL_BOARD_HTML_SUBDIR"])
 
 def main():
     logging.info("main")
-    for filename in os.listdir(EDITORIAL_BOARD_HTML_DIR):
+    for filename in os.listdir(html_dir):
         if filename.endswith(".html"):
             logging.info(f"processing {filename}")
             with open(dir + filename) as fp:
@@ -80,7 +81,9 @@ def get_rows(start_element) -> list:
         
 
 def process_profile(profile_element, role: str, journal:str) -> dict:
-
+    """
+    Creates a member from an element.
+    """
     name_element = profile_element.find('h4', class_='item-meta-row')
     affiliation_element = name_element.findNext('div', class_='item-meta-row')
     country_element = name_element.findNext('em')
@@ -96,7 +99,6 @@ def process_profile(profile_element, role: str, journal:str) -> dict:
 
     logging.info(profile)
     return profile
-
 
 
 if __name__ == '__main__':

@@ -3,3 +3,8 @@ POSTGRES_PASSWORD=<dbpassword>
 POSTGRES_DB=<dbname>
 RAW_DATA=/blabla/blabla
 TOR_PASSWORD=1234567890
+# Sub Location of store and read the LNCS Front Matter documents
+LNCS_FRONT_MATTER_SUBDIR=/lncs_front_matter/input
+
+# Sub location of editorial HTML pages from ACM
+ACM_EDITORIAL_BOARD_HTML_SUBDIR=/acm_editorial_boards

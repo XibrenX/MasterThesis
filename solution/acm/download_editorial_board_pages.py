@@ -1,12 +1,25 @@
 import requests
 import logging
+import os
+import configparser
 
 logging.basicConfig(level=logging.DEBUG, format='%(name)s - %(levelname)s - %(message)s')
 
-start_num = 0
+def read_config(path) -> configparser.SectionProxy:
+    logging.info('Reading configuration')
+    with open(path, 'r') as f:
+        config_string = '[SECTION]\n' + f.read()
+    config = configparser.ConfigParser()
+    config.read_string(config_string)
+    return config['SECTION']
+
+config = read_config('./solution/config')
 
 # Directory with HTML pages
-EDITORIAL_BOARD_HTML_DIR = "solution/acm/editorial_boards/"
+output_dir = os.path.join(config["RAW_DATA"], config["ACM_EDITORIAL_BOARD_HTML_SUBDIR"])
+
+# To be able to start from a certain file for debugging
+start_num = 0
 
 def main():
     """
@@ -31,7 +44,7 @@ def process_link(link: str, i: int):
         logging.debug(redirect.url)
         editors_url = redirect.url + '/editorial-board'
         editorial_board_content = requests.get(editors_url)
-        with open(f"{EDITORIAL_BOARD_HTML_DIR}{i}.html", "w") as f:
+        with open(f"{output_dir}/{i}.html", "w") as f:
             f.write(editorial_board_content.text)
     except Exception as e:
         logging.error(f"{i} failed")

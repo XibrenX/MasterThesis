@@ -14,7 +14,6 @@ public class Program {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(Program.class);
     private final static String PROPERTIES_FILE = "./solution/config";
-    private final static String RAW_DATA_SUB_DIRECTORY = "/lncs_front_matter/input/";
 
     private final Properties properties;
     private final Database database;
@@ -33,7 +32,7 @@ public class Program {
      */
     public void execute() throws Exception {
         LOGGER.info("Start executing");
-        String directoryPath = properties.getProperty("RAW_DATA") + RAW_DATA_SUB_DIRECTORY;
+        String directoryPath = properties.getProperty("RAW_DATA") + properties.getProperty("LNCS_FRONT_MATTER_SUBDIR");
         File directory = new File(directoryPath);
         String[] filepaths = directory.list();
         int numberOfFiles = filepaths.length;

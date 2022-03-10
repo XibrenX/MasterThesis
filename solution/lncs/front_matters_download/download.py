@@ -1,4 +1,5 @@
 import logging
+import configparser
 import database
 import saver
 import pyodbc
@@ -8,7 +9,17 @@ import os
 import sys
 
 
-output_dir = "Z:\\thesis\\lncs_front_matter"
+def read_config(path) -> configparser.SectionProxy:
+    logging.info('Reading configuration')
+    with open(path, 'r') as f:
+        config_string = '[SECTION]\n' + f.read()
+    config = configparser.ConfigParser()
+    config.read_string(config_string)
+    return config['SECTION']
+
+config = read_config('./solution/config')
+
+output_dir = os.path.join(config["RAW_DATA"], config["LNCS_FRONT_MATTER_SUBDIR"])
 
 server = 'localhost'
 db_name = 'study'
