@@ -40,12 +40,7 @@ namespace dblp.loader
             
             Program p = new Program(db);
 
-            // string filepath = Path.Combine(dataStorage, "opencitations");
-            string filepath = @"/home/ewoud/Downloads/6741422_tmp/unzip";
-
-            // string filepath = "solution/.net/DblpLoader/testfiles/test.xml";
-
-            // p.ReadPublications(filepath);
+            string filepath = Path.Combine(dataStorage, "opencitations");
 
             await p.Execute(filepath);
 

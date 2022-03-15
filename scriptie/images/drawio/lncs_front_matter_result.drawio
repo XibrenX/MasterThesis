@@ -1,16 +1,16 @@
 <mxfile host="65bd71144e">
     <diagram id="JxlQQZyBLcNscvFYBXoo" name="Page-1">
-        <mxGraphModel dx="941" dy="441" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1593" dy="658" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="2" value="total files&lt;br&gt;4370&lt;br&gt;100%" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="2" value="Total files&lt;br&gt;4370&lt;br&gt;100%" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="590" y="90" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="Incorrect processing&lt;br&gt;files: 1237" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="3" value="Incorrect processed&lt;br&gt;files: 1237" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="330" y="220" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="Correct processing&lt;br&gt;files: 3133&lt;br&gt;71,69%" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="4" value="Correct processed&lt;br&gt;files: 3133&lt;br&gt;71,69%" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="840" y="240" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="5" value="" style="endArrow=classic;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="2" target="3" edge="1">
@@ -55,7 +55,7 @@
                 <mxCell id="13" value="No sections of interest&lt;br&gt;files: 910" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="700" y="370" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" value="Sections of interest&lt;br&gt;files: 2223&lt;br&gt;secties: 2978&lt;br&gt;50,87%" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="14" value="Sections of interest&lt;br&gt;files: 2223&lt;br&gt;sections: 2978&lt;br&gt;50,87%" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="980" y="370" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="15" value="" style="endArrow=classic;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="4" target="13" edge="1">
@@ -70,7 +70,7 @@
                         <mxPoint x="980" y="250" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="18" value="Contains validated sections&lt;br&gt;files: 2055&lt;br&gt;secties: 2711&lt;br&gt;47,03%" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="18" value="Contains validated sections&lt;br&gt;files: 2055&lt;br&gt;sections: 2711&lt;br&gt;47,03%" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="1080" y="500" width="120" height="90" as="geometry"/>
                 </mxCell>
                 <mxCell id="19" value="Contains no validated sections&lt;br&gt;files: 168" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
