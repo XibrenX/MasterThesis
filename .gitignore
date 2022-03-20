@@ -7,3 +7,4 @@
 .Rproj.user
 geckodriver.log
 .ionide
+.fake
