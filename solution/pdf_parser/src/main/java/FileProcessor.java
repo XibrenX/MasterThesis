@@ -48,7 +48,8 @@ public class FileProcessor {
             PDDocument pdDocument = new PDDocument(pdfParser.getDocument());
             try {
                 PDFTextStripper pdfTextStripper = new PDFLayoutTextStripperFontSize();
-
+                pdfTextStripper.getText(pdDocument);
+                
                 // Tekstregels van het document
                 List<TextLine> textLines = ((PDFLayoutTextStripperFontSize) pdfTextStripper).getAllTextLines();
 
