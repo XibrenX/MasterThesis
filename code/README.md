@@ -1,10 +1,8 @@
-# Solution
+# Code
 
-## Configfile
-
-In deze directory moet een file met de naam 'config' staan.  
-De opzet van de file kun je vinden in 'config-example'.  
-Vervang de waardes (inclusief de '<' en '>').
+## Config file
+There is a config-example file, make a copy and rename it to config. Fill it with the correct values.
+You have to replace the values indicated with '<' and '>'.
 
 ## Folder structure:
 
@@ -30,3 +28,12 @@ Vervang de waardes (inclusief de '<' en '>').
 VSCode was used for all projects except the C# projects, which are developed in Visual Studio.
 HeidiSQL for querying the Postgres database and outputting CSVs from it.
 Neo4j, browser and bloom for inserting, testing Cypher queries, and analysing found results.
+
+## Python packages used
+- BeautifulSoup
+- requests
+- stem 
+- numpy
+- matplotlib
+- termcolor
+- neo4j

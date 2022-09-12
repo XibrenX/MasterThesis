@@ -1,0 +1,45 @@
+POSTGRES_SERVER=localhost
+POSTGRES_DB=thesis
+POSTGRES_USER=ewoud
+POSTGRES_PASSWORD=<posgress_password>
+
+RAW_DATA=<data folder used by @woutw>
+LNCS_FRONT_MATTER_SUBDIR=/lncs_front_matter/input/
+
+NEO4J_SERVER=bolt://localhost:7687
+NEO4J_USERNAME=neo4j
+NEO4J_PASSWORD=<neo4j password>
+NEO4J_IMPORT=<import directory of neo4j database = project directory + \import>
+NEO4J_CYPHER_SHELL=<cypher shell of neo4j database = project directory + \bin\cypher-shell.bat>
+
+TOR_PASSWORD=<Password when using tor>
+TOR_PROXY_PORT=9050
+TOR_CONTROLLER_PORT=9051
+TOR_MIN_IP_REUSE_INTERVAL=10
+TOR_MIN_REFRESH_INTERVAL =9
+TOR_MAX_REFRESH_INTERVAL =13
+TOR_MIN_DELAY_SEC=7
+TOR_MAX_DELAY_SEC=12
+
+WITHOUT_TOR_MIN_REFRESH_INTERVAL=14
+WITHOUT_TOR_MAX_REFRESH_INTERVAL=21
+WITHOUT_TOR_MIN_DELAY_SEC=10
+WITHOUT_TOR_MAX_DELAY_SEC=15
+WITHOUT_TOR_MIN_SESSION_DELAY_SEC = 15
+WITHOUT_TOR_MAX_SESSION_DELAY_SEC = 30
+
+DBLP_XML_FILE=<Path to DBLP XML file>
+DBLP_TO_CSV_RUNID=6
+NEO4J_MAX_CSV_LINES=10000000
+
+ACM_DATA_DIR=<Path to ACM data directory>
+ACM_ISSUE_PAGES_OUTPUT=<Path to ACM issue pages download directory, could be the path to ACM data directory + \issue_pages>
+ACM_FRONT_MATTER_OUTPUT=<Path to ACM front matter download directory, could be the path to ACM data directory + \front_matter>
+
+OPENCITATIONS_IMPORT=<OpenCitations directory, with OpenCitations CSV files>
+
+CYCLE_STATS=<Output folder for putting all cycles of all persons, per cycle type>
+CYCLE_PERSONS=<Output folder when aksing for cycles of one person>
+CYCLE_MAX_DEPTH=3
+
+OUTLIER_DATA_DIR=<Directory containing the outlier exports>
