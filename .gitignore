@@ -1,6 +1,6 @@
 /**/.pyenv*
-/solution/config
-/solution/database/data
+/code/config
+/code/database/data
 /.idea
 **/__pycache__
 /log
@@ -8,3 +8,7 @@
 geckodriver.log
 .ionide
 .fake
+
+**/bin
+**/obj
+**/.vs

@@ -1,0 +1,5 @@
+:use system;
+SHOW DATABASES;
+CREATE OR REPLACE DATABASE neo4j;
+SHOW DATABASES;
+:use neo4j

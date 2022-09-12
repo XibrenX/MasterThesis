@@ -1,1 +1,0 @@
-Scraper om data van http://portal.core.edu.au te halen en in de database te laden.
