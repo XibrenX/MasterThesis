@@ -61,11 +61,6 @@ namespace Cycles.Algorithms
 
             foreach (var node in nodes_dir.Values.OrderBy(n => n.BFSInfo.Distance))
             {
-                if (node.Id == 14330547)
-                {
-
-                }
-
                 var bfs = node.BFSInfo;
                 bfs.SetVisited();
 

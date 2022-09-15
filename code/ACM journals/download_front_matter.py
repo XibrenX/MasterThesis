@@ -36,7 +36,7 @@ def main():
     global count
 
     # CSV export query: SELECT journal_code, volume, issue, front_matter FROM issue_pages WHERE front_matter IS NOT NULL, exported from Postgres with HeidiSQL
-    with open(datadir + '/front_matters.csv') as f:
+    with open(datadir + '/front_matters_export.csv') as f:
         reader = csv.reader(f)
         first = True
         for row in reader:

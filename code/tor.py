@@ -7,7 +7,7 @@ import random
 
 logger = logging.getLogger('tor')
 
-class XX:
+class HeaderSetter:
     def set_session_headers(session: requests.Session):
         session.headers = {}
         session.headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0'
@@ -44,7 +44,7 @@ class Tor:
         self.session.proxies = {}
         self.session.proxies['http']= f'socks5h://localhost:{self.tor_proxy_port}'
         self.session.proxies['https']= f'socks5h://localhost:{self.tor_proxy_port}'
-        XX.set_session_headers(self.session)
+        HeaderSetter.set_session_headers(self.session)
 
     def get_session(self) -> requests.Session:
         return self.session
@@ -55,7 +55,7 @@ class WithoutTor:
 
     def refresh_session(self):
         self.session = requests.session()
-        XX.set_session_headers(self.session)
+        HeaderSetter.set_session_headers(self.session)
 
     def get_session(self) -> requests.Session:
         return self.session
